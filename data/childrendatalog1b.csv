@@ -1,0 +1,304 @@
+Subject ID,Sex,Race,Age in Years,Age in Months,Arm,Test Date,Included,Condition,Trial,Response ,Notes 
+P001,Male,,3,40,Pilot_4T,07/19/2021,Yes,C1_1,1,1,
+P001,Male,,3,40,Pilot_4T,07/19/2021,Yes,C1_1,2,1,
+P001,Male,,3,40,Pilot_4T,07/19/2021,Yes,C1_1,3,1,
+P001,Male,,3,40,Pilot_4T,07/19/2021,Yes,C1_1,4,1,
+P002,Male,,3,46,Pilot_4T,07/20/2021,Yes,C1_1,1,2,
+P002,Male,,3,46,Pilot_4T,07/20/2021,Yes,C1_1,2,1,
+P002,Male,,3,46,Pilot_4T,07/20/2021,Yes,C1_1,3,2,
+P002,Male,,3,46,Pilot_4T,07/20/2021,Yes,C1_1,4,2,
+P003,Male,,3,42,Pilot_4T,07/21/2021,Yes,C1_1,1,2,
+P003,Male,,3,42,Pilot_4T,07/21/2021,Yes,C1_1,2,2,
+P003,Male,,3,42,Pilot_4T,07/21/2021,Yes,C1_1,3,2,
+P003,Male,,3,42,Pilot_4T,07/21/2021,Yes,C1_1,4,2,
+P004,Male,,4,51,Pilot_4T,07/22/2021,Yes,C1_1,1,1,
+P004,Male,,4,51,Pilot_4T,07/22/2021,Yes,C1_1,2,2,
+P004,Male,,4,51,Pilot_4T,07/22/2021,Yes,C1_1,3,1,
+P004,Male,,4,51,Pilot_4T,07/22/2021,Yes,C1_1,4,1,
+P005,Female,,5,69,Pilot_4T,07/22/2021,Yes,C1_1,1,1,
+P005,Female,,5,69,Pilot_4T,07/22/2021,Yes,C1_1,2,2,
+P005,Female,,5,69,Pilot_4T,07/22/2021,Yes,C1_1,3,1,
+P005,Female,,5,69,Pilot_4T,07/22/2021,Yes,C1_1,4,2,
+P006,Female,,5,68,Pilot_4T,07/23/2021,Yes,C1_1,1,1,
+P006,Female,,5,68,Pilot_4T,07/23/2021,Yes,C1_1,2,1,
+P006,Female,,5,68,Pilot_4T,07/23/2021,Yes,C1_1,3,1,
+P006,Female,,5,68,Pilot_4T,07/23/2021,Yes,C1_1,4,1,
+P007,Female,,4,54,Pilot_4T,07/23/2021,Yes,C1_1,1,2,
+P007,Female,,4,54,Pilot_4T,07/23/2021,Yes,C1_1,2,1,
+P007,Female,,4,54,Pilot_4T,07/23/2021,Yes,C1_1,3,2,
+P007,Female,,4,54,Pilot_4T,07/23/2021,Yes,C1_1,4,2,
+P008,Female,,3,46,Pilot_5T,08/02/2021,Yes,C1_2,1,2,
+P008,Female,,3,46,Pilot_5T,08/02/2021,Yes,C1_2,2,2,
+P008,Female,,3,46,Pilot_5T,08/02/2021,Yes,C1_2,3,2,
+P008,Female,,3,46,Pilot_5T,08/02/2021,Yes,C1_2,4,1,
+P008,Female,,3,46,Pilot_5T,08/03/2021,Yes,C1_2,5,2,
+P009,Male,,5,71,Pilot_5T,08/03/2021,Yes,C1_2,1,2,
+P009,Male,,5,71,Pilot_5T,08/03/2021,Yes,C1_2,2,2,
+P009,Male,,5,71,Pilot_5T,08/03/2021,Yes,C1_2,3,2,
+P009,Male,,5,71,Pilot_5T,08/03/2021,Yes,C1_2,4,1,
+P009,Male,,5,71,Pilot_5T,08/03/2021,Yes,C1_2,5,1,
+P010,Male,,3,42,Pilot_5T,08/04/2021,No,C1_2,1,1,Less than 75% English exposure
+P010,Male,,3,42,Pilot_5T,08/04/2021,No,C1_2,2,1,Less than 75% English exposure
+P010,Male,,3,42,Pilot_5T,08/04/2021,No,C1_2,3,2,Less than 75% English exposure
+P010,Male,,3,42,Pilot_5T,08/04/2021,No,C1_2,4,2,Less than 75% English exposure
+P010,Male,,3,42,Pilot_5T,08/04/2021,No,C1_2,5,1,Less than 75% English exposure
+P011,Female,,4,52,Pilot_5T,08/05/2021,Yes,C1_2,1,2,
+P011,Female,,4,52,Pilot_5T,08/05/2021,Yes,C1_2,2,1,
+P011,Female,,4,52,Pilot_5T,08/05/2021,Yes,C1_2,3,2,
+P011,Female,,4,52,Pilot_5T,08/05/2021,Yes,C1_2,4,2,
+P011,Female,,4,52,Pilot_5T,08/05/2021,Yes,C1_2,5,2,
+P012,Female,,4,55,Pilot_5T,08/06/2021,Yes,C1_2,1,2,
+P012,Female,,4,55,Pilot_5T,08/06/2021,Yes,C1_2,2,2,
+P012,Female,,4,55,Pilot_5T,08/06/2021,Yes,C1_2,3,2,
+P012,Female,,4,55,Pilot_5T,08/06/2021,Yes,C1_2,4,1,
+P012,Female,,4,55,Pilot_5T,08/06/2021,Yes,C1_2,5,2,
+P013,Male,,4,59,Pilot_5T,08/06/2021,Yes,C1_2,1,2,
+P013,Male,,4,59,Pilot_5T,08/06/2021,Yes,C1_2,2,1,
+P013,Male,,4,59,Pilot_5T,08/06/2021,Yes,C1_2,3,1,
+P013,Male,,4,59,Pilot_5T,08/06/2021,Yes,C1_2,4,1,
+P013,Male,,4,59,Pilot_5T,08/06/2021,Yes,C1_2,5,2,
+P014,Female,,4,55,Pilot_5T,08/06/2021,Yes,C1_2,1,2,
+P014,Female,,4,55,Pilot_5T,08/06/2021,Yes,C1_2,2,1,
+P014,Female,,4,55,Pilot_5T,08/06/2021,Yes,C1_2,3,2,
+P014,Female,,4,55,Pilot_5T,08/06/2021,Yes,C1_2,4,2,
+P014,Female,,4,55,Pilot_5T,08/06/2021,Yes,C1_2,5,2,
+P015,Female,,4,50,Pilot_5T,08/06/2021,Yes,C1_2,1,2,
+P015,Female,,4,50,Pilot_5T,08/06/2021,Yes,C1_2,2,2,
+P015,Female,,4,50,Pilot_5T,08/06/2021,Yes,C1_2,3,2,
+P015,Female,,4,50,Pilot_5T,08/06/2021,Yes,C1_2,4,2,
+P015,Female,,4,50,Pilot_5T,08/06/2021,Yes,C1_2,5,2,
+P016,Female,,4,52,Pilot_5T,08/09/2021,Yes,C1_2,1,2,
+P016,Female,,4,52,Pilot_5T,08/09/2021,Yes,C1_2,2,1,
+P016,Female,,4,52,Pilot_5T,08/09/2021,Yes,C1_2,3,2,
+P016,Female,,4,52,Pilot_5T,08/09/2021,Yes,C1_2,4,1,
+P016,Female,,4,52,Pilot_5T,08/09/2021,Yes,C1_2,5,2,
+P017,Male,,4,51,Pilot_5T,08/09/2021,Yes,C1_2,1,2,
+P017,Male,,4,51,Pilot_5T,08/09/2021,Yes,C1_2,2,1,
+P017,Male,,4,51,Pilot_5T,08/09/2021,Yes,C1_2,3,2,
+P017,Male,,4,51,Pilot_5T,08/09/2021,Yes,C1_2,4,2,
+P017,Male,,4,51,Pilot_5T,08/09/2021,Yes,C1_2,5,1,
+P018,Male,,4,53,Pilot_5T,08/09/2021,Yes,C1_2,1,2,
+P018,Male,,4,53,Pilot_5T,08/09/2021,Yes,C1_2,2,2,
+P018,Male,,4,53,Pilot_5T,08/09/2021,Yes,C1_2,3,2,
+P018,Male,,4,53,Pilot_5T,08/09/2021,Yes,C1_2,4,1,
+P018,Male,,4,53,Pilot_5T,08/09/2021,Yes,C1_2,5,1,
+P019,Male,,3,37,Pilot_5T,08/09/2021,Yes,C1_2,1,2,
+P019,Male,,3,37,Pilot_5T,08/09/2021,Yes,C1_2,2,1,
+P019,Male,,3,37,Pilot_5T,08/09/2021,Yes,C1_2,3,1,
+P019,Male,,3,37,Pilot_5T,08/09/2021,Yes,C1_2,4,1,
+P019,Male,,3,37,Pilot_5T,08/09/2021,Yes,C1_2,5,1,
+P020,Female,,3,47,Pilot_5T,08/10/2021,Yes,C1_2,1,3,
+P020,Female,,3,47,Pilot_5T,08/10/2021,Yes,C1_2,2,2,
+P020,Female,,3,47,Pilot_5T,08/10/2021,Yes,C1_2,3,3,
+P020,Female,,3,47,Pilot_5T,08/10/2021,Yes,C1_2,4,2,
+P020,Female,,3,47,Pilot_5T,08/10/2021,Yes,C1_2,5,1,
+P021,Male,"Asian American/Pacific Islander,Caucasian/White",3,37,Main,08/11/2021,Yes,C3,1,1,
+P021,Male,"Asian American/Pacific Islander,Caucasian/White",3,37,Main,08/11/2021,Yes,C3,2,2,
+P021,Male,"Asian American/Pacific Islander,Caucasian/White",3,37,Main,08/11/2021,Yes,C3,3,1,
+P021,Male,"Asian American/Pacific Islander,Caucasian/White",3,37,Main,08/11/2021,Yes,C3,4,1,
+P021,Male,"Asian American/Pacific Islander,Caucasian/White",3,37,Main,08/11/2021,Yes,C3,5,1,
+P022,Female,Asian American/Pacific Islander,5,66,Main,08/11/2021,Yes,C4,1,2,
+P022,Female,Asian American/Pacific Islander,5,66,Main,08/11/2021,Yes,C4,2,2,
+P022,Female,Asian American/Pacific Islander,5,66,Main,08/11/2021,Yes,C4,3,1,
+P022,Female,Asian American/Pacific Islander,5,66,Main,08/11/2021,Yes,C4,4,2,
+P022,Female,Asian American/Pacific Islander,5,66,Main,08/11/2021,Yes,C4,5,2,
+P023,Male,African American/Black,5,61,Main,08/11/2021,Yes,C3,1,1,
+P023,Male,African American/Black,5,61,Main,08/11/2021,Yes,C3,2,1,
+P023,Male,African American/Black,5,61,Main,08/11/2021,Yes,C3,3,2,
+P023,Male,African American/Black,5,61,Main,08/11/2021,Yes,C3,4,2,
+P023,Male,African American/Black,5,61,Main,08/11/2021,Yes,C3,5,2,
+P024,Female,"Caucasian/White,Hispanic/Latinx",5,61,Main,08/11/2021,Yes,C2,1,1,
+P024,Female,"Caucasian/White,Hispanic/Latinx",5,61,Main,08/11/2021,Yes,C2,2,2,
+P024,Female,"Caucasian/White,Hispanic/Latinx",5,61,Main,08/11/2021,Yes,C2,3,1,
+P024,Female,"Caucasian/White,Hispanic/Latinx",5,61,Main,08/11/2021,Yes,C2,4,2,
+P024,Female,"Caucasian/White,Hispanic/Latinx",5,61,Main,08/11/2021,Yes,C2,5,1,
+P025,Female,Asian American/Pacific Islander,5,61,Main,08/11/2021,Yes,C1,1,1,
+P025,Female,Asian American/Pacific Islander,5,61,Main,08/11/2021,Yes,C1,2,2,
+P025,Female,Asian American/Pacific Islander,5,61,Main,08/11/2021,Yes,C1,3,2,
+P025,Female,Asian American/Pacific Islander,5,61,Main,08/11/2021,Yes,C1,4,1,
+P025,Female,Asian American/Pacific Islander,5,61,Main,08/11/2021,Yes,C1,5,1,
+P026,Female,Asian American/Pacific Islander,5,64,Main,08/11/2021,No,C3,1,1,Less than 75% English exposure
+P026,Female,Asian American/Pacific Islander,5,64,Main,08/11/2021,No,C3,2,1,Less than 75% English exposure
+P026,Female,Asian American/Pacific Islander,5,64,Main,08/11/2021,No,C3,3,2,Less than 75% English exposure
+P026,Female,Asian American/Pacific Islander,5,64,Main,08/11/2021,No,C3,4,2,Less than 75% English exposure
+P026,Female,Asian American/Pacific Islander,5,64,Main,08/11/2021,No,C3,5,2,Less than 75% English exposure
+P027,Female,Caucasian/White,3,43,Main,08/11/2021,Yes,C1,1,1,
+P027,Female,Caucasian/White,3,43,Main,08/11/2021,Yes,C1,2,2,
+P027,Female,Caucasian/White,3,43,Main,08/11/2021,Yes,C1,3,1,
+P027,Female,Caucasian/White,3,43,Main,08/11/2021,Yes,C1,4,2,
+P027,Female,Caucasian/White,3,43,Main,08/11/2021,Yes,C1,5,1,
+P028,Male,Caucasian/White,5,68,Main,08/11/2021,Yes,C4,1,1,
+P028,Male,Caucasian/White,5,68,Main,08/11/2021,Yes,C4,2,2,
+P028,Male,Caucasian/White,5,68,Main,08/11/2021,Yes,C4,3,1,
+P028,Male,Caucasian/White,5,68,Main,08/11/2021,Yes,C4,4,2,
+P028,Male,Caucasian/White,5,68,Main,08/11/2021,Yes,C4,5,2,
+P029,Female,Caucasian/White,3,45,Main,08/11/2021,Yes,C2,1,1,
+P029,Female,Caucasian/White,3,45,Main,08/11/2021,Yes,C2,2,2,
+P029,Female,Caucasian/White,3,45,Main,08/11/2021,Yes,C2,3,1,
+P029,Female,Caucasian/White,3,45,Main,08/11/2021,Yes,C2,4,1,
+P029,Female,Caucasian/White,3,45,Main,08/11/2021,Yes,C2,5,2,
+P030,Male,Asian American/Pacific Islander,4,55,Main,08/12/2021,Yes,C1,1,2,
+P030,Male,Asian American/Pacific Islander,4,55,Main,08/12/2021,Yes,C1,2,2,
+P030,Male,Asian American/Pacific Islander,4,55,Main,08/12/2021,Yes,C1,3,1,
+P030,Male,Asian American/Pacific Islander,4,55,Main,08/12/2021,Yes,C1,4,1,
+P030,Male,Asian American/Pacific Islander,4,55,Main,08/12/2021,Yes,C1,5,2,
+P031,Male,"Caucasian/White,Hispanic/Latinx",3,39,Main,08/12/2021,No,C3,1,1,"Less than 75% English exposure, Distracted while in moving car, Crying child in background"
+P031,Male,"Caucasian/White,Hispanic/Latinx",3,39,Main,08/12/2021,No,C3,2,2,"Less than 75% English exposure, Distracted while in moving car, Crying child in background"
+P031,Male,"Caucasian/White,Hispanic/Latinx",3,39,Main,08/12/2021,No,C3,3,1,"Less than 75% English exposure, Distracted while in moving car, Crying child in background"
+P031,Male,"Caucasian/White,Hispanic/Latinx",3,39,Main,08/12/2021,No,C3,4,1,"Less than 75% English exposure, Distracted while in moving car, Crying child in background"
+P031,Male,"Caucasian/White,Hispanic/Latinx",3,39,Main,08/12/2021,No,C3,5,2,"Less than 75% English exposure, Distracted while in moving car, Crying child in background"
+P032,Male,Not Provided,4,49,Main,08/12/2021,Yes,C2,1,1,
+P032,Male,Not Provided,4,49,Main,08/12/2021,Yes,C2,2,1,
+P032,Male,Not Provided,4,49,Main,08/12/2021,Yes,C2,3,1,
+P032,Male,Not Provided,4,49,Main,08/12/2021,Yes,C2,4,1,
+P032,Male,Not Provided,4,49,Main,08/12/2021,Yes,C2,5,1,
+P033,Female,Caucasian/White,3,36,Main,08/12/2021,Yes,C4,1,2,
+P033,Female,Caucasian/White,3,36,Main,08/12/2021,Yes,C4,2,1,
+P033,Female,Caucasian/White,3,36,Main,08/12/2021,Yes,C4,3,1,
+P033,Female,Caucasian/White,3,36,Main,08/12/2021,Yes,C4,4,1,
+P033,Female,Caucasian/White,3,36,Main,08/12/2021,Yes,C4,5,1,
+P034,Male,Caucasian/White,3,38,Main,08/16/2021,Yes,C1,1,2,
+P034,Male,Caucasian/White,3,38,Main,08/16/2021,Yes,C1,2,1,
+P034,Male,Caucasian/White,3,38,Main,08/16/2021,Yes,C1,3,1,
+P034,Male,Caucasian/White,3,38,Main,08/16/2021,Yes,C1,4,2,
+P034,Male,Caucasian/White,3,38,Main,08/16/2021,Yes,C1,5,2,
+P035,Male,Caucasian/White,4,55,Main,08/16/2021,Yes,C3,1,1,
+P035,Male,Caucasian/White,4,55,Main,08/16/2021,Yes,C3,2,2,
+P035,Male,Caucasian/White,4,55,Main,08/16/2021,Yes,C3,3,2,
+P035,Male,Caucasian/White,4,55,Main,08/16/2021,Yes,C3,4,3,
+P035,Male,Caucasian/White,4,55,Main,08/16/2021,Yes,C3,5,3,
+P036,Male,"Asian American/Pacific Islander,Caucasian/White",5,66,Main,08/16/2021,Yes,C2,1,2,
+P036,Male,"Asian American/Pacific Islander,Caucasian/White",5,66,Main,08/16/2021,Yes,C2,2,1,
+P036,Male,"Asian American/Pacific Islander,Caucasian/White",5,66,Main,08/16/2021,Yes,C2,3,1,
+P036,Male,"Asian American/Pacific Islander,Caucasian/White",5,66,Main,08/16/2021,Yes,C2,4,2,
+P036,Male,"Asian American/Pacific Islander,Caucasian/White",5,66,Main,08/16/2021,Yes,C2,5,1,
+P037,Female,Hispanic/Latinx,5,67,Main,08/16/2021,No,C3,1,1,Less than 75% English exposure
+P037,Female,Hispanic/Latinx,5,67,Main,08/16/2021,No,C3,2,1,Less than 75% English exposure
+P037,Female,Hispanic/Latinx,5,67,Main,08/16/2021,No,C3,3,1,Less than 75% English exposure
+P037,Female,Hispanic/Latinx,5,67,Main,08/16/2021,No,C3,4,2,Less than 75% English exposure
+P037,Female,Hispanic/Latinx,5,67,Main,08/16/2021,No,C3,5,2,Less than 75% English exposure
+P038,Female,"Asian American/Pacific Islander,Caucasian/White",4,51,Main,08/17/2021,Yes,C4,1,1,
+P038,Female,"Asian American/Pacific Islander,Caucasian/White",4,51,Main,08/17/2021,Yes,C4,2,1,
+P038,Female,"Asian American/Pacific Islander,Caucasian/White",4,51,Main,08/17/2021,Yes,C4,3,2,
+P038,Female,"Asian American/Pacific Islander,Caucasian/White",4,51,Main,08/17/2021,Yes,C4,4,2,
+P038,Female,"Asian American/Pacific Islander,Caucasian/White",4,51,Main,08/17/2021,Yes,C4,5,2,
+P039,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/17/2021,Yes,C2,1,1,More than 75% English exposure but very hesistant to speak; He would point and his mom would verbalize his answer choice
+P039,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/17/2021,Yes,C2,2,2,More than 75% English exposure but very hesistant to speak; He would point and his mom would verbalize his answer choice
+P039,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/17/2021,Yes,C2,3,1,More than 75% English exposure but very hesistant to speak; He would point and his mom would verbalize his answer choice
+P039,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/17/2021,Yes,C2,4,2,More than 75% English exposure but very hesistant to speak; He would point and his mom would verbalize his answer choice
+P039,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/17/2021,Yes,C2,5,1,More than 75% English exposure but very hesistant to speak; He would point and his mom would verbalize his answer choice
+P040,Male,Caucasian/White,4,52,Main,08/17/2021,Yes,C4,1,1,
+P040,Male,Caucasian/White,4,52,Main,08/17/2021,Yes,C4,2,1,
+P040,Male,Caucasian/White,4,52,Main,08/17/2021,Yes,C4,3,2,
+P040,Male,Caucasian/White,4,52,Main,08/17/2021,Yes,C4,4,1,
+P040,Male,Caucasian/White,4,52,Main,08/17/2021,Yes,C4,5,2,
+P041,Female,Caucasian/White,5,63,Main,08/18/2021,Yes,C4,1,2,Was very disinterested & distracted
+P041,Female,Caucasian/White,5,63,Main,08/18/2021,Yes,C4,2,1,Was very disinterested & distracted
+P041,Female,Caucasian/White,5,63,Main,08/18/2021,Yes,C4,3,1,Was very disinterested & distracted
+P041,Female,Caucasian/White,5,63,Main,08/18/2021,Yes,C4,4,2,Was very disinterested & distracted
+P041,Female,Caucasian/White,5,63,Main,08/18/2021,Yes,C4,5,1,Was very disinterested & distracted
+P042,Male,Caucasian/White,3,46,Main,08/18/2021,Yes,C4,1,2,
+P042,Male,Caucasian/White,3,46,Main,08/18/2021,Yes,C4,2,2,
+P042,Male,Caucasian/White,3,46,Main,08/18/2021,Yes,C4,3,2,
+P042,Male,Caucasian/White,3,46,Main,08/18/2021,Yes,C4,4,2,
+P042,Male,Caucasian/White,3,46,Main,08/18/2021,Yes,C4,5,2,
+P043,Male,Asian American/Pacific Islander,4,57,Main,08/18/2021,Yes,C1,1,2,
+P043,Male,Asian American/Pacific Islander,4,57,Main,08/18/2021,Yes,C1,2,2,
+P043,Male,Asian American/Pacific Islander,4,57,Main,08/18/2021,Yes,C1,3,2,
+P043,Male,Asian American/Pacific Islander,4,57,Main,08/18/2021,Yes,C1,4,1,
+P043,Male,Asian American/Pacific Islander,4,57,Main,08/18/2021,Yes,C1,5,1,
+P044,Male,Not Provided,4,56,Main,08/18/2021,No,C3,1,1,Less than 75% English exposure
+P044,Male,Not Provided,4,56,Main,08/18/2021,No,C3,2,1,Less than 75% English exposure
+P044,Male,Not Provided,4,56,Main,08/18/2021,No,C3,3,1,Less than 75% English exposure
+P044,Male,Not Provided,4,56,Main,08/18/2021,No,C3,4,2,Less than 75% English exposure
+P044,Male,Not Provided,4,56,Main,08/18/2021,No,C3,5,2,Less than 75% English exposure
+P045,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/18/2021,Yes,C3,1,2,
+P045,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/18/2021,Yes,C3,2,1,
+P045,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/18/2021,Yes,C3,3,1,
+P045,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/18/2021,Yes,C3,4,2,
+P045,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/18/2021,Yes,C3,5,2,
+P046,Male,Not Provided,5,61,Main,08/18/2021,Yes,C2,1,2,
+P046,Male,Not Provided,5,61,Main,08/18/2021,Yes,C2,2,1,
+P046,Male,Not Provided,5,61,Main,08/18/2021,Yes,C2,3,1,
+P046,Male,Not Provided,5,61,Main,08/18/2021,Yes,C2,4,2,
+P046,Male,Not Provided,5,61,Main,08/18/2021,Yes,C2,5,2,
+P047,Female,Caucasian/White,3,44,Main,08/18/2021,Yes,C2,1,1,
+P047,Female,Caucasian/White,3,44,Main,08/18/2021,Yes,C2,2,2,
+P047,Female,Caucasian/White,3,44,Main,08/18/2021,Yes,C2,3,2,
+P047,Female,Caucasian/White,3,44,Main,08/18/2021,Yes,C2,4,1,
+P047,Female,Caucasian/White,3,44,Main,08/18/2021,Yes,C2,5,2,
+P048,Male,Caucasian/White,5,71,Main,08/18/2021,Yes,C1,1,2,
+P048,Male,Caucasian/White,5,71,Main,08/18/2021,Yes,C1,2,2,
+P048,Male,Caucasian/White,5,71,Main,08/18/2021,Yes,C1,3,2,
+P048,Male,Caucasian/White,5,71,Main,08/18/2021,Yes,C1,4,2,
+P048,Male,Caucasian/White,5,71,Main,08/18/2021,Yes,C1,5,1,
+P049,Female,Other,5,65,Main,08/19/2021,Yes,C1,1,2,Only audio recorded for privacy reasons
+P049,Female,Other,5,65,Main,08/19/2021,Yes,C1,2,2,Only audio recorded for privacy reasons
+P049,Female,Other,5,65,Main,08/19/2021,Yes,C1,3,2,Only audio recorded for privacy reasons
+P049,Female,Other,5,65,Main,08/19/2021,Yes,C1,4,1,Only audio recorded for privacy reasons
+P049,Female,Other,5,65,Main,08/19/2021,Yes,C1,5,2,Only audio recorded for privacy reasons
+P050,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/19/2021,Yes,C1,1,1,
+P050,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/19/2021,Yes,C1,2,1,
+P050,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/19/2021,Yes,C1,3,2,
+P050,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/19/2021,Yes,C1,4,1,
+P050,Male,"Asian American/Pacific Islander,Caucasian/White",3,47,Main,08/19/2021,Yes,C1,5,2,
+P051,Male,Caucasian/White,3,44,Main,08/19/2021,Yes,C4,1,1,
+P051,Male,Caucasian/White,3,44,Main,08/19/2021,Yes,C4,2,1,
+P051,Male,Caucasian/White,3,44,Main,08/19/2021,Yes,C4,3,1,
+P051,Male,Caucasian/White,3,44,Main,08/19/2021,Yes,C4,4,2,
+P051,Male,Caucasian/White,3,44,Main,08/19/2021,Yes,C4,5,1,
+P052,Male,Asian American/Pacific Islander,4,56,Main,08/20/2021,Yes,C2,1,1,
+P052,Male,Asian American/Pacific Islander,4,56,Main,08/20/2021,Yes,C2,2,2,
+P052,Male,Asian American/Pacific Islander,4,56,Main,08/20/2021,Yes,C2,3,2,
+P052,Male,Asian American/Pacific Islander,4,56,Main,08/20/2021,Yes,C2,4,2,
+P052,Male,Asian American/Pacific Islander,4,56,Main,08/20/2021,Yes,C2,5,2,
+P053,Male,Caucasian/White,3,44,Main,08/20/2021,Yes,C3,1,2,
+P053,Male,Caucasian/White,3,44,Main,08/20/2021,Yes,C3,2,2,
+P053,Male,Caucasian/White,3,44,Main,08/20/2021,Yes,C3,3,2,
+P053,Male,Caucasian/White,3,44,Main,08/20/2021,Yes,C3,4,2,
+P053,Male,Caucasian/White,3,44,Main,08/20/2021,Yes,C3,5,3,
+P054,Male,Asian American/Pacific Islander,3,45,Main,08/20/2021,No,C1,1,1,Mom told me first language is Mandarin and that's what he's used to communicating with; Seemed a bit defiant when answering and took a couple tries to get answer every round
+P054,Male,Asian American/Pacific Islander,3,45,Main,08/20/2021,No,C1,2,1,Mom told me first language is Mandarin and that's what he's used to communicating with; Seemed a bit defiant when answering and took a couple tries to get answer every round
+P054,Male,Asian American/Pacific Islander,3,45,Main,08/20/2021,No,C1,3,1,Mom told me first language is Mandarin and that's what he's used to communicating with; Seemed a bit defiant when answering and took a couple tries to get answer every round
+P054,Male,Asian American/Pacific Islander,3,45,Main,08/20/2021,No,C1,4,2,Mom told me first language is Mandarin and that's what he's used to communicating with; Seemed a bit defiant when answering and took a couple tries to get answer every round
+P054,Male,Asian American/Pacific Islander,3,45,Main,08/20/2021,No,C1,5,2,Mom told me first language is Mandarin and that's what he's used to communicating with; Seemed a bit defiant when answering and took a couple tries to get answer every round
+P055,Female,"Asian American/Pacific Islander,Caucasian/White",3,37,Main,08/20/2021,No,C2,1,1,Less than 75% English exposure
+P055,Female,"Asian American/Pacific Islander,Caucasian/White",3,37,Main,08/20/2021,No,C2,2,1,Less than 75% English exposure
+P055,Female,"Asian American/Pacific Islander,Caucasian/White",3,37,Main,08/20/2021,No,C2,3,1,Less than 75% English exposure
+P055,Female,"Asian American/Pacific Islander,Caucasian/White",3,37,Main,08/20/2021,No,C2,4,1,Less than 75% English exposure
+P055,Female,"Asian American/Pacific Islander,Caucasian/White",3,37,Main,08/20/2021,No,C2,5,2,Less than 75% English exposure
+P056,Female,"Caucasian/White,Hispanic/Latinx",4,55,Main,08/23/2021,Yes,C4,1,1,
+P056,Female,"Caucasian/White,Hispanic/Latinx",4,55,Main,08/23/2021,Yes,C4,2,1,
+P056,Female,"Caucasian/White,Hispanic/Latinx",4,55,Main,08/23/2021,Yes,C4,3,2,
+P056,Female,"Caucasian/White,Hispanic/Latinx",4,55,Main,08/23/2021,Yes,C4,4,2,
+P056,Female,"Caucasian/White,Hispanic/Latinx",4,55,Main,08/23/2021,Yes,C4,5,2,
+P057,Female,Caucasian/White,5,71,Main,08/23/2021,Yes,C4,1,1,
+P057,Female,Caucasian/White,5,71,Main,08/23/2021,Yes,C4,2,2,
+P057,Female,Caucasian/White,5,71,Main,08/23/2021,Yes,C4,3,1,
+P057,Female,Caucasian/White,5,71,Main,08/23/2021,Yes,C4,4,2,
+P057,Female,Caucasian/White,5,71,Main,08/23/2021,Yes,C4,5,2,
+P058,Female,Caucasian/White,4,57,Main,08/23/2021,Yes,C1,1,1,
+P058,Female,Caucasian/White,4,57,Main,08/23/2021,Yes,C1,2,1,
+P058,Female,Caucasian/White,4,57,Main,08/23/2021,Yes,C1,3,2,
+P058,Female,Caucasian/White,4,57,Main,08/23/2021,Yes,C1,4,1,
+P058,Female,Caucasian/White,4,57,Main,08/23/2021,Yes,C1,5,1,
+P059,Female,"Asian American/Pacific Islander,Caucasian/White",4,59,Main,08/23/2021,Yes,C3,1,1,
+P059,Female,"Asian American/Pacific Islander,Caucasian/White",4,59,Main,08/23/2021,Yes,C3,2,1,
+P059,Female,"Asian American/Pacific Islander,Caucasian/White",4,59,Main,08/23/2021,Yes,C3,3,2,
+P059,Female,"Asian American/Pacific Islander,Caucasian/White",4,59,Main,08/23/2021,Yes,C3,4,2,
+P059,Female,"Asian American/Pacific Islander,Caucasian/White",4,59,Main,08/23/2021,Yes,C3,5,2,
+P060,Female,"Asian American/Pacific Islander,Hispanic/Latinx",4,57,Main,08/25/2021,Yes,C2,1,1,Seemed a bit distracted and would lean over to Mom to ask unrelated questions during study 
+P060,Female,"Asian American/Pacific Islander,Hispanic/Latinx",4,57,Main,08/25/2021,Yes,C2,2,1,Seemed a bit distracted and would lean over to Mom to ask unrelated questions during study 
+P060,Female,"Asian American/Pacific Islander,Hispanic/Latinx",4,57,Main,08/25/2021,Yes,C2,3,2,Seemed a bit distracted and would lean over to Mom to ask unrelated questions during study 
+P060,Female,"Asian American/Pacific Islander,Hispanic/Latinx",4,57,Main,08/25/2021,Yes,C2,4,1,Seemed a bit distracted and would lean over to Mom to ask unrelated questions during study 
+P060,Female,"Asian American/Pacific Islander,Hispanic/Latinx",4,57,Main,08/25/2021,Yes,C2,5,2,Seemed a bit distracted and would lean over to Mom to ask unrelated questions during study 
+P061,Female,"Asian American/Pacific Islander,Caucasian/White",4,56,Main,08/25/2021,Yes,C1,1,2,
+P061,Female,"Asian American/Pacific Islander,Caucasian/White",4,56,Main,08/25/2021,Yes,C1,2,2,
+P061,Female,"Asian American/Pacific Islander,Caucasian/White",4,56,Main,08/25/2021,Yes,C1,3,2,
+P061,Female,"Asian American/Pacific Islander,Caucasian/White",4,56,Main,08/25/2021,Yes,C1,4,2,
+P061,Female,"Asian American/Pacific Islander,Caucasian/White",4,56,Main,08/25/2021,Yes,C1,5,2,
+P062,Female,Asian American/Pacific Islander,5,65,Main,08/25/2021,Yes,C2,1,2,Seemed a little bit distracted
+P062,Female,Asian American/Pacific Islander,5,65,Main,08/25/2021,Yes,C2,2,2,Seemed a little bit distracted
+P062,Female,Asian American/Pacific Islander,5,65,Main,08/25/2021,Yes,C2,3,1,Seemed a little bit distracted
+P062,Female,Asian American/Pacific Islander,5,65,Main,08/25/2021,Yes,C2,4,1,Seemed a little bit distracted
+P062,Female,Asian American/Pacific Islander,5,65,Main,08/25/2021,Yes,C2,5,3,Seemed a little bit distracted
