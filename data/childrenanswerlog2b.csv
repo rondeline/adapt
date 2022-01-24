@@ -1,0 +1,17 @@
+Condition,Activity,Trial,Louder,Quieter
+C1,build,1,1,2
+C1,read,2,2,1
+C1,dance,3,2,1
+C1,learn,4,2,1
+C2,dance,1,1,2
+C2,build,2,2,1
+C2,learn,3,2,1
+C2,read,4,1,2
+C3,read,1,2,1
+C3,learn,2,2,1
+C3,dance,3,1,2
+C3,build,4,1,2
+C4,learn,1,1,2
+C4,dance,2,2,1
+C4,read,3,1,2
+C4,build,4,2,1

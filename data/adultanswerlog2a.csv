@@ -1,0 +1,41 @@
+Activity,SNR,Louder,Quieter
+Build,5,A,B
+Build,10,B,A
+Build,15,B,A
+Build,20,B,A
+Build,25,A,B
+Read ,5,B,A
+Read ,10,B,A
+Read ,15,A,B
+Read ,20,A,B
+Read ,25,A,B
+Paint,5,B,A
+Paint,10,A,B
+Paint,15,A,B
+Paint,20,B,A
+Paint,25,A,B
+Talk,5,A,B
+Talk,10,B,A
+Talk,15,A,B
+Talk,20,B,A
+Talk,25,A,B
+Zerpie,5,A,B
+Zerpie,10,B,A
+Zerpie,15,A,B
+Zerpie,20,B,A
+Zerpie,25,A,B
+Learn,5,A,B
+Learn,10,A,B
+Learn,15,B,A
+Learn,20,A,B
+Learn,25,B,A
+Eat,5,B,A
+Eat,10,B,A
+Eat,15,A,B
+Eat,20,B,A
+Eat,25,B,A
+Dance,5,B,A
+Dance,10,B,A
+Dance,15,A,B
+Dance,20,A,B
+Dance,25,B,A
