@@ -39,14 +39,14 @@ P110,11/16/2021,Male,Caucasian/White,5,60,Main,Bing,Yes,C3,1,1,1,RW,
 P110,11/16/2021,Male,Caucasian/White,5,60,Main,Bing,Yes,C3,2,1,1,RW,
 P110,11/16/2021,Male,Caucasian/White,5,60,Main,Bing,Yes,C3,3,2,1,RW,
 P110,11/16/2021,Male,Caucasian/White,5,60,Main,Bing,Yes,C3,4,2,1,RW,
-P111,11/30/2021,Female,Caucasian/White,5,60,Main,Bing,Yes,C4,1,,,RW,
-P111,11/30/2021,Female,Caucasian/White,5,60,Main,Bing,Yes,C4,2,,,RW,
-P111,11/30/2021,Female,Caucasian/White,5,60,Main,Bing,Yes,C4,3,,,RW,
-P111,11/30/2021,Female,Caucasian/White,5,60,Main,Bing,Yes,C4,4,,,RW,
-P112,11/30/2021,Female,Caucasian/White,5,61,Main,Bing,Yes,C1,1,,,RW,
-P112,11/30/2021,Female,Caucasian/White,5,61,Main,Bing,Yes,C1,2,,,RW,
-P112,11/30/2021,Female,Caucasian/White,5,61,Main,Bing,Yes,C1,3,,,RW,
-P112,11/30/2021,Female,Caucasian/White,5,62,Main,Bing,Yes,C1,4,,,RW,
+P111,11/30/2021,Female,Caucasian/White,5,60,Main,Bing,Yes,C4,1,2,1,RW,
+P111,11/30/2021,Female,Caucasian/White,5,60,Main,Bing,Yes,C4,2,1,1,RW,
+P111,11/30/2021,Female,Caucasian/White,5,60,Main,Bing,Yes,C4,3,2,1,RW,
+P111,11/30/2021,Female,Caucasian/White,5,60,Main,Bing,Yes,C4,4,1,1,RW,
+P112,11/30/2021,Female,Caucasian/White,5,61,Main,Bing,Yes,C1,1,2,1,RW,
+P112,11/30/2021,Female,Caucasian/White,5,61,Main,Bing,Yes,C1,2,1,1,RW,
+P112,11/30/2021,Female,Caucasian/White,5,61,Main,Bing,Yes,C1,3,2,1,RW,room 1 was too quiet to dance
+P112,11/30/2021,Female,Caucasian/White,5,62,Main,Bing,Yes,C1,4,1,1,RW,
 P113,11/15/21,Female,Caucasian/White,5,63,Main,Zoom,Yes,C1,1,2,2,BJ,"""Because the girl said he should come in"""
 P113,11/15/21,Female,Caucasian/White,5,63,Main,Zoom,Yes,C1,2,1,2,BJ,"""Because the girl said he should come in"""
 P113,11/15/21,Female,Caucasian/White,5,63,Main,Zoom,Yes,C1,3,2,2,BJ,"""Because the girl said he should come in"""
@@ -111,3 +111,15 @@ P128,1/23/22,Male,"Asian American/Pacific Islander, Caucasian/White, Hispanic/La
 P128,1/23/22,Male,"Asian American/Pacific Islander, Caucasian/White, Hispanic/Latinx",5,63,Main,Zoom,Yes,C4,2,2,6,BJ,"""because I saw two on the screen"" (two was not on the screen)"
 P128,1/23/22,Male,"Asian American/Pacific Islander, Caucasian/White, Hispanic/Latinx",5,63,Main,Zoom,Yes,C4,3,2,7,BJ,"""because two is closer to 3"""
 P128,1/23/22,Male,"Asian American/Pacific Islander, Caucasian/White, Hispanic/Latinx",5,63,Main,Zoom,Yes,C4,4,1,1,BJ,
+P129,1/24/22,Male,Asian American,5,62,Main,Zoom,Yes,C1,1,2,1,BJ,
+P129,1/24/22,Male,Asian American,5,62,Main,Zoom,Yes,C1,2,2,1,BJ,
+P129,1/24/22,Male,Asian American,5,62,Main,Zoom,Yes,C1,3,2,5,BJ,
+P129,1/24/22,Male,Asian American,5,62,Main,Zoom,Yes,C1,4,2,5,BJ,
+P130,1/24/22,Female,Caucasian/White,5,67,Main,Zoom,Yes,C2,1,2,6,BJ,"""because they didn't tell me where to go"""
+P130,1/24/22,Female,Caucasian/White,5,67,Main,Zoom,Yes,C2,2,1,8,BJ,"""because I think there are colorfu blocks in that room"""
+P130,1/24/22,Female,Caucasian/White,5,67,Main,Zoom,Yes,C2,3,1,8,BJ,"""because I think the other kids are having fun learning letters in that room and they are singing the ABCs"" "
+P130,1/24/22,Female,Caucasian/White,5,67,Main,Zoom,Yes,C2,4,2,1,BJ,"""because I think they are reading quiet"""
+P131,1/25/22,Male,White,5,61,Main,Zoom,Yes,C3,1,1,5,BJ,
+P131,1/25/22,Male,White,5,61,Main,Zoom,Yes,C3,2,2,5,BJ,
+P131,1/25/22,Male,White,5,61,Main,Zoom,Yes,C3,3,2,5,BJ,
+P131,1/25/22,Male,White,5,61,Main,Zoom,Yes,C3,4,1,5,BJ,
