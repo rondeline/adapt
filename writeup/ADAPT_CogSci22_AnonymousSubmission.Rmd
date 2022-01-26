@@ -4,7 +4,6 @@ subtitle: "Anonymous CogSci Submission"
 bibliography: library.bib
 csl: apa6.csl
 document-params: "10pt, letterpaper"
-
 abstract: >
     From birth and beyond, children are navigating a world with massive amounts of auditory input, sometimes relevant while other times purely noise, and must somehow make sense of it all. The early auditory environment is critical for building skills related to speech perception and recognition, auditory discrimination, and word learning, all of which support future language outcomes. What are still largely unknown are the strategies young children use to learn in even the noisiest environments. One such strategy is environmental selection, which allows children to seek environments that align with changing goals. In the current paper, we examined whether both children and adults make decisions about their environments by integrating both the auditory information and the current goal-state. While 3- and 4-year olds struggle with discrmininating speech streams at varying sound levels, 5-year-old children and adults can, and they use this information for environmental selection.
     
@@ -13,89 +12,434 @@ keywords: >
     
 output: cogsci2016::cogsci_paper
 #final-submission: \cogscifinalcopy
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r global_options, include=FALSE}
 knitr::opts_chunk$set(fig.width=3, fig.height=3, fig.crop = F, 
                       fig.pos = "tb", fig.path='figs/',
-                      echo=F, warning=F, cache=F, 
+                      echo=F, warning=F, cache=TRUE, 
                       message=F, sanitize = T)
 ```
 
 ```{r, libraries}
 library(png)
 library(grid)
-library(ggplot2)
 library(xtable)
+library(tidyverse)
+library(ggthemes)
+library(janitor)
+# library(rstanarm)
+library(brms)
+library(here)
+# library(reprex)
 ```
 
-# **Introduction**
+
+```{r eval=FALSE}
+
+
+# Experiment 2a
+
+## Load data
+data_2a <- read.csv("adultdatalog2a.csv") #load data
+answers_2a <- read.csv("adultanswerlog2a.csv") %>% #load answers
+  clean_names()
+
+## Clean data
+cleandata_2a <- data_2a %>% 
+  clean_names() %>% #lowercase column names
+  select(q6:experimental_session_dance_do) %>% #remove unnecessary columns
+  rename("sound_check" = "q6")  #rename column to something I understand
+
+answers_2a$activity <- tolower(answers_2a$activity) #change activity column to lowercase
+answers_2a$activity <- tolower(str_trim(answers_2a$activity)) #remove extra spaces
+answers_2a$louder <- tolower(answers_2a$louder) #change louder column to lowercase
+answers_2a$quieter <- tolower(answers_2a$quieter) #change quieter column to lowercase
+
+## Remove first row (contains no data/are unnecessary)
+cleandata_2a <- cleandata_2a[-c(1,2), ]
+
+## Tidy data
+tidydata_2a <- cleandata_2a %>% 
+  filter(attention_check_1 == "Fish",
+         attention_check_2 == "Ryan",
+         sound_check == "Yes") %>% #exclude participants who failed attention and sound checks
+  mutate(subject_id = row_number()) %>% #make a subject id column
+  select(subject_id, everything()) %>% #put subject id column first
+  select(-c(read_justification,
+            build_justification,
+            paint_justification,
+            talk_justification,
+            zerpie_justification,
+            learn_justification,
+            dance_justification,
+            eat_justification,
+            reflection,
+            prolific_pid,
+            fl_21_do)) %>%  #remove more unnecessary columns
+  pivot_longer(cols = c(read, build, eat, talk, dance, paint, learn, zerpie),
+               names_to = "activity",
+               values_to = "response") %>%   #move all activities to a single column
+  separate(col = experimental_session_build_do,
+           into = c(NA, "build", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_read_do,
+           into = c(NA, "read", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_paint_do,
+           into = c(NA, "paint", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_learn_do,
+           into = c(NA, "learn", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_zerpie_do,
+           into = c(NA, "zerpie", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_talk_do,
+           into = c(NA, "talk", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_dance_do,
+           into = c(NA, "dance", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_eat_do,
+           into = c(NA, "eat", NA, NA),
+           sep = '[|]') %>% #extract SNR values from display order
+  pivot_longer(cols = c(read, build, eat, talk, dance, paint, learn, zerpie),
+               names_to = "activity_label",
+               values_to = "snr") #extract SNR values into their own column
+
+## Join tidydata_2a with answer log
+tidydata_2a$response<- tolower(tidydata_2a$response) #change response column to lowercase
+
+tidydata_2a$snr <- as.integer(tidydata_2a$snr) #make snr values in tidydata_2a integers
+
+joineddata_2a <- left_join(tidydata_2a, answers_2a, by = c("snr", "activity"))
+
+## Combine louder and quieter columns for analysis
+completedata_2a <- joineddata_2a %>% 
+  pivot_longer(cols = c("louder","quieter"),
+               names_to = "volume",
+               values_to = "value") %>%
+  filter(response == value,
+         activity == activity_label) %>% 
+  mutate(quiet = ifelse(volume == "quieter", 1, 0),
+         room = ifelse(value == "a", 1, 2)) %>%  #recode volume data
+  na.omit() #remove any NA values
+
+## Get demographic data
+completedata_2a$age <- as.integer(completedata_2a$age) #age
+
+demodata_2a <- completedata_2a %>%
+  select(subject_id,race) %>%
+  mutate(race_count = ifelse((str_detect(race, ",")), "Multiracial", race)) %>% 
+  count(race_count)
+
+## Calculate confidence intervals
+cidata_2a <- completedata_2a %>%
+  group_by(activity) %>% 
+  summarise(ci.l = binom::binom.bayes(x = sum(quiet), n = n())$lower,
+            ci.u = binom::binom.bayes(x = sum(quiet), n = n())$upper,
+            n = n(),
+            mean_quiet = mean(quiet)) %>% 
+  mutate(activity = fct_reorder(activity, mean_quiet, .desc = TRUE))
+
+## Data visualization and stats
+
+### Figure 5
+ggplot(data = cidata_2a, mapping = aes(x = activity, y = mean_quiet, fill = activity)) +
+  geom_col() +
+  geom_linerange(aes(ymin = ci.l,
+                     ymax = ci.u)) +
+  ylim(0,1) +
+  xlab("Activity") +
+  ylab("Proportion Choosing Quieter Room") +
+  geom_hline(yintercept = .5, lty =2) + 
+  scale_color_solarized() + 
+  theme_few() +
+  theme(legend.position = "none")
+
+ggsave("figure5.png", plot = last_plot())
+
+### Logistic regression
+
+glmer_2a <- stan_glmer(formula = quiet ~ activity + (activity | subject_id),
+                       family = binomial,
+                       data = completedata_2a)
+
+View(summary(glmer_2a, probs = c(0.025,0.975)))
+print(glmer_2a)
+
+
+```
+
+
+# Introduction
 
 Children engage with their auditory environment from birth. These experiences support  speech perception and language development. With relevant stimuli, however, also comes noise. Noise is both ubiquitous and unavoidable, from sounds as low as a whisper (30dB) to as high as crowded restaurants (90dB) [@erickson2017]. Children struggle with speech perception and word recognition in noisy environments, and often require signal-to-noise (SNR) levels of 5-7dB higher than adults listening to the same stimulus [@bjorklund1990; @klatte2013]. Despite this, children manage to make sense of such a noisy world. What strategies do they use? 
+
 More than 20 million children living in the United States are exposed to dangerous noise levels daily, and 5 million of those children suffer from noise-induced hearing loss as a result [@viet2014]. Unfortunately, children of color living in urban regions are overrepresented in these numbers [@casey2017]. Chronic exposure to noise has been correlated with poorer reading performance, reduced short term and episodic memory, and smaller expressive vocabularies in elementary school children [@clark20123; @hygge2019; @riley2012].Yet despite suboptimal conditions, language acquisition, cognitive development, and full engagement with the environment is still possible, albeit more difficult. 
+
 Children adjust their engagement with the environment when faced with suboptimal auditory patterns, even if this causes deleterious long- term outcomes. Cohen, Glass, & Singer [-@cohen1973] measured the sound pressure levels in and around a noisy Manhattan high-rise apartment complex where 8- and 9-year-old middle class students lived. Auditory discrimination mediated the relationship between reading comprehension/ability and auditory noise. Children exposed to higher levels of auditory noise in the home eventually learned to filter the irrelevant auditory stimuli, but were doing so indiscriminately, such that they were also ignoring some important stimuli. 
+
 Given the importance of the early auditory environment and discrimination skills, children might also learn to optimize their auditory environments to successfully complete certain goals. For example, you might find that reading is best done in a library, not because of its convention (because libraries function as places to read/check out books), but because it is a quiet space. Such a strategy might allow children to exploit environmental variation in noise to maximize their ability to learn in suboptimal or variable conditions. In the current paper, we asked whether and how preschool children engage in active selection of the auditory environment to achieve a series of goals.
+
 One way that both children and adults navigate such a complex world is through active learning: choices an agent makes to shape its own learning. The dominant approach to studying active learning has emphasized how learners approach individual stimuli. When faced with uncertainty, both human and machine systems can learn actively by choosing new stimuli to query that are informative with respect to the learner’s current knowledge state [@castro2008]. Infants, too, have been shown to use active learning strategies [@ruggeri2019; see @xu2019 for review]. 
+
 Although most active learning research has focused on stimulus selection, perhaps children and adults are engaging in active learning by also making decisions about the environments in which they learn. In practice, this behavior may present itself as moving to a different room to study for an upcoming exam or playing in a room with other children who seem to be having the kind of fun you desire. We might expect humans to seek out environments that best support their goals, and observe this strategy even in young children. 
+
 In the current paper, we asked whether children and adults actively select their auditory environment to achieve a series of goals. We conducted two experiments with both children and adults. Although our primary interest is whether and how children engage in environmental selection, we also collected adult samples to offer comparisons of how cognitively mature individuals might respond to these tasks. To ensure that the stimuli we use can be discriminated by children in our target ages, Experiments 1a and 1b investigate children and adults’ auditory discrimination of noise in long speech streams. Experiments 2a and 2b then examine whether children and adults select auditory environments that match their goals.
 
-# **Experiment 1a**
+# Experiment 1a
 
-Previous research has consistently shown that adults can discriminate when two different sounds are at or below 5db apart, and children as young as four perform similarly to adults as low as 5db (Jensen & Neff, 1993). However, the stimuli commonly used to measure auditory (or intensity) discrimination tend to be short tonal bursts. This might differ considerably from children’s real-world auditory experiences, which are not always transient and which may reflect more chronic noise exposure. Additionally, noise exposure is not limited to nonspeech signals, so the stimuli we present in experimental sessions ought to reflect children’s true encounters in their typical environments. As such, we played participants longer speech streams of up to 25s to determine whether their auditory discrimination skills hold under more complex constraints. We then asked participants to select the louder stimuli in a binary forced-choice paradigm.
+Previous research has consistently shown that adults can discriminate when two different sounds are at or below 5db apart, and children as young as four perform similarly to adults as low as 5db [@jensen1993]. However, the stimuli commonly used to measure auditory (or intensity) discrimination tend to be short tonal bursts. This might differ considerably from children’s real-world auditory experiences, which are not always transient and which may reflect more chronic noise exposure. Additionally, noise exposure is not limited to nonspeech signals, so the stimuli we present in experimental sessions ought to reflect children’s true encounters in their typical environments. As such, we played participants longer speech streams of up to 25s to determine whether their auditory discrimination skills hold under more complex constraints. We then asked participants to select the louder stimuli in a binary forced-choice paradigm.
 
-## **Methods**
+## Methods
+
+```{r e1-data}
+## Load data
+data_1a <- read_csv(here("data","adultdatalog1a.csv")) #load data
+answers_1a <- read_csv(here("data","adultanswerlog1a.csv")) %>%
+  clean_names()#load answers
+
+## Clean data
+cleandata_1a <- data_1a %>% 
+  clean_names() %>% #lowercase column names
+  select(q6:q4) %>% #remove unnecessary columns
+  rename("sound_check" = "q6",
+         "debrief" = "q39",
+         "loudness_type" = "q49",
+         "age" = "q1",
+         "gender" = "q3",
+         "race" = "q2",
+         "english" = "q4",
+         "25" = "ij_test",
+         "15" = "gh_test",
+         "20" = "ef_test",
+         "5" = "cd_test",
+         "10" = "ab_test")  #rename all columns to something I understand 
+
+## Remove first two rows (contain no data/are unnecessary)
+cleandata_1a <- cleandata_1a[-c(1,2), ]
+
+## Tidy data
+tidydata_1a <- cleandata_1a %>% 
+  filter(attention_check_1 == "Madras Paneer",
+         sound_check == "Yes") %>% #exclude participants who failed attention and sound checks
+  mutate(subject_id = row_number()) %>% #make a subject id column
+  select(subject_id, everything()) %>%  #put subject id column first
+  pivot_longer(cols = c("5", "10", "15", "20", "25"),
+               names_to = "snr",
+               values_to = "response") %>% #move all SNR values to a single column
+  mutate(snr = as.numeric(snr),
+         response = as.numeric(response)) #make SNR values and participant responses numeric for calculation
+
+## Join tidydata_1a with answer log
+joineddata_1a <- left_join(tidydata_1a, answers_1a, by = "snr")
+
+## Measure performance 
+completedata_1a <- joineddata_1a %>% 
+  group_by(snr) %>% 
+  mutate(correct = case_when(response == answer ~ 1,
+                             response != answer ~ 0)) %>%  #add a correct column 
+  na.omit() #remove any NA values
+
+## Get demographic data
+completedata_1a$age <- as.integer(completedata_1a$age) #age
+# summary(completedata_1a)
+
+demodata_1a <- completedata_1a %>%
+  ungroup(snr) %>% 
+  select(subject_id, race, age, snr) %>%
+  filter(snr == 5) 
+```
 
 ### Participants
-Experiment 1a measured adults' sensitivity to 5 SNR auditory signals of long speech streams. 46 adults (mean age = 27.78 years; 56.5% Caucasian/White) living in the United States at the time of test were recruited to participate via the online platform, Prolific. Testing was restricted to a laptop, desktop, or tablet. All participants were fluent in English and had no severe visual or cognitive impairments. Informed consent was collected from each participant before the experiment began.
+
+Experiment 1a measured adults' sensitivity to 5 SNR auditory signals of long speech streams. A total of `r nrow(demodata_1a)` adults (mean age = `r round(mean(demodata_1a$age),2)` years; `r round(mean(demodata_1a$race == "Caucasian/White")*100,1)`% Caucasian/White) living in the United States at the time of test were recruited to participate via the online platform, Prolific. Testing was restricted to a laptop, desktop, or tablet. All participants were fluent in English and had no severe visual or cognitive impairments. Informed consent was collected from each participant before the experiment began.
 
 ### Materials and Procedure
-Participants were told that they would watch 25-second animated videos from each of the ten classrooms in The Alphabet School, a fictional preschool program in which each class learns one letter of the alphabet from A-J. Each classroom consisted of 5-6 preschool children and one adult teacher with stereotypical male or female presentations. The wall colors of each classroom identified which classroom participants were viewing. In each video, the teacher would tell the students which letter of the alphabet they would be learning, followed by three images on a whiteboard of animals or objects that begin with that letter. Figure 1 illustrates one of the ten classrooms shown during the session.
-```{r image 1, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "One of 10 animated classrooms participants viewed during the session."}
-figure1 <- png::readPNG("figs/figure1.png")
+
+
+```{r e1-stimuli, fig.env = "figure", fig.pos = "ht", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, fig.cap = "One of 10 animated classrooms participants viewed during the session."}
+figure1 <- png::readPNG(here("writeup","figs","figure1.png"))
 grid::grid.raster(figure1)
 ```
+
+
+Participants were told that they would watch 25-second animated videos from each of the ten classrooms in The Alphabet School, a fictional preschool program in which each class learns one letter of the alphabet from A-J. Each classroom consisted of 5-6 preschool children and one adult teacher with stereotypical male or female presentations. The wall colors of each classroom identified which classroom participants were viewing. In each video, the teacher would tell the students which letter of the alphabet they would be learning, followed by three images on a whiteboard of animals or objects that begin with that letter. Figure \@ref(fig:e1-stimuli) illustrates one of the ten classrooms shown during the session.
+
 Participants viewed two videos per trial, for a total of five trials.
 Importantly, the classrooms differed in their signal-to-noise ratios (SNR), which ranged from 5-25dB. Each teacher’s speech was registered at 65dB, and the background noise, a recording of live preschool classrooms collected by the first author, were equalized on speech subtracting any silence in the clips, and ranged from 35-60dB. As such, the two videos for each trial differed from 5-25dB from each other. The SNR levels of each classroom were counterbalanced across conditions. At the end of each trial, participants indicated which classroom was the louder of the two. To ensure that participants understood the referent of the question, we also asked at the end of the experiment whether the term “louder” referred to the loudness of the speaker or the loudness of the background noise. Additionally, to reduce participant inattention in the data, we included two attention check questions and excluded participants who answered at least one question incorrectly. 
 
-## **Results and Discussion**
+## Results and Discussion
 
-Given prior data, we expected that across SNR levels, adults would correctly identify relative differences in the auditory environments presented in this experiment. We preregistered the following Bayesian mixed-effects logistic regression:  
-correct ~ snr_centered + (snr_centered | subject_id), where both the SNR level in which participants were exposed (centered at 15dB) and participants' individual responses were entered as random effects in the model. Figure 2 depicts participants' identification of sound levels from 5-25dB. On average, adults were above chance across all five SNR levels (intercept: $\beta$ = 2.0, 95% Crl = [1.6-2.8]), and there was no effect of SNR on performance (intercept : $\beta$ = 0, Crl = [0-0.2]).
-```{r image 2, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 1b. Proportion of correct responses across SNR levels from 5-25dB."}
-figure2 <- png::readPNG("figs/figure2.png")
-grid::grid.raster(figure2)
+```{r e1a-bar, fig.pos = "t", fig.cap="Results from Experiment 1a. Proportion of correct responses across SNR levels from 5--25dB. Error bars show 95\\% confidence intervals."}
+## Calculate confidence intervals
+cidata_1a <- completedata_1a %>%
+  group_by(snr) %>%
+  summarise(ci.l = binom::binom.bayes(x = sum(correct), n = n())$lower,
+            ci.u = binom::binom.bayes(x = sum(correct), n = n())$upper,
+            n = n(),
+            mean_correct = mean(correct))
+
+## Data visualization and stats
+
+### Figure 2
+ggplot(data = cidata_1a, mapping = aes(x = snr, y = mean_correct, fill = snr)) +
+  geom_col() +
+  geom_linerange(aes(ymin = ci.l,
+                     ymax = ci.u)) +
+  ylim(0,1) +
+  xlab("SNR") +
+  ylab("Proportion of Correct Responses") +
+  geom_hline(yintercept = .5, lty =2) + 
+  scale_color_solarized() + 
+  theme_few() +
+  theme(legend.position = "none") 
 ```
-This is both a replication of previous studies which have found similar performance levels in adults, as well as an extension that revealed these findings hold even with more complex stimuli. These results affirm adults' auditory discrimination skills are fully mature, and that they possess the cognitive resources necessary to successfully complete this task. This study also offers a set of comparison data for Experiment 1b, which will test the same phenomenon in young children. 
 
-# **Experiment 1b**
 
-## **Methods**
+```{r e1-stats, echo=FALSE, results="hide"}
+completedata_1a$snr_centered <- scale(completedata_1a$snr, scale = FALSE)
+
+glmer_1a <- stan_glmer(formula = correct ~ snr_centered + (snr_centered | subject_id),
+                       family = binomial,
+                       data = completedata_1a)
+
+summary_1a <- summary(glmer_1a, probs = c(0.025, 0.975))
+
+```
+
+Given prior data, we expected that across SNR levels, adults would correctly identify relative differences in the auditory environments presented in this experiment. We preregistered a Bayesian mixed-effects logistic regression predicting correct responding as a function of SNR, with a maximal random effect structure (random slopes by SNR and a random intercept by participant). SNR level was centered at 15 dB. On average, adults were above chance across all five SNR levels (intercept: $\beta$ = `r round(summary_1a[1,][["mean"]],2)`, 95% Crl = [`r round(summary_1a[1,][["2.5%"]],2)` - `r round(summary_1a[1,][["97.5%"]],2)`]), and there was a modest effect of SNR on performance (intercept: $\beta$ = `r round(summary_1a[2,][["mean"]],2)`, 95% Crl = [`r round(summary_1a[2,][["2.5%"]],2)` - `r round(summary_1a[2,][["97.5%"]],2)`]). Data are shown in Figure \@ref(fig:e1a-bar).
+
+This finding is both a replication of previous studies which have found similar performance levels in adults, as well as an extension that revealed these findings hold even with more complex stimuli. These results affirm adults' auditory discrimination skills are fully mature, and that they possess the cognitive resources necessary to successfully complete this task. This study also offers a set of comparison data for Experiment 1b, which will test the same phenomenon in young children. 
+
+# Experiment 1b
+
+## Methods
+
+# Experiment 1b
+
+```{r e1b-data}
+## Load data
+data_1b <- read_csv(here("data", "childrendatalog1b.csv")) #load data
+answers_1b <- read_csv(here("data", "childrenanswerlog1b.csv")) %>%  #load answers
+  clean_names()
+
+## Clean data
+cleandata_1b <- data_1b %>% 
+  clean_names() #lowercase column names
+
+## Tidy data
+tidydata_1b <- cleandata_1b %>% 
+  filter(arm == "Main",
+         included == "Yes") #exclude pilot participants and those who could not be retained for analysis failed attention and sound checks
+
+## Join tidydata_1b with answer log
+joineddata_1b <- left_join(tidydata_1b, answers_1b, by = c("condition", "trial"))
+
+## Scale SNR and Age
+joineddata_1b$snr_centered <- scale(joineddata_1b$snr, scale = FALSE) #snr
+joineddata_1b$age_centered <- scale(joineddata_1b$age_in_months, scale = FALSE) #age
+
+## Measure performance
+completedata_1b <- joineddata_1b %>% 
+  group_by(snr) %>% 
+  mutate(correct = case_when(response == answer ~ 1,
+                             response != answer ~ 0))  #add a correct column 
+# na.omit() #remove any NA values
+
+## Get demographic data
+completedata_1b$age <- as.integer(completedata_1b$age_in_years) #age
+
+demodata_1b <- completedata_1b %>%
+  ungroup(snr) %>% 
+  select(subject_id,race, snr) %>%
+  filter(snr == 5) %>% 
+  mutate(race_count = ifelse((str_detect(race, ",")), "Multiracial", race)) %>% 
+  count(race_count) #race
+```
 
 ### Participants
+
+<!-- FIXME: RENDER DEMOGRAPHICS -->
+
 Experiment 1b measured children's sensitivity to 5 SNR auditory signals of long speech streams. 36 children (mean age = 54.33 months, 42% Caucasian/White) completed the same task as adults in Experiment 1a with a few notable differences. Those whose caregivers indicated they heard English at home less than 75% of the time were excluded from analysis. 
 
 ### Materials and Procedure
+
 Children were tested synchronously over the Zoom platform by an undergraduate research assistant. The researcher first collected informed consent from the caregiver, who was often present but instructed not to engage during the session, followed by assent from the child. Children whose caregivers pointed to the computer screen or provided answers during the session were excluded from analysis. Due to the age range of interest, the experiment was presented strictly though images and videos, and the research assistant verbally explained each slide to the children. Between trials, children were rewarded with virtual gold stars, which also served to pace the experiment and to maintain engagement. Finally, children were not asked to identify the referent of the question. 
 
-## **Results and Discussion**
+## Results and Discussion
+
+```{r fig.env = "figure*", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 1b. Proportion of correct responses across SNR levels from 5--25dB. Error bars show 95\\% confidence intervals."}
+
+cidata_1b <- completedata_1b %>%
+  group_by(snr, age) %>%
+  summarise(ci.l = binom::binom.bayes(x = sum(correct), n = n())$lower,
+            ci.u = binom::binom.bayes(x = sum(correct), n = n())$upper,
+            n = n(),
+            mean_correct = mean(correct))
+
+### Figure 3
+ggplot(data = cidata_1b, 
+       mapping = aes(x = snr, y = mean_correct, fill = snr)) +
+  geom_col() +
+  facet_wrap(~age) + 
+  geom_linerange(aes(ymin = ci.l,
+                     ymax = ci.u)) +
+  ylim(0,1) +
+  xlab("SNR") +
+  ylab("Proportion of Correct Responses") +
+  geom_hline(yintercept = .5, lty =2) + 
+  scale_color_solarized() + 
+  theme_few() +
+  theme(legend.position = "none") 
+```
+
+
+```{r fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 1b. Proportion of correct responses across SNR levels from 5-25dB, split by children's age in years.", eval=FALSE}
+ggplot(data = completedata_1b, 
+       mapping = aes(x = age_in_months/12, y = correct, col = snr, 
+                     group = snr)) +
+  geom_jitter(height = .05, width = 0) +
+  geom_smooth(method = "glm", 
+              method.args = list(family = "binomial"),
+              se = FALSE) +
+  xlab("Age (years)") +
+  ylab("Proportion correct responses") +
+  geom_hline(yintercept = .5, lty = 2) + 
+  viridis::scale_color_viridis(name = "SNR") + 
+  theme_few()
+```
+
+```{r e1b-stats, results="hide"}
+### Logistic regression
+glmer_1b <- stan_glmer(formula = correct ~ age_in_years * snr_centered + (snr_centered | subject_id),
+                       family = binomial,
+                       data = completedata_1b)
+
+summary_1b <- summary(glmer_1b, probs = c(0.025, 0.975))
+# print(glmer_1b, digits = 2)
+```
+
+
+<!-- FIXME: RENDER COEFFICIENTS -->
 
 We anticipated that, while the strength of the effect would increase with age, all children would correctly identify relative differences in SNRs from 10-25dB, and that only three-year-old children would be unable to correctly identify this difference at 5dB. We ran the same Bayesian logistic regression presented in Experiment 1a, but entered in age (centered at the mean) as a main effect. Figure 3 demonstrates a similar, though much weaker, pattern of auditory discrimination skills in preschool children. In the aggregate, 3-5-year-old children showed some discrimination ability on the current paradigm (intercept : $\beta$ = 0.4, Crl = [0.1-0.8]), but independent of SNR (intercept : $\beta$ = 0.1, Crl = [0.1-0.1]).
-```{r image 3, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 1b. Proportion of correct responses across SNR levels from 5-25dB."}
-figure3 <- png::readPNG("figs/figure3.png")
-grid::grid.raster(figure3)
-```
+
+
 As expected, age plays a much larger role in these results than it does for adults. As such, we binned the data by age [3;0-3;11, 4;0-4;11, and 5;0-5;11 years] and ran the same analysis. Figure 4 illustrates an age effect, such that older children were more likely to correctly discriminate auditory signals than younger children (intercept : $\beta$ = 0.9, Crl = [0.5-1.3]).
-```{r image 4, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Figure 4-Experiment 1b. Proportion of correct responses across SNR levels from 5-25dB by age."}
-figure4 <- png::readPNG("figs/figure4.png")
-grid::grid.raster(figure4)
-```
+
 While these findings diverge from previous work, there is no cause for concern. As described earlier, this task is much more challenging, and likely requires pooling more cognitive resources, which very young children don't yet possess. Additionally, the type of stimuli presented here differs from the tonal bursts or other brief nonspeech sounds used in earlier work. Taken together, our findings may expose some of the limits of auditory discrimination abilities in preschool children. 
 
-# **Experiment 2a**
+# Experiment 2a
 
 If participants can successfully discriminate between sound pressure levels, do they then use this information to inform which goals are most appropriate in these environments? Participants watched a video of a third-person character with several goals and were asked to select the environment that he should complete these goals. We hypothesized that adults would both consistently discriminate even the most challenging auditory signals given their mature cognitive system, and that children would show a developmental trajectory in both auditory discrimination and environmental selection. In other words, older children would perform similarly to adults on the auditory discrimination task and would show weaker, though similar performance on the environmental selection task.
 
-## **Methods**
+## Methods
 
 ### Participants
 126 adults (mean age = 27.82 years; 56.5% Caucasian/White) living in the United States at the time of test were recruited to participate via the online platform, Prolific. Testing was restricted to a laptop, desktop, or tablet. All participants were fluent in English and had no severe visual or cognitive impairments. Informed consent was collected from each participant before the experiment began. 
@@ -116,11 +460,56 @@ grid::grid.raster(figure5)
 ```
 These findings suggests adults are not only sensitive to differences in the auditory environment, but they also use these cues to reach certain goals. Moreover, adults are not indiscriminately selecting the quieter environment, but are instead taking into account the intention and explicitly weighing the auditory environment to do so.
 
-# **Experiment 2b**
+# Experiment 2b
 
 In the next next study, we asked the extent to which 5-year-old children also weigh auditory information and goal-seeking to make decisions about optimal environments.
 
-## **Methods**
+## Methods
+
+```{r}
+# Experiment 2b
+
+## Load data
+data_2b <- read_csv(here("data", "childrendatalog2b.csv")) #load data
+answers_2b <- read_csv(here("data", "childrenanswerlog2b.csv")) %>%  #load answers
+  clean_names()
+
+## Clean data
+cleandata_2b <- data_2b %>% 
+  clean_names() #lowercase column names
+
+## Tidy data
+tidydata_2b <- cleandata_2b %>% 
+  filter(arm == "Main",
+         included == "Yes") #exclude pilot participants and those who could not be retained for analysis failed attention and sound checks
+
+## Join tidydata_2b with answer log
+joineddata_2b <- left_join(tidydata_2b, answers_2b, by = c("condition", "trial"))
+
+## Scale Age
+joineddata_2b$age_centered <- scale(joineddata_2b$age_months, scale = FALSE) #age
+
+## Measure performance
+completedata_2b <- joineddata_2b %>% 
+  pivot_longer(cols = c("louder","quieter"),
+               names_to = "volume",
+               values_to = "room") %>%
+  filter(response == room) %>% 
+  mutate(quiet = ifelse(volume == "quieter", 1, 0))
+# %>%  #recode volume data
+# na.omit() #remove any NA values
+
+## Get demographic data
+# completedata_2b$age <- as.integer(completedata_2b$age) #age
+# summary(completedata_2b)
+
+demodata_2b <- completedata_2b %>%
+  select(subject_id,race, activity) %>%
+  filter(activity == "build") %>%  #get one value per participant
+  mutate(race_count = ifelse((str_detect(race, ",")), "Multiracial", race)) %>% 
+  count(race_count)
+
+```
 
 ### Participants
 [final number] 5-year-old children (mean age = 63.95 months, %% Caucasian/White) completed a truncated version of Experiment 2a to both prevent testing fatigue and to maximize any response differences based on the presented goals. In addition to testing children on the Zoom platform, we also recruited a small group of children at a Bay Area nursery school, which serves children 2-5 years old. This in-person testing was conducted with both caregiver consent and participant assent. As with the online testing, participants must have heard English at home at least 75% of the time and must have no cognitive, visual, or neurological concerns. Given the finding from Experiment 1b that 3- and 4-year-old children performed near chance in the auditory discrimination task with long speech streams, we chose to only test 5-year-old children for this portion of the study.
@@ -131,19 +520,63 @@ Whether testing online or in-person, participants were shown the same set of vid
 
 ## **Results and Discussion**
 
+```{r, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 2b. Proportion of participants selecting the quieter room by activity."}
+
+## Calculate confidence intervals
+cidata_2b <- completedata_2b %>%
+  group_by(activity) %>%
+  summarise(ci.l = binom::binom.bayes(x = sum(quiet), n = n())$lower,
+            ci.u = binom::binom.bayes(x = sum(quiet), n = n())$upper,
+            n = n(),
+            mean_quiet = mean(quiet)) %>% 
+  mutate(activity = fct_reorder(activity, mean_quiet, .desc = TRUE))
+
+ggplot(data = cidata_2b, mapping = aes(x = activity, y = mean_quiet, fill = activity)) +
+  geom_col() +
+  geom_linerange(aes(ymin = ci.l,
+                     ymax = ci.u)) +
+  ylim(0,1) +
+  xlab("Activity") +
+  ylab("Proportion Choosing Quieter Room") +
+  geom_hline(yintercept = .5, lty =2) + 
+  scale_color_solarized() + 
+  theme_few() +
+  theme(legend.position = "none") 
+```
+
+
+```{r}
+### Logistic regression
+completedata_2b$activity <- factor(completedata_2b$activity, 
+                                   levels = c("read","build","learn","dance"))
+# completedata_2b$noisy_activity <- completedata_2b$activity %in% c("build","dance")
+glmer_2b <- brm(formula = quiet ~ activity + 
+                  (activity | subject_id),
+                family = "bernoulli",
+                data = completedata_2b, 
+                save_pars = save_pars(all = TRUE))
+
+glmer_2b_null <- brm(formula = quiet ~ 1 + 
+                       (activity | subject_id),
+                     family = "bernoulli",
+                     data = completedata_2b,
+                     save_pars = save_pars(all = TRUE))
+
+bayes_factor(glmer_2b, glmer_2b_null)
+# 
+# View(completedata_2b)
+
+summary_2b <- summary(glmer_2b, probs = c(.025, .975))
+
+```
+
+
 We expected to see a similar, though weaker, response pattern as adult participants in Experiment 2a. Figure 6 depicts childrens' preferences for quieter environments based on the chosen activity. We ran the same logistic regression as in Experiment 2a, but added age as a main effect. As expected, children were more likely to select the quieter room for book reading and learning the letters of the alphabet. 
-```{r image 6, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 2b. Proportion of participants selecting the quieter room by activity."}
-figure6 <- png::readPNG("figs/figure6.png")
-grid::grid.raster(figure6)
-```
-Figure 7 illustrates children's environmental selection across the fifth year of life. 
-```{r image 7, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 2b. Logistic regression"}
-figure7 <- png::readPNG("figs/figure7.png")
-grid::grid.raster(figure7)
-```
+
+
 These findings propose that 5-year-old children are using a separate strategy from adults by selecting the quieter room more often regardless of the goal. 
 
-# **General Discussion**
+# General Discussion
 
 These set of experiments demonstrate both an important relationship between auditory discrimination and a strategy children and adults use to optimize their auditory environments and achieve goals. Experiment 1a and 1b found that adults and older children can sufficiently discriminate auditory stimuli in long speech streams at sound pressure levels as low as 5dB. The challenge we observed in 3- and 4-year-old children's performance may reveal a lack of cognitive skills necessary to complete the task. The fact that 5-year-old children were performing above chance, however, may indicate that these skills are rapidly maturing by the fifth year of life. Experiment 2a displayed adult's selectivity of auditory environments based on changing goals while Experiment 2b demonstrated the opposite; 5-year-olds were more likely to select the quieter room regardless of the stated goal.
 
