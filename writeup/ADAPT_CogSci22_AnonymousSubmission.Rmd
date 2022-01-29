@@ -30,15 +30,13 @@ library(xtable)
 library(tidyverse)
 library(ggthemes)
 library(janitor)
-# library(rstanarm)
 library(brms)
+library(rstanarm)
 library(here)
-# library(reprex)
 ```
 
 
 ```{r eval=FALSE}
-
 
 # Experiment 2a
 
@@ -247,7 +245,6 @@ completedata_1a <- joineddata_1a %>%
 
 ## Get demographic data
 completedata_1a$age <- as.integer(completedata_1a$age) #age
-# summary(completedata_1a)
 
 demodata_1a <- completedata_1a %>%
   ungroup(snr) %>% 
@@ -320,8 +317,6 @@ This finding is both a replication of previous studies which have found similar 
 
 ## Methods
 
-# Experiment 1b
-
 ```{r e1b-data}
 ## Load data
 data_1b <- read_csv(here("data", "childrendatalog1b.csv")) #load data
@@ -356,17 +351,13 @@ completedata_1b$age <- as.integer(completedata_1b$age_in_years) #age
 
 demodata_1b <- completedata_1b %>%
   ungroup(snr) %>% 
-  select(subject_id,race, snr) %>%
-  filter(snr == 5) %>% 
-  mutate(race_count = ifelse((str_detect(race, ",")), "Multiracial", race)) %>% 
-  count(race_count) #race
+  select(subject_id,race, age_in_years, snr) %>%
+  filter(snr == 5)
 ```
 
 ### Participants
 
-<!-- FIXME: RENDER DEMOGRAPHICS -->
-
-Experiment 1b measured children's sensitivity to 5 SNR auditory signals of long speech streams. 36 children (mean age = 54.33 months, 42% Caucasian/White) completed the same task as adults in Experiment 1a with a few notable differences. Those whose caregivers indicated they heard English at home less than 75% of the time were excluded from analysis. 
+Experiment 1b measured children's sensitivity to 5 SNR auditory signals of long speech streams. `r nrow(demodata_1b)` children (mean age = `r round(mean(demodata_1b$age_in_years), 2)` years, `r round(mean(demodata_1b$race == "Caucasian/White")*100,1)`% Caucasian/White) completed the same task as adults in Experiment 1a with a few notable differences. Those whose caregivers indicated they heard English at home less than 75% of the time were excluded from analysis. 
 
 ### Materials and Procedure
 
@@ -374,7 +365,7 @@ Children were tested synchronously over the Zoom platform by an undergraduate re
 
 ## Results and Discussion
 
-```{r fig.env = "figure*", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 1b. Proportion of correct responses across SNR levels from 5--25dB. Error bars show 95\\% confidence intervals."}
+```{r e1b-bar, fig.env = "figure*", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 1b. Proportion of correct responses across SNR levels from 5--25dB. Error bars show 95\\% confidence intervals."}
 
 cidata_1b <- completedata_1b %>%
   group_by(snr, age) %>%
@@ -399,8 +390,7 @@ ggplot(data = cidata_1b,
   theme(legend.position = "none") 
 ```
 
-
-```{r fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 1b. Proportion of correct responses across SNR levels from 5-25dB, split by children's age in years.", eval=FALSE}
+```{r e1b_log, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 1b. Proportion of correct responses across SNR levels from 5-25dB, split by children's age in years.", eval=FALSE}
 ggplot(data = completedata_1b, 
        mapping = aes(x = age_in_months/12, y = correct, col = snr, 
                      group = snr)) +
@@ -417,21 +407,25 @@ ggplot(data = completedata_1b,
 
 ```{r e1b-stats, results="hide"}
 ### Logistic regression
-glmer_1b <- stan_glmer(formula = correct ~ age_in_years * snr_centered + (snr_centered | subject_id),
+glmer_1b <- stan_glmer(formula = correct ~ age_in_months * snr_centered + (snr_centered | subject_id),
                        family = binomial,
                        data = completedata_1b)
 
 summary_1b <- summary(glmer_1b, probs = c(0.025, 0.975))
-# print(glmer_1b, digits = 2)
+
+glmer_1b_years <- stan_glmer(formula = correct ~ age_in_years * snr_centered + (snr_centered | subject_id),
+                       family = binomial,
+                       data = completedata_1b)
+
+summary_1b <- summary(glmer_1b, probs = c(0.025, 0.975))
+summary_1b_years <- summary(glmer_1b_years, probs = c(0.025, 0.975))
+
+View(summary_1b_years)
 ```
 
+We anticipated that, while the strength of the effect would increase with age, all children would correctly identify relative differences in SNRs from 10-25dB, and that only three-year-old children would be unable to correctly identify this difference at 5dB. We ran the same Bayesian logistic regression presented in Experiment 1a, but entered in age (centered at the mean) as a main effect. Figure \@ref(fig:e1b-bar) demonstrates a similar, though much weaker, pattern of auditory discrimination skills in preschool children. In the aggregate, 3-5-year-old children showed some discrimination ability on the current paradigm (intercept : $\beta$ = `r round(summary_1b[1,][["mean"]],2)`, Crl = [`r round(summary_1b[1,][["2.5%"]],2)` - `r round(summary_1b[1,][["97.5%"]],2)`]), but independent of SNR (intercept : $\beta$ = `r round(summary_1b[3,][["mean"]],2)`, Crl = [`r round(summary_1b[3,][["2.5%"]],2)` - `r round(summary_1b[3,][["97.5%"]],2)`]).
 
-<!-- FIXME: RENDER COEFFICIENTS -->
-
-We anticipated that, while the strength of the effect would increase with age, all children would correctly identify relative differences in SNRs from 10-25dB, and that only three-year-old children would be unable to correctly identify this difference at 5dB. We ran the same Bayesian logistic regression presented in Experiment 1a, but entered in age (centered at the mean) as a main effect. Figure 3 demonstrates a similar, though much weaker, pattern of auditory discrimination skills in preschool children. In the aggregate, 3-5-year-old children showed some discrimination ability on the current paradigm (intercept : $\beta$ = 0.4, Crl = [0.1-0.8]), but independent of SNR (intercept : $\beta$ = 0.1, Crl = [0.1-0.1]).
-
-
-As expected, age plays a much larger role in these results than it does for adults. As such, we binned the data by age [3;0-3;11, 4;0-4;11, and 5;0-5;11 years] and ran the same analysis. Figure 4 illustrates an age effect, such that older children were more likely to correctly discriminate auditory signals than younger children (intercept : $\beta$ = 0.9, Crl = [0.5-1.3]).
+As expected, age plays a much larger role in these results than it does for adults. As such, we binned the data by age [3;0-3;11, 4;0-4;11, and 5;0-5;11 years] and ran the same analysis. Figure 4 illustrates an age effect, such that older children were more likely to correctly discriminate auditory signals than younger children (intercept : $\beta$ = `r round(summary_1b_years[1,][["mean"]],2)`, Crl = [`r round(summary_1b_years[1,][["2.5%"]],2)` - `r round(summary_1b_years[1,][["97.5%"]],2)`]).
 
 While these findings diverge from previous work, there is no cause for concern. As described earlier, this task is much more challenging, and likely requires pooling more cognitive resources, which very young children don't yet possess. Additionally, the type of stimuli presented here differs from the tonal bursts or other brief nonspeech sounds used in earlier work. Taken together, our findings may expose some of the limits of auditory discrimination abilities in preschool children. 
 
@@ -441,19 +435,150 @@ If participants can successfully discriminate between sound pressure levels, do 
 
 ## Methods
 
+```{r e2a-data}
+## Load data
+data_2a <- read_csv(here("data","adultdatalog2a.csv")) #load data
+answers_2a <- read_csv(here("data", "adultanswerlog2a.csv")) %>% #load answers
+  clean_names()
+
+## Clean data
+cleandata_2a <- data_2a %>% 
+  clean_names() %>% #lowercase column names
+  select(q6:experimental_session_dance_do) %>% #remove unnecessary columns
+  rename("sound_check" = "q6")  #rename column to something I understand
+
+answers_2a$activity <- tolower(answers_2a$activity) #change activity column to lowercase
+answers_2a$activity <- tolower(str_trim(answers_2a$activity)) #remove extra spaces
+answers_2a$louder <- tolower(answers_2a$louder) #change louder column to lowercase
+answers_2a$quieter <- tolower(answers_2a$quieter) #change quieter column to lowercase
+
+## Remove first row (contains no data/are unnecessary)
+cleandata_2a <- cleandata_2a[-c(1,2), ]
+
+## Tidy data
+tidydata_2a <- cleandata_2a %>% 
+  filter(attention_check_1 == "Fish",
+         attention_check_2 == "Ryan",
+         sound_check == "Yes") %>% #exclude participants who failed attention and sound checks
+  mutate(subject_id = row_number()) %>% #make a subject id column
+  select(subject_id, everything()) %>% #put subject id column first
+  select(-c(read_justification,
+            build_justification,
+            paint_justification,
+            talk_justification,
+            zerpie_justification,
+            learn_justification,
+            dance_justification,
+            eat_justification,
+            reflection,
+            prolific_pid,
+            fl_21_do)) %>%  #remove more unnecessary columns
+  pivot_longer(cols = c(read, build, eat, talk, dance, paint, learn, zerpie),
+               names_to = "activity",
+               values_to = "response") %>%   #move all activities to a single column
+  separate(col = experimental_session_build_do,
+           into = c(NA, "build", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_read_do,
+           into = c(NA, "read", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_paint_do,
+           into = c(NA, "paint", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_learn_do,
+           into = c(NA, "learn", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_zerpie_do,
+           into = c(NA, "zerpie", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_talk_do,
+           into = c(NA, "talk", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_dance_do,
+           into = c(NA, "dance", NA, NA),
+           sep = '[|]') %>%
+  separate(col = experimental_session_eat_do,
+           into = c(NA, "eat", NA, NA),
+           sep = '[|]') %>% #extract SNR values from display order
+  pivot_longer(cols = c(read, build, eat, talk, dance, paint, learn, zerpie),
+               names_to = "activity_label",
+               values_to = "snr") #extract SNR values into their own column
+
+## Join tidydata_2a with answer log
+tidydata_2a$response<- tolower(tidydata_2a$response) #change response column to lowercase
+
+tidydata_2a$snr <- as.integer(tidydata_2a$snr) #make snr values in tidydata_2a integers
+
+joineddata_2a <- left_join(tidydata_2a, answers_2a, by = c("snr", "activity"))
+
+## Combine louder and quieter columns for analysis
+completedata_2a <- joineddata_2a %>% 
+  pivot_longer(cols = c("louder","quieter"),
+               names_to = "volume",
+               values_to = "value") %>%
+  filter(response == value,
+         activity == activity_label) %>% 
+  mutate(quiet = ifelse(volume == "quieter", 1, 0),
+         room = ifelse(value == "a", 1, 2)) %>%  #recode volume data
+  na.omit() #remove any NA values
+
+## Get demographic data
+completedata_2a$age <- as.integer(completedata_2a$age) #age
+
+demodata_2a <- completedata_2a %>%
+  select(subject_id,race, age)
+```
+
 ### Participants
-126 adults (mean age = 27.82 years; 56.5% Caucasian/White) living in the United States at the time of test were recruited to participate via the online platform, Prolific. Testing was restricted to a laptop, desktop, or tablet. All participants were fluent in English and had no severe visual or cognitive impairments. Informed consent was collected from each participant before the experiment began. 
+`r nrow(demodata_2a)` adults (mean age = `r round(mean(demodata_2a$age), 2)` years; `r round(mean(demodata_2a$race == "Caucasian/White")*100,1)`% Caucasian/White) living in the United States at the time of test were recruited to participate via the online platform, Prolific. Testing was restricted to a laptop, desktop, or tablet. All participants were fluent in English and had no severe visual or cognitive impairments. Informed consent was collected from each participant before the experiment began. 
 
 ### Materials and Procedure
 Participants were introduced to a preschool-aged character named Ryan with eight goals to complete throughout the experiment- (1) to read a book, (2) to build a tower out of blocks, (3) to learn the letters of the alphabet, (4) to paint a picture, (5) to dance to his favorite music, (6) to learn a new language called Zerpie, (7) to talk to a friend, and (8) to eat lunch. All activities had relatively simple explanations with the exception of (6). For this trial, participants were told that Ryan’s new neighbor, Logan, speaks a rare language called Zerpie, a language he doesn’t speak. Ryan wants to learn Zerpie so he can communicate with Logan. For all activities, Ryan must complete each task in a closed room. Each goal was presented individually as a single trial for a total of eight trials. In each trial, participants watched a video in which Ryan stood in between two closed doors labeled “A” and “B”, respectively. Before the video began, participants were told to watch and listen carefully to decide in which of the two rooms Ryan should complete his goal.
 As in Experiment 1, we manipulated the sound level of each room, but removed any classroom stimuli, including the teacher, and only allowed one child to open and stand in front of each door. As such, participants did not have access to any visual information of the room, and could only rely on auditory information,  as well as any information provided by the character who opened the door. Each character’s voice was equalized to 65dB and, unlike in Experiment 1, all characters shared the same voice. All characters except Ryan were preschool girls but differed in appearance. The same background noise in Experiment 1 was used for the current experiment, and the difference in SNR between the two rooms was 5-25dB. During the video, each character would open their respective door beginning with Room A. The character in Room A always said, “You can [goal] in this room”, while the character in Room B always said, “Or you can [goal] in this room.” While the room on the left was always labeled “A” and the room on the right was always labeled “B”, the characters from and sound levels of each room, as well as goal order were counterbalanced across conditions. 
 For each trial, participants were told which goal Ryan wanted to complete and were asked to select the room that he should complete his goal. After making a selection, they were then asked to briefly explain their choice. Responses for the quieter room (relative to the other and based on the actual sound pressure level) were given a 1, while responses for the louder room were given a 0. 
 
-## **Results and Discussion**
+## Results and Discussion
 
+```{r e2a-bar, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 2a. Proportion of participants selecting the quiet room based on activity", eval=FALSE}
+
+## Calculate confidence intervals
+cidata_2a <- completedata_2a %>%
+  group_by(activity) %>% 
+  summarise(ci.l = binom::binom.bayes(x = sum(quiet), n = n())$lower,
+            ci.u = binom::binom.bayes(x = sum(quiet), n = n())$upper,
+            n = n(),
+            mean_quiet = mean(quiet)) %>% 
+  mutate(activity = fct_reorder(activity, mean_quiet, .desc = TRUE))
+
+## Data visualization and stats
+
+### Figure 5
+ggplot(data = cidata_2a, mapping = aes(x = activity, y = mean_quiet, fill = activity)) +
+  geom_col() +
+  geom_linerange(aes(ymin = ci.l,
+                     ymax = ci.u)) +
+  ylim(0,1) +
+  xlab("Activity") +
+  ylab("Proportion Choosing Quieter Room") +
+  geom_hline(yintercept = .5, lty =2) + 
+  scale_color_solarized() + 
+  theme_few() +
+  theme(legend.position = "none")
+```
+
+```{r e2a-stats, results="hide"}
+### Logistic regression
+
+glmer_2a <- stan_glmer(formula = quiet ~ activity + (activity | subject_id),
+                       family = binomial,
+                       data = completedata_2a)
+
+summary_2a <- summary(glmer_2a, probs = c(0.025,0.975))
+```
 We expected that adults would overwhelming select the quieter room when the goal was (1) to read a book, (2) to learn the new language called Zerpie, and (3) to learn the letters of the alphabet, but would be more likely to select the louder room when the goal was (1) to dance to his favorite music, (2) to talk to a friend, and (3) to build a tower out of blocks. Additionally, we expected participants to have no sound level preference for (1) eating lunch and (2) painting a picture. This is because the latter two activities might be more ambiguous in the degree to which a relatively quieter or louder environment supports or hinders the goal. 
 We preregistered the following Bayesian mixed-effects logistic regression:  
-quiet ~ activity + (activity | subject_id), where quiet refers to the number of times the quiet room was selected as the response, and both the activity in which participants were exposed and participants' individual responses were entered as random effects in the model. Figure 5 depicts adult participants' preferences for quieter environments based on the chosen activity. We found that all but two activities were either preferred in the quiet or loud room- eating (intercept : $\beta$ = 0.1, Crl = [-0.5-0.8]) and talking (intercept : $\beta$ = 0.5, Crl = [-0.06-1.2]), which were almost equally preferred in both rooms. Reading was most preferred in the quiet room while dancing was most preferred in the loud room.
+quiet ~ activity + (activity | subject_id), where quiet refers to the number of times the quiet room was selected as the response, and both the activity in which participants were exposed and participants' individual responses were entered as random effects in the model. Figure 5 depicts adult participants' preferences for quieter environments based on the chosen activity. Activities had a marginal effect on room selection (intercept:  $\beta$ = `r round(summary_2a[1,][["mean"]],2)`, Crl = [`r round(summary_2a[1,][["2.5%"]],2)` - `r round(summary_2a[1,][["97.5%"]],2)`])
+We found that all but two activities were either preferred in the quiet or loud room- eating (intercept : $\beta$ = 0.1, Crl = [-0.5-0.8]) and talking (intercept : $\beta$ = 0.5, Crl = [-0.06-1.2]), which were almost equally preferred in both rooms. Reading was most preferred in the quiet room while dancing was most preferred in the loud room.
 ```{r image 5, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 2a. Proportion of participants selecting the quieter room by activity. Values closer to 1 on the y-axis indicate a preference for the quiet room."}
 figure5 <- png::readPNG("figs/figure5.png")
 grid::grid.raster(figure5)
@@ -545,7 +670,7 @@ ggplot(data = cidata_2b, mapping = aes(x = activity, y = mean_quiet, fill = acti
 ```
 
 
-```{r}
+```{r, eval= FALSE}
 ### Logistic regression
 completedata_2b$activity <- factor(completedata_2b$activity, 
                                    levels = c("read","build","learn","dance"))
@@ -570,9 +695,7 @@ summary_2b <- summary(glmer_2b, probs = c(.025, .975))
 
 ```
 
-
 We expected to see a similar, though weaker, response pattern as adult participants in Experiment 2a. Figure 6 depicts childrens' preferences for quieter environments based on the chosen activity. We ran the same logistic regression as in Experiment 2a, but added age as a main effect. As expected, children were more likely to select the quieter room for book reading and learning the letters of the alphabet. 
-
 
 These findings propose that 5-year-old children are using a separate strategy from adults by selecting the quieter room more often regardless of the goal. 
 
