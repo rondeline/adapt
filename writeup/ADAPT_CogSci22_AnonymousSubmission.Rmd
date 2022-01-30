@@ -120,7 +120,7 @@ A total of `r nrow(demodata_1a)` adults (mean age = `r round(mean(demodata_1a$ag
 
 ### Materials and Procedure
 
-```{r e1-stimuli, fig.env = "figure", fig.pos = "ht", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, fig.cap = "One of 10 animated classrooms participants viewed during the session."}
+```{r e1-stimuli, fig.env = "figure", fig.pos = "t", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, fig.cap = "One of 10 animated classrooms participants viewed during the session."}
 figure1 <- png::readPNG(here("writeup","figs","figure1.png"))
 grid::grid.raster(figure1)
 ```
@@ -132,7 +132,7 @@ Importantly, the classrooms differed in their signal-to-noise ratios (SNR), whic
 
 ## Results and Discussion
 
-```{r e1a-bar, fig.pos = "t", fig.cap="Results from Experiment 1a. Proportion of correct responses across SNR levels from 5--25dB. Error bars show 95\\% confidence intervals."}
+```{r e1a-bar, fig.pos = "t", fig.align='center', fig.cap="Results from Experiment 1a. Proportion of correct responses across SNR levels from 5--25dB. Error bars show 95\\% confidence intervals."}
 ## Calculate confidence intervals
 cidata_1a <- completedata_1a %>%
   group_by(snr) %>%
@@ -152,7 +152,7 @@ ggplot(data = cidata_1a, mapping = aes(x = snr, y = mean_correct, fill = snr)) +
   xlab("SNR") +
   ylab("Proportion of Correct Responses") +
   geom_hline(yintercept = .5, lty =2) + 
-  scale_color_solarized() + 
+  viridis::scale_fill_viridis() + 
   theme_few() +
   theme(legend.position = "none") 
 ```
@@ -228,7 +228,7 @@ Children were tested synchronously over the Zoom platform by an undergraduate re
 
 ## Results and Discussion
 
-```{r e1b-bar, fig.env = "figure*", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 1b. Proportion of correct responses across SNR levels from 5--25dB. Error bars show 95\\% confidence intervals."}
+```{r e1b-bar, fig.env = "figure", fig.pos = "t", fig.align='center', fig.cap = "Experiment 1b. Proportion of correct responses across SNR levels from 5--25dB. Error bars show 95\\% confidence intervals."}
 
 cidata_1b <- completedata_1b %>%
   group_by(snr, age) %>%
@@ -248,25 +248,10 @@ ggplot(data = cidata_1b,
   xlab("SNR") +
   ylab("Proportion of Correct Responses") +
   geom_hline(yintercept = .5, lty =2) + 
-  scale_color_solarized() + 
-  theme_few() +
-  theme(legend.position = "none") 
+  viridis::scale_fill_viridis(guide=FALSE) + 
+  theme_few() 
 ```
 
-```{r e1b_log, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 1b. Proportion of correct responses across SNR levels from 5-25dB, split by children's age in years.", eval=FALSE}
-ggplot(data = completedata_1b, 
-       mapping = aes(x = age_in_months/12, y = correct, col = snr, 
-                     group = snr)) +
-  geom_jitter(height = .05, width = 0) +
-  geom_smooth(method = "glm", 
-              method.args = list(family = "binomial"),
-              se = FALSE) +
-  xlab("Age (years)") +
-  ylab("Proportion correct responses") +
-  geom_hline(yintercept = .5, lty = 2) + 
-  viridis::scale_color_viridis(name = "SNR") + 
-  theme_few()
-```
 
 ```{r e1b-stats, results="hide"}
 ### Logistic regression
@@ -407,7 +392,7 @@ For each trial, participants were told which goal Ryan wanted to complete and we
 
 ## Results and Discussion
 
-```{r e2a-bar, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 2a. Proportion of participants selecting the quiet room based on activity, with activities sorted by response level.", eval=FALSE}
+```{r e2a-bar, fig.env = "figure", fig.pos = "t", fig.align='center', fig.cap = "Experiment 2a. Proportion of participants selecting the quiet room based on activity, with activities sorted by response level."}
 
 ## Calculate confidence intervals
 cidata_2a <- completedata_2a %>%
@@ -431,7 +416,8 @@ ggplot(data = cidata_2a, mapping = aes(x = activity, y = mean_quiet, fill = acti
   geom_hline(yintercept = .5, lty =2) + 
   scale_color_solarized() + 
   theme_few() +
-  theme(legend.position = "none")
+  theme(legend.position = "none") + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 ```
 
 ```{r e2a-stats, results="hide"}
@@ -513,7 +499,7 @@ Whether testing online or in-person, participants were shown the same set of vid
 
 ## Results and Discussion
 
-```{r 2b-bar, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 2b. Proportion of participants selecting the quieter room by activity."}
+```{r 2b-bar, fig.env = "figure", fig.pos = "t", fig.align='center', fig.cap = "Experiment 2b. Proportion of participants selecting the quieter room by activity."}
 
 ## Calculate confidence intervals
 cidata_2b <- completedata_2b %>%
@@ -537,7 +523,7 @@ ggplot(data = cidata_2b, mapping = aes(x = activity, y = mean_quiet, fill = acti
   theme(legend.position = "none") 
 ```
 
-```{r e2b-stats, eval= FALSE}
+```{r e2b-stats, results="hide"}
 ### Logistic regression
 completedata_2b$activity <- factor(completedata_2b$activity, 
                                    levels = c("read","build","learn","dance"))
@@ -581,7 +567,7 @@ By understanding the strategies children use to learn in noisy auditory environm
 
 # Acknowledgements
 
-Retracted for anonymous submission
+Removed for anonymous submission.   
 
 # References 
 

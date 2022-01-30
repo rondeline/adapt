@@ -57,6 +57,11 @@ children}
 
 
 
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{CSLReferences}%
+  {}%
+  {\par}
 
 \begin{document}
 
@@ -68,16 +73,18 @@ amounts of auditory input, sometimes relevant while other times purely
 noise, and must somehow make sense of it all. The early auditory
 environment is critical for building skills related to speech perception
 and recognition, auditory discrimination, and word learning, all of
-which support future language outcomes. What are still largely unknown
-are the strategies young children use to learn in even the noisiest
-environments. One such strategy is environmental selection, which allows
-children to seek environments that align with changing goals. In the
-current paper, we examined whether both children and adults make
-decisions about their environments by integrating both the auditory
-information and the current goal-state. While 3- and 4-year olds
-struggle with discrmininating speech streams at varying sound levels,
-5-year-old children and adults can, and they use this information for
-environmental selection.
+which support future language outcomes. But what strategies do young
+children use to learn in noisy environments? One potential strategy is
+environmental selection, which allows children to seek environments that
+align with goals like reading or playing. In the current paper, we
+examined whether both children and adults make decisions about their
+environments by integrating both the auditory information and the
+current goal-state. While 3- and 4-year olds struggle with
+discrmininating the level of noise in noisy speech streams (and hence
+likely do not use this information for environmental selection),
+5-year-old children and adults can. Further, we show inital evidence
+that they can use this information to reason about acoustic environments
+that are consistent with specific goals.
 
 \textbf{Keywords:}
 active learning; auditory discrimination; auditory noise; cognitive
@@ -96,7 +103,7 @@ with speech perception and word recognition in noisy environments, and
 often require signal-to-noise (SNR) levels of 5-7dB higher than adults
 listening to the same stimulus (Bjorklund \& Harnishfeger, 1990; Klatte,
 Bergström, \& Lachmann, 2013). Despite this, children manage to make
-sense of such a noisy world. What strategies do they use?
+sense of such a noisy world.
 
 More than 20 million children living in the United States are exposed to
 dangerous noise levels daily, and 5 million of those children suffer
@@ -109,35 +116,32 @@ expressive vocabularies in elementary school children (Clark, Sörqvist,
 \& others, 2012; Hygge, 2019; Riley \& McGregor, 2012).Yet despite
 suboptimal conditions, language acquisition, cognitive development, and
 full engagement with the environment is still possible, albeit more
-difficult.
+difficult. What strategies do children use in these conditions?
 
-Children adjust their engagement with the environment when faced with
-suboptimal auditory patterns, even if this causes deleterious long- term
-outcomes. Cohen, Glass, \& Singer (1973) measured the sound pressure
-levels in and around a noisy Manhattan high-rise apartment complex where
-8- and 9-year-old middle class students lived. Auditory discrimination
-mediated the relationship between reading comprehension/ability and
-auditory noise. Children exposed to higher levels of auditory noise in
-the home eventually learned to filter the irrelevant auditory stimuli,
-but were doing so indiscriminately, such that they were also ignoring
-some important stimuli.
+One observation is that children's attention or discrimination abilities
+may shift when faced with suboptimal auditory patterns, even if this
+causes deleterious long- term outcomes. Cohen, Glass, \& Singer (1973)
+measured the sound pressure levels in and around a noisy Manhattan
+high-rise apartment complex where 8- and 9-year-old middle class
+students lived. Auditory discrimination mediated the relationship
+between reading comprehension/ability and auditory noise. Children
+exposed to higher levels of auditory noise in the home filtered out
+noise, but appeared to lose important information in the process.
 
-Given the importance of the early auditory environment and
-discrimination skills, children might also learn to optimize their
-auditory environments to successfully complete certain goals. For
-example, you might find that reading is best done in a library, not
-because of its convention (because libraries function as places to
-read/check out books), but because it is a quiet space. Such a strategy
-might allow children to exploit environmental variation in noise to
-maximize their ability to learn in suboptimal or variable conditions. In
-the current paper, we asked whether and how preschool children engage in
-active selection of the auditory environment to achieve a series of
-goals.
+Children might also learn to optimize their auditory environments to
+successfully complete certain goals. For example, a child might find
+that reading is best done in a library, not just because of its
+convention (because libraries function as places to read/check out
+books), but because it is a quiet space. Such a strategy might allow
+children to exploit environmental variation in noise to maximize their
+ability to learn in suboptimal or variable conditions. In the current
+paper, we asked whether preschool children can reason about their
+auditory environment and how it relates to specific goals.
 
-One way that both children and adults navigate such a complex world is
-through active learning: choices an agent makes to shape its own
-learning. The dominant approach to studying active learning has
-emphasized how learners approach individual stimuli. When faced with
+Enviromental selection of this type is a type of active learning, in
+which an agent make choices to shape its own learning. The dominant
+approach to studying active learning has emphasized how learners
+approach individual stimuli (e.g., Settles, 2009). When faced with
 uncertainty, both human and machine systems can learn actively by
 choosing new stimuli to query that are informative with respect to the
 learner's current knowledge state (Castro et al., 2008). Infants, too,
@@ -153,35 +157,33 @@ who seem to be having the kind of fun you desire. We might expect humans
 to seek out environments that best support their goals, and observe this
 strategy even in young children.
 
-In the current paper, we asked whether children and adults actively
-select their auditory environment to achieve a series of goals. We
-conducted two experiments with both children and adults. Although our
-primary interest is whether and how children engage in environmental
-selection, we also collected adult samples to offer comparisons of how
-cognitively mature individuals might respond to these tasks. To ensure
-that the stimuli we use can be discriminated by children in our target
-ages, Experiments 1a and 1b investigate children and adults' auditory
-discrimination of noise in long speech streams. Experiments 2a and 2b
-then examine whether children and adults select auditory environments
-that match their goals.
+In the current paper, we took a first step towards investigating whether
+children and adults actively select their auditory environment to
+achieve their goals. We conducted two experiments with both children and
+adults. Although our primary interest is whether and how children engage
+in environmental selection, we also collected adult samples to offer
+comparisons of how cognitively mature individuals might respond to these
+tasks. To ensure that the stimuli we use can be discriminated by
+children in our target ages, Experiments 1a and 1b investigate children
+and adults' auditory discrimination of noise in long speech streams.
+Experiments 2a and 2b then examine whether children and adults can
+select auditory environments that match a goal.
 
 \hypertarget{experiment-1a}{%
 \section{Experiment 1a}\label{experiment-1a}}
 
 Previous research has consistently shown that adults can discriminate
 when two different sounds are at or below 5db apart, and children as
-young as four perform similarly to adults as low as 5db (Jensen \& Neff,
-1993). However, the stimuli commonly used to measure auditory (or
-intensity) discrimination tend to be short tonal bursts. This might
-differ considerably from children's real-world auditory experiences,
-which are not always transient and which may reflect more chronic noise
-exposure. Additionally, noise exposure is not limited to nonspeech
-signals, so the stimuli we present in experimental sessions ought to
-reflect children's true encounters in their typical environments. As
-such, we played participants longer speech streams of up to 25s to
-determine whether their auditory discrimination skills hold under more
-complex constraints. We then asked participants to select the louder
-stimuli in a binary forced-choice paradigm.
+young as four perform similarly to adults in discriminating contrasts as
+low as 5db (Jensen \& Neff, 1993). However, the stimuli commonly used to
+measure auditory (or intensity) discrimination tend to be short tonal
+bursts. These differ considerably from children's real-world auditory
+experiences, which are not always transient and can reflect more
+sustained noise. Additionally, noise exposure is not limited to
+non-speech noise (e.g., white noise). Thus, in our first experiment, we
+aimed to build on previous discrimination studies by creating a noise
+discrimination and preference paradigm that used longer audio streams
+(up to 25s) and naturalistic multi-talker noise.
 
 \hypertarget{methods}{%
 \subsection{Methods}\label{methods}}
@@ -189,20 +191,18 @@ stimuli in a binary forced-choice paradigm.
 \hypertarget{participants}{%
 \subsubsection{Participants}\label{participants}}
 
-Experiment 1a measured adults' sensitivity to 5 SNR auditory signals of
-long speech streams. A total of 40 adults (mean age = 27.68 years;
-52.5\% Caucasian/White) living in the United States at the time of test
-were recruited to participate via the online platform, Prolific. Testing
-was restricted to a laptop, desktop, or tablet. All participants were
-fluent in English and had no severe visual or cognitive impairments.
-Informed consent was collected from each participant before the
-experiment began.
+A total of 40 adults (mean age = 27.68 years; 52.5\% Caucasian/White)
+living in the United States at the time of test were recruited to
+participate via the online platform Prolific. Testing was restricted to
+a laptop, desktop, or tablet. All participants were fluent in English
+and had no severe visual or cognitive impairments. Informed consent was
+collected from each participant before the experiment began.
 
 \hypertarget{materials-and-procedure}{%
 \subsubsection{Materials and Procedure}\label{materials-and-procedure}}
 
 \begin{CodeChunk}
-\begin{figure}[ht]
+\begin{figure}[t]
 
 {\centering \includegraphics{figs/e1-stimuli-1} 
 
@@ -215,76 +215,87 @@ experiment began.
 Participants were told that they would watch 25-second animated videos
 from each of the ten classrooms in The Alphabet School, a fictional
 preschool program in which each class learns one letter of the alphabet
-from A-J. Each classroom consisted of 5-6 preschool children and one
-adult teacher with stereotypical male or female presentations. The wall
-colors of each classroom identified which classroom participants were
-viewing. In each video, the teacher would tell the students which letter
-of the alphabet they would be learning, followed by three images on a
-whiteboard of animals or objects that begin with that letter. Figure
-@ref(fig:e1-stimuli) illustrates one of the ten classrooms shown during
-the session.
+from A-J. Classrooms were created with Vyond animation software. Each
+classroom was depicted in the videos as having 5--6 preschool children
+and one adult teacher with stereotypical male or female presentation.
+The wall colors of each classroom identified which classroom
+participants were viewing. In each video, the teacher would tell the
+students which letter of the alphabet they would be learning, followed
+by three images on a whiteboard of animals or objects that begin with
+that letter. Figure @ref(fig:e1-stimuli) illustrates one of the ten
+classrooms shown during the session.
 
 Participants viewed two videos per trial, for a total of five trials.
 Importantly, the classrooms differed in their signal-to-noise ratios
-(SNR), which ranged from 5-25dB. Each teacher's speech was registered at
-65dB, and the background noise, a recording of live preschool classrooms
-collected by the first author, were equalized on speech subtracting any
-silence in the clips, and ranged from 35-60dB. As such, the two videos
-for each trial differed from 5-25dB from each other. The SNR levels of
-each classroom were counterbalanced across conditions. At the end of
-each trial, participants indicated which classroom was the louder of the
-two. To ensure that participants understood the referent of the
-question, we also asked at the end of the experiment whether the term
-``louder'' referred to the loudness of the speaker or the loudness of
-the background noise. Additionally, to reduce participant inattention in
-the data, we included two attention check questions and excluded
-participants who answered at least one question incorrectly.
+(SNR), which ranged from 5--25dB. Each teacher's speech was registered
+at 65dB, and the background noise, a recording of live preschool
+classrooms collected by the first author, were equalized on speech
+subtracting any silence in the clips, and ranged from 35--60dB. The two
+videos for each trial differed from each other in noise level by
+5--25dB. The At the end of each trial, participants indicated which
+classroom was the louder of the two. To ensure that participants
+understood the referent of the question, we also asked at the end of the
+experiment whether the term ``louder'' referred to the loudness of the
+speaker or the loudness of the background noise. Additionally, to reduce
+participant inattention in the data, we included two attention check
+questions and excluded participants who answered at least one question
+incorrectly. SNR levels of each classroom were counterbalanced across
+trials and conditions.
 
 \hypertarget{results-and-discussion}{%
 \subsection{Results and Discussion}\label{results-and-discussion}}
 
 \begin{CodeChunk}
 \begin{figure}[t]
-\includegraphics{figs/e1a-bar-1} \caption[Results from Experiment 1a]{Results from Experiment 1a. Proportion of correct responses across SNR levels from 5--25dB. Error bars show 95\% confidence intervals.}\label{fig:e1a-bar}
+
+{\centering \includegraphics{figs/e1a-bar-1} 
+
+}
+
+\caption[Results from Experiment 1a]{Results from Experiment 1a. Proportion of correct responses across SNR levels from 5--25dB. Error bars show 95\% confidence intervals.}\label{fig:e1a-bar}
 \end{figure}
 \end{CodeChunk}
 
 Given prior data, we expected that across SNR levels, adults would
 correctly identify relative differences in the auditory environments
-presented in this experiment. We preregistered a Bayesian mixed-effects
+presented in this experiment (which served primarily as a comparison for
+Experiment 1b with children). We preregistered a Bayesian mixed-effects
 logistic regression predicting correct responding as a function of SNR,
 with a maximal random effect structure (random slopes by SNR and a
-random intercept by participant). SNR level was centered at 15 dB. On
-average, adults were above chance across all five SNR levels (intercept:
-\(\beta\) = 2.15, 95\% Crl = {[}1.64 - 2.9{]}), and there was a modest
-effect of SNR on performance (intercept: \(\beta\) = 0.08, 95\% Crl =
-{[}0.02 - 0.16{]}). Data are shown in Figure @ref(fig:e1a-bar).
+random intercept by participant). SNR level was centered at 15 dB. In
+this and subsequent models, we used default weakly informative priors
+(normal distributions on coefficients with SD=2.5, scaled to predictor
+magnitudes).
+
+On average, adults were above chance across all five SNR levels
+(intercept: \(\beta\) = 2.15, 95\% Crl = {[}1.63 - 2.94{]}), and there
+was a modest effect of SNR on performance (intercept: \(\beta\) = 0.09,
+95\% Crl = {[}0.02 - 0.16{]}). Data are shown in Figure
+@ref(fig:e1a-bar).
 
 This finding is both a replication of previous studies which have found
 similar performance levels in adults, as well as an extension that
 revealed these findings hold even with more complex stimuli. These
 results affirm adults' auditory discrimination skills are fully mature,
 and that they possess the cognitive resources necessary to successfully
-complete this task. This study also offers a set of comparison data for
-Experiment 1b, which will test the same phenomenon in young children.
+complete this task.
 
 \hypertarget{experiment-1b}{%
 \section{Experiment 1b}\label{experiment-1b}}
 
+In Experiment 1b, we reran the same experiment with 3--5 year old
+children.
+
 \hypertarget{methods-1}{%
 \subsection{Methods}\label{methods-1}}
-
-\hypertarget{experiment-1b-1}{%
-\section{Experiment 1b}\label{experiment-1b-1}}
 
 \hypertarget{participants-1}{%
 \subsubsection{Participants}\label{participants-1}}
 
-Experiment 1b measured children's sensitivity to 5 SNR auditory signals
-of long speech streams.36 children (mean age = 4 years, 41.7\%
-Caucasian/White) completed the same task as adults in Experiment 1a with
-a few notable differences. Those whose caregivers indicated they heard
-English at home less than 75\% of the time were excluded from analysis.
+36 children (mean age = 4 years, 41.7\% Caucasian/White) completed the
+same task as adults in Experiment 1a with a few notable differences.
+Those whose caregivers indicated they heard English at home less than
+75\% of the time were excluded from analysis.
 
 \hypertarget{materials-and-procedure-1}{%
 \subsubsection{Materials and
@@ -307,59 +318,57 @@ referent of the question.
 \subsection{Results and Discussion}\label{results-and-discussion-1}}
 
 \begin{CodeChunk}
-\begin{figure*}[H]
+\begin{figure}[t]
 
 {\centering \includegraphics{figs/e1b-bar-1} 
 
 }
 
 \caption[Experiment 1b]{Experiment 1b. Proportion of correct responses across SNR levels from 5--25dB. Error bars show 95\% confidence intervals.}\label{fig:e1b-bar}
-\end{figure*}
+\end{figure}
 \end{CodeChunk}
 
 We anticipated that, while the strength of the effect would increase
 with age, all children would correctly identify relative differences in
-SNRs from 10-25dB, and that only three-year-old children would be unable
-to correctly identify this difference at 5dB. We ran the same Bayesian
-logistic regression presented in Experiment 1a, but entered in age
+SNRs from 10--25dB, and that only three-year-old children would be
+unable to correctly identify this difference at 5dB. We ran the same
+Bayesian logistic regression presented in Experiment 1a, but added age
 (centered at the mean) as a main effect. Figure @ref(fig:e1b-bar)
-demonstrates a similar, though much weaker, pattern of auditory
+demonstrates a similar, though weaker, pattern of auditory
 discrimination skills in preschool children. In the aggregate,
 3-5-year-old children showed some discrimination ability on the current
-paradigm (intercept : \(\beta\) = -4.51, Crl = {[}-6.76 - -2.41{]}), but
-independent of SNR (intercept : \(\beta\) = 0.15, Crl = {[}-0.11 -
-0.43{]}).
+paradigm (intercept : \(\beta\) = -4.53, Crl = {[}-6.78 - -2.43{]}), but
+independent of SNR (intercept : \(\beta\) = 0.15, Crl = {[}-0.13 -
+0.44{]}).
 
-As expected, age plays a much larger role in these results than it does
-for adults. As such, we binned the data by age {[}3;0-3;11, 4;0-4;11,
-and 5;0-5;11 years{]} and ran the same analysis. Figure 4 illustrates an
-age effect, such that older children were more likely to correctly
-discriminate auditory signals than younger children (intercept :
-\(\beta\) = -3.14, Crl = {[}-4.9 - -1.52{]}).
+Age played a larger role in children's performance than we anticipated.
+To explore this effect, we binned the data by the child's age in years
+{[}3;0-3;11, 4;0-4;11, and 5;0-5;11 years{]} and reran the same
+analysis. Figure 4 illustrates this age effect: older children were more
+likely to correctly discriminate auditory signals than younger children
+(intercept : \(\beta\) = -3.13, Crl = {[}-5.03 - -1.43{]}).
 
-While these findings diverge from previous work, there is no cause for
-concern. As described earlier, this task is much more challenging, and
-likely requires pooling more cognitive resources, which very young
-children don't yet possess. Additionally, the type of stimuli presented
-here differs from the tonal bursts or other brief nonspeech sounds used
-in earlier work. Taken together, our findings may expose some of the
-limits of auditory discrimination abilities in preschool children.
+Our findings differed from prior results in that only five year olds
+appeared to be robustly above chance in discrimination. There are
+several possible reasons for this disparity. First, as described
+earlier, this task is much more challenging than prior rapid
+discrimination tasks: it requires assessing the level of noise in a
+video, remembering it, and comparing it to another over the courses of
+almost a minute. Additionally, the type of stimuli presented here
+differs from the tonal bursts or other non-speech sounds used in earlier
+work.
 
 \hypertarget{experiment-2a}{%
 \section{Experiment 2a}\label{experiment-2a}}
 
-If participants can successfully discriminate between sound pressure
-levels, do they then use this information to inform which goals are most
-appropriate in these environments? Participants watched a video of a
-third-person character with several goals and were asked to select the
-environment that he should complete these goals. We hypothesized that
-adults would both consistently discriminate even the most challenging
-auditory signals given their mature cognitive system, and that children
-would show a developmental trajectory in both auditory discrimination
-and environmental selection. In other words, older children would
-perform similarly to adults on the auditory discrimination task and
-would show weaker, though similar performance on the environmental
-selection task.
+If five year old participants can successfully discriminate between
+sound pressure levels, can they then use this information to reason
+about which goals are most appropriate in these environments? In our
+next set of experiments, we assessed this hypothesis. Participants
+watched a video of a third-person character with several goals and were
+asked to select the environment in which he should complete these goals.
+As in Experiment 1, we began by assessing performance in a convenience
+sample of adults.
 
 \hypertarget{methods-2}{%
 \subsection{Methods}\label{methods-2}}
@@ -367,7 +376,7 @@ selection task.
 \hypertarget{participants-2}{%
 \subsubsection{Participants}\label{participants-2}}
 
-126 adults (mean age = 27.82 years; 56.5\% Caucasian/White) living in
+1024 adults (mean age = 27.82 years; 69.5\% Caucasian/White) living in
 the United States at the time of test were recruited to participate via
 the online platform, Prolific. Testing was restricted to a laptop,
 desktop, or tablet. All participants were fluent in English and had no
@@ -391,82 +400,77 @@ can communicate with Logan. For all activities, Ryan must complete each
 task in a closed room. Each goal was presented individually as a single
 trial for a total of eight trials. In each trial, participants watched a
 video in which Ryan stood in between two closed doors labeled ``A'' and
-``B'', respectively. Before the video began, participants were told to
+``B,'' respectively. Before the video began, participants were told to
 watch and listen carefully to decide in which of the two rooms Ryan
-should complete his goal. As in Experiment 1, we manipulated the sound
-level of each room, but removed any classroom stimuli, including the
-teacher, and only allowed one child to open and stand in front of each
-door. As such, participants did not have access to any visual
-information of the room, and could only rely on auditory information, as
-well as any information provided by the character who opened the door.
-Each character's voice was equalized to 65dB and, unlike in Experiment
-1, all characters shared the same voice. All characters except Ryan were
+should complete his goal.
+
+As in Experiment 1, we manipulated the sound level of each room, but
+removed any classroom stimuli, including the teacher, and only depicted
+one child opening and standing in front of each door. As such,
+participants did not have access to any visual information about the
+room, and could only rely on auditory information, as well as any
+information provided by the character who opened the door. Each
+character's voice was equalized to 65dB and, unlike in Experiment 1, all
+characters shared the same voice. All characters except Ryan were
 preschool girls but differed in appearance. The same background noise in
 Experiment 1 was used for the current experiment, and the difference in
-SNR between the two rooms was 5-25dB. During the video, each character
+SNR between the two rooms was 5--25dB. During the video, each character
 would open their respective door beginning with Room A. The character in
-Room A always said, ``You can {[}goal{]} in this room'', while the
+Room A always said, ``You can {[}goal{]} in this room,'' while the
 character in Room B always said, ``Or you can {[}goal{]} in this room.''
 While the room on the left was always labeled ``A'' and the room on the
-right was always labeled ``B'', the characters from and sound levels of
+right was always labeled ``B,'' the characters from and sound levels of
 each room, as well as goal order were counterbalanced across conditions.
+
 For each trial, participants were told which goal Ryan wanted to
 complete and were asked to select the room that he should complete his
 goal. After making a selection, they were then asked to briefly explain
-their choice. Responses for the quieter room (relative to the other and
-based on the actual sound pressure level) were given a 1, while
-responses for the louder room were given a 0.
+their choice.
 
 \hypertarget{results-and-discussion-2}{%
-\subsection{\texorpdfstring{\textbf{Results and
-Discussion}}{Results and Discussion}}\label{results-and-discussion-2}}
-
-We expected that adults would overwhelming select the quieter room when
-the goal was (1) to read a book, (2) to learn the new language called
-Zerpie, and (3) to learn the letters of the alphabet, but would be more
-likely to select the louder room when the goal was (1) to dance to his
-favorite music, (2) to talk to a friend, and (3) to build a tower out of
-blocks. Additionally, we expected participants to have no sound level
-preference for (1) eating lunch and (2) painting a picture. This is
-because the latter two activities might be more ambiguous in the degree
-to which a relatively quieter or louder environment supports or hinders
-the goal. We preregistered the following Bayesian mixed-effects logistic
-regression:\\
-quiet \textasciitilde{} activity + (activity \textbar{} subject\_id),
-where quiet refers to the number of times the quiet room was selected as
-the response, and both the activity in which participants were exposed
-and participants' individual responses were entered as random effects in
-the model. Figure 5 depicts adult participants' preferences for quieter
-environments based on the chosen activity. We found that all but two
-activities were either preferred in the quiet or loud room- eating
-(intercept : \(\beta\) = 0.1, Crl = {[}-0.5-0.8{]}) and talking
-(intercept : \(\beta\) = 0.5, Crl = {[}-0.06-1.2{]}), which were almost
-equally preferred in both rooms. Reading was most preferred in the quiet
-room while dancing was most preferred in the loud room.
+\subsection{Results and Discussion}\label{results-and-discussion-2}}
 
 \begin{CodeChunk}
-\begin{figure}[H]
+\begin{figure}[t]
 
-{\centering \includegraphics{figs/image 5-1} 
+{\centering \includegraphics{figs/e2a-bar-1} 
 
 }
 
-\caption[Experiment 2a]{Experiment 2a. Proportion of participants selecting the quieter room by activity. Values closer to 1 on the y-axis indicate a preference for the quiet room.}\label{fig:image 5}
+\caption[Experiment 2a]{Experiment 2a. Proportion of participants selecting the quiet room based on activity, with activities sorted by response level.}\label{fig:e2a-bar}
 \end{figure}
 \end{CodeChunk}
 
-These findings suggests adults are not only sensitive to differences in
-the auditory environment, but they also use these cues to reach certain
-goals. Moreover, adults are not indiscriminately selecting the quieter
-environment, but are instead taking into account the intention and
-explicitly weighing the auditory environment to do so.
+We expected that adults would select the quieter room when the goal was
+(1) to read a book, (2) to learn the new language called Zerpie, and (3)
+to learn the letters of the alphabet, but would be more likely to select
+the louder room when the goal was (1) to dance to his favorite music,
+(2) to talk to a friend, and (3) to build a tower out of blocks.
+Additionally, we expected participants to have no sound level preference
+for (1) eating lunch and (2) painting a picture. This is because the
+latter two activities might be more ambiguous in the degree to which a
+relatively quieter or louder environment supports or hinders the goal.
+
+As in Experiments 1a and 1b, we preregistered a Bayesian mixed-effects
+logistic regression predicting environmental preference as a function of
+activity type. Figure @ref(fig:e2a-bar) depicts adult participants'
+preferences for quieter environments based on the chosen activity.
+Coefficients for the read, learn, Zerpie, paint, and dance activities
+all had 95\% credible intervals that did not overlap with zero.
+Interestingly, only for the dance activity did adults choose the louder
+room more than 50\% of the time, likely reflecting some ambivalence
+about whether someone might want to, e.g., eat in a loud room.
+
+In sum, these findings suggests adults can reason about the match
+between acoustic environments and activity goals.
 
 \hypertarget{experiment-2b}{%
 \section{Experiment 2b}\label{experiment-2b}}
 
-In the next next study, we asked the extent to which 5-year-old children
-also weigh auditory information and goal-seeking to make decisions about
-optimal environments.
+In the next next study, we asked about whether children could also
+evaluate the match between acoustic environments and activity goals.
+Following the results of Experiment 1b, we conducted this experimnt with
+five year olds only.
 
 \hypertarget{methods-3}{%
 \subsection{Methods}\label{methods-3}}
@@ -474,19 +478,17 @@ optimal environments.
 \hypertarget{participants-3}{%
 \subsubsection{Participants}\label{participants-3}}
 
-{[}final number{]} 5-year-old children (mean age = 63.95 months, \%\%
-Caucasian/White) completed a truncated version of Experiment 2a to both
-prevent testing fatigue and to maximize any response differences based
-on the presented goals. In addition to testing children on the Zoom
-platform, we also recruited a small group of children at a Bay Area
-nursery school, which serves children 2-5 years old. This in-person
-testing was conducted with both caregiver consent and participant
-assent. As with the online testing, participants must have heard English
-at home at least 75\% of the time and must have no cognitive, visual, or
-neurological concerns. Given the finding from Experiment 1b that 3- and
-4-year-old children performed near chance in the auditory discrimination
-task with long speech streams, we chose to only test 5-year-old children
-for this portion of the study.
+28 5-year-old children (mean age = NA months, 69.5\%\% Caucasian/White)
+completed a truncated version of Experiment 2a to both prevent testing
+fatigue and to maximize any response differences based on the presented
+goals.
+
+We tested children on the Zoom platform and also also recruited a small
+group of children at a local preschool. This in-person testing was
+conducted with both caregiver consent and participant assent. As with
+the online testing, participants were inclued only if they heard English
+at home at least 75\% of the time and had no known cognitive, visual, or
+neurological impairments.
 
 \hypertarget{materials-and-procedure-3}{%
 \subsubsection{Materials and
@@ -495,53 +497,63 @@ Procedure}\label{materials-and-procedure-3}}
 We tested children on the four activities with the widest differences
 observed in Experiment 2a- (1) to read a book, (2) to learn the letters
 of the alphabet, (3) to build a tower out of blocks, and (4) to dance to
-the music, a total of four trials. Additionally, participants in this
+music, for a total of four trials. Additionally, participants in this
 experiment were only shown videos in which the two rooms had SNR
-differences of 25dB. This is because 5-year-old performance in
-Experiment 1b did not differ by SNR. The rooms and characters remained
-consistent with Experiment 2a, with one exception: the room labels,
-``A'' and ``B'', were replaced with one black circle for Room 1 and two
-black circles for Room 2.. This change was implemented after finding
-that several participants in the pilot study seemed to favor the letter
-A over B, and because these letter labels may interfere with responses
-when the goal is to learn the letters of the alphabet. Black circle
-labels, on the other hand, are more abstract and may reduce this bias.
-As done previously, the characters, sound pressure levels, and goal
-order were counterbalanced across conditions. Whether testing online or
-in-person, participants were shown the same set of videos and a research
-assistant (for online testing) or the first author (for in-person
-testing) verbally explained each slide and video to participants. After
-watching each video, participants were asked to select the room Ryan
-should complete his goal and to briefly explain their response. As in
-Experiment 2a, responses for the quieter room (relative to the other and
-based on the actual sound pressure level) were given a 1, while
-responses for the louder room were given a 0.
+differences of 25dB, to maximize our chance of observing an effect.
+
+Rooms and characters depicted in the videos remained consistent with
+Experiment 2a, with one exception: the room labels, ``A'' and ``B,''
+were replaced with one black circle for Room 1 and two black circles for
+Room 2. This change was implemented after finding that several
+participants in the pilot study seemed to favor the letter A over B, and
+because these letter labels may interfere with responses when the goal
+is to learn the letters of the alphabet. Black circle labels, on the
+other hand, are more abstract and may reduce this bias. As done
+previously, the characters, sound pressure levels, and goal order were
+counterbalanced across conditions.
+
+Whether testing online or in-person, participants were shown the same
+set of videos and a research assistant (for online testing) or the first
+author (for in-person testing) verbally explained each slide and video
+to participants. After watching each video, participants were asked to
+select the room Ryan should complete his goal and to briefly explain
+their response. As in Experiment 2a, responses for the quieter room
+(relative to the other and based on the actual sound pressure level)
+were given a 1, while responses for the louder room were given a 0.
 
 \hypertarget{results-and-discussion-3}{%
-\subsection{\texorpdfstring{\textbf{Results and
-Discussion}}{Results and Discussion}}\label{results-and-discussion-3}}
+\subsection{Results and Discussion}\label{results-and-discussion-3}}
 
 \begin{CodeChunk}
-\begin{figure}[H]
+\begin{figure}[t]
 
-{\centering \includegraphics{figs/unnamed-chunk-4-1} 
+{\centering \includegraphics{figs/2b-bar-1} 
 
 }
 
-\caption[Experiment 2b]{Experiment 2b. Proportion of participants selecting the quieter room by activity.}\label{fig:unnamed-chunk-4}
+\caption[Experiment 2b]{Experiment 2b. Proportion of participants selecting the quieter room by activity.}\label{fig:2b-bar}
 \end{figure}
 \end{CodeChunk}
 
 We expected to see a similar, though weaker, response pattern as adult
-participants in Experiment 2a. Figure 6 depicts childrens' preferences
-for quieter environments based on the chosen activity. We ran the same
-logistic regression as in Experiment 2a, but added age as a main effect.
-As expected, children were more likely to select the quieter room for
-book reading and learning the letters of the alphabet.
+participants in Experiment 2a. Figure @ref(fig:e2b-bar) depicts
+childrens' preferences for quieter environments based on the chosen
+activity. We ran the same logistic regression as in Experiment 2a.
+Children were more likely than chance to select the quieter room for
+book reading (which was set to the intercept: \(\beta\) = 1.77, Crl =
+{[}0.6 - 3.29{]}), but credible intervals for the other activities
+overlapped zero, suggesting that they could not be individually
+differentiated from those for the read activity. Overall, children
+appeared to have a preference for the quieter room across activities.
 
-These findings propose that 5-year-old children are using a separate
-strategy from adults by selecting the quieter room more often regardless
-of the goal.
+As an exploratory analysis, we asked whether the inclusion of other
+activity predictors as a whole improved model fit by using bridge
+sampling to compare between models with and without activity as a
+predictor. This comparison revealed a bayes factor of 70.77 in favor of
+the activity model, suggesting that as a whole these predictors did
+substantially improve model fit and hence children showed some
+sensitivity to goal in their room selections, despite their bias for the
+quieter room.
 
 \hypertarget{general-discussion}{%
 \section{General Discussion}\label{general-discussion}}
@@ -593,7 +605,7 @@ wonders of childhood.
 \hypertarget{acknowledgements}{%
 \section{Acknowledgements}\label{acknowledgements}}
 
-Retracted for anonymous submission
+Removed for anonymous submission.
 
 \hypertarget{references}{%
 \section{References}\label{references}}
@@ -604,6 +616,7 @@ Retracted for anonymous submission
 \noindent
 
 \hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
 \leavevmode\hypertarget{ref-bjorklund1990}{}%
 Bjorklund, D. F., \& Harnishfeger, K. K. (1990). The resources construct
 in cognitive development: Diverse sources of evidence and a theory of
@@ -670,6 +683,9 @@ baby, but only when needed: Preschoolers adapt their exploratory
 strategies to the information structure of the task. \emph{Cognition},
 \emph{193}, 104013.
 
+\leavevmode\hypertarget{ref-settles2009}{}%
+Settles, B. (2009). Active learning literature survey.
+
 \leavevmode\hypertarget{ref-viet2014}{}%
 Viet, S. M., Dellarco, M., Dearborn, D. G., \& Neitzel, R. (2014).
 Assessment of noise exposure to children: Considerations for the
@@ -684,6 +700,8 @@ information. \emph{Psychological Science}, \emph{32}(7), 1147--1156.
 \leavevmode\hypertarget{ref-xu2019}{}%
 Xu, F. (2019). Towards a rational constructivist theory of cognitive
 development. \emph{Psychological Review}, \emph{126}(6), 841.
+
+\end{CSLReferences}
 
 \bibliographystyle{apacite}
 
