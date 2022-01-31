@@ -400,7 +400,11 @@ For each trial, participants were told which goal Ryan wanted to complete and we
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ```{r e2a-bar, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 2a. Proportion of participants selecting the quiet room based on activity", eval=FALSE}
+=======
+```{r e2a-bar, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 2a. Proportion of participants selecting the quiet room based on activity, with activities sorted by response level.", eval=FALSE}
+>>>>>>> parent of 863a154 (updates)
 =======
 ```{r e2a-bar, fig.env = "figure", fig.pos = "H", fig.align='center', fig.width=2, fig.height=2, set.cap.width=T, num.cols.cap=1, fig.cap = "Experiment 2a. Proportion of participants selecting the quiet room based on activity, with activities sorted by response level.", eval=FALSE}
 >>>>>>> parent of 863a154 (updates)
