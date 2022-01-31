@@ -5,7 +5,7 @@ bibliography: library.bib
 csl: apa6.csl
 document-params: "10pt, letterpaper"
 abstract: >
-    From birth and beyond, children are navigating a world with massive amounts of auditory input, sometimes relevant while other times purely noise, and must somehow make sense of it all. The early auditory environment is critical for building skills related to speech perception and recognition, auditory discrimination, and word learning, all of which support future language outcomes. But what strategies do young children use to learn in noisy environments? One potential strategy is environmental selection, which allows children to seek environments that align with goals like reading or playing. In the current paper, we examined whether both children and adults make decisions about their environments by integrating both the auditory information and the current goal-state. While 3- and 4-year olds struggle with discrmininating the level of noise in noisy speech streams (and hence likely do not use this information for environmental selection), 5-year-old children and adults can. Further, we show inital evidence that they can use this information to reason about acoustic environments that are consistent with specific goals. 
+    Children are navigating a world with massive amounts of auditory input, sometimes relevant while other times purely noise, and must somehow make sense of it all. The early auditory environment is critical for speech perception and recognition, auditory discrimination, and word learning, all of which support language outcomes. What strategies do children use to learn in noisy environments? One potential strategy is environmental selection, which allows children to seek environments that align with particular goals. In the current paper, we examined whether children and adults make decisions about their environments by integrating auditory information and goal-states. While 3- and 4-year olds struggle with discrmininating the level of noise in noisy speech streams (and likely do not use this information for environmental selection), 5-year-old children and adults can. Further, we show initial evidence that they can use this information to reason about acoustic environments that are consistent with specific goals. 
     
 keywords: >
     active learning; auditory discrimination; auditory noise; cognitive development  
@@ -37,15 +37,15 @@ library(here)
 
 # Introduction
 
-Children engage with their auditory environment from birth. These experiences support  speech perception and language development. With relevant stimuli, however, also comes noise. Noise is both ubiquitous and unavoidable, from sounds as low as a whisper (30dB) to as high as crowded restaurants (90dB) [@erickson2017]. Children struggle with speech perception and word recognition in noisy environments, and often require signal-to-noise (SNR) levels of 5-7dB higher than adults listening to the same stimulus [@bjorklund1990; @klatte2013]. Despite this, children manage to make sense of such a noisy world. 
+Children engage with their auditory environment from birth, and these experiences support  speech perception and language development. With relevant stimuli, however, also comes noise. Noise is both ubiquitous and unavoidable, from sounds as low as a whisper (30dB) to as high as crowded restaurants (90dB) [@erickson2017]. Children struggle with speech perception and word recognition in noisy environments, and often require signal-to-noise (SNR) levels of 5-7dB higher than adults listening to the same stimulus [@bjorklund1990; @klatte2013]. Despite this, children manage to make sense of such a noisy world. 
 
 More than 20 million children living in the United States are exposed to dangerous noise levels daily, and 5 million of those children suffer from noise-induced hearing loss as a result [@viet2014]. Unfortunately, children of color living in urban regions are overrepresented in these numbers [@casey2017]. Chronic exposure to noise has been correlated with poorer reading performance, reduced short term and episodic memory, and smaller expressive vocabularies in elementary school children [@clark20123; @hygge2019; @riley2012].Yet despite suboptimal conditions, language acquisition, cognitive development, and full engagement with the environment is still possible, albeit more difficult. What strategies do children use in these conditions? 
 
-One observation is that children's attention or discrimination abilities may shift  when faced with suboptimal auditory patterns, even if this causes deleterious long- term outcomes. @cohen1973 measured the sound pressure levels in and around a noisy Manhattan high-rise apartment complex where 8- and 9-year-old middle class students lived. Auditory discrimination mediated the relationship between reading comprehension/ability and auditory noise. Children exposed to higher levels of auditory noise in the home filtered out noise, but appeared to lose important information in the process.
+One observation is that children's attention or discrimination abilities may shift when faced with suboptimal auditory patterns, even if this causes deleterious long- term outcomes. @cohen1973 measured the sound pressure levels in and around a noisy Manhattan high-rise apartment complex where 8- and 9-year-old middle class students lived. Auditory discrimination mediated the relationship between reading comprehension/ability and auditory noise. Children exposed to higher levels of auditory noise in the home filtered out noise, but appeared to lose important information in the process.
 
 Children might also learn to optimize their auditory environments to successfully complete certain goals. For example, a child might find that reading is best done in a library, not just because of its convention (because libraries function as places to read/check out books), but because it is a quiet space. Such a strategy might allow children to exploit environmental variation in noise to maximize their ability to learn in suboptimal or variable conditions. In the current paper, we asked whether preschool children can reason about their auditory environment and how it relates to specific goals.
 
-Environmental selection of this type is a type of active learning, in which an agent make choices to shape its own learning. The dominant approach to studying active learning has emphasized how learners approach individual stimuli [e.g., @settles2009]. When faced with uncertainty, both human and machine systems can learn actively by choosing new stimuli to query that are informative with respect to the learner’s current knowledge state [@castro2008]. Infants, too, have been shown to use active learning strategies [@ruggeri2019; see @xu2019 for review]. 
+Environmental selection of this type is a type of active learning, in which an agent makes choices to shape its own learning. The dominant approach to studying active learning has emphasized how learners approach individual stimuli [e.g., @settles2009]. When faced with uncertainty, both human and machine systems can learn actively by choosing new stimuli to query that are informative with respect to the learner’s current knowledge state [@castro2008]. Infants, too, have been shown to use active learning strategies [@ruggeri2019; see @xu2019 for review]. 
 
 Although most active learning research has focused on stimulus selection, perhaps children and adults are engaging in active learning by also making decisions about the environments in which they learn. In practice, this behavior may present itself as moving to a different room to study for an upcoming exam or playing in a room with other children who seem to be having the kind of fun you desire. We might expect humans to seek out environments that best support their goals, and observe this strategy even in young children. 
 
@@ -176,7 +176,7 @@ This finding is both a replication of previous studies which have found similar 
 
 # Experiment 1b
 
-In Experiment 1b, we reran the same experiment with 3--5 year old children. 
+In Experiment 1b, we reran the same experiment with 3--5-year-old-children. 
 
 ## Methods
 
@@ -220,7 +220,7 @@ demodata_1b <- completedata_1b %>%
 
 ### Participants
 
-`r nrow(demodata_1b)` children (mean age = `r round(mean(demodata_1b$age_in_years), 2)` years, `r round(mean(demodata_1b$race == "Caucasian/White")*100,1)`% Caucasian/White) completed the same task as adults in Experiment 1a with a few notable differences. Those whose caregivers indicated they heard English at home less than 75% of the time were excluded from analysis. 
+`r nrow(demodata_1b)` children (mean age = `r round(mean(demodata_1b$age_in_years), 2)` years, `r round(mean(demodata_1b$race == "Caucasian/White")*100,1)`% Caucasian/White) completed the same task as adults in Experiment 1a with a few notable differences. An additional `r nrow(cleandata_1b$included == "No")/5` children were ultimately excluded from analysis because their caregivers indicated they heard English less than 75% of the time.
 
 ### Materials and Procedure
 
@@ -268,18 +268,17 @@ glmer_1b_years <- stan_glmer(formula = correct ~ age_in_years * snr_centered + (
 summary_1b <- summary(glmer_1b, probs = c(0.025, 0.975))
 summary_1b_years <- summary(glmer_1b_years, probs = c(0.025, 0.975))
 
-# View(summary_1b_years)
 ```
 
 We anticipated that, while the strength of the effect would increase with age, all children would correctly identify relative differences in SNRs from 10--25dB, and that only three-year-old children would be unable to correctly identify this difference at 5dB. We ran the same Bayesian logistic regression presented in Experiment 1a, but added age (centered at the mean) as a main effect. Figure \@ref(fig:e1b-bar) demonstrates a similar, though weaker, pattern of auditory discrimination skills in preschool children. In the aggregate, 3-5-year-old children showed some discrimination ability on the current paradigm (intercept : $\beta$ = `r round(summary_1b[1,][["mean"]],2)`, Crl = [`r round(summary_1b[1,][["2.5%"]],2)` - `r round(summary_1b[1,][["97.5%"]],2)`]), but independent of SNR (intercept : $\beta$ = `r round(summary_1b[3,][["mean"]],2)`, Crl = [`r round(summary_1b[3,][["2.5%"]],2)` - `r round(summary_1b[3,][["97.5%"]],2)`]).
 
 Age played a larger role in children's performance than we anticipated. To explore this effect, we binned the data by the child's age in years [3;0-3;11, 4;0-4;11, and 5;0-5;11 years] and reran the same analysis. Figure 4 illustrates this age effect:  older children were more likely to correctly discriminate auditory signals than younger children (intercept : $\beta$ = `r round(summary_1b_years[1,][["mean"]],2)`, Crl = [`r round(summary_1b_years[1,][["2.5%"]],2)` - `r round(summary_1b_years[1,][["97.5%"]],2)`]).
 
-Our findings differed from prior results in that only five year olds appeared to be robustly above chance in discrimination. There are several possible reasons for this disparity. First, as described earlier, this task is much more challenging than prior rapid discrimination tasks: it requires assessing the level of noise in a video, remembering it, and comparing it to another over the courses of almost a minute.  Additionally, the type of stimuli presented here differs from the tonal bursts or other non-speech sounds used in earlier work. 
+Our findings differed from prior results in that only 5 year olds appeared to be robustly above chance in discrimination. There are several possible reasons for this disparity. First, as described earlier, this task is much more challenging than prior rapid discrimination tasks: it requires assessing the level of noise in a video, remembering it, and comparing it to another over the courses of almost a minute.  Additionally, the type of stimuli presented here differs from the tonal bursts or other non-speech sounds used in earlier work. 
 
 # Experiment 2a
 
-If five year old participants can successfully discriminate between sound pressure levels, can they then use this information to reason about which goals are most appropriate in these environments? In our next set of experiments, we assessed this hypothesis. Participants watched a video of a third-person character with several goals and were asked to select the environment in which he should complete these goals. As in Experiment 1, we began by assessing performance in a convenience sample of adults. 
+If 5-year-old participants can successfully discriminate between sound pressure levels, can they then use this information to reason about which goals are most appropriate in these environments? In our next set of experiments, we assessed this hypothesis. Participants watched a video of a third-person character with several goals and were asked to select the environment in which he should complete these goals. As in Experiment 1, we began by assessing performance in a convenience sample of adults. 
 
 ## Methods
 
@@ -375,11 +374,12 @@ completedata_2a$age <- as.integer(completedata_2a$age) #age
 
 demodata_2a <- completedata_2a %>%
   select(subject_id,race, age)
+
 ```
 
 ### Participants
 
-`r nrow(demodata_2a)` adults (mean age = `r round(mean(demodata_2a$age), 2)` years; `r round(mean(demodata_2a$race == "Caucasian/White")*100,1)`% Caucasian/White) living in the United States at the time of test were recruited to participate via the online platform, Prolific. Testing was restricted to a laptop, desktop, or tablet. All participants were fluent in English and had no severe visual or cognitive impairments. Informed consent was collected from each participant before the experiment began. 
+`r nrow(demodata_2a)/8` adults (mean age = `r round(mean(demodata_2a$age), 2)` years; `r round(mean(demodata_2a$race == "Caucasian/White")*100,1)`% Caucasian/White) living in the United States at the time of test were recruited to participate via the online platform, Prolific. An additional `r nrow(c(cleandata_2a$attention_check_1 != "Fish", cleandata_2a$attention_check_2 != "Ryan"))/8` were excluded from analysis for failing one or more of the attention checks. Testing was restricted to a laptop, desktop, or tablet. All participants were fluent in English and had no severe visual or cognitive impairments. Informed consent was collected from each participant before the experiment began. 
 
 ### Materials and Procedure
 
@@ -387,8 +387,7 @@ Participants were introduced to a preschool-aged character named Ryan with eight
 
 As in Experiment 1, we manipulated the sound level of each room, but removed any classroom stimuli, including the teacher, and only depicted one child opening and standing in front of each door. As such, participants did not have access to any visual information about the room, and could only rely on auditory information, as well as any information provided by the character who opened the door. Each character’s voice was equalized to 65dB and, unlike in Experiment 1, all characters shared the same voice. All characters except Ryan were preschool girls but differed in appearance. The same background noise in Experiment 1 was used for the current experiment, and the difference in SNR between the two rooms was 5--25dB. During the video, each character would open their respective door beginning with Room A. The character in Room A always said, “You can [goal] in this room”, while the character in Room B always said, “Or you can [goal] in this room.” While the room on the left was always labeled “A” and the room on the right was always labeled “B”, the characters from and sound levels of each room, as well as goal order were counterbalanced across conditions. 
 
-For each trial, participants were told which goal Ryan wanted to complete and were asked to select the room that he should complete his goal. After making a selection, they were then asked to briefly explain their choice. 
-<!-- Responses for the quieter room (relative to the other and based on the actual sound pressure level) were given a 1, while responses for the louder room were given a 0.  -->
+For each trial, participants were told which goal Ryan wanted to complete and were asked to select the room that he should complete his goal. After making a selection, they were then asked to briefly explain their choice. Responses for the quieter room (relative to the other and based on the actual sound pressure level) were given a 1, while responses for the louder room were given a 0.
 
 ## Results and Discussion
 
@@ -545,7 +544,7 @@ glmer_2b_null <- brm(formula = quiet ~ 1 +
                      family = "bernoulli",
                      data = completedata_2b,
                      control = list(adapt_delta = .99), 
-                     save_pars = save_pars(all = TRUE))
+                     save_all_pars = TRUE)
 
 bf_mod <- bayes_factor(glmer_2b_hypothesis, glmer_2b_null)
 
@@ -559,9 +558,11 @@ As an exploratory analysis, we asked whether the inclusion of other activity pre
 
 # General Discussion
 
-These set of experiments demonstrate both an important relationship between auditory discrimination and a strategy children and adults use to optimize their auditory environments and achieve goals. Experiment 1a and 1b found that adults and older children can sufficiently discriminate auditory stimuli in long speech streams at sound pressure levels as low as 5dB. The challenge we observed in 3- and 4-year-old children's performance may reveal a lack of cognitive skills necessary to complete the task. The fact that 5-year-old children were performing above chance, however, may indicate that these skills are rapidly maturing by the fifth year of life. Experiment 2a displayed adult's selectivity of auditory environments based on changing goals while Experiment 2b demonstrated the opposite; 5-year-olds were more likely to select the quieter room regardless of the stated goal.
+These set of experiments demonstrate both an important relationship between auditory discrimination and a strategy children and adults use to optimize their auditory environments and achieve goals. Experiment 1a and 1b found that both 5-year-old children and adults can sufficiently discriminate auditory stimuli in long speech streams at sound pressure levels as low as 5dB. On the other hand, 3- and 4-year-old children were unable to do so. The challenge we observed in 3- and 4-year-old children's performance may reveal a lack of cognitive skills necessary to complete the task. The fact that 5-year-old children were performing above chance, however, may indicate that these skills are rapidly maturing by the fifth year of life. Experiment 2a displayed adult's selectivity of auditory environments based on changing goals while Experiment 2b demonstrated the opposite; 5-year-olds were more likely to select the quieter room regardless of the stated goal.
 
 The latter finding does not necessarily reveal a failure on children's end, but rather a useful heuristic they might employ when they are still learning about much of their world. Whereas most adults have the flexibility of basic linguistic and cognitive mastery to seek louder environments for certain tasks, children can reduce uncertainty by selecting quieter auditory environments and then focus their attention and cognitive energy on achieving them. Previous work has shown that humans (including children) have an intrinsic desire to reduce uncertainty [@gottlieb2013]. In the wild, children pursue ways to reduce uncertainty when faced with a possible reward [@feldstein1971] and search for additional information on a particular topic when their intuitive theories are less informative [@wang2021]. Thus, this experiment may offer another example of uncertainty reduction in children.
+
+This set of experiments is not without its limitations. The paradigm used in Experiment 2a included only 8 goal-based activities (and Experiment 2b offered just a subset of 4), which may not reflect the distribution of activities that elicit preferences for environments of certain noise levels. This paradigm also relied on third-party scenarios where participants assisted someone else with achieving certain goals. It is still unknown whether children would make similar decisions if they themselves were given goals to complete. Additionally, there is a possibility that familiarity and bias influenced participants' environmental preferences. Future work should explore novel activities where participants cannot rely on their current knowledge about which auditory environments are most optimal for each activity. 
 
 By understanding the strategies children use to learn in noisy auditory environments, we might offer better solutions for those exposed to chronic noise, thereby mitigating some of its negative effects. This is becoming more and more critical as cities become more populated (bringing construction with it) and auditory noise becomes even more unavoidable. Future studies will need to (1) explore the developmental trajectory of environmental selection such that we can identify when indiscriminately selecting the quieter environment is no longer beneficial, and (2) examine the boundaries of environmental selection by probing these questions with other goals and in other contexts (e.g. first-person goal-setting). Investigating how children learn in noise will ultimately bring us closer to understanding the complex wonders of childhood.
 
