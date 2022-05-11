@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  11 MAY 2022 13:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  11 MAY 2022 14:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**ADAPT_CogSci22_AnonymousSubmission.tex
-(./ADAPT_CogSci22_AnonymousSubmission.tex
+**ADAPT_CogSci22_FinalSubmission.tex
+(./ADAPT_CogSci22_FinalSubmission.tex
 LaTeX2e <2020-02-02> patch level 5
 L3 programming layer <2020-03-06> (/usr/local/texlive/2020/texmf-dist/tex/latex
 /base/article.cls
@@ -332,35 +332,35 @@ Package color Info: Driver file: pdftex.def on input line 147.
 File: l3backend-pdfmode.def 2020-03-12 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count270
 \l__pdf_internal_box=\box50
-) (./ADAPT_CogSci22_AnonymousSubmission.aux)
-\openout1 = `ADAPT_CogSci22_AnonymousSubmission.aux'.
+) (./ADAPT_CogSci22_FinalSubmission.aux)
+\openout1 = `ADAPT_CogSci22_FinalSubmission.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 61.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 62.
 LaTeX Font Info:    Trying to load font information for OMS+pzccm on input line
- 61.
+ 62.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/omspzccm.fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 61.
-LaTeX Font Info:    ... okay on input line 61.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 62.
+LaTeX Font Info:    ... okay on input line 62.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box51
-Package hyperref Info: Link coloring OFF on input line 61.
+Package hyperref Info: Link coloring OFF on input line 62.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 (/usr/local/texlive/2020/texmf-dist/tex/latex/refcount/refcount.sty
@@ -372,13 +372,12 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count271
 )
-LaTeX Info: Redefining \ref on input line 61.
-LaTeX Info: Redefining \pageref on input line 61.
-LaTeX Info: Redefining \nameref on input line 61.
-(./ADAPT_CogSci22_AnonymousSubmission.out) (./ADAPT_CogSci22_AnonymousSubmissio
-n.out)
+LaTeX Info: Redefining \ref on input line 62.
+LaTeX Info: Redefining \pageref on input line 62.
+LaTeX Info: Redefining \nameref on input line 62.
+(./ADAPT_CogSci22_FinalSubmission.out) (./ADAPT_CogSci22_FinalSubmission.out)
 \@outlinefile=\write4
-\openout4 = `ADAPT_CogSci22_AnonymousSubmission.out'.
+\openout4 = `ADAPT_CogSci22_FinalSubmission.out'.
 
 (/usr/local/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -408,41 +407,37 @@ LaTeX Info: Redefining \BPBI on input line 129.
 LaTeX Info: Redefining \BHBI on input line 130.
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptmcm on input line
- 64.
+ 65.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ptmcm.fd
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
 LaTeX Font Info:    Trying to load font information for OML+ptmcm on input line
- 64.
+ 65.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/omlptmcm.fd
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+psycm on input line
- 64.
+ 65.
 (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/omxpsycm.fd
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 64.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 65.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 64.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 65.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 64.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 64.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 64.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-LaTeX Warning: No \author given.
-
-
-Underfull \vbox (badness 10000) detected at line 64
+Underfull \vbox (badness 10000) detected at line 65
  []
 
 [1{/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
@@ -453,71 +448,76 @@ Underfull \vbox (badness 10000) detected at line 64
 <figs/e1-stimuli-1.pdf, id=72, 144.54pt x 82.3075pt>
 File: figs/e1-stimuli-1.pdf Graphic file (type pdf)
 <use figs/e1-stimuli-1.pdf>
-Package pdftex.def Info: figs/e1-stimuli-1.pdf  used on input line 215.
+Package pdftex.def Info: figs/e1-stimuli-1.pdf  used on input line 216.
 (pdftex.def)             Requested size: 144.53963pt x 82.30728pt.
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 262.
-
 <figs/e1a-bar-1.pdf, id=73, 210.7875pt x 203.76125pt>
 File: figs/e1a-bar-1.pdf Graphic file (type pdf)
 <use figs/e1a-bar-1.pdf>
-Package pdftex.def Info: figs/e1a-bar-1.pdf  used on input line 264.
+Package pdftex.def Info: figs/e1a-bar-1.pdf  used on input line 266.
 (pdftex.def)             Requested size: 210.78699pt x 203.76074pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 [2 <./figs/e1-stimuli-1.pdf>]
-<figs/e1b-bar-1.pdf, id=94, 210.7875pt x 197.73875pt>
+Underfull \hbox (badness 3758) in paragraph at lines 322--335
+ []\OT1/ptm/b/n/10 Materials and Pro-ce-dure[] \OT1/ptm/m/n/10 Chil-dren were t
+ested syn-
+ []
+
+<figs/e1b-bar-1.pdf, id=93, 210.7875pt x 197.73875pt>
 File: figs/e1b-bar-1.pdf Graphic file (type pdf)
 <use figs/e1b-bar-1.pdf>
-Package pdftex.def Info: figs/e1b-bar-1.pdf  used on input line 344.
+Package pdftex.def Info: figs/e1b-bar-1.pdf  used on input line 342.
 (pdftex.def)             Requested size: 210.78699pt x 197.73827pt.
 [3 <./figs/e1a-bar-1.pdf> <./figs/e1b-bar-1.pdf>]
 <figs/e2a-bar-1.pdf, id=123, 210.7875pt x 205.76875pt>
 File: figs/e2a-bar-1.pdf Graphic file (type pdf)
 <use figs/e2a-bar-1.pdf>
-Package pdftex.def Info: figs/e2a-bar-1.pdf  used on input line 464.
+Package pdftex.def Info: figs/e2a-bar-1.pdf  used on input line 462.
 (pdftex.def)             Requested size: 210.78699pt x 205.76823pt.
-[4]
-<figs/2b-bar-1.pdf, id=136, 210.7875pt x 205.76875pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[4 <./figs/e2a-bar-1.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 509--512
+ []\OT1/ptm/b/n/10 Participants[] \OT1/ptm/m/n/10 30 5-year-old chil-dren (69.5
+% Cau-
+ []
+
+<figs/2b-bar-1.pdf, id=144, 210.7875pt x 205.76875pt>
 File: figs/2b-bar-1.pdf Graphic file (type pdf)
 <use figs/2b-bar-1.pdf>
-Package pdftex.def Info: figs/2b-bar-1.pdf  used on input line 562.
+Package pdftex.def Info: figs/2b-bar-1.pdf  used on input line 560.
 (pdftex.def)             Requested size: 210.78699pt x 205.76823pt.
-[5 <./figs/e2a-bar-1.pdf> <./figs/2b-bar-1.pdf>] [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 757.
+[5 <./figs/2b-bar-1.pdf>] [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 755.
 [7
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 757.
-(./ADAPT_CogSci22_AnonymousSubmission.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 757.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 757.
-Package rerunfilecheck Info: File `ADAPT_CogSci22_AnonymousSubmission.out' has 
-not changed.
-(rerunfilecheck)             Checksum: 97AF2452639B8D4331A39C4CEB477C8F;847.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 757.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 755.
+(./ADAPT_CogSci22_FinalSubmission.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 755.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 755.
+Package rerunfilecheck Info: File `ADAPT_CogSci22_FinalSubmission.out' has not 
+changed.
+(rerunfilecheck)             Checksum: 0C7956F927A2008C2620571CFBEBAC48;848.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 755.
  ) 
 Here is how much of TeX's memory you used:
- 8672 strings out of 480608
- 131782 string characters out of 5903631
- 396241 words of memory out of 5000000
- 24327 multiletter control sequences out of 15000+600000
- 556753 words of font info for 69 fonts, out of 8000000 for 9000
+ 8668 strings out of 480608
+ 131667 string characters out of 5903631
+ 397381 words of memory out of 5000000
+ 24323 multiletter control sequences out of 15000+600000
+ 555897 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,42p,249b,325s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,10n,42p,468b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
-xlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/20
-20/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2020/texmf-di
-st/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/t
-ype1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/t
-imes/utmri8a.pfb>
-Output written on ADAPT_CogSci22_AnonymousSubmission.pdf (7 pages, 261246 bytes
-).
+exlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2
+020/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2020/texmf-d
+ist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/
+type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/
+times/utmri8a.pfb>
+Output written on ADAPT_CogSci22_FinalSubmission.pdf (7 pages, 259055 bytes).
 PDF statistics:
- 238 PDF objects out of 1000 (max. 8388607)
- 204 compressed objects within 3 object streams
- 77 named destinations out of 1000 (max. 500000)
+ 236 PDF objects out of 1000 (max. 8388607)
+ 203 compressed objects within 3 object streams
+ 78 named destinations out of 1000 (max. 500000)
  146 words of extra memory for PDF output out of 10000 (max. 10000000)
 

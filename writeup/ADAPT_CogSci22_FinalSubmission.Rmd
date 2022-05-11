@@ -1,10 +1,13 @@
 ---
 title: "Selection of goal-consistent acoustic environments by adults and preschool-aged children"
-subtitle: "Rondeline M. Williams and Michael C. Frank"
-affilitation: "Department of Psychology, Stanford University, Stanford, CA 94305"
 bibliography: library.bib
 csl: apa6.csl
 document-params: "10pt, letterpaper"
+
+author-information: >
+   \author{\bf Rondeline M. Williams (rondeline.williams@stanford.edu) \and Michael C. Frank (mcfrank@stanford.edu)
+   \\ Department of Psychology, Stanford University, Stanford, CA 94305 USA}
+   
 abstract: >
     Children are navigating a world with massive amounts of auditory input, sometimes relevant while other times purely noise, and must somehow make sense of it all. The early auditory environment is critical for speech perception and recognition, auditory discrimination, and word learning, all of which support language outcomes. What strategies do children use to learn in noisy environments? One potential strategy is environmental selection, which allows children to seek environments that align with particular goals. In the current paper, we examined whether children and adults make decisions about their environments by integrating auditory information and goal-states. While 3- and 4-year olds struggle with discrmininating the level of noise in noisy speech streams (and likely do not use this information for environmental selection), 5-year-old children and adults can. Further, we show initial evidence that they can use this information to reason about acoustic environments that are consistent with specific goals. 
     
@@ -134,8 +137,7 @@ Participants viewed two videos per trial, for a total of five trials. Importantl
 
 ## Results and Discussion
 
-```{r e1a-bar, fig.pos = "t", fig.align='center', fig.cap="Results from Experiment 1a. Proportion of responses correctly indicating the stimuli with the greatest sound pressure level. Participants were presented with a binary choice and had a 50% chance of correctly responding. SNR levels on the x-axis ranged from (left to right) 5, 10, 15, 20, and 25dB. Error bars show 95\\% confidence intervals."}
-
+```{r e1a-bar, fig.pos = "t", fig.align='center', fig.cap= "Results from Experiment 1a. Proportion of responses correctly indicating the stimuli with the greatest sound pressure level. Participants were presented with a binary choice and had a 50\\% chance of correctly responding. SNR levels on the x-axis ranged from (left to right) 5, 10, 15, 20, and 25dB. Error bars show 95\\% confidence intervals."}
 ## Calculate confidence intervals
 cidata_1a <- completedata_1a %>%
   group_by(snr) %>%
@@ -175,7 +177,6 @@ saveRDS(summary_1a, here("writeup/models","summary_1a.Rds"))
 ```{r e1-stats-load}
 summary_1a <- readRDS(here("writeup/models","summary_1a.Rds"))
 ```
-
 Given prior data, we expected that across SNR levels, adults would correctly identify relative differences in the auditory environments presented in this experiment (which served primarily as a comparison for Experiment 1b with children). We preregistered [https://osf.io/tqay9] a Bayesian mixed-effects logistic regression predicting correct responding as a function of SNR, with a maximal random effect structure (random slopes by SNR and a random intercept by participant). SNR level was centered at 15 dB. In this and subsequent models, we used the package default of weakly informative priors (normal distributions on coefficients with SD=2.5, scaled to predictor magnitudes).
 
 On average, adults were above chance across all five SNR levels (intercept: $\beta$ = `r round(summary_1a[1,][["mean"]],2)`, 95% Crl = [`r round(summary_1a[1,][["2.5%"]],2)` - `r round(summary_1a[1,][["97.5%"]],2)`]), and there was a modest effect of SNR on performance (intercept: $\beta$ = `r round(summary_1a[2,][["mean"]],2)`, 95% Crl = [`r round(summary_1a[2,][["2.5%"]],2)` - `r round(summary_1a[2,][["97.5%"]],2)`]). Data are shown in Figure 2.
