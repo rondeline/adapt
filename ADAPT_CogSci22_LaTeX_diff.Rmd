@@ -1,4 +1,7 @@
 % Template for Cogsci submission with R Markdown
+%DIF LATEXDIFF DIFFERENCE FILE
+
+
 
 % Stuff changed from original Markdown PLOS Template
 \documentclass[10pt, letterpaper]{article}
@@ -57,6 +60,74 @@ preschool-aged children}
 
 
 
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newenvironment{CSLReferences}%
+  {}%
+  {\par}
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFaddtex}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdeltex}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF HYPERREF PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{\texorpdfstring{\DIFaddtex{#1}}{#1}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{\texorpdfstring{\DIFdeltex{#1}}{}} %DIF PREAMBLE
+\newcommand{\DIFscaledelfig}{0.5}
+%DIF HIGHLIGHTGRAPHICS PREAMBLE %DIF PREAMBLE
+\RequirePackage{settobox} %DIF PREAMBLE
+\RequirePackage{letltxmacro} %DIF PREAMBLE
+\newsavebox{\DIFdelgraphicsbox} %DIF PREAMBLE
+\newlength{\DIFdelgraphicswidth} %DIF PREAMBLE
+\newlength{\DIFdelgraphicsheight} %DIF PREAMBLE
+% store original definition of \includegraphics %DIF PREAMBLE
+\LetLtxMacro{\DIFOincludegraphics}{\includegraphics} %DIF PREAMBLE
+\newcommand{\DIFaddincludegraphics}[2][]{{\color{blue}\fbox{\DIFOincludegraphics[#1]{#2}}}} %DIF PREAMBLE
+\newcommand{\DIFdelincludegraphics}[2][]{% %DIF PREAMBLE
+\sbox{\DIFdelgraphicsbox}{\DIFOincludegraphics[#1]{#2}}% %DIF PREAMBLE
+\settoboxwidth{\DIFdelgraphicswidth}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\settoboxtotalheight{\DIFdelgraphicsheight}{\DIFdelgraphicsbox} %DIF PREAMBLE
+\scalebox{\DIFscaledelfig}{% %DIF PREAMBLE
+\parbox[b]{\DIFdelgraphicswidth}{\usebox{\DIFdelgraphicsbox}\\[-\baselineskip] \rule{\DIFdelgraphicswidth}{0em}}\llap{\resizebox{\DIFdelgraphicswidth}{\DIFdelgraphicsheight}{% %DIF PREAMBLE
+\setlength{\unitlength}{\DIFdelgraphicswidth}% %DIF PREAMBLE
+\begin{picture}(1,1)% %DIF PREAMBLE
+\thicklines\linethickness{2pt} %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\framebox(1,1){}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,0){\line( 1,1){1}}}% %DIF PREAMBLE
+{\color[rgb]{1,0,0}\put(0,1){\line(1,-1){1}}}% %DIF PREAMBLE
+\end{picture}% %DIF PREAMBLE
+}\hspace*{3pt}}} %DIF PREAMBLE
+} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbegin}{\DIFaddbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddend}{\DIFaddend} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbegin}{\DIFdelbegin} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelend}{\DIFdelend} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbegin}{\DIFOaddbegin \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbegin}{\DIFOdelbegin \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelend}{\DIFOaddend \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddbeginFL}{\DIFaddbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOaddendFL}{\DIFaddendFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelbeginFL}{\DIFdelbeginFL} %DIF PREAMBLE
+\LetLtxMacro{\DIFOdelendFL}{\DIFdelendFL} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddbeginFL}{\DIFOaddbeginFL \let\includegraphics\DIFaddincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFaddendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelbeginFL}{\DIFOdelbeginFL \let\includegraphics\DIFdelincludegraphics} %DIF PREAMBLE
+\DeclareRobustCommand{\DIFdelendFL}{\DIFOaddendFL \let\includegraphics\DIFOincludegraphics} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
 
 \begin{document}
 
@@ -101,7 +172,7 @@ More than 20 million children living in the United States are exposed to
 dangerous noise levels daily, and 5 million of those children suffer
 from noise-induced hearing loss as a result (Viet, Dellarco, Dearborn,
 \& Neitzel, 2014). Unfortunately, children of color living in urban
-regions are over-represented in these numbers (Casey et al., 2017).
+regions are overrepresented in these numbers (Casey et al., 2017).
 Chronic exposure to noise has been correlated with poorer reading
 performance, reduced short term and episodic memory, and smaller
 expressive vocabularies in elementary school children (Clark, Sörqvist,
@@ -168,19 +239,14 @@ Previous research has consistently shown that adults can discriminate
 when two different sounds are at or below 5db apart, and children as
 young as four perform similarly to adults in discriminating contrasts as
 low as 5db (Jensen \& Neff, 1993). However, the stimuli commonly used to
-measure intensity discrimination tend to be short tonal bursts. These
-differ considerably from children's real-world auditory experiences,
-which are not always transient and can reflect more sustained noise.
-Additionally, noise exposure is not limited to non-speech noise (e.g.,
-white noise). Multi-talker noise is one initial example of a kind of
-noise that occurs in children's natural environments and that has been
-used across other studies as a more ecological noise stimulus (Fallon,
-Trehub, \& Schneider, 2000; McMillan \& Saffran, 2016). Thus, in our
-first experiment, we aimed to build on previous discrimination studies
-by creating a intensity discrimination and preference paradigm that used
-longer audio streams (up to 25s) and naturalistic multi-talker noise.
-This experiment (and its counterpart with children, Experiment 1b) sets
-the stage for further experiments on environmental selection.
+measure auditory (or intensity) discrimination tend to be short tonal
+bursts. These differ considerably from children's real-world auditory
+experiences, which are not always transient and can reflect more
+sustained noise. Additionally, noise exposure is not limited to
+non-speech noise (e.g., white noise). Thus, in our first experiment, we
+aimed to build on previous discrimination studies by creating a noise
+discrimination and preference paradigm that used longer audio streams
+(up to 25s) and naturalistic multi-talker noise.
 
 \hypertarget{methods}{%
 \subsection{Methods}\label{methods}}
@@ -192,12 +258,9 @@ A total of 40 adults (mean age = 27.68 years; 52.5\% Caucasian/White)
 living in the United States at the time of test were recruited to
 participate via the online platform Prolific. Testing was restricted to
 a laptop, desktop, or tablet. All participants were fluent in English
-and had no severe visual or cognitive impairments. To preserve the
-quality of the data, participants also completed two attention check
-questions and were excluded if they failed one or more of the attention
-checks. For this reason, an additional 6 participants were excluded from
-analysis. Informed consent was collected from each participant before
-the experiment began.
+and had no severe visual or cognitive impairments. For this reason, an
+additional 6 participants were excluded from analysis. Informed consent
+was collected from each participant before the experiment began.
 
 \hypertarget{materials-and-procedure}{%
 \subsubsection{Materials and Procedure}\label{materials-and-procedure}}
@@ -236,12 +299,11 @@ videos for each trial differed from each other in noise level by
 classroom was the louder of the two. To ensure that participants
 understood the referent of the question, we also asked at the end of the
 experiment whether the term ``louder'' referred to the loudness of the
-speaker or the loudness of the background noise and the majority of
-participants -- 33/40 -- indicated the background noise. Additionally,
-to reduce participant inattention in the data, we included two attention
-check questions and excluded participants who answered at least one
-question incorrectly. SNR levels of each classroom were counterbalanced
-across trials and conditions.
+speaker or the loudness of the background noise. Additionally, to reduce
+participant inattention in the data, we included two attention check
+questions and excluded participants who answered at least one question
+incorrectly. SNR levels of each classroom were counterbalanced across
+trials and conditions.
 
 \hypertarget{results-and-discussion}{%
 \subsection{Results and Discussion}\label{results-and-discussion}}
@@ -260,14 +322,13 @@ across trials and conditions.
 Given prior data, we expected that across SNR levels, adults would
 correctly identify relative differences in the auditory environments
 presented in this experiment (which served primarily as a comparison for
-Experiment 1b with children). We preregistered
-{[}\url{https://osf.io/tqay9}{]} a Bayesian mixed-effects logistic
-regression predicting correct responding as a function of SNR, with a
-maximal random effect structure (random slopes by SNR and a random
-intercept by participant). SNR level was centered at 15 dB. In this and
-subsequent models, we used the package default of weakly informative
-priors (normal distributions on coefficients with SD=2.5, scaled to
-predictor magnitudes).
+Experiment 1b with children). We preregistered {[}OSF link removed for
+anonymous submission{]} a Bayesian mixed-effects logistic regression
+predicting correct responding as a function of SNR, with a maximal
+random effect structure (random slopes by SNR and a random intercept by
+participant). SNR level was centered at 15 dB. In this and subsequent
+models, we used default weakly informative priors (normal distributions
+on coefficients with SD=2.5, scaled to predictor magnitudes).
 
 On average, adults were above chance across all five SNR levels
 (intercept: \(\beta\) = 2.15, 95\% Crl = {[}1.66 - 2.88{]}), and there
@@ -293,11 +354,11 @@ In Experiment 1b, we reran the same experiment with
 \hypertarget{participants-1}{%
 \subsubsection{Participants}\label{participants-1}}
 
-36 children (mean age = 4 years, 12 children per age group, 41.7\%
-Caucasian/White) completed the same task as adults in Experiment 1a with
-a few notable differences. An additional 7 children were ultimately
-excluded from analysis because their caregivers indicated they heard
-English less than 75\% of the time.
+36 children (mean age = 4 years, 41.7\% Caucasian/White) completed the
+same task as adults in Experiment 1a with a few notable differences. An
+additional 7 children were ultimately excluded from analysis because
+their caregivers indicated they heard English less than 75\% of the
+time.
 
 \hypertarget{materials-and-procedure-1}{%
 \subsubsection{Materials and
@@ -313,8 +374,8 @@ the age range of interest, the experiment was presented strictly though
 images and videos, and the research assistant verbally explained each
 slide to the children. Between trials, children were rewarded with
 virtual gold stars, which also served to pace the experiment and to
-maintain engagement. Unlike adults, children were not asked to identify
-whether the speaker or the background was the referent of ``louder.''
+maintain engagement. Finally, children were not asked to identify the
+referent of the question.
 
 \hypertarget{results-and-discussion-1}{%
 \subsection{Results and Discussion}\label{results-and-discussion-1}}
@@ -402,7 +463,7 @@ Zerpie, a language he doesn't speak. Ryan wants to learn Zerpie so he
 can communicate with Logan.
 
 In each of the eight trials, participants watched a video in which Ryan
-stood in between two closed doors labeled ``A'' and ``B'', respectively.
+stood in between two closed doors labeled ``A'' and ``B,'' respectively.
 Before the video began, participants were told to watch and listen
 carefully to decide which of the two rooms Ryan should go to in order to
 complete his goal.
@@ -416,16 +477,14 @@ information provided by the character who opened the door. Each
 character's voice was equalized to 65dB and, unlike in Experiment 1, all
 characters shared the same voice. All characters except Ryan were
 preschool girls but differed in appearance. The same background noise in
-Experiment 1 was used for the current experiment. For each trial, the
-difference in SNR between the two rooms was randomly selected to be
-either 5, 10, 15, 20, or 25dB such that on average participants heard a
-range of smaller and larger intensity differences.
+Experiment 1 was used for the current experiment, and the difference in
+SNR between the two rooms was 5--25dB.
 
 During the video, each character would open their respective door
 beginning with Room A. The character in Room A always said, ``You can
-{[}goal{]} in this room'', while the character in Room B always said,
+{[}goal{]} in this room,'' while the character in Room B always said,
 ``Or you can {[}goal{]} in this room.'' While the room on the left was
-always labeled ``A'' and the room on the right was always labeled ``B'',
+always labeled ``A'' and the room on the right was always labeled ``B,''
 the characters from and sound levels of each room, as well as goal order
 were counterbalanced across conditions.
 
@@ -452,19 +511,18 @@ responses for the louder room were given a 0.
 
 We expected that adults would select the quieter room when the goal was
 (1) to read a book, (2) to learn the new language called Zerpie, and (3)
-to learn the letters of the alphabet. We were uncertain but thought that
-some adults might be more likely to select the louder room when the goal
-was (1) to dance to his favorite music, (2) to talk to a friend, and (3)
-to build a tower out of blocks because these are more social activities
-and louder rooms might imply more people being present. Additionally, we
-expected participants to have no sound level preference for (1) eating
-lunch and (2) painting a picture because the goals are unconnected with
-the auditory environment.
+to learn the letters of the alphabet, but would be more likely to select
+the louder room when the goal was (1) to dance to his favorite music,
+(2) to talk to a friend, and (3) to build a tower out of blocks.
+Additionally, we expected participants to have no sound level preference
+for (1) eating lunch and (2) painting a picture. This is because the
+latter two activities might be more ambiguous in the degree to which a
+relatively quieter or louder environment supports or hinders the goal.
 
-As in Experiments 1a and 1b, we preregistered
-{[}\url{https://osf.io/hjqys}{]} a Bayesian mixed-effects logistic
-regression predicting environmental preference as a function of activity
-type. Figure 4 depicts adult participants' preferences for quieter
+As in Experiments 1a and 1b, we preregistered {[}OSF link removed for
+anonymous submission{]} a Bayesian mixed-effects logistic regression
+predicting environmental preference as a function of activity type.
+Figure 4 depicts adult participants' preferences for quieter
 environments based on the chosen activity. Coefficients for the read,
 learn, Zerpie, paint, and dance activities all had 95\% credible
 intervals that did not overlap with zero. Interestingly, only for the
@@ -493,14 +551,13 @@ with 5-year-olds only.
 version of Experiment 2a to both prevent testing fatigue and to maximize
 any response differences based on the presented goals.
 
-Participants were initially recruited and tested at a local Bay Area
-preschool but due to COVID restrictions, recruitment moved exclusively
-online. In total, 8 participants were tested in-person and 22 were
-tested online. The in-person testing was conducted with both caregiver
-consent and participant assent. As with the online testing, participants
-were included only if they heard English at home at least 75\% of the
-time and had no known cognitive, visual, or neurological impairments,
-which led to an exclusion of an additional 8 children.
+We tested children on the Zoom platform and also recruited a small group
+of children at a local preschool. The in-person testing was conducted
+with both caregiver consent and participant assent. As with the online
+testing, participants were included only if they heard English at home
+at least 75\% of the time and had no known cognitive, visual, or
+neurological impairments, which led to an exclusion of an additional 8
+children.
 
 \hypertarget{materials-and-procedure-3}{%
 \subsubsection{Materials and
@@ -515,7 +572,7 @@ differences of 25dB because there were no differences in performance
 across SNR levels in Experiment 1b.
 
 Rooms and characters depicted in the videos remained consistent with
-Experiment 2a, with one exception: the room labels, ``A'' and ``B'',
+Experiment 2a, with one exception: the room labels, ``A'' and ``B,''
 were replaced with one black circle for Room 1 and two black circles for
 Room 2. This change was implemented after finding that several
 participants in the pilot study seemed to favor the letter A over B, and
@@ -559,28 +616,20 @@ could not individually be differentiated from those for the read
 activity. Overall, children appeared to have a preference for the
 quieter room across activities.
 
-Children's preference across activities appeared different from those of
-adults. For example, adults strongly preferred to learn in a quiet room
-while children had numerically the lowest quiet preference for the
-learning activity. We speculate that children's associations with these
-activities may differ from those of adults: for example, many children
-may think of learning as something to be done in a noisy classroom
-setting.
-
-As an exploratory analysis, we asked whether the inclusion of activity
-predictors as a whole improved model fit over an intercept-only model by
-using bridge sampling to compare between models with and without
-activity as a predictor. This comparison revealed a Bayes Factor of
-27.64 in favor of the activity model, suggesting that as a whole these
-predictors did substantially improve model fit and hence children showed
-some sensitivity to goal in their room selections, despite their bias
-for the quieter room.
+As an exploratory analysis, we asked whether the inclusion of other
+activity predictors as a whole improved model fit by using bridge
+sampling to compare between models with and without activity as a
+predictor. This comparison revealed a Bayes Factor of 27.64 in favor of
+the activity model, suggesting that as a whole these predictors did
+substantially improve model fit and hence children showed some
+sensitivity to goal in their room selections, despite their bias for the
+quieter room.
 
 \hypertarget{general-discussion}{%
 \section{General Discussion}\label{general-discussion}}
 
 We asked here whether adults and children can reason about how acoustic
-noise changes their environment. We found that both 5-year-old children
+noise changes the environment. We found that both 5-year-old children
 and adults could discriminate noise levels differing by 5dB in long-form
 auditory stimuli. On the other hand, 3- and 4-year-old children were
 unable to do so. We then asked whether 5-year-olds and adults would
@@ -592,23 +641,24 @@ overall but showed initial evidence that they differentiated between
 activities as well.
 
 In other research, children in the age ranges we studied show evidence
-that they learn actively (Ruggeri et al., 2019; Xu, 2019), pursue ways
-to reduce uncertainty when faced with a possible reward (Feldstein \&
-Witryol, 1971), and search for additional information on a particular
-topic when their intuitive theories are less informative (Wang, Yang,
-Macias, \& Bonawitz, 2021). Yet we found that younger children struggled
-even to differentiate environments with different levels of noise, and
-even 5-year-olds showed only modest sensitivity to the congruence
-between acoustic environments and goals. Each of these tasks may have
-been challenging for children for reasons unrelated to their sensitivity
-to the underlying constructs, however. The discrimination task required
-encoding and comparing noise levels across two different 25s videos,
-which might have been challenging for reasons of attention and memory.
-And the environmental selection task required noticing that the rooms
-differed in noise levels and encoding their noise levels as well as
-associating different noise levels with particular activities. Thus, in
-future work we intend to explore simpler and more naturalistic paradigms
-for evaluating children's environmental selection abilities.
+that they learn actively (Ruggeri, Swaboda, Sim, \& Gopnik, 2019; Xu,
+2019), pursue ways to reduce uncertainty when faced with a possible
+reward (Feldstein \& Witryol, 1971), and search for additional
+information on a particular topic when their intuitive theories are less
+informative (Wang, Yang, Macias, \& Bonawitz, 2021). Yet we found that
+younger children struggled even to differentiate environments with
+different levels of noise, and even 5-year-olds showed only modest
+sensitivity to the congruence between acoustic environments and goals.
+Each of these tasks may have been challenging for children for reasons
+unrelated to their sensitivity to the underlying constructs, however.
+The discrimination task required encoding and comparing noise levels
+across two different 25s videos, which might have been challenging for
+reasons of attention and memory. And the environmental selection task
+required noticing that the rooms differed in noise levels and encoding
+their noise levels as well as associating different noise levels with
+particular activities. Thus, in future work we intend to explore simpler
+and more naturalistic paradigms for evaluating children's environmental
+selection abilities.
 
 There are several further limitations that point the way towards new
 experiments. First, our research relied on convenience samples and so
@@ -617,12 +667,10 @@ populations. Second, the paradigm used third-party scenarios where
 participants assisted someone else with achieving certain goals; it is
 still unknown whether children would make similar decisions if they
 themselves were given goals to complete. Finally, there is a possibility
-that participants' familiarity with the context of particular activities
-(e.g., that they have typically danced in a noisy preschool classroom)
-influenced their environmental preferences. Future work should explore
-novel activities where participants cannot rely on their current
-knowledge about which auditory environments are most optimal for each
-activity.
+that familiarity influenced participants' environmental preferences.
+Future work should explore novel activities where participants cannot
+rely on their current knowledge about which auditory environments are
+most optimal for each activity.
 
 By understanding the strategies children use to learn in noisy auditory
 environments, we might offer better solutions for those exposed to
@@ -637,6 +685,11 @@ Investigating how children learn in noise will ultimately bring us
 closer to understanding how children can thrive across a wide range of
 environments.
 
+\hypertarget{acknowledgements}{%
+\section{Acknowledgements}\label{acknowledgements}}
+
+Removed for anonymous submission.
+
 \hypertarget{references}{%
 \section{References}\label{references}}
 
@@ -646,6 +699,7 @@ environments.
 \noindent
 
 \hypertarget{refs}{}
+\begin{CSLReferences}{1}{0}
 \leavevmode\hypertarget{ref-bjorklund1990}{}%
 Bjorklund, D. F., \& Harnishfeger, K. K. (1990). The resources construct
 in cognitive development: Diverse sources of evidence and a theory of
@@ -679,11 +733,6 @@ Erickson, L. C., \& Newman, R. S. (2017). Influences of background noise
 on infants and children. \emph{Current Directions in Psychological
 Science}, \emph{26}(5), 451--457.
 
-\leavevmode\hypertarget{ref-fallon2000}{}%
-Fallon, M., Trehub, S. E., \& Schneider, B. A. (2000). Children's
-perception of speech in multitalker babble. \emph{The Journal of the
-Acoustical Society of America}, \emph{108}(6), 3023--3029.
-
 \leavevmode\hypertarget{ref-feldstein1971}{}%
 Feldstein, J. H., \& Witryol, S. L. (1971). The incentive value of
 uncertainty reduction for children. \emph{Child Development}, 793--804.
@@ -700,11 +749,6 @@ discrimination in preschool children. \emph{Psychological Science},
 Klatte, M., Bergström, K., \& Lachmann, T. (2013). Does noise affect
 learning? A short review on noise effects on cognitive performance in
 children. \emph{Frontiers in Psychology}, \emph{4}, 578.
-
-\leavevmode\hypertarget{ref-mcmillan2016}{}%
-McMillan, B. T., \& Saffran, J. R. (2016). Learning in complex
-environments: The effects of background speech on early word learning.
-\emph{Child Development}, \emph{87}(6), 1841--1855.
 
 \leavevmode\hypertarget{ref-riley2012}{}%
 Riley, K. G., \& McGregor, K. K. (2012). Noise hampers children's
@@ -733,6 +777,8 @@ information. \emph{Psychological Science}, \emph{32}(7), 1147--1156.
 \leavevmode\hypertarget{ref-xu2019}{}%
 Xu, F. (2019). Towards a rational constructivist theory of cognitive
 development. \emph{Psychological Review}, \emph{126}(6), 841.
+
+\end{CSLReferences}
 
 \bibliographystyle{apacite}
 
