@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  11 MAY 2022 14:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  11 MAY 2022 18:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -453,10 +453,10 @@ Package pdftex.def Info: figs/e1-stimuli-1.pdf  used on input line 216.
 <figs/e1a-bar-1.pdf, id=73, 210.7875pt x 203.76125pt>
 File: figs/e1a-bar-1.pdf Graphic file (type pdf)
 <use figs/e1a-bar-1.pdf>
-Package pdftex.def Info: figs/e1a-bar-1.pdf  used on input line 266.
+Package pdftex.def Info: figs/e1a-bar-1.pdf  used on input line 271.
 (pdftex.def)             Requested size: 210.78699pt x 203.76074pt.
 [2 <./figs/e1-stimuli-1.pdf>]
-Underfull \hbox (badness 3758) in paragraph at lines 322--335
+Underfull \hbox (badness 3758) in paragraph at lines 327--340
  []\OT1/ptm/b/n/10 Materials and Pro-ce-dure[] \OT1/ptm/m/n/10 Chil-dren were t
 ested syn-
  []
@@ -464,60 +464,57 @@ ested syn-
 <figs/e1b-bar-1.pdf, id=93, 210.7875pt x 197.73875pt>
 File: figs/e1b-bar-1.pdf Graphic file (type pdf)
 <use figs/e1b-bar-1.pdf>
-Package pdftex.def Info: figs/e1b-bar-1.pdf  used on input line 342.
+Package pdftex.def Info: figs/e1b-bar-1.pdf  used on input line 347.
 (pdftex.def)             Requested size: 210.78699pt x 197.73827pt.
 [3 <./figs/e1a-bar-1.pdf> <./figs/e1b-bar-1.pdf>]
 <figs/e2a-bar-1.pdf, id=123, 210.7875pt x 205.76875pt>
 File: figs/e2a-bar-1.pdf Graphic file (type pdf)
 <use figs/e2a-bar-1.pdf>
-Package pdftex.def Info: figs/e2a-bar-1.pdf  used on input line 462.
+Package pdftex.def Info: figs/e2a-bar-1.pdf  used on input line 467.
 (pdftex.def)             Requested size: 210.78699pt x 205.76823pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[4 <./figs/e2a-bar-1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 509--512
- []\OT1/ptm/b/n/10 Participants[] \OT1/ptm/m/n/10 30 5-year-old chil-dren (69.5
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 514--517
+ []\OT1/ptm/b/n/10 Participants[] \OT1/ptm/m/n/10 30 5-year-old chil-dren (33.3
 % Cau-
  []
 
-<figs/2b-bar-1.pdf, id=144, 210.7875pt x 205.76875pt>
+<figs/2b-bar-1.pdf, id=137, 210.7875pt x 205.76875pt>
 File: figs/2b-bar-1.pdf Graphic file (type pdf)
 <use figs/2b-bar-1.pdf>
-Package pdftex.def Info: figs/2b-bar-1.pdf  used on input line 560.
+Package pdftex.def Info: figs/2b-bar-1.pdf  used on input line 565.
 (pdftex.def)             Requested size: 210.78699pt x 205.76823pt.
-[5 <./figs/2b-bar-1.pdf>] [6]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 755.
+[5 <./figs/e2a-bar-1.pdf> <./figs/2b-bar-1.pdf>] [6]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 764.
 [7
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 755.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 764.
 (./ADAPT_CogSci22_FinalSubmission.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 755.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 755.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 764.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 764.
 Package rerunfilecheck Info: File `ADAPT_CogSci22_FinalSubmission.out' has not 
 changed.
 (rerunfilecheck)             Checksum: 0C7956F927A2008C2620571CFBEBAC48;848.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 755.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 764.
  ) 
 Here is how much of TeX's memory you used:
- 8668 strings out of 480608
- 131667 string characters out of 5903631
+ 8669 strings out of 480608
+ 131684 string characters out of 5903631
  397381 words of memory out of 5000000
  24323 multiletter control sequences out of 15000+600000
  555897 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,42p,468b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,10n,42p,469b,358s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2
 020/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2020/texmf-d
 ist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/
 type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/
 times/utmri8a.pfb>
-Output written on ADAPT_CogSci22_FinalSubmission.pdf (7 pages, 259055 bytes).
+Output written on ADAPT_CogSci22_FinalSubmission.pdf (7 pages, 259553 bytes).
 PDF statistics:
- 236 PDF objects out of 1000 (max. 8388607)
- 203 compressed objects within 3 object streams
- 78 named destinations out of 1000 (max. 500000)
+ 238 PDF objects out of 1000 (max. 8388607)
+ 205 compressed objects within 3 object streams
+ 79 named destinations out of 1000 (max. 500000)
  146 words of extra memory for PDF output out of 10000 (max. 10000000)
 
