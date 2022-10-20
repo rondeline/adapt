@@ -1,0 +1,109 @@
+---
+title: "Auditory Discrimination and Preference Tasks (ADAPT) - Study 2 Preregistration"
+author: "Rondeline M. Williams"
+date: "November 15, 2021"
+output:
+  pdf_document: default
+  html_document: default
+bibliography: /Users/rondeline/Documents/ADAPT/ADAPT/ADAPT_prereg_citations.bib
+---
+
+```{r install}
+install.packages('backports')
+install.packages('rmarkdown')
+
+install.packages('fastmap')
+```
+
+## **Study Information** 
+
+### Title
+
+Integrating auditory information and changing goals for environmental selection
+
+### Description
+
+This study explores how 5-year-old children make decisions about optimal auditory environments given changing goal states.
+
+### Contributors
+
+Rondeline M. Williams & Michael C. Frank
+
+### Affiliated Institutions
+
+Stanford University
+
+## **Design Plan**
+
+### Study Type
+
+Experiment: A researcher randomly assigns treatments to study subjects, this includes field or lab experiments. This is also known as an intervention experiment and includes randomized controlled trials.
+
+### Blinding
+
+For studies that involve human subjects, they will not know the treatment group to which they have been assigned.
+Personnel who analyze the data collected from the study are not aware of the treatment applied to any given group.
+
+### Study Design
+
+Participants will complete the experimental session in one of two ways- remotely via Zoom or in-person at a local nursery school. If completed over Zoom, the experimenter will collect consent from the caregiver to conduct and record the study before preparing the screen for remote testing (including a video and audio check). If completed in-person, all participants will have been previously consented and the experimenter will collect assent from the child piror to testing. 
+Participants will first meet a fictional character named Ryan who enjoys several activities- reading a book, building a tower out of blocks, dancing to the music, and learning the letters of the alphabet. They will then be shown a hallway with two rooms- one on the left labeled with one black circle and one on the right labeled with two black circles. The experimenter will say that there will be four more hallways that look like this one, one for each activity Ryan likes to do. At the start of the videos, one child from each room will open the door and tell Ryan that he can finish his activity in their room using the language, "You can [read a book/build a tower/dance/learn your letters] in this room." Participants will need to watch each video and listen carefully to decide which room Ryan should complete each activity. Videos were designed using Vyond Software [@VyondAnimationSoftware].
+The rooms will only be partially visible as children from each room will only open the door ~45 degrees wide. The salient difference between the rooms is the sound pressure level, as one room will have a signal-to-noise ratio (SNR) of 40dB and the other will have an SNR of 65dB, for a difference of 25dB. The background noise for each room will be actual recordings of preschool classrooms, so the rooms will either be relatively noisy or quiet. After participants watch each video, they will be asked two questions- (1) Which room should Ryan [read a book/build a tower/dance/learn his letters] in- room 1 or room 2? and (2) Why did you choose that room? Children's responses to question two will be qualitatively coded.
+
+### Randomization
+
+The four activities will be presented and counterbalanced under 4 conditions.
+
+## **Sampling Plan**
+
+### Existing Data
+
+Registration prior to creation of full dataset. 2 in-peron data points were collected prior to creation of registration. 
+
+### Data Collection Procedures
+
+Participants will be recruited through an IRB-approved online research platform. Participants will be between 5;0 years and 5;11 years at time of test, must have normal or corrected-to-normal vision, typical hearing, no reported cognitive or neurodevelopmental delays/disorders, and must be exposed to English at least 75% of the time at home.
+
+### Sample Size
+
+For study 2, we will recruit a total of 48 participants: 24 children on the Zoom platform and 24 children in person.
+
+### Sample Size Rationale
+
+We selected a sample size of 24 participants per platform given previous developmental studies run by this preregistration's authors as well as other similar developmental research.
+
+## **Variables** 
+
+### Manipulated Variables
+
+We will manipulate the order in which the sound levels are presented, such that the noisier room will either be shown first or second in the videos. The presentation order of the activities will be randomized and counterbalanced across conditions. 
+
+### Measured Variables
+
+The primary outcome measure of interest is auditory preference for the quieter or noisier room based on the activity. 
+
+## **Analysis Plan**
+
+### Statistical Models
+
+We will run the following Bayesian generalized linear model in the `rstanarm` package to determine whether preference for certain auditory environments is a function of the current activity:
+
+stan_glmer(formula = volume ~ activity *age_centered + (1 | subject_id),
+                          family = binomial,
+                          data = data)
+
+where "volume" corresponds to whether the sound level in the room is relatively noisier or quieter, "activity" corresponds to four activities presented, "age_centered" corresponds to participants' age centered on the mean to facilitate data interpretation, and "subject_id" corresponds to individual participant performance.
+
+### Inference Criteria
+
+We will use the coefficient estimates, as well as whether the credible intervals cross zero to determine whether activity type and age have significant effects on preference for particular auditory environments. 
+
+### Data Exclusion
+
+Trials with caregiver interference (caregiver points to the screen or tells the child how to respond) will be excluded. Participants who have completed fewer than three out of five trials will also be excluded from analysis.
+
+### Exploratory Analysis
+
+We have no pre-registered exploratory analyses to report. 
+
+## References 

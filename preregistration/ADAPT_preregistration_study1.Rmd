@@ -1,0 +1,102 @@
+---
+title: "Auditory Discrimination and Preference Tasks (ADAPT) - Study 1 Preregistration"
+author: "Rondeline M. Williams"
+date: "August 10, 2021"
+output:
+  pdf_document: default
+  html_document: default
+bibliography: /Users/rondeline/Documents/ADAPT/ADAPT/ADAPT_prereg_citations.bib
+---
+
+## **Study Information** 
+
+### Title
+
+Tracking the developmental trajectory of auditory discrimination in preschool-aged children
+
+### Description
+
+This study explores young children's auditory discrimination skills under changing sound levels.
+
+### Contributors
+
+Rondeline M. Williams & Michael C. Frank
+
+### Affiliated Institutions
+
+Stanford University
+
+## **Design Plan**
+
+### Study Type
+
+Experiment: A researcher randomly assigns treatments to study subjects, this includes field or lab experiments. This is also known as an intervention experiment and includes randomized controlled trials.
+
+### Blinding
+
+For studies that involve human subjects, they will not know the treatment group to which they have been assigned.
+Personnel who analyze the data collected from the study are not aware of the treatment applied to any given group.
+
+### Study Design
+
+Participants will complete the experimental session remotely via Zoom. The experimenter will collect consent from the caregiver to conduct and record the study before preparing the screen for remote testing (including a video and audio check). Participants will first be presented with verbal instructions on the task. They will be told that they will take a trip to a fictional place called "The Alphabet School" where they will watch 10 videos. Videos were designed using Vyond Software [@VyondAnimationSoftware]. Each video depicts one of the classrooms, which differ in wall color (red, green, blue, orange, purple, white, brown, gray, yellow, and pink) and letter of the alphabet (A-J). Each classroom contains one animated adult teacher (voiced by a male or female native English speaker) and five or six animated children. In each video, teachers will present one letter of the alphabet followed by three words that begin with that letter. Each word will be paired with a corresponding image. The teacher's presentation will coincide with varying levels of auditory background speech and noise, which is an audio recording of a true preschool classroom. Participants will be unable to decipher individual words from the background recording, but will be able to decipher words from the foreground speech (the teacher's voice) at varying degrees. All audio recording sound levels were standardized in using both Audacity and Praat software [@Audacity; @boersmaPraatDoingPhonetics2020a].
+The experimental session will be divided into five rounds where each round contains two videos with different degrees of signal-to-noise (SNR) ratio: 5dB-30dB in increments of 5dB. The video's SNR corresponds to the difference in sound intensity between the foreground speech (the teacher, or the signal) and the background noise (the recording from a preschool classroom, or the noise). No two videos from the same round will have an equal SNR. The difference in SNR between the two videos provides the SNR value of the round. For example, a round with videos of 5dB and 15dB SNR will equal an SNR of 10dB for that round. For each round, experimenters will introduce participants to one video at a time (average video time = 24.5s), highlighting the color of the walls ("This is the blue room! Do you see the blue walls?") to offer a visual element that distinguishes between the rooms. After participants watch both videos, experimenters will show participants side-by-side still-images of each classroom and will ask them to choose which room was louder ("Which room was louder- the red room or the green room?"). Using Keynote special effects, each image will jiggle after the experimenter says the color of the room. This process will be repeated until all five rounds are complete. Although children will not receive any feedback about their performance on each trial, responses will be recorded at the conclusion of the session. 
+
+### Randomization
+
+Each of the six SNR levels across five trials will be randomized and counterbalanced across conditions and sessions, such that four possible combinations will be presented. Trial order will be determined using a set block randomization. 
+
+## **Sampling Plan**
+
+### Existing Data
+
+Registration prior to creation of data
+
+### Data Collection Procedures
+
+Participants will be recruited through an IRB-approved online research platform. Participants will be between 3;0 years and 5;11 years at time of test, must have normal or corrected-to-normal vision, typical hearing, no reported cognitive or neurodevelopmental delays/disorders, and must be exposed to English at least 75% of the time at home.
+
+### Sample Size
+
+For study 1, we will recruit a total of 48 participants: 16 children from 3;0-3;11 years, 16 children from 4;0-4;11 years, and 16 children from 5;0-5;11 years. 
+
+### Sample Size Rationale
+
+Previous studies on auditory discrimination in young children have recruited data from 40-41 participants across all age groups with a Cohen's d of 0.952 [@mcmillanLearningComplexEnvironments2016; @jensenDevelopmentBasicAuditory1993]. The current study, however, is unique from previous research in it's increased attentional capacity and cognitive resources required to correctly identify differences in auditory discrimination. It is, therefore, unknown with complete certainty how many participants would yield an effect of adequate effect size. For this reason, we will first attempt study one on 48 participants, for which we hypothesize to see a moderate effect size (d = 0.4) or greater based on the proposed sample.  
+
+## **Variables** 
+
+### Manipulated Variables
+
+We will manipulate the intensity of the background noise (the SNR) for each of the 10 videos participants will watch. There will be five possible SNR levels across five rounds- 5dB, 10dB, 15 dB, 20dB, and 25dB. The presentation order will be randomized and counterbalanced across conditions. 
+
+### Measured Variables
+
+The primary outcome measure of interest is accuracy of auditory discrimination during the task. There will be 10 videos in total, each with individual SNRs of 5dB, 10dB, 15dB, 20dB, 25dB, or 30dB, and videos will be shown in pairs of two for each round. Participants have a 50% chance of correctly identifying the video with the lower SNR (and, therefore, the loudest background noise). The predictor variable we will measure is participant age. Participants will be 3;0 years to 5;11 years at time of test.
+
+## **Analysis Plan**
+
+### Statistical Models
+
+We will run the following Bayesian generalized linear model in the `rstanarm` package to determine whether performance on the auditory discrimination task is a function of both age and SNR:
+
+stan_glmer(formula = correct ~ age_centered * snr_centered + (snr_centered | subject_id),
+                          family = binomial,
+                          data = data)
+
+where "correct" corresponds to trials in which participants correctly identified which video had a lower SNR, "age-centered" corresponds to participants' distance in age from the sample mean, "snr_centered" corresponds to the SNR of each trial and its difference from the mean, and "subject_id" corresponds to individual participant performance. Both age and SNR will be centered to facilitate data interpretation.    
+
+### Inference Criteria
+
+We will use the coefficient estimates, as well as whether the credible intervals cross zero to determine whether age and SNR have significant effects on auditory discrimination ability in this paradigm. 
+
+### Data Exclusion
+
+Trials with caregiver interference (caregiver points to the screen or tells the child how to respond) will be excluded. Participants who have completed fewer than three out of five trials will also be excluded from analysis.
+
+### Exploratory Analysis
+
+We have no pre-registered exploratory analyses to report. 
+
+## References 
+
