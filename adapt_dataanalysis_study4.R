@@ -1,56 +1,53 @@
----
-title: "ADAPT_study3"
-author: "Rondeline M. Williams"
-date: '2022-07-15'
-output: html_document
----
-
 # Load libraries
 library(here)
 library(dplyr)
 library(janitor)
 library(stringr)
+library(forcats)
 library(rstanarm)
 library(ggplot2)
 library(ggthemes)
-library(wesanderson)
+library(RColorBrewer)
 
 ## Load data
-data_3b <- read.csv(here("data", "childrendatalog3b.csv")) #load data
+data_4b <- read.csv(here("data", "childrendatalog4b.csv")) #load data
 
 ## Tidy data
-tidydata_3b <- data_3b %>%
+tidydata_4b <- data_4b %>%
   clean_names() %>%  #lowercase column names
-  filter(arm == "Main",
+  filter(arm == "Pilot_B",
          included == "Yes") %>% #exclude pilot participants and those who could not be retained for analysis failed attention and sound checks
   select(subject_id:rationale) %>%
   na.omit()
 
 ## Remove extra spaces
-tidydata_3b$activity <- str_trim(tidydata_3b$activity)
-tidydata_3b$sound_type <- str_trim(tidydata_3b$sound_type)
-tidydata_3b$race <- str_trim(tidydata_3b$race)
-tidydata_3b$race <- str_replace(tidydata_3b$race, "$/$ ", "$/$")
+tidydata_4b$activity <- str_trim(tidydata_4b$activity)
+tidydata_4b$sound_type <- str_trim(tidydata_4b$sound_type)
+tidydata_4b$race <- str_trim(tidydata_4b$race)
+tidydata_4b$race <- str_replace(tidydata_4b$race, "$/$ ", "$/$")
 
 ## Turn response column into integers
-tidydata_3b$response <- as.integer(tidydata_3b$response)
+tidydata_4b$response <- as.integer(tidydata_4b$response)
 
 ## Scale Age
-tidydata_3b$age_centered <- scale(joineddata_2b$age_months, scale = FALSE) #age
+##tidydata_4b$age_centered <- scale(joineddata_2b$age_months, scale = FALSE) #age
 
 ## Get demographic data
-completedata_2b$age <- as.integer(completedata_2b$age) #age
-summary(completedata_2b)
+##completedata_4b$age <- as.integer(completedata_4b$age) #age
+##summary(completedata_4b)
 
-demodata_3b <- tidydata_3b %>%
+demodata_4b <- tidydata_4b %>%
   select(subject_id,race, trial) %>%
   filter(trial == 1) %>%  #get one value per participant
   mutate(race_count = ifelse((str_detect(race, ",")), "Multiracial", race)) %>% 
   count(race_count)
 
+demodata_4b
+
 ## Calculate confidence intervals
+
 ### Aggregate confidence intervals
-cidata_3b <- tidydata_3b %>%
+cidata_4b <- tidydata_4b %>%
   group_by(activity, sound_type) %>%
   summarise(ci.l = binom::binom.bayes(x = sum(response), n = n())$lower,
             ci.u = binom::binom.bayes(x = sum(response), n = n())$upper,
@@ -58,8 +55,10 @@ cidata_3b <- tidydata_3b %>%
             mean_response = mean(response)) %>% 
   mutate(activity = fct_reorder(activity, mean_response, .desc = TRUE))
 
+View(cidata_4b)
+
 ### Binned confidence intervals
-cidataage_3b <- tidydata_3b %>%
+cidataage_4b <- tidydata_4b %>%
   group_by(activity, sound_type, age_years) %>%
   summarise(ci.l = binom::binom.bayes(x = sum(response), n = n())$lower,
             ci.u = binom::binom.bayes(x = sum(response), n = n())$upper,
@@ -67,19 +66,22 @@ cidataage_3b <- tidydata_3b %>%
             mean_response = mean(response)) %>% 
   mutate(activity = fct_reorder(activity, mean_response, .desc = TRUE))
 
+View(cidataage_4b)
+
 # Data visualization and stats
+
 ## x-axis labels
-xlabels <- c("music", "5-talker", "silence", "white")
+xlabels <- c("5-talker", "music", "silence", "white")
 
 ## Aggregated Data
-ggplot(data = cidata_3b, mapping = aes(x = sound_type, y = mean_response, fill = activity)) +
+ggplot(data = cidata_4b, mapping = aes(x = sound_type, y = mean_response, fill = activity)) +
   geom_col() +
   geom_linerange(aes(ymin = ci.l,
                      ymax = ci.u)) +
   ylim(0,1) +
   xlab("Auditory Stimulus") +
   ylab("Rating") +
-  scale_fill_manual(values = wes_palette("GrandBudapest1")) +
+  scale_fill_brewer(palette="Set2") +
   scale_x_discrete(labels = xlabels) +
   facet_wrap(~activity) +
   geom_hline(yintercept = .5, lty =2) +
@@ -92,7 +94,7 @@ ggplot(data = cidata_3b, mapping = aes(x = sound_type, y = mean_response, fill =
   labs(title = "Preschool children discriminate optimal auditory environments based on goals")
 
 ## Binned Data
-ggplot(data = cidataage_3b, mapping = aes(x = sound_type, fill = as.factor(age_years))) +
+ggplot(data = cidataage_4b, mapping = aes(x = sound_type, fill = as.factor(age_years))) +
   geom_bar(aes(y = mean_response),
            position = "dodge", stat = "identity") +
   geom_linerange(aes(ymin = ci.l,
@@ -102,7 +104,7 @@ ggplot(data = cidataage_3b, mapping = aes(x = sound_type, fill = as.factor(age_y
   xlab("Auditory Stimulus") +
   ylim(0,1) +
   ylab("Rating") +
-  scale_fill_manual(values = wes_palette("GrandBudapest1")) +
+  scale_fill_brewer(palette="Set2") +
   scale_x_discrete(labels = xlabels) +
   geom_hline(yintercept = .5, lty =2) +
   theme_few() +
@@ -117,13 +119,3 @@ ggplot(data = cidataage_3b, mapping = aes(x = sound_type, fill = as.factor(age_y
         text = element_text(size = 13)) +
   labs(fill = "Age (Years)",
        title = "Sensitivity to evironmental selection increased with age")
-
-## Model
-glmer_3b <- stan_glmer(formula = response ~ sound_type * activity * age_years + (1 | subject_id),
-                       family = binomial,
-                       data = tidydata_3b)
-
-glmer_3b_summary <- summary(glmer_3b, probs = c(0.025, 0.975))
-print(glmer_3b, digits = 2)
-
-View(glmer_3b_summary)

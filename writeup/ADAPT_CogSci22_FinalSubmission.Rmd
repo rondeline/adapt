@@ -9,10 +9,10 @@ author-information: >
    \\ Department of Psychology, Stanford University, Stanford, CA 94305 USA}
    
 abstract: >
-    Children are navigating a world with massive amounts of auditory input, sometimes relevant while other times purely noise, and must somehow make sense of it all. The early auditory environment is critical for speech perception and recognition, auditory discrimination, and word learning, all of which support language outcomes. What strategies do children use to learn in noisy environments? One potential strategy is environmental selection, which allows children to seek environments that align with particular goals. In the current paper, we examined whether children and adults make decisions about their environments by integrating auditory information and goal-states. While 3- and 4-year olds struggle with discriminating the level of noise in noisy speech streams (and likely do not use this information for environmental selection), 5-year-old children and adults can. Further, we show initial evidence that they can use this information to reason about acoustic environments that are consistent with specific goals. 
+  Children are navigating a world with massive amounts of auditory input, sometimes relevant while other times purely noise, and must somehow make sense of it all. The early auditory environment is critical for speech perception and recognition, auditory discrimination, and word learning, all of which support language outcomes. What strategies do children use to learn in noisy environments? One potential strategy is environmental selection, which allows children to seek environments that align with particular goals. In the current paper, we examined whether children and adults make decisions about their environments by integrating auditory information and goal-states. While 3- and 4-year olds struggle with discriminating the level of noise in noisy speech streams (and likely do not use this information for environmental selection), 5-year-old children and adults can. Further, we show initial evidence that they can use this information to reason about acoustic environments that are consistent with specific goals. 
     
 keywords: >
-    active learning; auditory discrimination; auditory noise; cognitive development  
+  active learning; auditory discrimination; auditory noise; cognitive development  
     
 output: cogsci2016::cogsci_paper
 final-submission: \cogscifinalcopy
@@ -172,6 +172,7 @@ glmer_1a <- stan_glmer(formula = correct ~ snr_centered + (snr_centered | subjec
 summary_1a <- summary(glmer_1a, probs = c(0.025, 0.975))
 
 saveRDS(summary_1a, here("writeup/models","summary_1a.Rds"))
+
 ```
 
 ```{r e1-stats-load}

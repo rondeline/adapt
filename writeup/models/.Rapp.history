@@ -1,0 +1,2 @@
+load("/Users/rondeline/Documents/GitHub/adapt/writeup/models/summary_3b.Rds")
+load("/Users/rondeline/Documents/GitHub/adapt/writeup/models/summary_1a.Rds")

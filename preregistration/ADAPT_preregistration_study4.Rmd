@@ -1,0 +1,154 @@
+---
+title: "ADAPT_preregistration_study4"
+author: "Rondeline M. Williams"
+date: '2022-11-30'
+output:
+  pdf_document: default
+  html_document: default
+---
+
+## **Study Information** 
+
+### Title
+
+Integrating auditory information and changing goals for environmental selection
+
+### Description
+
+This study explores whether 3-5-year-old preschool children extend their use of environmental selection to novel activities. In this study, we introduced children to a pair of friends with a list of activity goals to complete in one or more rooms. We manipulated the sound type in each room and then asked children to decide whether the selected activity appropropriately matched the sound type. We hypothesize that while all children will use auditory information to evaluate activity-sound mappings, only 5-year-old children will do this consistently across activities, and that this ability is driven by both learned conventions and a desire to reach optimal outcomes where possible. The purpose of this study is to explore children's understanding of noise's differential impact on goals. 
+
+### Contributors
+
+Rondeline M. Williams & Michael C. Frank
+
+### Affiliated Institutions
+
+Stanford University
+
+## **Design Plan**
+
+### Study Type
+
+Experiment: A researcher randomly assigns treatments to study subjects, this includes field or lab experiments. This is also known as an intervention experiment and includes randomized controlled trials.
+
+### Blinding
+
+For studies that involve human subjects, they will not know the treatment group to which they have been assigned.
+
+### Study Design
+
+Participants will complete the experimental session in-person at either a local nursery school or children's museum. All participants will have been previously consented and the experimenter will collect assent from the child prior to testing. 
+
+Participants will first meet 2 3-inch plastic figures named Joe and Mandy who have a list of activities they want to complete- (1) frawing ["someone reads you a bedtime story right before you fall asleep"], (2) gobbing ["you are looking for something to do because you are really bored"], (3) plipping ["you spin around in circles to the beat until you get really dizzy"], and (4) terbing ["you don't want anyone else to know your tummy is making noises because you're hungry"]. Participants will then be shown 4 5-inch wooden houses with two other figures inside. Experimenters will open the lid on each house to show participants the two figures and explain that each house already has two people inside. The houses will be lined up and equidistant from each other on a table. Each house has a recordable button attached to the back that plays a unique sound when pressed. The sounds include (1) 5-talker babble (5TB), (2) instrumental music, (3) white noise, and (4) silence. All sounds are equalized to a root mean square (RMS) of 65 dB and are 7s long. 
+
+In this task, experimenters will move through each house by activity by opening the door and playing the sound attached to that house before asking, "Should Joe and Mandy [fraw/gobb/plip/terb] inside?" Experimenters will then ask a follow-up question, "Why did you say they [should/shouldn't]?" In total, there will be 16 trials, 4 trials for each activity x 4 trials for each sound type.
+
+### Randomization
+
+The four activities and sound types will be presented and counterbalanced under 4 conditions as documented below:
+
+Condition 1:
+Activity:
+1. Fraw
+2. Terb
+3. Gobb
+4. Plip
+Sound Type:
+1. 5TB
+2. Instrumental
+3. White
+4. Silence
+
+Condition 2:
+Activity:
+1. Plip
+2. Gobb
+3. Terb
+4. Fraw
+Sound Type:
+1. White
+2. Silence
+3. 5TB
+4. Instrumental
+
+Condition 3 (Counterbalance of Condition 1):
+Activity:
+1. Gobb
+2. Plip
+3. Fraw
+4. Terb
+Sound Type:
+1. Silence
+2. White
+3. Instrumental
+4. 5TB
+
+Condition 4: Counterbalance of Condition 2):
+Activity:
+1. Terb
+2. Fraw
+3. Plip
+4. Gobb
+Sound Type:
+1. White
+2. Silence
+3. 5TB
+4. Instrumental
+
+## **Sampling Plan**
+
+### Existing Data
+
+Registration prior to creation of full dataset.
+
+### Data Collection Procedures
+
+Participants will be recruited through an IRB-approved recruitment channel established at both a local nursery school and children's museum. Participants will be between 3;0 years and 5;11 years at time of test, must have normal or corrected-to-normal vision, typical hearing, no reported cognitive or neurodevelopmental delays/disorders, and must be exposed to English at least 75% of the time at home.
+
+### Sample Size
+
+For this study, we will recruit a total of 72 participants with replacement- 24 3 year-olds, 24 4-year-olds, and 24 5-year-olds.
+
+### Sample Size Rationale
+
+We selected a sample size of 24 participants per age group given previous developmental studies run by this preregistration's authors as well as other similar developmental research.
+
+## **Variables** 
+
+### Manipulated Variables
+
+We will manipulate the sound type/activity pairings to ask whether preschool children recognize that auditory information influences goal outcomes. In addition, the presentation order of the activities and sound types will be randomized and counterbalanced across conditions. 
+
+### Measured Variables
+
+The primary outcome measure of interest is participants' response to the question, Should Joe and Mandy [fraw/gobb/plip/terb] inside?" Given this binary, two alternative forced-choice design, each room/activity pairing carries a 50% weight on participant selection. We will also use participant age as a predictor variable, such that we measure whether age influence's participants' responses to the task. 
+
+## **Analysis Plan**
+
+### Statistical Models
+
+We will run the following Bayesian generalized linear model in the `rstanarm` package to determine whether preference for certain auditory environments is a function of the current activity:
+
+stan_glmer_aggregated(formula = choice ~ activity * sound_type + (1 | subject_id),
+                          family = binomial,
+                          data = data)
+                          
+stan_glmer_binned(formula = choice ~ activity * sound_type * age_centered + (1 | subject_id),
+                          family = binomial,
+                          data = data)
+
+where "choice" corresponds to participants' response on whether the sound type/activity pair is an appropriate match, "activity" corresponds to the four activities presented, "sound_type" corresponds to the four sound types presented,  "age_centered" corresponds to participants' age centered on the mean to facilitate data interpretation, and "subject_id" corresponds to individual participant performance.
+
+### Inference Criteria
+
+We will use the coefficient estimates, as well as whether the credible intervals cross zero to determine whether activity type and age have significant effects on preference for particular auditory environments. 
+
+### Data Exclusion
+
+Trials with caregiver interference (caregiver points to the screen or tells the child how to respond), experimenter error (e.g. large deviations from experiment script), and severe lapses in attention (e.g. looking away/being distracted for more than 50% of the total experimental session) will be excluded. 
+
+### Exploratory Analysis
+
+We have no pre-registered exploratory analyses to report. 
+
+## References 
