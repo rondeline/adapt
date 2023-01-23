@@ -3,14 +3,10 @@ title: "Active, associative, or both?: Preschool children reason about the acous
 bibliography: library.bib
 csl: apa6.csl
 document-params: "10pt, letterpaper"
-
 # author-information: >
-#    \author{\bf Rondeline M. Williams (rondeline.williams@stanford.edu) \and Michael C. Frank (mcfrank@stanford.edu)
-#    \\ Department of Psychology, Stanford University, Stanford, CA 94305 USA}
    
 abstract: >
   Despite the unpredictible and ubiquitous nature of noise in the natural environment, most children still manage to extract the linguistic, cognitive, and social skills needed to engage typically with the world around them. This is no small feat; it is still largely unknown what strategies children use to extract information from their environment in the presence of noise. One possbility is that children have learned how to reason about their acoustic context to optimize goals and goal outcomes. In Experiment 1, we presented preschool children with a set of auditory stimuli, meant to approximate various acoustic environments, and activity goals to complete within those environments. Results showed that children reliably integrated auditory information with a third-party's changing goals to optimize another person's outcomes. Experiment 2 built on this framework by replacing familiar activity goals with novel ones to assess the underlying mechanism driving children's decision-making. This time, children were still integrating across auditory information and activity goals, but did so less reliably. This suggests that [in progress].
-
 keywords: >
   active learning; associative learning; auditory noise; cognitive development; decision making
       
@@ -63,7 +59,7 @@ In our first Experiment, we evaluated preschool children's environmental selecti
 ```{r e1-data}
 
 ## Load data
-data_3b <- read.csv(here("data", "childrendatalog3b.csv"))
+data_3b <- read_csv(here("data", "childrendatalog3b.csv"))
 
 ## Tidy data
 tidydata_3b <- data_3b %>%
@@ -188,6 +184,22 @@ ggplot(data = cidataage_3b, mapping = aes(x = sound_type, fill = as.factor(age_y
 
 ```
 
+
+```{r}
+library(lme4)
+mod <- lme4::glmer(response ~ sound_type * activity  + (1|subject_id), 
+                   family = binomial, 
+                  control = glmerControl(optimizer = "bobyqa"), 
+                   data = tidydata_3b)
+mod_noint <- lme4::glmer(response ~ sound_type + activity  + (1|subject_id), 
+                   family = binomial, 
+                  control = glmerControl(optimizer = "bobyqa"), 
+                   data = tidydata_3b)
+
+anova(mod,mod_noint)
+```
+
+
 ```{r e3-stats, echo=FALSE, results="hide", eval=FALSE}
 
 glmer_3b <- stan_glmer(formula = response ~ sound_type * activity * age_years + (1 | subject_id),
@@ -225,7 +237,7 @@ To determine what might be driving children's environmental selection in particu
 ```{r e4-data}
 
 ## Load data
-data_4b <- read.csv(here("data", "childrendatalog4b.csv")) #load data
+data_4b <- read_csv(here("data", "childrendatalog4b.csv")) #load data
 
 ## Tidy data
 tidydata_4b <- data_4b %>%
@@ -337,6 +349,21 @@ ggplot(data = cidataage_4b, mapping = aes(x = sound_type, fill = as.factor(age_y
         text = element_text(size = 8)) +
   labs(fill = "Age (Years)")
 
+```
+
+
+```{r}
+library(lme4)
+mod4 <- lme4::glmer(response ~ sound_type * activity  + (1 | subject_id), 
+                   family = binomial, 
+                  control = glmerControl(optimizer = "bobyqa"), 
+                   data = tidydata_4b)
+mod4_noint <- lme4::glmer(response ~ sound_type + activity  + (1 | subject_id), 
+                   family = binomial, 
+                  control = glmerControl(optimizer = "bobyqa"), 
+                   data = tidydata_4b)
+
+anova(mod4, mod4_noint)
 ```
 
 ```{r e4-stats, results="hide", eval=FALSE}
