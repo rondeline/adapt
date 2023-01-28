@@ -186,3 +186,15 @@ summary_3a <- summary(glmer_3a, probs = c(0.025,0.975)))
 
 saveRDS(summary_3a, here())
 
+"bloy_vocal", "lorst_vocal", "fraw_vocal", "norl_vocal", "terb_vocal", "yerk_vocal", 
+"jom_vocal", "simon_vocal", "bloy_instrumental", "lorst_instrumental", "fraw_instrumental", 
+"norl_instrumental", "terb_instrumental", "yerk_instrumental", "jom_instrumental", 
+"simon_instrumental", "bloy_construction", "lorst_construction", "fraw_construction", 
+"norl_construction", "terb_construction", "yerk_construction", "jom_construction", 
+"simon_construction", "bloy_silence", "lorst_silence", "fraw_silence", "norl_silence", 
+"terb_silence", "yerk_silence", "jom_silence", "simon_silence", "bloy_white", 
+"lorst_white", "fraw_white", "norl_white", "terb_white", "yerk_white", "jom_white", 
+"simon_white", "bloy_mtb2", "lorst_mtb2", "fraw_mtb2", "norl_mtb2", "terb_mtb2", 
+"yerk_mtb2", "jom_mtb2", "simon_mtb2", "bloy_mtb5", "lorst_mtb5", "fraw_mtb5", 
+"norl_mtb5", "terb_mtb5", "yerk_mtb5", "jom_mtb5", "simon_mtb5"),
+
