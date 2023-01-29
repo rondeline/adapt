@@ -52,22 +52,9 @@
 % \textwidth 16cm
 % \textheight 21cm
 
-\title{Preschool children reason about the acoustic environment for
-third-party goal optimization}
+\title{Active? Associative?: Preschool children assess the feasibility
+of a goal based on the acoustic environment}
 
-\usepackage{booktabs}
-\usepackage{longtable}
-\usepackage{array}
-\usepackage{multirow}
-\usepackage{wrapfig}
-\usepackage{float}
-\usepackage{colortbl}
-\usepackage{pdflscape}
-\usepackage{tabu}
-\usepackage{threeparttable}
-\usepackage{threeparttablex}
-\usepackage[normalem]{ulem}
-\usepackage{makecell}
 
 
 \newlength{\cslhangindent}
@@ -94,10 +81,8 @@ and activity goals to complete within those environments. Results showed
 that children reliably integrated auditory information with a
 third-party's changing goals to optimize another person's outcomes.
 Experiment 2 built on this framework by replacing familiar activity
-goals with novel ones to assess the underlying mechanism driving
-children's decision-making. This time, children were still integrating
-across auditory information and activity goals, but did so less
-reliably. This suggests that {[}in progress{]}.
+goals with novel ones to assess the flexibility of children's
+decision-making, and offers some preliminary findings.
 
 \textbf{Keywords:}
 active learning; associative learning; auditory noise; cognitive
@@ -332,7 +317,7 @@ We asked participants two questions which served as our DVs: (1)
 
 }
 
-\caption[Results from Experiment 1]{Results from Experiment 1. Participants' rating of the appropriateness of an auditory stimulus by activity. Individual bars correspond to one age bin of 3, 4, or 5. A rating score of 0 indicates a rejection of the pairing [Joe and Mandy should not complete a particular activity in this environment] while a score of 1 indicates an affirmation of the pairing [Joe and Mandy should complete a particular activity in this environment]. A 2-alternative forced choice design resulted in no preference at 50\%.  Error bars show 95\% confidence intervals.}\label{fig:e3b-bar}
+\caption[Results from Experiment 1]{Results from Experiment 1. Participants' rating of the appropriateness of an auditory stimulus and activity pairing. Individual bars correspond to one age bin of 3, 4, or 5. A rating score of 0 indicates a rejection of the pairing [Joe and Mandy should not complete a particular activity in this environment] while a score of 1 indicates an affirmation of the pairing [Joe and Mandy should complete a particular activity in this environment]. A 2-alternative forced choice design resulted in no preference at 50\%.  Error bars show 95\% confidence intervals.}\label{fig:e3b-bar}
 \end{figure*}
 \end{CodeChunk}
 
@@ -348,16 +333,11 @@ Ali, \& Brilleman, 2020). In this and subsequent models, we used the
 package default of weakly informative priors (normal distributions on
 coefficients with SD=2.5, scaled to predictor magnitudes).
 
-On average, preschool children showed clear preferences for certain
-environment-activity pairings (intercept: \(\beta\) = 4.67, 95\% Crl =
-{[}1.71 - 7.67{]}). And although there was no aggregated effect of age
-on preference (intercept: \(\beta\) = -0.5, 95\% Crl = {[}-1.22 -
-0.21{]}), there were age effects on preference under 5-talker babble
-(intercept: \(\beta\) = -1.61, 95\% Crl = {[}-2.62 - -0.64{]}), as well
-as interactions between (1) the 5-talker babble-talk activity pairing
-and age (intercept: \(\beta\) = 1.96, 95\% Crl = {[}0.64 - 3.25{]}) and
-(2) the silence-sleep activity pairing and age (intercept: \(\beta\) =
-1.56, 95\% Crl = {[}0.29 - 2.87{]}). Figure 2 summarizes this data.
+Figure 2 depicts children's activity-auditory pairings by age. We
+compared our model {[}activity and auditory stimulus as interactions{]}
+with a model with no interaction terms. A one-way ANOVA found that, on
+average, the interaction terms better predicted children's responses
+during the task {[}\(X^2\)(9) = 165.23, p \textless{} 0.001{]}.
 
 These findings suggest that across the preschool years, children are
 evaluating the acoustic environments to make decisions about third-party
@@ -459,7 +439,7 @@ We asked participants two questions which served as our DVs: (1)
 
 }
 
-\caption[Results from Experiment 2]{Results from Experiment 2. Participants' rating of the appropriateness of an auditory stimulus by activity. Individual bars correspond to one age bin of 3, 4, or 5. A rating score of 0 indicates a rejection of the pairing [Joe and Mandy should not complete a particular activity in this environment] while a score of 1 indicates an affirmation of the pairing [Joe and Mandy should complete a particular activity in this environment]. A 2-alternative forced choice design resulted in no preference at 50\%.}\label{fig:e4b-bar}
+\caption[Results from Experiment 2]{Results from Experiment 2. Data is collapsed acrossed age.}\label{fig:e4b-bar}
 \end{figure*}
 \end{CodeChunk}
 
@@ -471,10 +451,14 @@ activities with any particular acoustic context. If, however, children
 can reason flexibly about how the acoustic environment influences goal
 optimization and outcomes, we should expect that children show clear
 preferences for acoustic contexts even with activities they have never
-actually encountered. We preregistered {[}retracted{]} the same Bayesian
-mixed-effects logistic regression as in Experiment 1 predicting
-environmental preference as a function of auditory stimuli, activity,
-and age.
+actually encountered.
+
+Data collection for Experiment 2 is ongoing, so we present a subset
+{[}20 of the preregistered 72-participant sample{]} of the data for
+preliminary analysis. Our model with an interaction between activity and
+auditory stimulus was not different from a model with no interaction
+term {[}\(X^2\)(9) = 12.38, p = 0.193{]}. Figure 3 shows the aggregated
+data across all participants.
 
 \hypertarget{general-discussion}{%
 \section{General Discussion}\label{general-discussion}}
@@ -484,32 +468,46 @@ about their acoustic environments. To this end, we asked if children
 engage in environmental selection for goal optimization. In Experiment
 1, we found that across the preschool years, children can reliably
 evaluate the acoustic environment to inform their decisions about
-third-party goals. In Experiment 2, we asked what underlying mechanism
-might be driving this ability by asking children to reason about novel
-activities. Results showed that {[}in progress{]}
+third-party goals. In Experiment 2, we asked whether children are
+primarily relying on associations or on active learning when assessing
+activity feasibility by asking them to reason about novel activities.
+Preliminary results show a trend in children's flexibility on this task,
+in that they can reason about activities they have not previously
+encountered.
 
-In some unpublished work where we asked adults to reason about the links
-between a larger set of novel activities and acoustic environments than
-were presented to children in Experiment 2, we found that adults
-reliably paired these novel activities with particular acoustic
-environments despite having never encountered these activities before
-(intercept: \(\beta\) = 4.82, 95\% Crl = {[}4.23 - 5.38{]}).
+These findings support the notion that young children are attuned to
+environmental features and can integrate this information for
+decision-making related to optimizing goals. That learning is situated
+in an imperfect and often messy environment is all the more reason why
+strategic exploration matters. If you can identify what is best learned
+in a particular environment given the acoustic constraints, you might
+both maximize your efficiency and reduce uncertainty, which bolsters
+skills building. Environmental selection offers a window into reasoning
+about the acoustic context, and it highlights the value of active
+learning in early childhood. Perhaps most advantageous, active learning
+seems to be flexible, and supports children's exploration across a range
+of experiences.
 
 This work is not without its limitations, which fuel our future
-directions. In this set of experiments, we asked children to reason
-about the goals of others; it is possible that children's preferences
-for certain acoustic environments may vary if they were instead asked to
-reason about their own goals. This work also does not directly test a
-strategy children might use to extract information from the environment
-under noise constraints. Instead, it lays the foundation for
-understanding how children evaluate acoustic environments with varying
-degrees of noise, and a possible mechanism that drives it. By exploring
-children's environmental evaluations and their flexibility beyond
-familiar associations, we might later manipulate children's own acoustic
-environments to observe the utility of environmental selection in
-action. We believe the current studies are critical interim steps to
-this end because they will inform the direction of future research.
+directions. Without our full sample size in Experiment 2, we are limited
+in what we can conclude about the results. However, the preliminary
+findings are promising, and they offer some ground for broaching our
+main research questions. Additionally, this set of experiments explored
+children's reasoning about the goals of others; it is possible that
+children's preferences for certain acoustic environments may vary if
+they were instead asked to reason about their own goals. This work also
+does not directly test a strategy children might use to extract
+information from the environment under noise constraints. Instead, it
+lays the foundation for understanding how children evaluate acoustic
+environments with varying degrees of noise, and a possible mechanism
+that drives it. By exploring children's environmental evaluations and
+their flexibility beyond familiar associations, we might later
+manipulate children's own acoustic environments to observe the utility
+of environmental selection in action. We believe the current studies are
+critical interim steps to this end because they will inform the
+direction of future research.
 
+This research also has potential utility in intervention efforts.
 Environmental noise exposure is here to stay; noise pollution in the
 United States affects everyone at some time or another, but some
 evidence suggests that it disproportionately affects communities of

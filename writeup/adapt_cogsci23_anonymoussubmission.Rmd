@@ -1,12 +1,13 @@
 ---
-title: "Preschool children reason about the acoustic environment for third-party goal optimization"
+title: "Active? Associative?: Preschool children assess the feasibility of a goal based on the acoustic environment"
 bibliography: library.bib
 csl: apa6.csl
 document-params: "10pt, letterpaper"
 # author-information: >
    
 abstract: >
-  Despite the unpredictible and ubiquitous nature of noise in the natural environment, most children still manage to extract the linguistic, cognitive, and social skills needed to engage typically with the world around them. This is no small feat; it is still largely unknown what strategies children use to extract information from their environment in the presence of noise. One possbility is that children have learned how to reason about their acoustic context to optimize goals and goal outcomes. In Experiment 1, we presented preschool children with a set of auditory stimuli, meant to approximate various acoustic environments, and activity goals to complete within those environments. Results showed that children reliably integrated auditory information with a third-party's changing goals to optimize another person's outcomes. Experiment 2 built on this framework by replacing familiar activity goals with novel ones to assess the underlying mechanism driving children's decision-making. This time, children were still integrating across auditory information and activity goals, but did so less reliably. This suggests that [in progress].
+  Despite the unpredictible and ubiquitous nature of noise in the natural environment, most children still manage to extract the linguistic, cognitive, and social skills needed to engage typically with the world around them. This is no small feat; it is still largely unknown what strategies children use to extract information from their environment in the presence of noise. One possbility is that children have learned how to reason about their acoustic context to optimize goals and goal outcomes. In Experiment 1, we presented preschool children with a set of auditory stimuli, meant to approximate various acoustic environments, and activity goals to complete within those environments. Results showed that children reliably integrated auditory information with a third-party's changing goals to optimize another person's outcomes. Experiment 2 built on this framework by replacing familiar activity goals with novel ones to assess the flexibility of children's decision-making, and offers some preliminary findings. 
+  
 keywords: >
   active learning; associative learning; auditory noise; cognitive development; decision making
       
@@ -33,8 +34,11 @@ library(janitor)
 library(rstanarm)
 library(here)
 library(stats)
-library(kableExtra)
+library(lme4)
+library(gtsummary)
+library(reprex)
 library(wesanderson)
+
 ```
 
 # Introduction
@@ -118,7 +122,7 @@ We asked participants two questions which served as our DVs: (1) "Should Joe and
 
 ## Results and Discussion
 
-```{r e3b-bar, fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.env = 'figure*', fig.cap= "Results from Experiment 1. Participants' rating of the appropriateness of an auditory stimulus by activity. Individual bars correspond to one age bin of 3, 4, or 5. A rating score of 0 indicates a rejection of the pairing [Joe and Mandy should not complete a particular activity in this environment] while a score of 1 indicates an affirmation of the pairing [Joe and Mandy should complete a particular activity in this environment]. A 2-alternative forced choice design resulted in no preference at 50\\%.  Error bars show 95\\% confidence intervals."}
+```{r e3b-bar, fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.env = 'figure*', fig.cap= "Results from Experiment 1. Participants' rating of the appropriateness of an auditory stimulus and activity pairing. Individual bars correspond to one age bin of 3, 4, or 5. A rating score of 0 indicates a rejection of the pairing [Joe and Mandy should not complete a particular activity in this environment] while a score of 1 indicates an affirmation of the pairing [Joe and Mandy should complete a particular activity in this environment]. A 2-alternative forced choice design resulted in no preference at 50\\%.  Error bars show 95\\% confidence intervals."}
 
 ## Calculate confidence intervals
 
@@ -175,19 +179,23 @@ ggplot(data = cidataage_3b, mapping = aes(x = sound_type, fill = as.factor(age_y
 ```
 
 ```{r e3-stats-anova, echo=FALSE, results="hide", eval=FALSE}
-library(lme4)
-mod <- lme4::glmer(response ~ sound_type * activity  + (1|subject_id), 
+
+mod <- lme4::glmer(response ~ sound_type * activity + (1|subject_id), 
                    family = binomial, 
-                  control = glmerControl(optimizer = "bobyqa"), 
+                  control = glmerControl(optimizer = "bobyqa"),
                    data = tidydata_3b)
-mod_noint <- lme4::glmer(response ~ sound_type + activity  + (1|subject_id), 
+mod_noint <- lme4::glmer(response ~ sound_type + activity + (1|subject_id), 
                    family = binomial, 
                   control = glmerControl(optimizer = "bobyqa"), 
                    data = tidydata_3b)
 
+options(scipen = 999)   
 anova_3b <- anova(mod,mod_noint)
 
-View(anova_3b)
+aov()
+
+saveRDS(anova_3b, here("writeup/models","anova_3b.Rds"))
+
 ```
 
 ```{r e3-stats, echo=FALSE, results="hide", eval=FALSE}
@@ -207,28 +215,12 @@ saveRDS(summary_3b, here("writeup/models","summary_3b.Rds"))
 
 ```{r e3-stats-load}
 summary_3b<- readRDS(here("writeup/models","summary_3b.Rds"))
+anova_3b <- readRDS(here("writeup/models","anova_3b.Rds"))
 ```
 
-If preschool children can reason about how the acoustic environment might influence goal optimization, and can make decisions to this end, we should expect participants to show clear preferences for activities paired with particular auditory stimuli. We preregistered [retracted] a Bayesian mixed-effects logistic regression from the `rstanarm` package to predict participants' response as a function of auditory stimulus, activity, and age, with a maximal random effect structure (random intercept by participant) [@goodrich2020]. In this and subsequent models, we used the package default of weakly informative priors (normal distributions on coefficients with SD=2.5, scaled to predictor magnitudes). 
+If preschool children can reason about how the acoustic environment might influence goal optimization, and can make decisions to this end, we should expect participants to show clear preferences for activities paired with particular auditory stimuli. We preregistered [retracted] a Bayesian mixed-effects logistic regression from the `rstanarm` package to predict participants' response as a function of auditory stimulus, activity, and age, with a maximal random effect structure (random intercept by participant) [@goodrich2020]. In this and subsequent models, we used the package default of weakly informative priors (normal distributions on coefficients with SD=2.5, scaled to predictor magnitudes).
 
-```{r e3-table}
-lsm = lsmeans(fit, ~A*B|C)
-contrast(lsm, interaction = "pairwise")
-
-#Edit summary table for kable()
-df_summary_3b <- as.data.frame(summary_3b)
-
-kable_summary_3b <- df_summary_3b %>% 
-  select(c(mean, sd, "2.5%", "97.5%"))
-
-View(kable_summary_3b)
-
-#kbl(summary_3b) %>%
-  #kable_paper("hover", full_width = F)
-
-```
-
-On average, preschool children showed clear preferences for certain environment-activity pairings (intercept: $\beta$ = `r round(summary_3b[1,][["mean"]],2)`, 95% Crl = [`r round(summary_3b[1,][["2.5%"]],2)` - `r round(summary_3b[1,][["97.5%"]],2)`]). And although there was no aggregated effect of age on preference (intercept: $\beta$ = `r round(summary_3b[8,][["mean"]],2)`, 95% Crl = [`r round(summary_3b[8,][["2.5%"]],2)` - `r round(summary_3b[8,][["97.5%"]],2)`]), there were age effects on preference under 5-talker babble (intercept: $\beta$ = `r round(summary_3b[18,][["mean"]],2)`, 95% Crl = [`r round(summary_3b[18,][["2.5%"]],2)` - `r round(summary_3b[18,][["97.5%"]],2)`]), as well as interactions between (1) the 5-talker babble-talk activity pairing and age (intercept: $\beta$ = `r round(summary_3b[30,][["mean"]],2)`, 95% Crl = [`r round(summary_3b[30,][["2.5%"]],2)` - `r round(summary_3b[30,][["97.5%"]],2)`]) and (2) the silence-sleep activity pairing and age (intercept: $\beta$ = `r round(summary_3b[28,][["mean"]],2)`, 95% Crl = [`r round(summary_3b[28,][["2.5%"]],2)` - `r round(summary_3b[28,][["97.5%"]],2)`]). Figure 2 summarizes this data.
+Figure 2 depicts children's activity-auditory pairings by age. We compared our model [activity and auditory stimulus as interactions] with a model with no interaction terms. A one-way ANOVA found that, on average, the interaction terms better predicted children's responses during the task [$X^2$(`r anova_3b[2,7]`) = `r round(anova_3b[2,6],2)`, p < 0.001]. 
 
 These findings suggest that across the preschool years, children are evaluating the acoustic environments to make decisions about third-party goal optimization. We propose that this is evidence of basic environmental selection, and that children as young as three can reliably engage in it. 
 
@@ -291,7 +283,7 @@ We asked participants two questions which served as our DVs: (1) "Should Joe and
 
 ## Results and Discussion
 
-```{r e4b-bar, fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from Experiment 2. Participants' rating of the appropriateness of an auditory stimulus by activity. Individual bars correspond to one age bin of 3, 4, or 5. A rating score of 0 indicates a rejection of the pairing [Joe and Mandy should not complete a particular activity in this environment] while a score of 1 indicates an affirmation of the pairing [Joe and Mandy should complete a particular activity in this environment]. A 2-alternative forced choice design resulted in no preference at 50\\%."}
+```{r e4b-bar, fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from Experiment 2. Data is collapsed acrossed age."}
 
 ## Calculate confidence intervals
 
@@ -313,12 +305,12 @@ cidataage_4b <- tidydata_4b %>%
             mean_response = mean(response)) %>% 
   mutate(activity = fct_reorder(activity, mean_response, .desc = TRUE))
 
-View(tidydata_4b)
 # Data visualization and stats
 
 ## x-axis labels
-xlabels <- c("5-talker", "music", "silence", "white noise")
+xlabels <- c("babble", "music", "silence", "white noise")
 
+#Figure 3
  ## Aggregated Data
  ggplot(data = cidata_4b, mapping = aes(x = sound_type, y = mean_response, fill = activity)) +
    geom_col() +
@@ -327,7 +319,8 @@ xlabels <- c("5-talker", "music", "silence", "white noise")
    ylim(0,1) +
    xlab("Auditory Stimulus") +
    ylab("Rating") +
-   scale_fill_brewer(palette="Set2") +
+   #scale_fill_brewer(palette="Set2") +
+   scale_fill_manual(values = wes_palette("GrandBudapest1")) +
    scale_x_discrete(labels = xlabels) +
    facet_wrap(~activity) +
    geom_hline(yintercept = .5, lty =2) +
@@ -335,40 +328,42 @@ xlabels <- c("5-talker", "music", "silence", "white noise")
    theme_few() +
    theme(legend.position = "none",
          title = element_text(size = 8),
-         axis.text.x = element_text(angle = 45, hjust=1),
-         text = element_text(size=10)) +
-   labs(title = "Preschool children discriminate optimal auditory environments based on goals")
+         axis.text = element_text(size = 8),
+         panel.spacing.x = unit(0.5, "lines"),
+         panel.spacing.y = unit(0.5, "lines"),
+         axis.text.x = element_text(angle = 30, hjust=1),
+         text = element_text(size=10))
 
-## Figure 3 - Binned Data
-ggplot(data = cidataage_4b, mapping = aes(x = sound_type, fill = as.factor(age_years))) +
-  geom_bar(aes(y = mean_response),
-           position = "dodge", stat = "identity") +
-  geom_linerange(aes(ymin = ci.l,
-                     ymax = ci.u),
-                 position = position_dodge(width = 0.9)) +
-  facet_wrap(~activity, scales = "free", ncol = 4) +
-  xlab("Auditory Stimulus") +
-  ylim(0,1) +
-  ylab("Rating") +
-  scale_fill_manual(values = wes_palette("GrandBudapest1")) +
-  scale_x_discrete(labels = xlabels) +
-  geom_hline(yintercept = .5, lty =2) +
-  theme_few() +
-  theme(axis.text = element_text(size = 8),
-        legend.text = element_text(size = 8),
-        legend.title = element_text(size = 8),
-        panel.spacing.x = unit(0.25, "lines"),
-        panel.spacing.y = unit(0.25, "lines"),
-        legend.direction = "horizontal",
-        legend.position = "bottom",
-        axis.text.x = element_text(angle = 30, hjust=1),
-        text = element_text(size = 10)) +
-  labs(fill = "Age (Years)")
+## Binned Data
+# ggplot(data = cidataage_4b, mapping = aes(x = sound_type, fill = as.factor(age_years))) +
+#   geom_bar(aes(y = mean_response),
+#            position = "dodge", stat = "identity") +
+#   geom_linerange(aes(ymin = ci.l,
+#                      ymax = ci.u),
+#                  position = position_dodge(width = 0.9)) +
+#   facet_wrap(~activity, scales = "free", ncol = 4) +
+#   xlab("Auditory Stimulus") +
+#   ylim(0,1) +
+#   ylab("Rating") +
+#   scale_fill_manual(values = wes_palette("GrandBudapest1")) +
+#   scale_x_discrete(labels = xlabels) +
+#   geom_hline(yintercept = .5, lty =2) +
+#   theme_few() +
+#   theme(axis.text = element_text(size = 8),
+#         legend.text = element_text(size = 8),
+#         legend.title = element_text(size = 8),
+#         panel.spacing.x = unit(0.25, "lines"),
+#         panel.spacing.y = unit(0.25, "lines"),
+#         legend.direction = "horizontal",
+#         legend.position = "bottom",
+#         axis.text.x = element_text(angle = 30, hjust=1),
+#         text = element_text(size = 10)) +
+#   labs(fill = "Age (Years)")
 ```
 
 
 ```{r e4-stats-anova, results='hide', eval=FALSE}
-library(lme4)
+
 mod4 <- lme4::glmer(response ~ sound_type * activity  + (1 | subject_id), 
                    family = binomial, 
                   control = glmerControl(optimizer = "bobyqa"), 
@@ -379,8 +374,6 @@ mod4_noint <- lme4::glmer(response ~ sound_type + activity  + (1 | subject_id),
                    data = tidydata_4b)
 
 anova_4b <- anova(mod4, mod4_noint)
-
-View(anova_4b)
 
 saveRDS(anova_4b, here("writeup/models","anova_4b.Rds"))
 ```
@@ -406,7 +399,9 @@ saveRDS(summary_4b, here("writeup/models","summary_4b.Rds"))
 summary_4b <- readRDS(here("writeup/models","summary_4b.Rds"))
 ```
 
-If preschool children rely solely on association when evaluating the acoustic environment, that is, they have acquired associative links between familiar activities and their acoustic contexts, we should expect that children will have no strong preferences for pairing novel activities with any particular acoustic context. If, however, children can reason flexibly about how the acoustic environment influences goal optimization and outcomes, we should expect that children show clear preferences for acoustic contexts even with activities they have never actually encountered. We preregistered [retracted] the same Bayesian mixed-effects logistic regression as in Experiment 1 predicting environmental preference as a function of auditory stimuli, activity, and age.
+If preschool children rely solely on association when evaluating the acoustic environment, that is, they have acquired associative links between familiar activities and their acoustic contexts, we should expect that children will have no strong preferences for pairing novel activities with any particular acoustic context. If, however, children can reason flexibly about how the acoustic environment influences goal optimization and outcomes, we should expect that children show clear preferences for acoustic contexts even with activities they have never actually encountered.
+
+Data collection for Experiment 2 is ongoing, so we present a subset [20 of the preregistered 72-participant sample] of the data for preliminary analysis. Our model with an interaction between activity and auditory stimulus was not different from a model with no interaction term  [$X^2$(`r anova_4b[2,7]`) = `r round(anova_4b[2,6],2)`, p = `r round(anova_4b[2,8],2)`]. Figure 3 shows the aggregated data across all participants.
 
 # General Discussion
 
@@ -471,13 +466,13 @@ saveRDS(summary_4a, here("writeup/models","summary_4a.Rds"))
 summary_4a <- readRDS(here("writeup/models","summary_4a.Rds"))
 ```
 
-In this set of Experiments, we explored preschool children's reasoning about their acoustic environments. To this end, we asked if children engage in environmental selection for goal optimization. In Experiment 1, we found that across the preschool years, children can reliably evaluate the acoustic environment to inform their decisions about third-party goals. In Experiment 2, we asked what underlying mechanism might be driving this ability by asking children to reason about novel activities. Results showed that [in progress]
+In this set of Experiments, we explored preschool children's reasoning about their acoustic environments. To this end, we asked if children engage in environmental selection for goal optimization. In Experiment 1, we found that across the preschool years, children can reliably evaluate the acoustic environment to inform their decisions about third-party goals. In Experiment 2, we asked whether children are primarily relying on associations or on active learning when assessing activity feasibility by asking them to reason about novel activities. Preliminary results show a trend in children's flexibility on this task, in that they can reason about activities they have not previously encountered.
 
-In some unpublished work where we asked adults to reason about the links between a larger set of novel activities and acoustic environments than were presented to children in Experiment 2, we found that adults reliably paired these novel activities with particular acoustic environments despite having never encountered these activities before (intercept: $\beta$ = `r round(summary_4a[1,][["mean"]],2)`, 95% Crl = [`r round(summary_4a[1,][["2.5%"]],2)` - `r round(summary_4a[1,][["97.5%"]],2)`]). 
+These findings support the notion that young children are attuned to environmental features and can integrate this information for decision-making related to optimizing goals. That learning is situated in an imperfect and often messy environment is all the more reason why strategic exploration matters. If you can identify what is best learned in a particular environment given the acoustic constraints, you might both maximize your efficiency and reduce uncertainty, which bolsters skills building. Environmental selection offers a window into reasoning about the acoustic context, and it highlights the value of active learning in early childhood. Perhaps most advantageous, active learning seems to be flexible, and supports children's exploration across a range of experiences.
 
-This work is not without its limitations, which fuel our future directions. In this set of experiments, we asked children to reason about the goals of others; it is possible that children's preferences for certain acoustic environments may vary if they were instead asked to reason about their own goals. This work also does not directly test a strategy children might use to extract information from the environment under noise constraints. Instead, it lays the foundation for understanding how children evaluate acoustic environments with varying degrees of noise, and a possible mechanism that drives it. By exploring children's environmental evaluations and their flexibility beyond familiar associations, we might later manipulate children's own acoustic environments to observe the utility of environmental selection in action. We believe the current studies are critical interim steps to this end because they will inform the direction of future research.
+This work is not without its limitations, which fuel our future directions. Without our full sample size in Experiment 2, we are limited in what we can conclude about the results. However, the preliminary findings are promising, and they offer some ground for broaching our main research questions. Additionally, this set of experiments explored children's reasoning about the goals of others; it is possible that children's preferences for certain acoustic environments may vary if they were instead asked to reason about their own goals. This work also does not directly test a strategy children might use to extract information from the environment under noise constraints. Instead, it lays the foundation for understanding how children evaluate acoustic environments with varying degrees of noise, and a possible mechanism that drives it. By exploring children's environmental evaluations and their flexibility beyond familiar associations, we might later manipulate children's own acoustic environments to observe the utility of environmental selection in action. We believe the current studies are critical interim steps to this end because they will inform the direction of future research.
 
-Environmental noise exposure is here to stay; noise pollution in the United States affects everyone at some time or another, but some evidence suggests that it disproportionately affects communities of color and those of lower socioeconomic status, who tend to reside in more densely populated regions [@casey2017]. This could have downstream consequences on linguistic and cognitive skills, as well as on academic achievement. Future research should be sensitive to both the acute and chronic effects of noise exposure on children, in particular, and study strategies that can be implemented to ameliorate these effects. We believe that environmental selection could be one such strategy, and that by three years, children have the hardware to use it effectively. 
+This research also has potential utility in intervention efforts. Environmental noise exposure is here to stay; noise pollution in the United States affects everyone at some time or another, but some evidence suggests that it disproportionately affects communities of color and those of lower socioeconomic status, who tend to reside in more densely populated regions [@casey2017]. This could have downstream consequences on linguistic and cognitive skills, as well as on academic achievement. Future research should be sensitive to both the acute and chronic effects of noise exposure on children, in particular, and study strategies that can be implemented to ameliorate these effects. We believe that environmental selection could be one such strategy, and that by three years, children have the hardware to use it effectively. 
 
 # References 
 
