@@ -271,6 +271,70 @@ excluded_4b <- data_4b %>%
   select(subject_id:rationale)
 ```
 
+```{r e4adult-data}
+#Adult Data
+#Load data 4a
+data_4a <- read.csv(here("data", "adultdatalog4a1.csv"), na.strings = c("", "NA")) #load data
+
+## Clean data
+cleandata_4a <- data_4a %>% 
+  clean_names() %>% #lowercase column names
+  select(q6:language_1) %>% #remove unnecessary columns
+  rename("sound_check" = "q6")
+
+## Remove first two rows (contain no data/are unnecessary)
+cleandata_4a <- cleandata_4a[-c(1,2), ]
+
+## Data cleaning and participant exclusion
+tidydata_4a <- cleandata_4a %>% 
+  filter(attention_check_1 == 1,
+         attention_check_2 == 1,
+         sound_check == 1) %>% #exclude participants who failed attention and sound checks
+  mutate(subject_id = row_number()) %>% #make a subject id column
+  select(subject_id, everything()) %>%
+  relocate(age, race, .after = subject_id) %>% 
+  select(subject_id:rast_white)
+
+## Pivot columns
+tidy4a <- tidydata_4a %>%
+  pivot_longer(cols = c("clop_instrumental", "fraw_instrumental", "gobb_instrumental", "norl_instrumental", "terb_instrumental", "plip_instrumental", "surk_instrumental", "rast_instrumental",
+                        "clop_silence", "fraw_silence", "gobb_silence", "norl_silence", "terb_silence", "plip_silence", "surk_silence", "rast_silence",
+                        "clop_white", "fraw_white", "gobb_white", "norl_white", "terb_white", "plip_white", "surk_white", "rast_white",
+                        "clop_mtb", "fraw_mtb", "gobb_mtb", "norl_mtb", "terb_mtb", "plip_mtb", "surk_mtb", "rast_mtb"),
+               names_to = "activity",
+               values_to = "rating") %>% 
+  separate(col = activity,
+           into = c("activity", "noise_type"),
+           sep = '[_]') %>% 
+  na.omit()
+
+## Make rating category numeric
+tidy4a$rating <- as.integer(tidy4a$rating)
+
+##Pull out 4 activities that relate to Experiment 2
+tidy_data4b_exp2 <- tidy4a %>% 
+  filter(activity %in% c("fraw", "gobb", "plip", "clop")) %>%
+  rename("activity_old" = "activity") %>% 
+  mutate(activity = case_when(
+            activity_old == "clop" ~ "terb",
+            activity_old == "gobb" ~ "gobb",
+            activity_old == "fraw" ~ "fraw",
+            activity_old == "plip" ~ "plip"))
+
+## Demographic information
+demodata_4a <- tidydata_4a %>%
+  select(subject_id,age, race) %>% 
+  replace(is.na(tidydata_4a$race), 7)
+
+## Make race and age categories numeric
+demodata_4a$race <- as.integer(demodata_4a$race, na.rm = TRUE)
+demodata_4a$age <- as.integer(demodata_4a$age, na.rm = TRUE)
+
+excluded_4a <- cleandata_4a %>%
+  filter(attention_check_1 == 0 | attention_check_2 == 0)
+
+```
+
 ### Participants
 
 `r nrow(demodata_4b)` children (3;0 - 5;11 years, mean age = `r round(mean(demodata_4b$age_months/12),2)` years, `r round(mean(demodata_4b$race == "Caucasian/White")*100,1)`% Caucasian/White) were recruited from either a local Bay Area nursery school or children’s museum. An additional `r nrow(excluded_4b)` children were ultimately excluded from analysis.
@@ -361,7 +425,6 @@ xlabels <- c("babble", "music", "silence", "white noise")
 #   labs(fill = "Age (Years)")
 ```
 
-
 ```{r e4-stats-anova, results='hide', eval=FALSE}
 
 mod4 <- lme4::glmer(response ~ sound_type * activity  + (1 | subject_id), 
@@ -399,47 +462,10 @@ saveRDS(summary_4b, here("writeup/models","summary_4b.Rds"))
 summary_4b <- readRDS(here("writeup/models","summary_4b.Rds"))
 ```
 
-If preschool children rely solely on association when evaluating the acoustic environment, that is, they have acquired associative links between familiar activities and their acoustic contexts, we should expect that children will have no strong preferences for pairing novel activities with any particular acoustic context. If, however, children can reason flexibly about how the acoustic environment influences goal optimization and outcomes, we should expect that children show clear preferences for acoustic contexts even with activities they have never actually encountered.
-
-Data collection for Experiment 2 is ongoing, so we present a subset [20 of the preregistered 72-participant sample] of the data for preliminary analysis. Our model with an interaction between activity and auditory stimulus was not different from a model with no interaction term  [$X^2$(`r anova_4b[2,7]`) = `r round(anova_4b[2,6],2)`, p = `r round(anova_4b[2,8],2)`]. Figure 3 shows the aggregated data across all participants.
-
-# General Discussion
-
-```{r e4a-data}
-
-## Load data
-data_4a <- read.csv(here("data", "adultdatalog4a1.csv")) #load data
-
-## Clean data
-cleandata_4a <- data_4a %>% 
-  clean_names() %>% #lowercase column names
-  select(q6:language_1) %>% #remove unnecessary columns
-  rename("sound_check" = "q6")
-
-## Remove first two rows (contain no data/are unnecessary)
-cleandata_4a <- cleandata_4a[-c(1,2), ]
-
-tidydata_4a <- cleandata_4a %>% 
-  filter(attention_check_1 == 1,
-         attention_check_2 == 1,
-         sound_check == 1) %>% #exclude participants who failed attention and sound checks
-  mutate(subject_id = row_number()) %>% #make a subject id column
-  select(subject_id, everything())
-
-tidydata_4a_clean <- tidydata_4a %>%
-  pivot_longer(cols = c("clop_instrumental", "gobb_instrumental", "fraw_instrumental", "norl_instrumental", "terb_instrumental", "plip_instrumental", "surk_instrumental", "rast_instrumental", "clop_silence", "gobb_silence", "fraw_silence", "norl_silence", "terb_silence", "plip_silence", "surk_silence", "rast_silence", "clop_white", "gobb_white", "fraw_white", "norl_white", "terb_white", "plip_white", "surk_white", "rast_white", "clop_mtb", "gobb_mtb", "fraw_mtb", "norl_mtb", "terb_mtb", "plip_mtb", "surk_mtb", "rast_mtb"),
-               names_to = "activity",
-               values_to = "rating") %>% 
-  separate(col = activity,
-           into = c("activity", "noise_type"),
-           sep = '[_]') %>% 
-  na.omit()
-
-## Make rating category numeric
-tidydata_4a_clean$rating <- as.integer(tidydata_4a_clean$rating)
+```{r e4a-bar, fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from an adult sample. Adult participants completed the same task as children in Experiment 2, but instead of reasoning about a third party (Joe and Mandy in Exp. 2), they were asked how well they could complete each activity based on the ausitory stimulus. The y-axis indicates the rating scale from 1-7. A rating of 1 denotes a full mismatch between activity and auditory stimulus while 7 denotes an optimal match."}
 
 ## Calculate confidence intervals
-cidata_4a <- tidydata_4a_clean %>%
+cidata_4a <- tidy_data4b_exp2 %>%
   group_by(activity, noise_type) %>% 
   summarise(n = n(),
             mean_rating = mean(rating, na.rm=TRUE), 
@@ -447,24 +473,45 @@ cidata_4a <- tidydata_4a_clean %>%
             ci.l = mean_rating - sem * 1.96,
             ci.u = mean_rating + sem * 1.96)
 
+# Data Visualization
+
+xlabels <- c("babble", "music", "silence", "white noise")
+
+ggplot(data = cidata_4a, 
+       mapping = aes(x = factor(noise_type, level= c("mtb", "instrumental", "silence", "white")), y = mean_rating, fill = activity)) +
+  geom_col() +
+  geom_linerange(aes(ymin = ci.l,
+                     ymax = ci.u)) +
+  ylim(0,7) +
+  xlab("Auditory Stimulus") +
+  ylab("Rating") +
+  #scale_fill_brewer(palette="Set2") +
+  scale_fill_manual(values = wes_palette("GrandBudapest1")) +
+  scale_x_discrete(labels = xlabels) +
+  facet_wrap(~activity) +
+  geom_hline(yintercept = 3.5, lty =2) +
+  scale_color_solarized() + 
+  theme_few() +
+  theme(legend.position = "none",
+        title = element_text(size = 8),
+        axis.text = element_text(size = 8),
+        panel.spacing.x = unit(0.5, "lines"),
+        panel.spacing.y = unit(0.5, "lines"),
+        axis.text.x = element_text(angle = 30, hjust=1),
+        text = element_text(size=10))
 ```
 
-```{r e4a-stats, results="hide", eval=FALSE}
+If preschool children rely solely on association when evaluating the acoustic environment, that is, they have acquired associative links between familiar activities and their acoustic contexts, we should expect that children will have no strong preferences for pairing novel activities with any particular acoustic context. If, however, children can reason flexibly about how the acoustic environment influences goal optimization and outcomes, we should expect that children show clear preferences for acoustic contexts even with activities they have never actually encountered.
 
-# Logistic Regression
-glmer_4a <- stan_glmer(formula = rating ~ activity * noise_type + (1 | subject_id),
-                       family = gaussian,
-                       data = tidydata_4a_clean)
+Data collection for Experiment 2 is ongoing, so we present a subset [20 of the preregistered 72-participant sample] of the data for preliminary analysis. Our model with an interaction between activity and auditory stimulus was not different from a model with no interaction term  [$X^2$(`r anova_4b[2,7]`) = `r round(anova_4b[2,6],2)`, p = `r round(anova_4b[2,8],2)`]. Figure 3 shows the aggregated data across all participants.
 
-summary_4a <- summary(glmer_4a, probs = c(0.025, 0.975))
+## Adult Ratings of Novel Activity Pairings
 
-saveRDS(summary_4a, here("writeup/models","summary_4a.Rds"))
+The previous findings suggest some differentiation in pairing auditory stimuli with novel activities, but what pattern of results should we expect? Given the novelty of the paradigm, we recruited a sample of adult participants to complete the same task, and then we compared these results with children in the previous sample. 
 
-```
+`r nrow(demodata_4a)` adults (mean age = `r round(mean(demodata_4a$age),2)` years, `r round(mean(demodata_4a$race == 3)*100,1)`% Caucasian/White) were recruited for an online study hosted on Prolific. An additional `r nrow(excluded_4a)` participants were ultimately excluded from analysis for failing one or both of the attention checks.
 
-```{r e4a-stats-load}
-summary_4a <- readRDS(here("writeup/models","summary_4a.Rds"))
-```
+# General Discussion
 
 In this set of Experiments, we explored preschool children's reasoning about their acoustic environments. To this end, we asked if children engage in environmental selection for goal optimization. In Experiment 1, we found that across the preschool years, children can reliably evaluate the acoustic environment to inform their decisions about third-party goals. In Experiment 2, we asked whether children are primarily relying on associations or on active learning when assessing activity feasibility by asking them to reason about novel activities. Preliminary results show a trend in children's flexibility on this task, in that they can reason about activities they have not previously encountered.
 
