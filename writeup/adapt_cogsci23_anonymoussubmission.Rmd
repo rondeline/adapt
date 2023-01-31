@@ -85,6 +85,9 @@ tidydata_3b$race <- str_replace(tidydata_3b$race, "/ ", "/")
 ## Turn response column into integers
 tidydata_3b$response <- as.integer(tidydata_3b$response)
 
+## Scale Age
+tidydata_3b$age_centered <- scale(tidydata_3b$age_months, scale = FALSE)
+
 ## Get demographic data
 demodata_3b <- tidydata_3b %>%
   select(subject_id,race, trial, age_years, age_months) %>%
@@ -103,7 +106,7 @@ excluded_3b <- data_3b %>%
 
 ### Participants
 
-`r nrow(demodata_3b)` children (3;0 - 5;11 years, mean age = `r round(mean(demodata_3b$age_months/12),2)` years , `r round(mean(demodata_3b$race == "Caucasian/White")*100,1)`% Caucasian/White) were recruited from either a local Bay Area nursery school or children’s museum. Participants were typically developing, had normal or corrected-to-normal vision, and heard English at least 75% of the time at home. An additional `r nrow(excluded_3b)` children were ultimately excluded from analysis due to response bias (provided the same pattern of responses for 100% of trials), experimenter error, or severe lapses in attention. Caregivers provided written consent while children provided verbal assent before participation. 
+`r nrow(demodata_3b)` children (3;0 - 5;11 years, mean age = `r round(mean(demodata_3b$age_months/12),2)` years , `r round(mean(demodata_3b$race == "Caucasian/White")*100,1)`% Caucasian/White) were recruited from either a local Bay Area nursery school or children’s museum. Participants were typically developing, had normal or corrected-to-normal vision, and heard English at least 75% of the time at home. An additional `r nrow(excluded_3b)` children were ultimately excluded from analysis due to response bias (provided the same pattern of responses for 100% of trials), experimenter error, or severe lapses in attention. All exclusion criteria were preregistered. Caregivers provided written consent while children provided verbal assent before participation. 
 
 ### Materials and Procedure
 
@@ -147,17 +150,24 @@ cidataage_3b <- tidydata_3b %>%
 # Data visualization and stats
 
 ## labels
-xlabels <- c("music", "babble", "silence", "white noise")
+xlabels <- c(mtb5 = "babble",
+             instrumental = "music",
+             silence = "silence",
+             white = "white noise")
+facet_labels_3b <- c(dance = "Dance", 
+                  read = "Read",
+                  sleep = "Sleep",
+                  talk = "Talk")
 
 ## Figure 2
 ### Binned Data
-ggplot(data = cidataage_3b, mapping = aes(x = sound_type, fill = as.factor(age_years))) +
+ggplot(data = cidataage_3b, mapping = aes(x = factor(sound_type, level= c("mtb5", "instrumental", "silence", "white")), fill = as.factor(age_years))) +
   geom_bar(aes(y = mean_response),
            position = "dodge", stat = "identity") +
   geom_linerange(aes(ymin = ci.l,
                      ymax = ci.u),
                  position = position_dodge(width = 0.9)) +
-  facet_wrap(~activity, scales = "free", ncol = 4) +
+  facet_wrap(~activity, labeller = as_labeller(facet_labels_3b), scales = "free", ncol = 4) +
   xlab("Auditory Stimulus") +
   ylim(0,1) +
   ylab("Rating") +
@@ -192,8 +202,6 @@ mod_noint <- lme4::glmer(response ~ sound_type + activity + (1|subject_id),
 options(scipen = 999)   
 anova_3b <- anova(mod,mod_noint)
 
-aov()
-
 saveRDS(anova_3b, here("writeup/models","anova_3b.Rds"))
 
 ```
@@ -203,14 +211,15 @@ saveRDS(anova_3b, here("writeup/models","anova_3b.Rds"))
 tidydata_3b$activity <- factor(tidydata_3b$activity, 
                                    levels = c("dance","read","sleep","talk"))
 
-glmer_3b <- stan_glmer(formula = response ~ sound_type * activity * age_years + (1 | subject_id),
+glmer_3b <- stan_glmer(formula = response ~ sound_type * activity * age_centered + (1 | subject_id),
                        family = binomial,
                        data = tidydata_3b)
+
+contr.sum(16)
 
 summary_3b <- summary(glmer_3b, probs = c(0.025, 0.975))
 
 saveRDS(summary_3b, here("writeup/models","summary_3b.Rds"))
-
 ```
 
 ```{r e3-stats-load}
@@ -256,6 +265,9 @@ tidydata_4b$race <- str_replace(tidydata_4b$race, "$/$ ", "$/$")
 ## Turn response column into integers
 tidydata_4b$response <- as.integer(tidydata_4b$response)
 tidydata_4b$age_months <- as.integer(tidydata_4b$age_months)
+
+## Scale Age
+tidydata_4b$age_centered <- scale(tidydata_4b$age_months, scale = FALSE)
 
 ## Demographic information
 demodata_4b <- tidydata_4b %>%
@@ -372,7 +384,10 @@ cidataage_4b <- tidydata_4b %>%
 # Data visualization and stats
 
 ## x-axis labels
-xlabels <- c("babble", "music", "silence", "white noise")
+xlabels <- c("5tb" = "babble",
+             instrumental = "music",
+             silence = "silence",
+             white = "white noise")
 facet_labels <- c(fraw = "Fraw: read before bed", 
                   gobb = "Gobb: look for something to do",
                   plip = "Plip: spin in circles",
@@ -380,7 +395,7 @@ facet_labels <- c(fraw = "Fraw: read before bed",
 
 #Figure 3
  ## Aggregated Data
- ggplot(data = cidata_4b, mapping = aes(x = sound_type, y = mean_response, fill = activity)) +
+ ggplot(data = cidata_4b, mapping = aes(x = factor(sound_type, level= c("5tb", "instrumental", "silence", "white")), y = mean_response, fill = activity)) +
    geom_col() +
    geom_linerange(aes(ymin = ci.l,
                       ymax = ci.u)) +
@@ -479,12 +494,15 @@ cidata_4a <- tidydata_4a_exp2 %>%
 
 # Data Visualization
 
-xlabels <- c("babble", "music", "silence", "white noise")
+xlabels <- c(mtb = "babble",
+             instrumental = "music",
+             silence = "silence",
+             white = "white noise")
 facet_labels <- c(fraw = "Fraw: read before bed", 
                   gobb = "Gobb: look for something to do",
                   plip = "Plip: spin in circles",
                   terb = "Terb: hide stomach grumbling")
-
+# Figure 4
 ggplot(data = cidata_4a, 
        mapping = aes(x = factor(noise_type, level= c("mtb", "instrumental", "silence", "white")), y = mean_rating, fill = activity)) +
   geom_col() +
