@@ -62,7 +62,7 @@ In the current paper, we studied preschool children's environmental selection. I
 
 # Experiment 1
 
-In our first Experiment, we evaluated preschool children's ability to select the appropriate acoustic environment to fulfill the goals of a third party (a doll), for familiar activities. If children systematically select well-matched activities, this finding would suggest that they are attuned to this feature of the environment. 
+In our first experiment, we evaluated preschool children's environmental selection, their integration of both auditory information and a third party's goals, for familiar activities. We asked whether they would differentially select environment-goal pairings that optimized another person's goals. If children are systematically pairing based on outcomes, this may suggest that they are, in fact, attuned to the environment as a strategy for goal optimization. 
 
 ## Methods
 
@@ -149,7 +149,7 @@ cidataage_3b <- tidydata_3b %>%
 
 # Data visualization and stats
 
-## x-axis labels
+## labels
 xlabels <- c("music", "babble", "silence", "white noise")
 
 ## Figure 2
@@ -246,7 +246,7 @@ To test this question, we replaced the familiar activities in Experiment 1 with 
 ## Methods
 
 ```{r e4-data}
-
+#CHILDREN
 ## Load data
 data_4b <- read_csv(here("data", "childrendatalog4b.csv")) #load data
 
@@ -282,6 +282,70 @@ excluded_4b <- data_4b %>%
   select(subject_id:rationale)
 ```
 
+```{r e4adult-data}
+#ADULTS
+#Load data 4a
+data_4a <- read.csv(here("data", "adultdatalog4a1.csv"), na.strings = c("", "NA")) #load data
+
+## Clean data
+cleandata_4a <- data_4a %>% 
+  clean_names() %>% #lowercase column names
+  select(q6:language_1) %>% #remove unnecessary columns
+  rename("sound_check" = "q6")
+
+## Remove first two rows (contain no data/are unnecessary)
+cleandata_4a <- cleandata_4a[-c(1,2), ]
+
+## Data cleaning and participant exclusion
+tidydata_4a <- cleandata_4a %>% 
+  filter(attention_check_1 == 1,
+         attention_check_2 == 1,
+         sound_check == 1) %>% #exclude participants who failed attention and sound checks
+  mutate(subject_id = row_number()) %>% #make a subject id column
+  select(subject_id, everything()) %>%
+  relocate(age, race, .after = subject_id) %>% 
+  select(subject_id:rast_white)
+
+## Pivot columns
+tidy4a <- tidydata_4a %>%
+  pivot_longer(cols = c("clop_instrumental", "fraw_instrumental", "gobb_instrumental", "norl_instrumental", "terb_instrumental", "plip_instrumental", "surk_instrumental", "rast_instrumental",
+                        "clop_silence", "fraw_silence", "gobb_silence", "norl_silence", "terb_silence", "plip_silence", "surk_silence", "rast_silence",
+                        "clop_white", "fraw_white", "gobb_white", "norl_white", "terb_white", "plip_white", "surk_white", "rast_white",
+                        "clop_mtb", "fraw_mtb", "gobb_mtb", "norl_mtb", "terb_mtb", "plip_mtb", "surk_mtb", "rast_mtb"),
+               names_to = "activity",
+               values_to = "rating") %>% 
+  separate(col = activity,
+           into = c("activity", "noise_type"),
+           sep = '[_]') %>% 
+  na.omit()
+
+## Make rating category numeric
+tidy4a$rating <- as.integer(tidy4a$rating)
+
+##Pull out 4 activities that relate to Experiment 2
+tidydata_4a_exp2 <- tidy4a %>% 
+  filter(activity %in% c("fraw", "gobb", "plip", "clop")) %>%
+  rename("activity_old" = "activity") %>% 
+  mutate(activity = case_when(
+            activity_old == "clop" ~ "terb",
+            activity_old == "gobb" ~ "gobb",
+            activity_old == "fraw" ~ "fraw",
+            activity_old == "plip" ~ "plip"))
+
+## Demographic information
+demodata_4a <- tidydata_4a %>%
+  select(subject_id,age, race) %>% 
+  replace(is.na(tidydata_4a$race), 7)
+
+## Make race and age categories numeric
+demodata_4a$race <- as.integer(demodata_4a$race, na.rm = TRUE)
+demodata_4a$age <- as.integer(demodata_4a$age, na.rm = TRUE)
+
+excluded_4a <- cleandata_4a %>%
+  filter(attention_check_1 == 0 | attention_check_2 == 0)
+
+```
+
 ### Participants
 
 `r nrow(demodata_4b)` children (3;0 - 5;11 years, mean age = `r round(mean(demodata_4b$age_months/12),2)` years, `r round(mean(demodata_4b$race == "Caucasian/White")*100,1)`% Caucasian/White) were recruited from either a local Bay Area nursery school or children’s museum. An additional `r nrow(excluded_4b)` children were ultimately excluded from analysis. This sample is a subset of the 72 children we intend to include in the final preregistered sample [link redacted].  
@@ -295,7 +359,7 @@ We asked participants two questions which served as our DVs: (1) "Should Joe and
 ## Results and Discussion
 
 ```{r e4b-bar, fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from Experiment 2. Data is collapsed acrossed age."}
-
+#CHILDREN
 ## Calculate confidence intervals
 
 ### Aggregate confidence intervals (3-5 years)
@@ -320,6 +384,10 @@ cidataage_4b <- tidydata_4b %>%
 
 ## x-axis labels
 xlabels <- c("white noise", "babble", "music", "silence")
+facet_labels <- c(fraw = "Fraw: read before bed", 
+                  gobb = "Gobb: look for something to do",
+                  plip = "Plip: spin in circles",
+                  terb = "Terb: hide stomach grumbling")
 
 #Figure 3
  ## Aggregated Data
@@ -333,7 +401,7 @@ xlabels <- c("white noise", "babble", "music", "silence")
    #scale_fill_brewer(palette="Set2") +
    scale_fill_manual(values = wes_palette("GrandBudapest1")) +
    scale_x_discrete(labels = xlabels) +
-   facet_wrap(~activity) +
+   facet_wrap(~activity, labeller = as_labeller(facet_labels)) +
    geom_hline(yintercept = .5, lty =2) +
    scale_color_solarized() + 
    theme_few() +
@@ -445,7 +513,7 @@ tidydata_4a_clean <- tidydata_4a %>%
 tidydata_4a_clean$rating <- as.integer(tidydata_4a_clean$rating)
 
 ## Calculate confidence intervals
-cidata_4a <- tidydata_4a_clean %>%
+cidata_4a <- tidydata_4a_exp2 %>%
   group_by(activity, noise_type) %>% 
   summarise(n = n(),
             mean_rating = mean(rating, na.rm=TRUE), 
@@ -453,14 +521,62 @@ cidata_4a <- tidydata_4a_clean %>%
             ci.l = mean_rating - sem * 1.96,
             ci.u = mean_rating + sem * 1.96)
 
+# Data Visualization
+
+xlabels <- c("babble", "music", "silence", "white noise")
+facet_labels <- c(fraw = "Fraw: read before bed", 
+                  gobb = "Gobb: look for something to do",
+                  plip = "Plip: spin in circles",
+                  terb = "Terb: hide stomach grumbling")
+
+ggplot(data = cidata_4a, 
+       mapping = aes(x = factor(noise_type, level= c("mtb", "instrumental", "silence", "white")), y = mean_rating, fill = activity)) +
+  geom_col() +
+  geom_linerange(aes(ymin = ci.l,
+                     ymax = ci.u)) +
+  ylim(0,7) +
+  xlab("Auditory Stimulus") +
+  ylab("Rating") +
+  #scale_fill_brewer(palette="Set2") +
+  scale_fill_manual(values = wes_palette("GrandBudapest1")) +
+  scale_x_discrete(labels = xlabels) +
+  facet_wrap(~activity, labeller = as_labeller(facet_labels)) +
+  geom_hline(yintercept = 3.5, lty =2) +
+  scale_color_solarized() + 
+  theme_few() +
+  theme(legend.position = "none",
+        title = element_text(size = 8),
+        axis.text = element_text(size = 8),
+        panel.spacing.x = unit(0.5, "lines"),
+        panel.spacing.y = unit(0.5, "lines"),
+        axis.text.x = element_text(angle = 30, hjust=1),
+        text = element_text(size=10))
+
+```
+
+```{r e4a-stats-anova, results='hide', eval=FALSE}
+
+mod4a <- lme4::lmer(rating ~ noise_type * activity  + (1 | subject_id), 
+                  control = lmerControl(optimizer = "bobyqa"), 
+                   data = tidy_data4a_exp2)
+mod4a_noint <- lme4::lmer(rating ~ noise_type + activity  + (1 | subject_id),
+                  control = lmerControl(optimizer = "bobyqa"), 
+                   data = tidy_data4a_exp2)
+
+anova_4a <- anova(mod4a, mod4a_noint)
+
+saveRDS(anova_4a, here("writeup/models","anova_4a.Rds"))
+```
+
+```{r e4a-stats-anova-load}
+anova_4a <- readRDS(here("writeup/models","anova_4a.Rds"))
 ```
 
 ```{r e4a-stats, results="hide", eval=FALSE}
 
 # Logistic Regression
-glmer_4a <- stan_glmer(formula = rating ~ activity * noise_type + (1 | subject_id),
-                       family = gaussian,
-                       data = tidydata_4a_clean)
+glmer_4a <- stan_glmer(formula = rating ~ noise_type * activity + (1 | subject_id),
+                       data = tidy_data4a_exp2)
 
 summary_4a <- summary(glmer_4a, probs = c(0.025, 0.975))
 
