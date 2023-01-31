@@ -59,7 +59,7 @@ In the current paper, we studied both whether and how preschool children use env
 
 # Experiment 1
 
-In our first Experiment, we evaluated preschool children's environmental selection, their integration of both auditory information and a third party's goals, for familiar activities. We asked whether they would differentially select environment-goal pairings that optimized another person's goals. If children are systematically pairing based on outcomes, this may suggest that they are, in fact, attuned to the environment as a feature of goal optimization. 
+In our first experiment, we evaluated preschool children's environmental selection, their integration of both auditory information and a third party's goals, for familiar activities. We asked whether they would differentially select environment-goal pairings that optimized another person's goals. If children are systematically pairing based on outcomes, this may suggest that they are, in fact, attuned to the environment as a strategy for goal optimization. 
 
 ## Methods
 
@@ -146,7 +146,7 @@ cidataage_3b <- tidydata_3b %>%
 
 # Data visualization and stats
 
-## x-axis labels
+## labels
 xlabels <- c("music", "babble", "silence", "white noise")
 
 ## Figure 2
@@ -235,7 +235,7 @@ While some unifying accounts of active and associative learning exist [see @krus
 ## Methods
 
 ```{r e4-data}
-
+#CHILDREN
 ## Load data
 data_4b <- read_csv(here("data", "childrendatalog4b.csv")) #load data
 
@@ -272,7 +272,7 @@ excluded_4b <- data_4b %>%
 ```
 
 ```{r e4adult-data}
-#Adult Data
+#ADULTS
 #Load data 4a
 data_4a <- read.csv(here("data", "adultdatalog4a1.csv"), na.strings = c("", "NA")) #load data
 
@@ -312,7 +312,7 @@ tidy4a <- tidydata_4a %>%
 tidy4a$rating <- as.integer(tidy4a$rating)
 
 ##Pull out 4 activities that relate to Experiment 2
-tidy_data4b_exp2 <- tidy4a %>% 
+tidydata_4a_exp2 <- tidy4a %>% 
   filter(activity %in% c("fraw", "gobb", "plip", "clop")) %>%
   rename("activity_old" = "activity") %>% 
   mutate(activity = case_when(
@@ -348,7 +348,7 @@ We asked participants two questions which served as our DVs: (1) "Should Joe and
 ## Results and Discussion
 
 ```{r e4b-bar, fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from Experiment 2. Data is collapsed acrossed age."}
-
+#CHILDREN
 ## Calculate confidence intervals
 
 ### Aggregate confidence intervals (3-5 years)
@@ -373,6 +373,10 @@ cidataage_4b <- tidydata_4b %>%
 
 ## x-axis labels
 xlabels <- c("babble", "music", "silence", "white noise")
+facet_labels <- c(fraw = "Fraw: read before bed", 
+                  gobb = "Gobb: look for something to do",
+                  plip = "Plip: spin in circles",
+                  terb = "Terb: hide stomach grumbling")
 
 #Figure 3
  ## Aggregated Data
@@ -386,7 +390,7 @@ xlabels <- c("babble", "music", "silence", "white noise")
    #scale_fill_brewer(palette="Set2") +
    scale_fill_manual(values = wes_palette("GrandBudapest1")) +
    scale_x_discrete(labels = xlabels) +
-   facet_wrap(~activity) +
+   facet_wrap(~activity, labeller = as_labeller(facet_labels)) +
    geom_hline(yintercept = .5, lty =2) +
    scale_color_solarized() + 
    theme_few() +
@@ -425,7 +429,7 @@ xlabels <- c("babble", "music", "silence", "white noise")
 #   labs(fill = "Age (Years)")
 ```
 
-```{r e4-stats-anova, results='hide', eval=FALSE}
+```{r e4b-stats-anova, results='hide', eval=FALSE}
 
 mod4 <- lme4::glmer(response ~ sound_type * activity  + (1 | subject_id), 
                    family = binomial, 
@@ -441,7 +445,7 @@ anova_4b <- anova(mod4, mod4_noint)
 saveRDS(anova_4b, here("writeup/models","anova_4b.Rds"))
 ```
 
-```{r e4-stats-anova-load}
+```{r e4b-stats-anova-load}
 anova_4b <- readRDS(here("writeup/models","anova_4b.Rds"))
 ```
 
@@ -458,14 +462,14 @@ saveRDS(summary_4b, here("writeup/models","summary_4b.Rds"))
 
 ```
 
-```{r e4-stats-load}
+```{r e4b-stats-load}
 summary_4b <- readRDS(here("writeup/models","summary_4b.Rds"))
 ```
 
 ```{r e4a-bar, fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from an adult sample. Adult participants completed the same task as children in Experiment 2, but instead of reasoning about a third party (Joe and Mandy in Exp. 2), they were asked how well they could complete each activity based on the ausitory stimulus. The y-axis indicates the rating scale from 1-7. A rating of 1 denotes a full mismatch between activity and auditory stimulus while 7 denotes an optimal match."}
-
+#ADULTS
 ## Calculate confidence intervals
-cidata_4a <- tidy_data4b_exp2 %>%
+cidata_4a <- tidydata_4a_exp2 %>%
   group_by(activity, noise_type) %>% 
   summarise(n = n(),
             mean_rating = mean(rating, na.rm=TRUE), 
@@ -476,6 +480,10 @@ cidata_4a <- tidy_data4b_exp2 %>%
 # Data Visualization
 
 xlabels <- c("babble", "music", "silence", "white noise")
+facet_labels <- c(fraw = "Fraw: read before bed", 
+                  gobb = "Gobb: look for something to do",
+                  plip = "Plip: spin in circles",
+                  terb = "Terb: hide stomach grumbling")
 
 ggplot(data = cidata_4a, 
        mapping = aes(x = factor(noise_type, level= c("mtb", "instrumental", "silence", "white")), y = mean_rating, fill = activity)) +
@@ -488,7 +496,7 @@ ggplot(data = cidata_4a,
   #scale_fill_brewer(palette="Set2") +
   scale_fill_manual(values = wes_palette("GrandBudapest1")) +
   scale_x_discrete(labels = xlabels) +
-  facet_wrap(~activity) +
+  facet_wrap(~activity, labeller = as_labeller(facet_labels)) +
   geom_hline(yintercept = 3.5, lty =2) +
   scale_color_solarized() + 
   theme_few() +
@@ -499,17 +507,59 @@ ggplot(data = cidata_4a,
         panel.spacing.y = unit(0.5, "lines"),
         axis.text.x = element_text(angle = 30, hjust=1),
         text = element_text(size=10))
+
+```
+
+```{r e4a-stats-anova, results='hide', eval=FALSE}
+
+mod4a <- lme4::lmer(rating ~ noise_type * activity  + (1 | subject_id), 
+                  control = lmerControl(optimizer = "bobyqa"), 
+                   data = tidy_data4a_exp2)
+mod4a_noint <- lme4::lmer(rating ~ noise_type + activity  + (1 | subject_id),
+                  control = lmerControl(optimizer = "bobyqa"), 
+                   data = tidy_data4a_exp2)
+
+anova_4a <- anova(mod4a, mod4a_noint)
+
+saveRDS(anova_4a, here("writeup/models","anova_4a.Rds"))
+```
+
+```{r e4a-stats-anova-load}
+anova_4a <- readRDS(here("writeup/models","anova_4a.Rds"))
+```
+
+```{r e4a-stats, results="hide", eval=FALSE}
+
+# Logistic Regression
+glmer_4a <- stan_glmer(formula = rating ~ noise_type * activity + (1 | subject_id),
+                       data = tidy_data4a_exp2)
+
+summary_4a <- summary(glmer_4a, probs = c(0.025, 0.975))
+
+saveRDS(summary_4a, here("writeup/models","summary_4a.Rds"))
+
+```
+
+```{r e4a-stats-load}
+summary_4a <- readRDS(here("writeup/models","summary_4a.Rds"))
 ```
 
 If preschool children rely solely on association when evaluating the acoustic environment, that is, they have acquired associative links between familiar activities and their acoustic contexts, we should expect that children will have no strong preferences for pairing novel activities with any particular acoustic context. If, however, children can reason flexibly about how the acoustic environment influences goal optimization and outcomes, we should expect that children show clear preferences for acoustic contexts even with activities they have never actually encountered.
 
-Data collection for Experiment 2 is ongoing, so we present a subset [20 of the preregistered 72-participant sample] of the data for preliminary analysis. Our model with an interaction between activity and auditory stimulus was not different from a model with no interaction term  [$X^2$(`r anova_4b[2,7]`) = `r round(anova_4b[2,6],2)`, p = `r round(anova_4b[2,8],2)`]. Figure 3 shows the aggregated data across all participants.
+Data collection for Experiment 2 is ongoing, so we present a subset [20 of the preregistered 72-participant sample] of the data for preliminary analysis. Our model with an interaction between activity and auditory stimulus was not different from a model with no interaction term [$X^2$(`r anova_4b[2,7]`) = `r round(anova_4b[2,6],2)`, p = `r round(anova_4b[2,8],2)`]. Figure 3 shows the aggregated data across all participants.
 
 ## Adult Ratings of Novel Activity Pairings
 
 The previous findings suggest some differentiation in pairing auditory stimuli with novel activities, but what pattern of results should we expect? Given the novelty of the paradigm, we recruited a sample of adult participants to complete the same task, and then we compared these results with children in the previous sample. 
 
+### Participants
 `r nrow(demodata_4a)` adults (mean age = `r round(mean(demodata_4a$age),2)` years, `r round(mean(demodata_4a$race == 3)*100,1)`% Caucasian/White) were recruited for an online study hosted on Prolific. An additional `r nrow(excluded_4a)` participants were ultimately excluded from analysis for failing one or both of the attention checks.
+
+### Methods and Procedure
+Participants completed a similar paradigm to children that was adapted to an online, self-paced task. Participants watched animated videos of a hallway exterior with one door centered in the middle of the screen. When the door opened, one of four sounds played, followed by the door closing at the end of the video. Each video was 7s in length and equalized to 65dB. Participants then responded to the following prompt: "I could [fraw/gobb/plip/terb] in this room", and were also provided with the definition of each. Responses were collected via a likert rating scale from 1 ("not at all well") to 7 ("very well"). Each novel activity was presented one at a time, and the presentation order was counterbalanced across participants.
+
+### Results and Discussion
+Figure 4 depicts adults' ratings for each activity by auditory stimulus. Our model with an interaction term was significantly different from the model with no such interaction [$X^2$(`r anova_4a[2,7]`) = `r round(anova_4a[2,6],2)`, p = `r round(anova_4a[2,8],2)`]. More importantly, the trend
 
 # General Discussion
 

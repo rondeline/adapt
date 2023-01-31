@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  30 JAN 2023 19:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  30 JAN 2023 21:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -489,47 +489,44 @@ File: figs/e4a-bar-1.pdf Graphic file (type pdf)
 <use figs/e4a-bar-1.pdf>
 Package pdftex.def Info: figs/e4a-bar-1.pdf  used on input line 449.
 (pdftex.def)             Requested size: 495.85129pt x 273.01933pt.
-[4 <./figs/e3b-bar-1.pdf>]
-Underfull \vbox (badness 5217) has occurred while \output is active []
-
-[5 <./figs/e4b-bar-1.pdf>]
+[4 <./figs/e3b-bar-1.pdf>] [5 <./figs/e4b-bar-1.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 [6 <./figs/e4a-bar-1.pdf>]
-Underfull \hbox (badness 1072) in paragraph at lines 612--617
+Underfull \hbox (badness 1072) in paragraph at lines 638--643
  \OT1/ptm/m/n/10 re-lated to voice, noise, and com-mu-ni-ca-tion in nordic
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 703.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 729.
 [7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 703.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 729.
 (./adapt_cogsci23_anonymoussubmission.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 703.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 703.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 729.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 729.
 Package rerunfilecheck Info: File `adapt_cogsci23_anonymoussubmission.out' has 
 not changed.
-(rerunfilecheck)             Checksum: C066FE68F75CE13A5A29CD5B23CC6DDD;578.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 703.
+(rerunfilecheck)             Checksum: 76827B8C4B9A5C3F605A0A20F0CE767F;578.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 729.
  ) 
 Here is how much of TeX's memory you used:
- 8661 strings out of 480608
- 131597 string characters out of 5903631
+ 8670 strings out of 480608
+ 131754 string characters out of 5903631
  397262 words of memory out of 5000000
- 24321 multiletter control sequences out of 15000+600000
+ 24324 multiletter control sequences out of 15000+600000
  557605 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,42p,688b,343s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,10n,42p,688b,341s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/20
 20/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-d
 ist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on adapt_cogsci23_anonymoussubmission.pdf (7 pages, 279294 bytes
+Output written on adapt_cogsci23_anonymoussubmission.pdf (7 pages, 280327 bytes
 ).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 171 compressed objects within 2 object streams
- 68 named destinations out of 1000 (max. 500000)
+ 208 PDF objects out of 1000 (max. 8388607)
+ 179 compressed objects within 2 object streams
+ 74 named destinations out of 1000 (max. 500000)
  101 words of extra memory for PDF output out of 10000 (max. 10000000)
 
