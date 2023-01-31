@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  30 JAN 2023 21:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.7)  30 JAN 2023 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -452,81 +452,87 @@ Underfull \vbox (badness 10000) detected at line 69
 
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-<figs/e3-stimuli-1.pdf, id=52, 216.81pt x 136.51pt>
+<figs/e3-stimuli-1.pdf, id=48, 216.81pt x 136.51pt>
 File: figs/e3-stimuli-1.pdf Graphic file (type pdf)
 <use figs/e3-stimuli-1.pdf>
-Package pdftex.def Info: figs/e3-stimuli-1.pdf  used on input line 247.
+Package pdftex.def Info: figs/e3-stimuli-1.pdf  used on input line 221.
 (pdftex.def)             Requested size: 216.80946pt x 136.50966pt.
 
-Underfull \hbox (badness 1163) in paragraph at lines 255--274
+Underfull \hbox (badness 1163) in paragraph at lines 229--248
  []\OT1/ptm/b/n/10 Materials and Pro-ce-dure[] \OT1/ptm/m/n/10 A trained un-der
 -grad-u-ate re-
  []
 
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 269.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 269.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 269.
+
+Underfull \vbox (badness 6364) has occurred while \output is active []
+
 [2 <./figs/e3-stimuli-1.pdf>]
-<figs/e3b-bar-1.pdf, id=70, 495.8525pt x 265.99374pt>
+<figs/e3b-bar-1.pdf, id=67, 495.8525pt x 265.99374pt>
 File: figs/e3b-bar-1.pdf Graphic file (type pdf)
 <use figs/e3b-bar-1.pdf>
-Package pdftex.def Info: figs/e3b-bar-1.pdf  used on input line 316.
+Package pdftex.def Info: figs/e3b-bar-1.pdf  used on input line 282.
 (pdftex.def)             Requested size: 495.85129pt x 265.99309pt.
-LaTeX Font Info:    Trying to load font information for OML+ptm on input line 3
-40.
-(/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/omlptm.fd
-File: omlptm.fd 
-)
-LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 340.
 [3]
-<figs/e4b-bar-1.pdf, id=80, 495.8525pt x 273.02pt>
+<figs/e4b-bar-1.pdf, id=86, 495.8525pt x 273.02pt>
 File: figs/e4b-bar-1.pdf Graphic file (type pdf)
 <use figs/e4b-bar-1.pdf>
-Package pdftex.def Info: figs/e4b-bar-1.pdf  used on input line 438.
+Package pdftex.def Info: figs/e4b-bar-1.pdf  used on input line 403.
 (pdftex.def)             Requested size: 495.85129pt x 273.01933pt.
-<figs/e4a-bar-1.pdf, id=81, 495.8525pt x 273.02pt>
-File: figs/e4a-bar-1.pdf Graphic file (type pdf)
-<use figs/e4a-bar-1.pdf>
-Package pdftex.def Info: figs/e4a-bar-1.pdf  used on input line 449.
-(pdftex.def)             Requested size: 495.85129pt x 273.01933pt.
-[4 <./figs/e3b-bar-1.pdf>] [5 <./figs/e4b-bar-1.pdf>]
+<figs/e4a-data-1.pdf, id=87, 206.7725pt x 200.75pt>
+File: figs/e4a-data-1.pdf Graphic file (type pdf)
+<use figs/e4a-data-1.pdf>
+Package pdftex.def Info: figs/e4a-data-1.pdf  used on input line 451.
+(pdftex.def)             Requested size: 206.77199pt x 200.7495pt.
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[6 <./figs/e4a-bar-1.pdf>]
-Underfull \hbox (badness 1072) in paragraph at lines 638--643
+[4 <./figs/e3b-bar-1.pdf>]
+Underfull \vbox (badness 5217) has occurred while \output is active []
+
+[5 <./figs/e4b-bar-1.pdf> <./figs/e4a-data-1.pdf>]
+Underfull \hbox (badness 1072) in paragraph at lines 562--567
  \OT1/ptm/m/n/10 re-lated to voice, noise, and com-mu-ni-ca-tion in nordic
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 729.
-[7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 729.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 620.
+[6]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 620.
 (./adapt_cogsci23_anonymoussubmission.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 729.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 729.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 620.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 620.
 Package rerunfilecheck Info: File `adapt_cogsci23_anonymoussubmission.out' has 
 not changed.
-(rerunfilecheck)             Checksum: 76827B8C4B9A5C3F605A0A20F0CE767F;578.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 729.
+(rerunfilecheck)             Checksum: 5BB82389FE627C17445ED2BFF52645E9;490.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 620.
  ) 
 Here is how much of TeX's memory you used:
- 8670 strings out of 480608
- 131754 string characters out of 5903631
- 397262 words of memory out of 5000000
- 24324 multiletter control sequences out of 15000+600000
- 557605 words of font info for 71 fonts, out of 8000000 for 9000
+ 8658 strings out of 480608
+ 131440 string characters out of 5903631
+ 397227 words of memory out of 5000000
+ 24331 multiletter control sequences out of 15000+600000
+ 568671 words of font info for 96 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 41i,10n,42p,688b,341s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,10n,42p,688b,321s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
-xlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/20
-20/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-d
-ist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/
-type1/urw/times/utmri8a.pfb>
-Output written on adapt_cogsci23_anonymoussubmission.pdf (7 pages, 280327 bytes
+xlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
+ive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/
+texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/local/texlive/2020/texmf-dist/
+fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type
+1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/time
+s/utmri8a.pfb>
+Output written on adapt_cogsci23_anonymoussubmission.pdf (6 pages, 290402 bytes
 ).
 PDF statistics:
- 208 PDF objects out of 1000 (max. 8388607)
- 179 compressed objects within 2 object streams
- 74 named destinations out of 1000 (max. 500000)
- 101 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 191 PDF objects out of 1000 (max. 8388607)
+ 160 compressed objects within 2 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
