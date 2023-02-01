@@ -6,7 +6,7 @@ document-params: "10pt, letterpaper"
 # author-information: >
    
 abstract: >
-  Despite the unpredictible and ubiquitous nature of noise in the natural acoustic environment, most children still manage to extract the linguistic, cognitive, and social information needed to engage with the world around them. This is no small feat. We examined what strategies children use to navigate different acoustic environments. One possbility that we test is that children can select acoustic contexts that are consistent with particular goals. In Experiment 1, we presented preschool children with a set of auditory stimuli, meant to approximate various acoustic environments, and activity goals to complete within those environments. Children integrated auditory information with goals to select the best environment. To assess the flexibility of children's decision-making, Experiment 2 built on this framework by replacing familiar activity goals with novel ones. We report preliminary findings from this study. 
+  Despite the unpredictible and ubiquitous nature of noise in the natural acoustic environment, most children still manage to extract the linguistic, cognitive, and social information needed to engage with the world around them. This is no small feat. We examined what strategies children use to navigate different acoustic environments. One possbility that we test is that children can select acoustic contexts that are consistent with particular goals. In Experiment 1, we presented preschool children with a set of auditory stimuli, meant to approximate various acoustic environments, and activity goals to complete within those environments. Children integrated auditory information with goals to select the best environment. To assess the flexibility of children's decision-making, Experiment 2 built on this framework by replacing familiar activity goals with novel ones. Adults and preschoolers (in preliminary data) were able to reason about the acoustic environments that best matched these novel activities, providing evidence for flexible reasoning about goal-consistent enviroments. 
   
 keywords: >
   active learning; associative learning; auditory noise; cognitive development; decision making
@@ -169,7 +169,7 @@ ggplot(data = cidataage_3b, mapping = aes(x = factor(sound_type, level= c("mtb5"
   facet_wrap(~activity, labeller = as_labeller(facet_labels_3b), scales = "free", ncol = 4) +
   xlab("Auditory Stimulus") +
   ylim(0,1) +
-  ylab("Rating") +
+  ylab("Proportion Choosing Room") +
   scale_fill_manual(values = wes_palette("GrandBudapest1")) +
   scale_x_discrete(labels = xlabels) +
   geom_hline(yintercept = .5, lty =2) +
@@ -357,7 +357,10 @@ We asked participants two questions which served as our DVs: (1) "Should Joe and
 
 ## Results and Discussion
 
-```{r e4b-bar, fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from Experiment 2. Data is collapsed acrossed age."}
+```{r e4b-bar}
+ # fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from Experiment 2. Data is collapsed acrossed age."
+
+
 #CHILDREN
 ## Calculate confidence intervals
 
@@ -393,13 +396,13 @@ facet_labels <- c(fraw = "Fraw: story before bed",
 
 #Figure 3
  ## Aggregated Data
- ggplot(data = cidata_4b, mapping = aes(x = factor(sound_type, level= c("5tb", "instrumental", "silence", "white")), y = mean_response, fill = activity)) +
+e4_kids <- ggplot(data = cidata_4b, mapping = aes(x = factor(sound_type, level= c("5tb", "instrumental", "silence", "white")), y = mean_response, fill = activity)) +
    geom_col() +
    geom_linerange(aes(ymin = ci.l,
                       ymax = ci.u)) +
    ylim(0,1) +
    xlab("Auditory Stimulus") +
-   ylab("Rating") +
+   ylab("Proportion choosing room") +
    #scale_fill_brewer(palette="Set2") +
    scale_fill_manual(values = wes_palette("GrandBudapest1")) +
    scale_x_discrete(labels = xlabels) +
@@ -472,15 +475,8 @@ summary_4b_simple <- readRDS(here("writeup/models","summary_4b_simple.Rds"))
 
 ```
 
-If preschool children rely solely on association when evaluating the acoustic environment, that is, they have acquired associative links between familiar activities and their acoustic contexts, we should expect that children will have no strong preferences for pairing novel activities with any particular acoustic context. If, however, children can reason flexibly about how the acoustic environment influences goal optimization and outcomes, we should expect that children show clear preferences for acoustic contexts even with activities they have never actually encountered.
 
-Data collection for Experiment 2 is ongoing, so we present a preliminary analysis of the data. Figure 3 shows the pattern of choices across all participants (not disaggregated by age). Several of the activities appear to show patterns of preference for one acoustic environment. 
-
-While we did not have sufficient power to fit our full preregistered Bayesian mixed effects model, we did fit a subset model that did not include effects of age. We set the reference level to be "fraw" (story before bed) and silence. Critically, we found evidence for interactions between two activities and the music sound category, such that the music environment was preferred for both "plip" (spinning to the beat; $\beta = `r round(summary_4b_simple[12,1],2)` [`r round(summary_4b_simple[12,4],2)`, `r round(summary_4b_simple[12,5],2)`]$) and "terb" (hiding tummy rumbling; $\beta = `r round(summary_4b_simple[15,1],2)` [`r round(summary_4b_simple[15,4],2)`, `r round(summary_4b_simple[15,5],2)`]$). 
-
-These preliminary results give evidence that children appeared to be reasoning about the goal of activities and how they fit with different acoustic environments. Children may have drawn on familiar elements of the new activities, including associations with bedtime stories or spinning, but they were clearly reasoning in some way about these. Perhaps the most interesting activity from this perspective was "terbing" (hiding tummy rumbling), where children would have to reason that music might mask the sound of their tummy. Overall, these data provide a first test of the idea that children are doing some kind of reasoning beyond pure associative matching.
-
-```{r e4a-bar, fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from an adult sample. Adult participants completed the same task as children in Experiment 2, but instead of reasoning about a third party (Joe and Mandy in Exp. 2), they were asked how well they could complete each activity based on the ausitory stimulus. The y-axis indicates the rating scale from 1-7. A rating of 1 denotes a full mismatch between activity and auditory stimulus while 7 denotes an optimal match."}
+```{r e4a-bar}
 
 # Data Visualization
 
@@ -502,7 +498,7 @@ facet_labels <- c(fraw = "Fraw: story before bed",
                   plip = "Plip: spin to the beat",
                   terb = "Terb: hide tummy rumbling")
 # Figure 4
-ggplot(data = cidata_4a, 
+e4_adults <- ggplot(data = cidata_4a, 
        mapping = aes(x = factor(noise_type, level= c("mtb", "instrumental", "silence", "white")), y = mean_rating, fill = activity)) +
   geom_col() +
   geom_linerange(aes(ymin = ci.l,
@@ -514,7 +510,7 @@ ggplot(data = cidata_4a,
   scale_fill_manual(values = wes_palette("GrandBudapest1")) +
   scale_x_discrete(labels = xlabels) +
   facet_wrap(~activity, labeller = as_labeller(facet_labels)) +
-  geom_hline(yintercept = 3.5, lty =2) +
+  # geom_hline(yintercept = 4, lty = 2) +
   scale_color_solarized() + 
   theme_few() +
   theme(legend.position = "none",
@@ -548,27 +544,43 @@ summary_4a <- readRDS(here("writeup/models","summary_4a.Rds"))
 
 ```
 
+```{r e4-summary-fig, fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from (A) children and (B) adults in Experiment 2. While children made binary judgments, adults used a seven-point likert scale indicating match (7) vs. mismatch (1) between sounds and activities."}
+
+cowplot::plot_grid(e4_kids, e4_adults, labels = c("A", "B"))
+```
+
+If preschool children rely solely on association when evaluating the acoustic environment, that is, they have acquired associative links between familiar activities and their acoustic contexts, we should expect that children will have no strong preferences for pairing novel activities with any particular acoustic context. If, however, children can reason flexibly about how the acoustic environment influences goal optimization and outcomes, we should expect that children show clear preferences for acoustic contexts even with activities they have never actually encountered.
+
+Data collection for Experiment 2 is ongoing, so we present a preliminary analysis of the data. Figure 3A shows the pattern of choices across all participants (not disaggregated by age). Several of the activities appear to show patterns of preference for one acoustic environment. 
+
+While we did not have sufficient power to fit our full preregistered Bayesian mixed effects model, we did fit a subset model that did not include effects of age. We set the reference level to be "fraw" (story before bed) and silence. Critically, we found evidence for interactions between two activities and the music sound category, such that the music environment was preferred for both "plip" (spinning to the beat; $\beta = `r round(summary_4b_simple[12,1],2)` [`r round(summary_4b_simple[12,4],2)`, `r round(summary_4b_simple[12,5],2)`]$) and somewhat for "terb" (hiding tummy rumbling; $\beta = `r round(summary_4b_simple[15,1],2)` [`r round(summary_4b_simple[15,4],2)`, `r round(summary_4b_simple[15,5],2)`]$). 
+
+These preliminary results give evidence that children appeared to be reasoning about the goal of activities and how they fit with different acoustic environments. Children may have drawn on familiar elements of the new activities, including associations with bedtime stories or spinning, but they were clearly reasoning in some way about these. Perhaps the most interesting activity from this perspective was "terbing" (hiding tummy rumbling), where children would have to reason that music might mask the sound of their tummy. We interpret the "terbing" result with caution, however, as this is likely to be a challenging item and responses were relatively flat. Overall, these data provide a first test of the idea that children are doing some kind of reasoning beyond pure associative matching.
+
 ## Adult Ratings of Novel Activity Pairings
+
 The previous findings suggest some differentiation in pairing auditory stimuli with novel activities, but what pattern of results should we expect? Given the novelty of the paradigm, we recruited a sample of adult participants to complete the same task, and then we compared these results with children in the previous sample. 
 
 ### Participants
 `r nrow(demodata_4a)` adults (mean age = `r round(mean(demodata_4a$age),2)` years, `r round(mean(demodata_4a$white == 1)*100,1)`% Caucasian/White) were recruited for an online study hosted on Prolific. An additional `r nrow(excluded_4a)` participants were ultimately excluded from analysis for failing one or both of the attention checks.
 
 ### Methods and Procedure
-Participants completed a similar paradigm to children that was adapted to an online, self-paced task. Participants watched animated videos of a hallway exterior with one door centered in the middle of the screen. When the door opened, one of four sounds played, followed by the door closing, signaling the end of the video. Each video was 7s in length and equalized to 65dB. Participants then responded to the following prompt: "I could [fraw/gobb/plip/terb] in this room", and were also provided with the definition of each. Responses were collected via a likert rating scale from 1 ("not at all well") to 7 ("very well"). Each novel activity was presented one at a time, and the presentation order was counterbalanced across participants.
+
+Participants completed a similar paradigm to children that was adapted to an online, self-paced task. Participants watched animated videos of a hallway exterior with one door centered in the middle of the screen. When the door opened, one of four sounds played, followed by the door closing, signaling the end of the video. Each video was 7s in length and normalized to 65 dB RMS amplitude. Participants then responded to the following prompt: "I could [fraw/gobb/plip/terb] in this room", and were also provided with the definition of each. Responses were collected via a likert rating scale from 1 ("not at all well") to 7 ("very well"). Each novel activity was presented one at a time, and the presentation order was counterbalanced across participants.
 
 ### Results and Discussion
-Figure 4 depicts adults' ratings for each activity by auditory stimulus. Activity-sound interactions were largely similar between children and adults. As with the childen, adults preferred pairing music with both plip ($\beta = `r round(summary_4a[11,1],2)` [`r round(summary_4a[11,4],2)`, `r round(summary_4a[11,5],2)`]$) and terb ($\beta = `r round(summary_4a[14,1],2)` [`r round(summary_4a[14,4],2)`, `r round(summary_4a[14,5],2)`]$). Adults were also not more likely to prefer any auditory stimulus for gobb ($\beta = `r round(summary_4a[10,1],2)` - `r round(summary_4a[9,1],2)` [[`r round(summary_4a[10,4],2)`, `r round(summary_4a[9,5],2)`]$). While adults' ratings were generally stronger than children's, these findings suggest children's reasoning about activity-auditory pairings result in similar directional patterns to that of adults. 
+
+Figure 3B depicts adults' ratings for each activity by auditory stimulus. Activity-sound interactions were largely similar between children and adults. As with the children, we observed interactions between activity and auditory stimulus such that adults preferred pairing music with both "plip" (spinning to the beat) ($\beta = `r round(summary_4a[11,1],2)` [`r round(summary_4a[11,4],2)`, `r round(summary_4a[11,5],2)`]$) and "terb" (hiding tummy rumbling) ($\beta = `r round(summary_4a[14,1],2)` [`r round(summary_4a[14,4],2)`, `r round(summary_4a[14,5],2)`]$), but adults also preferred babble for hiding rumbling, which children did not (($\beta = `r round(summary_4a[15,1],2)` [`r round(summary_4a[15,4],2)`, `r round(summary_4a[15,5],2)`]$). Adult ratings for "gobb" (looking for something to do) were relatively flat, as were children's judgments. While adults' ratings appeared somewhat more extreme than children's, these findings suggest children's reasoning about activity-auditory pairings resulted in similar directional patterns to adults' ratings.
 
 # General Discussion
 
-In this set of experiments, we explored preschool children's reasoning about their acoustic environments and asked if children engage in environmental selection to find environments that are consistent with particular activities. In Experiment 1, we found that across the preschool years, children can reliably evaluate the acoustic environment to inform their decisions about third-party goals. In Experiment 2, we asked whether children are primarily relying on associations or on active learning when assessing activity feasibility by asking them to reason about novel activities. Preliminary results show a trend in children's flexibility on this task, such that they can reason about activities they have not previously encountered. More importantly, they hint that pure association may not accurately capture how children reason about the optimality of their acoustic environment.
+In this set of experiments, we explored preschool children's reasoning about their acoustic environments and asked if children engage in environmental selection to find environments that are consistent with particular activities. In Experiment 1, we found that across the preschool years, children can reliably evaluate the acoustic environment to inform their decisions about third-party goals. In Experiment 2, we asked whether children are primarily relying on associations or on active learning when assessing activity feasibility by asking them to reason about novel activities. Preliminary results show a trend in children's flexibility on this task, such that they could reason about activities they have not previously encountered (with patterns of ratings similar to those of adults). More importantly, they hint that pure association may not accurately capture how children reason about the optimality of their acoustic environment.
 
 These findings support the notion that young children are attuned to environmental features and can integrate this information for decision-making related to optimizing goals. That learning is situated in an imperfect and often messy environment is all the more reason why strategic exploration matters. If you can identify what is best learned in a particular environment given the acoustic constraints, you might both maximize your efficiency and reduce uncertainty, which bolsters skill building. Environmental selection offers a window into reasoning about the acoustic context, and it highlights the value of active learning in early childhood. Perhaps most advantageous, active learning seems to be flexible, and supports children's exploration across a range of experiences.
 
-This work is not without its limitations, which fuel our future directions. Without our full sample size in Experiment 2, we are limited in what we can conclude about the results. However, the preliminary findings are promising, and they offer some ground for broaching our main research questions. Additionally, this set of experiments explored children's reasoning about the goals of others; it is possible that children's preferences for certain acoustic environments may vary if they were instead asked to reason about their own goals. This work also does not directly test a strategy children might use to extract information from the environment under noise constraints. Instead, it lays the foundation for understanding how children evaluate acoustic environments with varying degrees of noise, and a possible mechanism that drives it. By exploring children's environmental evaluations and their flexibility beyond familiar associations, we might later manipulate children's own acoustic environments to observe the utility of environmental selection in action. We believe the current studies are critical interim steps to this end because they will inform the direction of future research.
+This work has some limitations, which motivate our future directions. Without our full sample size in Experiment 2, we are limited in what we can conclude about the results. However, the preliminary findings are promising, and they offer some ground for broaching our main research questions. Additionally, this set of experiments explored children's reasoning about the goals of others; it is possible that children's preferences for certain acoustic environments may vary if they were instead asked to reason about their own goals. This work also does not directly test a strategy children might use to extract information from the environment under noise constraints. Instead, it lays the foundation for understanding how children evaluate acoustic environments with varying degrees of noise, and a possible mechanism that drives it. By exploring children's environmental evaluations and their flexibility beyond familiar associations, we might later manipulate children's own acoustic environments to observe the utility of environmental selection in action. We believe the current studies are critical interim steps to this end because they will inform the direction of future research.
 
-This research also has potential utility in intervention efforts. Environmental noise exposure is here to stay; noise pollution in the United States affects everyone at some time or another, but some evidence suggests that it disproportionately affects communities of color and those of lower socioeconomic status, who tend to reside in more densely populated regions [@casey2017]. This could have downstream consequences on linguistic and cognitive skills, as well as on academic achievement. Future research should be sensitive to both the acute and chronic effects of noise exposure on children, in particular, and study strategies that can be implemented to ameliorate these effects. We believe that environmental selection could be one such strategy, and that by three years, children have the hardware to use it effectively. 
+This research also has potential utility in intervention efforts. Environmental noise exposure is here to stay; noise pollution in the United States affects everyone at some time or another, but some evidence suggests that it disproportionately affects communities of color and those of lower socioeconomic status, who tend to reside in more densely populated regions [@casey2017]. This could have downstream consequences on linguistic and cognitive skills, as well as on academic achievement. Future research should be sensitive to both the acute and chronic effects of noise exposure on children, in particular, and study strategies that can be implemented to ameliorate these effects. We believe that environmental selection could be one such strategy, and that by three years, children have the ability to use it effectively. 
 
 # References 
 
