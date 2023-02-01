@@ -209,8 +209,8 @@ normal or corrected-to-normal vision, and heard English at least 75\% of
 the time at home. An additional 4 children were ultimately excluded from
 analysis due to response bias (provided the same pattern of responses
 for 100\% of trials), experimenter error, or severe lapses in attention.
-Caregivers provided written consent while children provided verbal
-assent before participation.
+All exclusion criteria were preregistered. Caregivers provided written
+consent while children provided verbal assent before participation.
 
 \hypertarget{materials-and-procedure}{%
 \subsubsection{Materials and Procedure}\label{materials-and-procedure}}
@@ -303,7 +303,7 @@ priors (normal distributions on coefficients with SD=2.5, scaled to
 predictor magnitudes).
 
 Because we had four activities and four acoustic environments, there
-were six main effets and 12 two-way interactions of activity and
+were six main effects and 12 two-way interactions of activity and
 environment (setting dance and music as the reference levels
 respectively). All six main effects had negative coefficients (lower
 levels of selection than music with dancing), and all 95\% CrIs did not
@@ -314,11 +314,11 @@ environment.
 
 There were some numerical developmental effects, but the coefficient on
 age had a small estimated value and a CrI that overlapped with zero
-(\(\beta = -0.09 [-1.05, 0.91]\)). The interaction between age and
+(\(\beta = -0.01 [-0.09, 0.07]\)). The interaction between age and
 multi-talker babble did have a substantial negative magnitude
-(\(\beta = -2.34 [-3.91,-0.96]\)) indicating lower choice of that room
+(\(\beta = -0.2 [-0.34,-0.08]\)) indicating lower choice of that room
 for older children. Numerically, even three-year-olds appeared to match
-music to dancing and slience to sleeping, though their other prefernces
+music to dancing and silence to sleeping, though their other preferences
 were weaker.
 
 In sum, these findings suggest that across the preschool years, children
@@ -347,7 +347,7 @@ goal-based reasoning. Importantly, this more limited environmental
 selection could still be useful -- after all, regardless of \emph{why}
 you want quiet to sleep, this desire will still get you the same result.
 But such associative links would allow for much less flexible
-environment selection for learning activties in the face of acoustic
+environment selection for learning activities in the face of acoustic
 noise, so we were interested in whether children could perform the more
 difficult task of finding an acoustic environment for a novel task.
 
@@ -425,12 +425,12 @@ appear to show patterns of preference for one acoustic environment.
 
 While we did not have sufficient power to fit our full preregistered
 Bayesian mixed effects model, we did fit a subset model that did not
-include effects of age. We set the reference level to be ``fraw''
-(bedtime stories) and silence. Critically, we found evidence for
-interactions between two activities and the music sound category, such
-that the music environment was preferred for both ``plip'' (spinning to
-the beat; \(\beta = 6.75 [5.34, 8.19]\)) and ``terb'' (hiding tummy
-rumbling; \(\beta = 4.98 [3.71, 6.32]\)).
+include effects of age. We set the reference level to be ``fraw'' (story
+before bed) and silence. Critically, we found evidence for interactions
+between two activities and the music sound category, such that the music
+environment was preferred for both ``plip'' (spinning to the beat;
+\(\beta = 3.35 [1.12, 5.62]\)) and ``terb'' (hiding tummy rumbling;
+\(\beta = 2.4 [0.18, 4.64]\)).
 
 These preliminary results give evidence that children appeared to be
 reasoning about the goal of activities and how they fit with different
@@ -443,12 +443,66 @@ that music might mask the sound of their tummy. Overall, these data
 provide a first test of the idea that children are doing some kind of
 reasoning beyond pure associative matching.
 
+\begin{CodeChunk}
+\begin{figure*}[t]
+
+{\centering \includegraphics{figs/e4a-bar-1} 
+
+}
+
+\caption[Results from an adult sample]{Results from an adult sample. Adult participants completed the same task as children in Experiment 2, but instead of reasoning about a third party (Joe and Mandy in Exp. 2), they were asked how well they could complete each activity based on the ausitory stimulus. The y-axis indicates the rating scale from 1-7. A rating of 1 denotes a full mismatch between activity and auditory stimulus while 7 denotes an optimal match.}\label{fig:e4a-bar}
+\end{figure*}
+\end{CodeChunk}
+
+\hypertarget{adult-ratings-of-novel-activity-pairings}{%
+\subsection{Adult Ratings of Novel Activity
+Pairings}\label{adult-ratings-of-novel-activity-pairings}}
+
+The previous findings suggest some differentiation in pairing auditory
+stimuli with novel activities, but what pattern of results should we
+expect? Given the novelty of the paradigm, we recruited a sample of
+adult participants to complete the same task, and then we compared these
+results with children in the previous sample.
+
+\hypertarget{participants-2}{%
+\subsubsection{Participants}\label{participants-2}}
+
+37 adults (mean age = 40.43 years, 73\% Caucasian/White) were recruited
+for an online study hosted on Prolific. An additional 2 participants
+were ultimately excluded from analysis for failing one or both of the
+attention checks.
+
+\hypertarget{methods-and-procedure}{%
+\subsubsection{Methods and Procedure}\label{methods-and-procedure}}
+
+Participants completed a similar paradigm to children that was adapted
+to an online, self-paced task. Participants watched animated videos of a
+hallway exterior with one door centered in the middle of the screen.
+When the door opened, one of four sounds played, followed by the door
+closing, signaling the end of the video. Each video was 7s in length and
+equalized to 65dB. Participants then responded to the following prompt:
+``I could {[}fraw/gobb/plip/terb{]} in this room'', and were also
+provided with the definition of each. Responses were collected via a
+likert rating scale from 1 (``not at all well'') to 7 (``very well'').
+Each novel activity was presented one at a time, and the presentation
+order was counterbalanced across participants.
+
+\hypertarget{results-and-discussion-2}{%
+\subsubsection{Results and Discussion}\label{results-and-discussion-2}}
+
+Figure 4 depicts adults' ratings for each activity by auditory stimulus.
+Activity-sound interactions were largely similar between children and
+adults. As with the childen, adults preferred pairing music with both
+plip (\(\beta = 3.04 [2.01, 4.03]\)) and terb
+(\(\beta = 5.19 [4.16, 6.2]\)). Adults were also not more likely to
+prefer any auditory stimulus for gobb
+(\(\beta = 2.41 - 3.63 [[1.41, 4.64]\)). While adults' ratings were
+generally stronger than children's, these findings suggest children's
+reasoning about activity-auditory pairings result in similar directional
+patterns to that of adults.
+
 \hypertarget{general-discussion}{%
 \section{General Discussion}\label{general-discussion}}
-
-\begin{CodeChunk}
-
-\includegraphics{figs/e4a-data-1} \end{CodeChunk}
 
 In this set of experiments, we explored preschool children's reasoning
 about their acoustic environments and asked if children engage in
@@ -460,7 +514,9 @@ asked whether children are primarily relying on associations or on
 active learning when assessing activity feasibility by asking them to
 reason about novel activities. Preliminary results show a trend in
 children's flexibility on this task, such that they can reason about
-activities they have not previously encountered.
+activities they have not previously encountered. More importantly, they
+hint that pure association may not accurately capture how children
+reason about the optimality of their acoustic environment.
 
 These findings support the notion that young children are attuned to
 environmental features and can integrate this information for
@@ -469,7 +525,7 @@ in an imperfect and often messy environment is all the more reason why
 strategic exploration matters. If you can identify what is best learned
 in a particular environment given the acoustic constraints, you might
 both maximize your efficiency and reduce uncertainty, which bolsters
-skills building. Environmental selection offers a window into reasoning
+skill building. Environmental selection offers a window into reasoning
 about the acoustic context, and it highlights the value of active
 learning in early childhood. Perhaps most advantageous, active learning
 seems to be flexible, and supports children's exploration across a range

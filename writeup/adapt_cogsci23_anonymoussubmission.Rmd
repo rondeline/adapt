@@ -35,7 +35,6 @@ library(rstanarm)
 library(here)
 library(stats)
 library(lme4)
-# library(gtsummary)
 library(reprex)
 library(wesanderson)
 
@@ -47,11 +46,8 @@ Children are excavators; they routinely build linguistic, cognitive, social, and
 
 We can understand why children are such flexible learners across a diverse range of environments through the lens of active learning. On this account, children make decisions about what and how they learn, contrasting with the more passive view that they merely absorb information presented to them without an opportunity to make adjustments [@raz2020]. The active learning literature has typically explored children's interactions with individual stimuli within the environment [e.g., @settles2009]. For example, previous work has shown that preschool children use active learning strategies to approach objects in a novel task in order to optimize performance [@ruggeri2019]. In this task, children either opened or shook two sets of boxes, one of which contained an egg shaker. When children were told that the egg shaker was equally likely to be found in either set of boxes, they were more likely to shake the boxes first than when they were told the shaker was more likely to be found in a particular set of boxes. Even infants harness the utility of active learning by updating their expectations about what could be learned from an object that behaved unexpectedly, such as a ball moving through a solid wall [@stahl2015]. Additionally, infants as young as 7 months have been shown to efficiently allocate their attention to visual stimuli that are neither too complex nor too simple [@kidd2012]. 
 
-A traditional account of active learning considers how children engage with individual stimuli within their environment to harness new information. But more recent work has considered how children reason about environmental supports for learning as well. This type of active learning has been called "ecological active learning", and it requires children to both identify features of their environment that are stable and then adjust their exploration strategies to maximize learning within this ecology [@ruggeri2022]. Ecological active learning proposes that the  structure of the environment, and not merely the individual stimuli within it, is critical for information-seeking. 
+A traditional account of active learning considers how children engage with individual stimuli within their environment to harness new information. But more recent work has considered how children reason about environmental supports for learning as well. This type of active learning has been called "ecological active learning", and it requires children to both identify features of their environment that are stable and then adjust their exploration strategies to maximize learning within this ecology [@ruggeri2022]. Ecological active learning proposes that the structure of the environment, and not merely the individual stimuli within it, is critical for information-seeking. 
 
-<!-- Without considering the constraints of the environment itself, it may be difficult to maximize efficiency and obtain new information. -->
-
-<!-- Taking the persepctive of cological active learning encourages an emphasis on environmental features that impact exploration.  -->
 Here we apply the ecological active learning perspective to children's acoustic environment. Given that children with access to auditory input can learn a great deal from their acoustic environment, is it also possible that they can reason about how well their acoustic environment supports particular goals? For example, a child might choose to read or to be read to in a library because a quiet space best aligns with the goal of taking in a storybook. We refer to this as environmental selection. 
 
 Environmental selection is goal-directed: children integrate information about their environment because they are motivated to achieve some outcome. Children may not always be able to choose their environment, however. But even if they cannot choose, however, children can engage in activities that align with their current environment (moving and dancing when music is on, for example), and they will exploit variation across environments to achieve a range of goals that would have been less efficient under a single set of conditions. 
@@ -192,42 +188,28 @@ ggplot(data = cidataage_3b, mapping = aes(x = factor(sound_type, level= c("mtb5"
 ```
 
 ```{r e3-stats-anova, echo=FALSE, results="hide", eval=FALSE}
-mod <- lme4::glmer(response ~ sound_type * activity + (1|subject_id), 
-                   family = binomial, 
-                  control = glmerControl(optimizer = "bobyqa"),
-                   data = tidydata_3b)
-mod_noint <- lme4::glmer(response ~ sound_type + activity + (1|subject_id), 
-                   family = binomial, 
-                  control = glmerControl(optimizer = "bobyqa"), 
-                   data = tidydata_3b)
-
-options(scipen = 999)   
-anova_3b <- anova(mod,mod_noint)
-
-<<<<<<< HEAD
-=======
-# aov()
-
->>>>>>> a7fec9956560f8559583e1d22dc082ce01c80353
-saveRDS(anova_3b, here("writeup/models","anova_3b.Rds"))
+# mod <- lme4::glmer(response ~ sound_type * activity + (1|subject_id), 
+#                    family = binomial, 
+#                   control = glmerControl(optimizer = "bobyqa"),
+#                    data = tidydata_3b)
+# mod_noint <- lme4::glmer(response ~ sound_type + activity + (1|subject_id), 
+#                    family = binomial, 
+#                   control = glmerControl(optimizer = "bobyqa"), 
+#                    data = tidydata_3b)
 
 ```
 
 ```{r e3-stats, echo=FALSE, results="hide", eval=FALSE}
 
-tidydata_3b$activity <- factor(tidydata_3b$activity, 
-                                   levels = c("dance","read","sleep","talk"))
-tidydata_3b$age_years_centered <- tidydata_3b$age_years - mean(tidydata_3b$age_years)
+# tidydata_3b$activity <- factor(tidydata_3b$activity, 
+#                                    levels = c("dance","read","sleep","talk"))
+# tidydata_3b$age_years_centered <- tidydata_3b$age_years - mean(tidydata_3b$age_years)
 
-<<<<<<< HEAD
 glmer_3b <- stan_glmer(formula = response ~ sound_type * activity * age_centered + (1 | subject_id),
-=======
+
 glmer_3b <- stan_glmer(formula = response ~ sound_type * activity * age_years_centered + (1 | subject_id),
->>>>>>> a7fec9956560f8559583e1d22dc082ce01c80353
                        family = binomial,
                        data = tidydata_3b)
-
-contr.sum(16)
 
 summary_3b <- summary(glmer_3b, probs = c(0.025, 0.975))
 
@@ -236,16 +218,15 @@ saveRDS(summary_3b, here("writeup/models","summary_3b.Rds"))
 
 ```{r e3-stats-load}
 summary_3b<- readRDS(here("writeup/models","summary_3b.Rds"))
-anova_3b <- readRDS(here("writeup/models","anova_3b.Rds"))
 ```
 
 If preschool children can reason about how the acoustic environment might influence goal optimization, and can make decisions to this end, we should expect participants to show clear preferences for activities paired with particular auditory stimuli, and indeed they appeared to. Figure 2 depicts children's activity-auditory pairings by age.
 
 We preregistered [link redacted] a Bayesian mixed-effects logistic regression from the `rstanarm` package to predict participants' response as a function of auditory stimulus, activity, and age (centered), with a maximal random effect structure (random intercept by participant) [@goodrich2020]. In this and subsequent models, we used the package default of weakly informative priors (normal distributions on coefficients with SD=2.5, scaled to predictor magnitudes).
 
-Because we had four activities and four acoustic environments, there were six main effets and 12 two-way interactions of activity and environment (setting dance and music as the reference levels respectively). All six main effects had negative coefficients (lower levels of selection than music with dancing), and all 95% CrIs did not overlap zero. Importantly, all of the two-way interaction coefficients were positive and all had 95% CrIs not overlapping zero, indicating the specificity of the relationship between activity and acoustic environment. 
+Because we had four activities and four acoustic environments, there were six main effects and 12 two-way interactions of activity and environment (setting dance and music as the reference levels respectively). All six main effects had negative coefficients (lower levels of selection than music with dancing), and all 95% CrIs did not overlap zero. Importantly, all of the two-way interaction coefficients were positive and all had 95% CrIs not overlapping zero, indicating the specificity of the relationship between activity and acoustic environment. 
 
-There were some numerical developmental effects, but the coefficient on age had a small estimated value and a CrI that overlapped with zero ($\beta = `r round(summary_3b[8,1],2)` [`r round(summary_3b[8,4],2)`, `r round(summary_3b[8,5],2)`]$). The interaction between age and multi-talker babble did have a substantial negative magnitude ($\beta = `r round(summary_3b[18,1],2)` [`r round(summary_3b[18,4],2)`,`r round(summary_3b[18,5],2)`]$) indicating lower choice of that room for older children. Numerically, even three-year-olds appeared to match music to dancing and slience to sleeping, though their other prefernces were weaker. 
+There were some numerical developmental effects, but the coefficient on age had a small estimated value and a CrI that overlapped with zero ($\beta = `r round(summary_3b[8,1],2)` [`r round(summary_3b[8,4],2)`, `r round(summary_3b[8,5],2)`]$). The interaction between age and multi-talker babble did have a substantial negative magnitude ($\beta = `r round(summary_3b[18,1],2)` [`r round(summary_3b[18,4],2)`,`r round(summary_3b[18,5],2)`]$) indicating lower choice of that room for older children. Numerically, even three-year-olds appeared to match music to dancing and silence to sleeping, though their other preferences were weaker. 
 
 In sum, these findings suggest that across the preschool years, children are evaluating the acoustic environments to make decisions about third-party goal optimization. Our results provide preliminary evidence that children as young as three can engage in basic environmental selection, at least for familiar activity pairs. 
 
@@ -253,11 +234,7 @@ In sum, these findings suggest that across the preschool years, children are eva
 
 In Experiment 1, we found that preschool children do engage in environmental selection, such that they may make decisions about optimal environments for goal selection based on auditory information. We also found that this ability was generally stable across the preschool years. However, it is possible that children succeeded in this task not because they were engaging in some cognitively flexible process, but because they were relying on pure associations. For example, children may have paired napping with silence because they typically sleep in quiet environments, and not because they recognize that silence might be the most optimal auditory environment for sleep. 
 
-One possibility, then, is that environmental selection is driven by associative knowledge for young children, rather than by task- or goal-based reasoning. Importantly, this more limited environmental selection could still be useful -- after all, regardless of *why* you want quiet to sleep, this desire will still get you the same result. But such associative links would allow for much less flexible environment selection for learning activties in the face of acoustic noise, so we were interested in whether children could perform the more difficult task of finding an acoustic environment for a novel task. 
-
-<!-- Young children harness associative learning in a host of contexts. For example, associative models of word learning suggest that children exploit contextual information to acquire the meanings of novel words [@sloutsky2017]. This is especially helpful given referential uncertainty of unfamiliar words that co-occur with other referents with varying individual probabilities [@quine1960]. Some of the most convincing associative models of word learning are probabilistic at their core and suggest that word learning happens, in part, because learners are constantly assessing the probabilities that a word's meaning is associated with an unfamiliar word. Moreover, these probabilities are updated as the lexicon expands [see @stevens2017]. But associative learning is not relegated to language development; indeed, humans can develop associative links from third-party social interactions [@thiele2021], to remember sequences of stimuli without overloading our cognitive system [@tosatto2022], and even to recognize potential environmental threats, such as snakes and spiders, in infancy [@rakison2022].  -->
-
-<!-- While some unifying accounts of active and associative learning exist [see @kruschke2008], traditional associative accounts view the learner as a passive agent, one who learns what is true about their environment but does not necessarily act on their environment. It is possible that reasoning about the acoustic environment, while beneficial, is not necessary for goal optimization. In other words, perhaps children can still reach the same decision point with association alone.  -->
+One possibility, then, is that environmental selection is driven by associative knowledge for young children, rather than by task- or goal-based reasoning. Importantly, this more limited environmental selection could still be useful -- after all, regardless of *why* you want quiet to sleep, this desire will still get you the same result. But such associative links would allow for much less flexible environment selection for learning activities in the face of acoustic noise, so we were interested in whether children could perform the more difficult task of finding an acoustic environment for a novel task. 
 
 To test this question, we replaced the familiar activities in Experiment 1 with novel ones. If children primarily reason about the pairing between the acoustic environment and a set of goals through pure association, they should have trouble pairing acoustic environments with novel activities because they have not previously reasoned about these pairings. If, however, children are actively updating information about their environment and then using this information to inform new goals, they should also succeed even when faced with goals they have never encountered.
 
@@ -356,7 +333,8 @@ tidydata_4a_exp2 <- tidy4a %>%
 ## Demographic information
 demodata_4a <- tidydata_4a %>%
   select(subject_id,age, race) %>% 
-  replace(is.na(tidydata_4a$race), 7)
+  replace(is.na(tidydata_4a$race), 7) %>% 
+  mutate(white = if_else(race == 3, 1, 0))
 
 ## Make race and age categories numeric
 demodata_4a$race <- as.integer(demodata_4a$race, na.rm = TRUE)
@@ -404,18 +382,14 @@ cidataage_4b <- tidydata_4b %>%
 # Data visualization and stats
 
 ## x-axis labels
-<<<<<<< HEAD
 xlabels <- c("5tb" = "babble",
              instrumental = "music",
              silence = "silence",
              white = "white noise")
-=======
-xlabels <- c("white noise", "babble", "music", "silence")
->>>>>>> a7fec9956560f8559583e1d22dc082ce01c80353
-facet_labels <- c(fraw = "Fraw: read before bed", 
+facet_labels <- c(fraw = "Fraw: story before bed", 
                   gobb = "Gobb: look for something to do",
-                  plip = "Plip: spin in circles",
-                  terb = "Terb: hide stomach grumbling")
+                  plip = "Plip: spin to the beat",
+                  terb = "Terb: hide tummy rumbling")
 
 #Figure 3
  ## Aggregated Data
@@ -469,7 +443,7 @@ facet_labels <- c(fraw = "Fraw: read before bed",
 ```
 
 
-```{r e4-stats, results="hide", eval=FALSE}
+```{r e4b-stats, results="hide", eval=FALSE}
 # tidydata_4b$age_years_centered <- tidydata_3b$age_years - mean(tidydata_4b$age_years)
 # 
 # # Logistic Regression
@@ -493,52 +467,22 @@ saveRDS(summary_4b_simple, here("writeup/models","summary_4b_simple.Rds"))
 
 ```
 
-```{r e4-stats-load}
+```{r e4b-stats-load}
 summary_4b_simple <- readRDS(here("writeup/models","summary_4b_simple.Rds"))
+
 ```
 
 If preschool children rely solely on association when evaluating the acoustic environment, that is, they have acquired associative links between familiar activities and their acoustic contexts, we should expect that children will have no strong preferences for pairing novel activities with any particular acoustic context. If, however, children can reason flexibly about how the acoustic environment influences goal optimization and outcomes, we should expect that children show clear preferences for acoustic contexts even with activities they have never actually encountered.
 
 Data collection for Experiment 2 is ongoing, so we present a preliminary analysis of the data. Figure 3 shows the pattern of choices across all participants (not disaggregated by age). Several of the activities appear to show patterns of preference for one acoustic environment. 
 
-While we did not have sufficient power to fit our full preregistered Bayesian mixed effects model, we did fit a subset model that did not include effects of age. We set the reference level to be "fraw" (bedtime stories) and silence. Critically, we found evidence for interactions between two activities and the music sound category, such that the music environment was preferred for both "plip" (spinning to the beat; $\beta = `r round(summary_3b[13,1],2)` [`r round(summary_3b[13,4],2)`, `r round(summary_3b[13,5],2)`]$) and "terb" (hiding tummy rumbling; $\beta = `r round(summary_3b[16,1],2)` [`r round(summary_3b[16,4],2)`, `r round(summary_3b[16,5],2)`]$). 
+While we did not have sufficient power to fit our full preregistered Bayesian mixed effects model, we did fit a subset model that did not include effects of age. We set the reference level to be "fraw" (story before bed) and silence. Critically, we found evidence for interactions between two activities and the music sound category, such that the music environment was preferred for both "plip" (spinning to the beat; $\beta = `r round(summary_4b_simple[12,1],2)` [`r round(summary_4b_simple[12,4],2)`, `r round(summary_4b_simple[12,5],2)`]$) and "terb" (hiding tummy rumbling; $\beta = `r round(summary_4b_simple[15,1],2)` [`r round(summary_4b_simple[15,4],2)`, `r round(summary_4b_simple[15,5],2)`]$). 
 
 These preliminary results give evidence that children appeared to be reasoning about the goal of activities and how they fit with different acoustic environments. Children may have drawn on familiar elements of the new activities, including associations with bedtime stories or spinning, but they were clearly reasoning in some way about these. Perhaps the most interesting activity from this perspective was "terbing" (hiding tummy rumbling), where children would have to reason that music might mask the sound of their tummy. Overall, these data provide a first test of the idea that children are doing some kind of reasoning beyond pure associative matching.
 
-# General Discussion
+```{r e4a-bar, fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from an adult sample. Adult participants completed the same task as children in Experiment 2, but instead of reasoning about a third party (Joe and Mandy in Exp. 2), they were asked how well they could complete each activity based on the ausitory stimulus. The y-axis indicates the rating scale from 1-7. A rating of 1 denotes a full mismatch between activity and auditory stimulus while 7 denotes an optimal match."}
 
-```{r e4a-data}
-
-## Load data
-data_4a <- read.csv(here("data", "adultdatalog4a1.csv")) #load data
-
-## Clean data
-cleandata_4a <- data_4a %>% 
-  clean_names() %>% #lowercase column names
-  select(q6:language_1) %>% #remove unnecessary columns
-  rename("sound_check" = "q6")
-
-## Remove first two rows (contain no data/are unnecessary)
-cleandata_4a <- cleandata_4a[-c(1,2), ]
-
-tidydata_4a <- cleandata_4a %>% 
-  filter(attention_check_1 == 1,
-         attention_check_2 == 1,
-         sound_check == 1) %>% #exclude participants who failed attention and sound checks
-  mutate(subject_id = row_number()) %>% #make a subject id column
-  select(subject_id, everything())
-
-tidydata_4a_clean <- tidydata_4a %>%
-  pivot_longer(cols = c("clop_instrumental", "gobb_instrumental", "fraw_instrumental", "norl_instrumental", "terb_instrumental", "plip_instrumental", "surk_instrumental", "rast_instrumental", "clop_silence", "gobb_silence", "fraw_silence", "norl_silence", "terb_silence", "plip_silence", "surk_silence", "rast_silence", "clop_white", "gobb_white", "fraw_white", "norl_white", "terb_white", "plip_white", "surk_white", "rast_white", "clop_mtb", "gobb_mtb", "fraw_mtb", "norl_mtb", "terb_mtb", "plip_mtb", "surk_mtb", "rast_mtb"),
-               names_to = "activity",
-               values_to = "rating") %>% 
-  separate(col = activity,
-           into = c("activity", "noise_type"),
-           sep = '[_]') %>% 
-  na.omit()
-
-## Make rating category numeric
-tidydata_4a_clean$rating <- as.integer(tidydata_4a_clean$rating)
+# Data Visualization
 
 ## Calculate confidence intervals
 cidata_4a <- tidydata_4a_exp2 %>%
@@ -549,16 +493,14 @@ cidata_4a <- tidydata_4a_exp2 %>%
             ci.l = mean_rating - sem * 1.96,
             ci.u = mean_rating + sem * 1.96)
 
-# Data Visualization
-
 xlabels <- c(mtb = "babble",
              instrumental = "music",
              silence = "silence",
              white = "white noise")
-facet_labels <- c(fraw = "Fraw: read before bed", 
+facet_labels <- c(fraw = "Fraw: story before bed", 
                   gobb = "Gobb: look for something to do",
-                  plip = "Plip: spin in circles",
-                  terb = "Terb: hide stomach grumbling")
+                  plip = "Plip: spin to the beat",
+                  terb = "Terb: hide tummy rumbling")
 # Figure 4
 ggplot(data = cidata_4a, 
        mapping = aes(x = factor(noise_type, level= c("mtb", "instrumental", "silence", "white")), y = mean_rating, fill = activity)) +
@@ -585,29 +527,15 @@ ggplot(data = cidata_4a,
 
 ```
 
-```{r e4a-stats-anova, results='hide', eval=FALSE}
-
-mod4a <- lme4::lmer(rating ~ noise_type * activity  + (1 | subject_id), 
-                  control = lmerControl(optimizer = "bobyqa"), 
-                   data = tidy_data4a_exp2)
-mod4a_noint <- lme4::lmer(rating ~ noise_type + activity  + (1 | subject_id),
-                  control = lmerControl(optimizer = "bobyqa"), 
-                   data = tidy_data4a_exp2)
-
-anova_4a <- anova(mod4a, mod4a_noint)
-
-saveRDS(anova_4a, here("writeup/models","anova_4a.Rds"))
-```
-
-```{r e4a-stats-anova-load}
-anova_4a <- readRDS(here("writeup/models","anova_4a.Rds"))
-```
 
 ```{r e4a-stats, results="hide", eval=FALSE}
 
 # Logistic Regression
+tidydata_4a_exp2$activity <- fct_relevel(tidydata_4a_exp2$activity, "fraw")
+tidydata_4a_exp2$noise_type <- fct_relevel(tidydata_4a_exp2$noise_type, "silence")
+
 glmer_4a <- stan_glmer(formula = rating ~ noise_type * activity + (1 | subject_id),
-                       data = tidy_data4a_exp2)
+                       data = tidydata_4a_exp2)
 
 summary_4a <- summary(glmer_4a, probs = c(0.025, 0.975))
 
@@ -617,11 +545,26 @@ saveRDS(summary_4a, here("writeup/models","summary_4a.Rds"))
 
 ```{r e4a-stats-load}
 summary_4a <- readRDS(here("writeup/models","summary_4a.Rds"))
+
 ```
 
-In this set of experiments, we explored preschool children's reasoning about their acoustic environments and asked if children engage in environmental selection to find environments that are consistent with particular activities. In Experiment 1, we found that across the preschool years, children can reliably evaluate the acoustic environment to inform their decisions about third-party goals. In Experiment 2, we asked whether children are primarily relying on associations or on active learning when assessing activity feasibility by asking them to reason about novel activities. Preliminary results show a trend in children's flexibility on this task, such that they can reason about activities they have not previously encountered.
+## Adult Ratings of Novel Activity Pairings
+The previous findings suggest some differentiation in pairing auditory stimuli with novel activities, but what pattern of results should we expect? Given the novelty of the paradigm, we recruited a sample of adult participants to complete the same task, and then we compared these results with children in the previous sample. 
 
-These findings support the notion that young children are attuned to environmental features and can integrate this information for decision-making related to optimizing goals. That learning is situated in an imperfect and often messy environment is all the more reason why strategic exploration matters. If you can identify what is best learned in a particular environment given the acoustic constraints, you might both maximize your efficiency and reduce uncertainty, which bolsters skills building. Environmental selection offers a window into reasoning about the acoustic context, and it highlights the value of active learning in early childhood. Perhaps most advantageous, active learning seems to be flexible, and supports children's exploration across a range of experiences.
+### Participants
+`r nrow(demodata_4a)` adults (mean age = `r round(mean(demodata_4a$age),2)` years, `r round(mean(demodata_4a$white == 1)*100,1)`% Caucasian/White) were recruited for an online study hosted on Prolific. An additional `r nrow(excluded_4a)` participants were ultimately excluded from analysis for failing one or both of the attention checks.
+
+### Methods and Procedure
+Participants completed a similar paradigm to children that was adapted to an online, self-paced task. Participants watched animated videos of a hallway exterior with one door centered in the middle of the screen. When the door opened, one of four sounds played, followed by the door closing, signaling the end of the video. Each video was 7s in length and equalized to 65dB. Participants then responded to the following prompt: "I could [fraw/gobb/plip/terb] in this room", and were also provided with the definition of each. Responses were collected via a likert rating scale from 1 ("not at all well") to 7 ("very well"). Each novel activity was presented one at a time, and the presentation order was counterbalanced across participants.
+
+### Results and Discussion
+Figure 4 depicts adults' ratings for each activity by auditory stimulus. Activity-sound interactions were largely similar between children and adults. As with the childen, adults preferred pairing music with both plip ($\beta = `r round(summary_4a[11,1],2)` [`r round(summary_4a[11,4],2)`, `r round(summary_4a[11,5],2)`]$) and terb ($\beta = `r round(summary_4a[14,1],2)` [`r round(summary_4a[14,4],2)`, `r round(summary_4a[14,5],2)`]$). Adults were also not more likely to prefer any auditory stimulus for gobb ($\beta = `r round(summary_4a[10,1],2)` - `r round(summary_4a[9,1],2)` [[`r round(summary_4a[10,4],2)`, `r round(summary_4a[9,5],2)`]$). While adults' ratings were generally stronger than children's, these findings suggest children's reasoning about activity-auditory pairings result in similar directional patterns to that of adults. 
+
+# General Discussion
+
+In this set of experiments, we explored preschool children's reasoning about their acoustic environments and asked if children engage in environmental selection to find environments that are consistent with particular activities. In Experiment 1, we found that across the preschool years, children can reliably evaluate the acoustic environment to inform their decisions about third-party goals. In Experiment 2, we asked whether children are primarily relying on associations or on active learning when assessing activity feasibility by asking them to reason about novel activities. Preliminary results show a trend in children's flexibility on this task, such that they can reason about activities they have not previously encountered. More importantly, they hint that pure association may not accurately capture how children reason about the optimality of their acoustic environment.
+
+These findings support the notion that young children are attuned to environmental features and can integrate this information for decision-making related to optimizing goals. That learning is situated in an imperfect and often messy environment is all the more reason why strategic exploration matters. If you can identify what is best learned in a particular environment given the acoustic constraints, you might both maximize your efficiency and reduce uncertainty, which bolsters skill building. Environmental selection offers a window into reasoning about the acoustic context, and it highlights the value of active learning in early childhood. Perhaps most advantageous, active learning seems to be flexible, and supports children's exploration across a range of experiences.
 
 This work is not without its limitations, which fuel our future directions. Without our full sample size in Experiment 2, we are limited in what we can conclude about the results. However, the preliminary findings are promising, and they offer some ground for broaching our main research questions. Additionally, this set of experiments explored children's reasoning about the goals of others; it is possible that children's preferences for certain acoustic environments may vary if they were instead asked to reason about their own goals. This work also does not directly test a strategy children might use to extract information from the environment under noise constraints. Instead, it lays the foundation for understanding how children evaluate acoustic environments with varying degrees of noise, and a possible mechanism that drives it. By exploring children's environmental evaluations and their flexibility beyond familiar associations, we might later manipulate children's own acoustic environments to observe the utility of environmental selection in action. We believe the current studies are critical interim steps to this end because they will inform the direction of future research.
 
