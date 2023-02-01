@@ -1,5 +1,5 @@
 ---
-title: " Preschool children reason about how acoustic environments relate to goals"
+title: "Preschool children reason about how acoustic environments relate to goals"
 bibliography: library.bib
 csl: apa6.csl
 document-params: "10pt, letterpaper"
