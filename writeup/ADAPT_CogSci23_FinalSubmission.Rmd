@@ -372,7 +372,7 @@ xlabels <- c("5tb" = "babble",
              instrumental = "music",
              silence = "silence",
              white = "white noise")
-facet_labels <- c(fraw = "Fraw: story before bed", 
+facet_labels <- c(fraw = "Fraw: story before bed",
                   gobb = "Gobb: something to do",
                   plip = "Plip: spin to the beat",
                   terb = "Terb: hide tummy rumbling")
@@ -389,7 +389,7 @@ e4_kids <- ggplot(data = cidata_4b, mapping = aes(x = factor(sound_type, level= 
    #scale_fill_brewer(palette="Set2") +
    scale_fill_manual(values = wes_palette("GrandBudapest1")) +
    scale_x_discrete(labels = xlabels) +
-   facet_wrap(~activity, labeller = as_labeller(facet_labels)) +
+   facet_wrap(~activity, labeller = as_labeller(facet_labels)) + 
    geom_hline(yintercept = .5, lty =2) +
    scale_color_solarized() + 
    theme_few() +
