@@ -1,0 +1,577 @@
+---
+title: "Preschool children reason about third-party goals when evaluating acoustic environments"
+bibliography: library.bib
+csl: apa6.csl
+document-params: "10pt, letterpaper"
+
+author-information: > 
+    \author{{\large \bf Rondeline M. Williams (rondelinewilliams@stanford.edu)} \\ Department of Psychology, Stanford University \\ Stanford, CA 94305 USA
+    \AND {\large \bf Michael C.~Frank (mcfrank@stanford.edu)} \\ Department of Psychology, Stanford University \\ Stanford, CA 94305 USA}
+
+abstract: >
+    Despite the unpredictable and ubiquitous nature of noise in the natural acoustic environment, most children still
+    manage to extract the linguistic, cognitive, and social information needed to engage with their world. This is no       small feat. We examined what strategies children use to navigate different acoustic environments. One possibility we
+    test is that children can select acoustic contexts that are consistent with particular goals. In Experiment 1, we       presented preschool children with a set of auditory stimuli, meant to approximate various acoustic environments,
+    and activity goals to complete within those environments. Children integrated auditory information with goals to        select the best environment. To assess the flexibility of children's decision-making, Experiment 2 built on this        framework by replacing familiar activity goals with relatively less familiar ones. In preliminary data, adults and      preschoolers reliably evaluated acoustic environments that best matched these less familiar activities, providing       evidence for flexible reasoning about goal-consistent environments. 
+    
+keywords: >
+    active learning; associative learning; auditory noise; cognitive development; decision making
+    
+output: cogsci2016::cogsci_paper
+final-submission: \cogscifinalcopy
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(fig.width=3, fig.height=3, fig.crop = F, 
+                      fig.pos = "tb", fig.path='figs/',
+                      echo=F, warning=F, cache=F, 
+                      message=F, sanitize = T)
+```
+
+```{r, libraries}
+library(png)
+library(grid)
+library(xtable)
+library(tidyverse)
+library(ggthemes)
+library(janitor)
+library(rstanarm)
+library(here)
+library(stats)
+library(lme4)
+library(wesanderson)
+library(cowplot)
+```
+
+# Introduction
+
+Children are excavators; they routinely build linguistic, cognitive, social, and emotional skills through interacting with their environments. They can adjust their attention to linguistic stimuli such as grammar based on its present learnability [@gerken2011]. They can exploit the emotional expressions of others to determine whether a novel object is worth exploration, thereby maximizing efficiency [@wu2021]. And when they do explore, children are often accounting for both the structure of the environment and their present goals to decide on an approach [@meder2021]. This flexibility in the learning system is highly adaptive, as it offers a means for data extraction even in unfamiliar or suboptimal learning conditions. 
+
+We can understand why children are such flexible learners across a diverse range of environments through the lens of active learning. In this account, children make decisions about what and how they learn, contrasting with the more passive view that they merely absorb information presented to them without an opportunity to make adjustments [@raz2020]. The active learning literature has typically explored children's interactions with individual stimuli within the environment [e.g., @settles2009]. For example, previous work has shown that preschool children use active learning strategies to approach objects in a novel task in order to optimize performance [@ruggeri2019]. In this task, children either opened or shook two sets of boxes, one of which contained an egg shaker. When children were told that the egg shaker was equally likely to be found in either set of boxes, they were more likely to shake the boxes first than when they were told the shaker was more likely to be found in a particular set of boxes. Even infants harness the utility of active learning by updating their expectations about what could be learned from an object that behaved unexpectedly, such as a ball moving through a solid wall [@stahl2015]. Additionally, infants as young as 7 months have been shown to efficiently allocate their attention to visual stimuli that are neither too complex nor too simple [@kidd2012]. 
+
+A traditional account of active learning considers how children engage with individual stimuli within their environment to harness new information. But more recent work has considered how children reason about environmental supports for learning as well. This type of active learning has been called "ecological active learning", and it requires children to both identify features of their environment that are stable and then adjust their exploration strategies to maximize learning within this ecology [@ruggeri2022]. Ecological active learning proposes that the structure of the environment, and not merely the individual stimuli within it, is critical for information-seeking. 
+
+Here we apply the ecological active learning perspective to children's acoustic environment. Given that children with access to auditory input can learn a great deal from their acoustic environment, is it also possible that they can reason about how well their acoustic environment supports particular goals? For example, a child might choose to read or to be read to in a library because a quiet space best aligns with the goal of taking in a storybook. We refer to this as environmental selection. 
+
+Environmental selection is goal-directed: children integrate information about their environment because they are motivated to achieve some outcome. Children may not always be able to choose their environment, however. But even if they cannot choose, children can engage in activities that align with their current environment (moving and dancing when music is on, for example), and they will exploit variation across environments to achieve a range of goals that would have been less efficient under a single set of conditions. 
+
+We focus here on acoustic environmental selection because children's acoustic environments can have important downstream effects on learning and development. Acoustic noise has serious implications for learning, especially for young children. Children are notably worse than adults at skills such as speech perception and word recognition in noise [@bjorklund1990; @klatte2013], and exhibit real challenges in word learning under background noise constraints [@mcmillan2016]. Because noise generally increases cognitive load during certain attention and spatial tasks, children are less able to flexibly adapt strategies to successfully complete these tasks than adults [@loh2022]. There is also emerging evidence that high levels of sustained noise exposure can lead to changes in cortical thickness in infants [@simon2022]. Importantly, effects of noise are not happening exclusively at the unconscious level; even young children are perceptually aware of excessive noise exposure [@mcallister2019]. With this in mind, we consider whether environmental selection could be an adaptive strategy for learning in noisy acoustic environments.
+
+In the current paper, we studied preschool children's environmental selection. In Experiment 1, we asked children to match a set of goals to auditory environments. Then in Experiment 2, to explore the conceptual boundaries of this ability, we presented children with relatively less familiar activities and asked them to complete the same task. Taken together, this set of experiments aims to expand our understanding of how children can exploit their acoustic environment for goal achievement across a range of inputs. 
+
+# Experiment 1
+
+In our first experiment, we evaluated preschool children's environmental selection, their integration of both auditory information and a third party's goals, for familiar activities. We asked whether they would differentially select environment-goal pairings that optimized another person's goals. If children are systematically pairing based on outcomes, this may suggest that they are, in fact, attuned to the environment as a strategy to reach a set of goals. 
+
+## Methods
+
+```{r e1-data}
+
+## Load data
+data_3b <- read.csv(here("data", "childrendatalog3b.csv"))
+
+## Tidy data
+tidydata_3b <- data_3b %>%
+  clean_names() %>%  #lowercase column names
+  filter(arm == "Main",
+         included == "Yes") %>% #exclude pilot participants and those who could not be retained for analysis for failed attention and sound checks
+  select(subject_id:rationale) %>%
+  na.omit()
+
+## Remove extra spaces
+tidydata_3b$activity <- str_trim(tidydata_3b$activity)
+tidydata_3b$sound_type <- str_trim(tidydata_3b$sound_type)
+tidydata_3b$race <- str_trim(tidydata_3b$race)
+tidydata_3b$race <- str_replace(tidydata_3b$race, "/ ", "/")
+
+## Turn response column into integers
+tidydata_3b$response <- as.integer(tidydata_3b$response)
+
+## Scale Age
+tidydata_3b$age_centered <- scale(tidydata_3b$age_months, scale = FALSE)
+
+## Get demographic data
+demodata_3b <- tidydata_3b %>%
+  select(subject_id,race, trial, age_years, age_months) %>%  #get one value per participant
+  mutate(race_count = ifelse((str_detect(race, ",")), "Multiracial", race)) %>%
+  distinct(subject_id, .keep_all=TRUE)
+
+excluded_3b <- data_3b %>%
+  clean_names() %>% #lowercase column names
+  filter(arm == "Main",
+         included == "No") %>% #exclude pilot participants and those who could not be retained for analysis for failed attention and sound checks
+  select(subject_id:rationale) %>%
+  na.omit() %>% 
+  distinct(subject_id, .keep_all=TRUE)
+
+```
+
+### Participants
+
+`r nrow(demodata_3b)` children (3;0 - 5;11 years, mean age = `r round(mean(demodata_3b$age_months/12),2)` years , `r round(mean(demodata_3b$race_count == "African American/Black")*100,1)`% African American/Black, `r round(mean(demodata_3b$race_count == "Asian American/Pacific Islander")*100,1)`% Asian American/Pacific Islander, `r round(mean(demodata_3b$race_count == "Caucasian/White")*100,1)`% Caucasian/White, `r round(mean(demodata_3b$race_count == "Hispanic/Latinx")*100,1)`% Hispanic/Latinx, `r round(mean(demodata_3b$race_count == "Multiracial")*100,1)`% Multiracial, `r round(mean(demodata_3b$race_count == "Middle Eastern")*100,1)`% Other) were recruited from either a local Bay Area nursery school or children’s museum. Participants were typically developing, had normal or corrected-to-normal vision, and heard English at least 75% of the time at home. An additional `r nrow(excluded_3b)` children were ultimately excluded from analysis due to response bias (provided the same pattern of responses for 100% of trials), experimenter error, or severe lapses in attention. All exclusion criteria were preregistered [osf.io/fm7wx]. Caregivers provided written consent while children provided verbal assent before participation. 
+
+### Materials and Procedure
+
+```{r e3-stimuli, fig.env = "figure", fig.pos = "t", fig.align='center', fig.width=3, fig.height=3, set.cap.width=T, fig.cap = "Experimental setup and stimuli. Participants were shown four wooden houses, each with an associated sound [instrumental music, multi-talker babble, silence, white noise], and a list of four activities [dance, read, sleep, talk] that two charactrs in the game wanted to complete. Participants determined whether the two characters should or should not complete an activity in each of the four houses. Responses were independent of each other."}
+figure1_23 <- png::readPNG(here("writeup","figs","figure1_23.png"))
+grid::grid.raster(figure1_23)
+```
+
+A trained undergraduate research assistant served as the experimenter for the task. The experimenter first introduced participants to two small plastic figures named Joe and Mandy and to four wooden houses with a felt door on the front. The experimenter then showed participants a list of four images, each depicting one activity Joe and Mandy wanted to do together. The experimenter explained that when each door opened, a sound would either play or or there would be silence. Joe and Mandy could choose whether or not to complete an activity in each house, and their decisions would be entirely based on participants' responses. Importantly, these decisions were independent of each other; participants could decide to have Joe and Mandy complete the same activity in more than one room if appropriate. A sound button was attached to the back of each house and hidden from the participant's view so when the experimenter opened a door, they also pressed down on the button to play the appropriate sound. The wooden houses were lined up on a table several inches apart with the participant seated facing the doors of the houses and the experimenter on the opposite side facing the sound buttons. Figure 1 illustrates the setup, the four activities, and the four auditory stimuli. 
+
+The experimenter began the task with the first image on the list and told participants, "It looks like Joe and Mandy want to [sleep]. Let's look at each room and see if Joe and Mandy should [sleep] inside." The experimenter then opened the door to the first house [the experimenter always began with the first house on their left/the first house on the participant's right] and pressed down on the sound button. At the end of the audio clip, the experimenter closed the door and asked participants two questions. Participants only heard each audio clip once per trial. The experimenter repeated this process for the three remaining houses before moving on to the next activity. In total, participants completed 16 trials -- four trials for each activity times four trials for each auditory stimulus. The presentation order of two conditions was counterbalanced to create two additional conditions, for a total of four conditions. 
+
+Each auditory stimulus was 7s in length and normalized to a root mean square (RMS) amplitude of 65 dB. The multi-talker babble was an overlay of five adult native English speakers reading short, unrelated sentences (@panfili2017). The white noise was engineered in Audacity. The instrumental music contained no human speech. Both the activities and auditory stimuli were selected based on a sample of adults run previously.\footnote{In pilot testing, we noted that the auditory stimuli could suggest varying numbers of people inside the wooden houses. For example, the house paired with multi-talker babble might appear to have morepeople inside than the houses paired with instrumental music, silence, and white noise. This appearance might inadvertently influence children's decisions on whether or not a house is appropriate for a specific activity for reasons other than the auditory stimuli. To address this issue, we opened the top of each house and showed children that two other figures were inside.}
+
+We asked participants two questions which served as our DVs: (1) "Should Joe and Mandy [read/dance/sleep/talk] in this room?" and (2) "Why did you say Joe and Mandy [should/shouldn't] [read/dance/sleep/talk] in this room?" 
+
+## Results and Discussion
+
+```{r e3b-bar, fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.env = 'figure*', fig.cap= "Results from Experiment 1. Participants' rating of the appropriateness of an auditory stimulus and activity pairing. Individual bars correspond to one age bin of 3, 4, or 5. A rating score of 0 indicates a rejection of the pairing [Joe and Mandy should not complete a particular activity in this environment] while a score of 1 indicates an affirmation of the pairing [Joe and Mandy should complete a particular activity in this environment]. A 2-alternative forced choice design resulted in no preference at 50\\%.  Error bars show 95\\% confidence intervals."}
+
+## Calculate confidence intervals
+
+### Aggregate confidence intervals (3-5 years)
+cidata_3b <- tidydata_3b %>%
+  group_by(activity, sound_type) %>%
+  summarise(ci.l = binom::binom.bayes(x = sum(response), n = n())$lower,
+            ci.u = binom::binom.bayes(x = sum(response), n = n())$upper,
+            n = n(),
+            mean_response = mean(response)) %>% 
+  mutate(activity = fct_reorder(activity, mean_response, .desc = TRUE))
+
+### Binned confidence intervals (by age)
+cidataage_3b <- tidydata_3b %>%
+  group_by(activity, sound_type, age_years) %>%
+  summarise(ci.l = binom::binom.bayes(x = sum(response), n = n())$lower,
+            ci.u = binom::binom.bayes(x = sum(response), n = n())$upper,
+            n = n(),
+            mean_response = mean(response)) %>% 
+  mutate(activity = fct_reorder(activity, mean_response, .desc = TRUE))
+
+# Data visualization and stats
+
+## labels
+xlabels <- c(mtb5 = "babble",
+             instrumental = "music",
+             silence = "silence",
+             white = "white noise")
+facet_labels_3b <- c(dance = "Dance", 
+                  read = "Read",
+                  sleep = "Sleep",
+                  talk = "Talk")
+
+## Figure 2
+### Binned Data
+ggplot(data = cidataage_3b, mapping = aes(x = factor(sound_type, level= c("mtb5", "instrumental", "silence", "white")), fill = as.factor(age_years))) +
+  geom_bar(aes(y = mean_response),
+           position = "dodge", stat = "identity") +
+  geom_linerange(aes(ymin = ci.l,
+                     ymax = ci.u),
+                 position = position_dodge(width = 0.9)) +
+  facet_wrap(~activity, labeller = as_labeller(facet_labels_3b), scales = "free", ncol = 4) +
+  xlab("Auditory Stimulus") +
+  ylim(0,1) +
+  ylab("Proportion Choosing Room") +
+  scale_fill_manual(values = wes_palette("GrandBudapest1")) +
+  scale_x_discrete(labels = xlabels) +
+  geom_hline(yintercept = .5, lty =2) +
+  theme_few() +
+  theme(axis.text = element_text(size = 8),
+        legend.text = element_text(size = 8),
+        legend.title = element_text(size = 8),
+        panel.spacing.x = unit(0.25, "lines"),
+        panel.spacing.y = unit(0.25, "lines"),
+        legend.direction = "horizontal",
+        legend.position = "bottom",
+        axis.text.x = element_text(angle = 30, hjust=1),
+        text = element_text(size = 10)) +
+  labs(fill = "Age (Years)")
+
+```
+
+```{r e3-stats, echo=FALSE, results="hide", eval=FALSE}
+
+glmer_3b <- stan_glmer(formula = response ~ sound_type * activity * age_centered + (1 | subject_id),
+                       family = binomial,
+                       data = tidydata_3b)
+
+summary_3b <- summary(glmer_3b, probs = c(0.025, 0.975))
+
+saveRDS(summary_3b, here("writeup/models","summary_3b.Rds"))
+```
+
+```{r e3-stats-load}
+summary_3b<- readRDS(here("writeup/models","summary_3b.Rds"))
+```
+
+If preschool children can reason about how the acoustic environment might influence goal achievement, and can make decisions to this end, we should expect participants to show clear preferences for activities paired with particular auditory stimuli, and indeed they appeared to. Figure 2 depicts children's activity-auditory pairings by age.
+
+We preregistered a Bayesian mixed-effects logistic regression from the `rstanarm` package to predict participants' responses as a function of auditory stimulus, activity, and age (centered), with a maximal random effect structure (random intercept by participant) [@goodrich2020]. In this and subsequent models, we used the package default of weakly informative priors (normal distributions on coefficients with SD=2.5, scaled to predictor magnitudes).
+
+Because we had four activities and four acoustic environments, there were six main effects and 12 two-way interactions of activity and environment (setting dance and music as the reference levels respectively). All six main effects had negative coefficients (lower levels of selection than music with dancing), and all 95% CrIs did not overlap zero. Importantly, all of the two-way interaction coefficients were positive and all had 95% CrIs not overlapping zero, indicating the specificity of the relationship between activity and acoustic environment. 
+
+There were some numerical developmental effects, but the coefficient on age had a small estimated value and a CrI that overlapped with zero ($\beta = `r round(summary_3b[8,1],2)` [`r round(summary_3b[8,4],2)`, `r round(summary_3b[8,5],2)`]$). The interaction between age and multi-talker babble did have a substantial negative magnitude ($\beta = `r round(summary_3b[18,1],2)` [`r round(summary_3b[18,4],2)`,`r round(summary_3b[18,5],2)`]$) indicating lower choice of that room for older children. Numerically, even three-year-olds appeared to match music to dancing and silence to sleeping, though their other preferences were weaker. 
+
+In sum, these findings suggest that across the preschool years, children can evaluate acoustic environments to make decisions about third-party goals. Our results provide preliminary evidence that children as young as three can engage in basic environmental selection, at least for familiar activity pairs. 
+
+# Experiment 2
+
+In Experiment 1, we found that preschool children do engage in environmental selection, such that they may make decisions about environment utility for goal selection based on auditory information. We also found that this ability was generally stable across the preschool years. However, it is possible that children succeeded in this task not because they were engaging in some cognitively flexible process, but because they were relying on pure associations. For example, children may have paired sleeping with silence because they typically sleep in quiet environments, and not because they recognize that silence might be the most optimal auditory environment for sleep. 
+
+One possibility, then, is that environmental selection is driven by associative knowledge for young children, rather than by task- or goal-based reasoning. Importantly, this more limited environmental selection could still be useful -- after all, regardless of *why* you want quiet to sleep, this desire will still get you the same result. But such associative links would allow for much less flexible environment selection for learning activities in the face of acoustic noise, so we were interested in whether children could perform the more difficult task of finding an acoustic environment for activities with varying degrees of novelty.
+
+To test this question, we replaced the familiar activities in Experiment 1 with relatively less familiar ones. If children primarily reason about the pairing between the acoustic environment and a set of goals through pure association, they should have trouble pairing acoustic environments with less familiar activities because they have had less exposure with these pairings. If, however, children are actively updating information about their environment and then using this information to inform new goals, they should also succeed even when faced with goals of varying novelty.
+
+## Methods
+
+```{r e4-data}
+#CHILDREN
+## Load data
+data_4b <- read_csv(here("data", "childrendatalog4b.csv")) #load data
+
+## Tidy data
+tidydata_4b <- data_4b %>%
+  clean_names() %>%  #lowercase column names
+  filter(arm == "Main",
+         included == "Yes") %>% #exclude pilot participants and those who could not be retained for analysis failed attention and sound checks
+  select(subject_id:rationale) %>%
+  na.omit()
+
+## Remove extra spaces
+tidydata_4b$activity <- str_trim(tidydata_4b$activity)
+tidydata_4b$sound_type <- str_trim(tidydata_4b$sound_type)
+tidydata_4b$race <- str_trim(tidydata_4b$race)
+tidydata_4b$race <- str_replace(tidydata_4b$race, "$/$ ", "$/$")
+
+## Turn response column into integers
+tidydata_4b$response <- as.integer(tidydata_4b$response)
+tidydata_4b$age_months <- as.integer(tidydata_4b$age_months)
+
+## Scale Age
+tidydata_4b$age_centered <- scale(tidydata_4b$age_months, scale = FALSE)
+
+## Demographic information
+demodata_4b <- tidydata_4b %>%
+  select(subject_id,race, age_years, age_months) %>%
+  mutate(race_count = ifelse((str_detect(race, ",")), "Multiracial", race)) %>% 
+  distinct(subject_id, .keep_all=TRUE) #get one value per participant
+
+excluded_4b <- data_4b %>%
+  clean_names() %>%  #lowercase column names
+  filter(arm == "Main",
+         included == "No") %>% #exclude pilot participants and those who could not be retained for analysis for failed attention and sound checks
+  select(subject_id:rationale) %>% 
+  distinct(subject_id, .keep_all=TRUE)
+
+```
+
+```{r e4adult-data}
+#ADULTS
+#Load data 4a
+data_4a <- read.csv(here("data", "adultdatalog4a1.csv"), na.strings = c("", "NA")) #load data
+
+## Clean data
+cleandata_4a <- data_4a %>% 
+  clean_names() %>% #lowercase column names
+  select(q6:language_1) %>% #remove unnecessary columns
+  rename("sound_check" = "q6")
+
+## Remove first two rows (contain no data/are unnecessary)
+cleandata_4a <- cleandata_4a[-c(1,2), ]
+
+## Data cleaning and participant exclusion
+tidydata_4a <- cleandata_4a %>% 
+  filter(attention_check_1 == 1,
+         attention_check_2 == 1,
+         sound_check == 1) %>% #exclude participants who failed attention and sound checks
+  mutate(subject_id = row_number()) %>% #make a subject id column
+  select(subject_id, everything()) %>%
+  relocate(age, race, .after = subject_id) %>% 
+  select(subject_id:rast_white)
+
+## Pivot columns
+tidy4a <- tidydata_4a %>%
+  pivot_longer(cols = c("clop_instrumental", "fraw_instrumental", "gobb_instrumental", "norl_instrumental", "terb_instrumental", "plip_instrumental", "surk_instrumental", "rast_instrumental",
+                        "clop_silence", "fraw_silence", "gobb_silence", "norl_silence", "terb_silence", "plip_silence", "surk_silence", "rast_silence",
+                        "clop_white", "fraw_white", "gobb_white", "norl_white", "terb_white", "plip_white", "surk_white", "rast_white",
+                        "clop_mtb", "fraw_mtb", "gobb_mtb", "norl_mtb", "terb_mtb", "plip_mtb", "surk_mtb", "rast_mtb"),
+               names_to = "activity",
+               values_to = "rating") %>% 
+  separate(col = activity,
+           into = c("activity", "noise_type"),
+           sep = '[_]') %>% 
+  na.omit()
+
+## Make rating category numeric
+tidy4a$rating <- as.integer(tidy4a$rating)
+
+##Pull out 4 activities that relate to Experiment 2
+tidydata_4a_exp2 <- tidy4a %>% 
+  filter(activity %in% c("fraw", "gobb", "plip", "clop")) %>%
+  rename("activity_old" = "activity") %>% 
+  mutate(activity = case_when(
+            activity_old == "clop" ~ "terb",
+            activity_old == "gobb" ~ "gobb",
+            activity_old == "fraw" ~ "fraw",
+            activity_old == "plip" ~ "plip"))
+
+## Demographic information
+demodata_4a <- tidydata_4a %>%
+  select(subject_id,age, race) %>% 
+  replace(is.na(tidydata_4a$race), 7) %>% 
+  mutate(white = if_else(race == 3, 1, 0))
+
+## Make race and age categories numeric
+demodata_4a$race <- as.integer(demodata_4a$race, na.rm = TRUE)
+demodata_4a$age <- as.integer(demodata_4a$age, na.rm = TRUE)
+
+excluded_4a <- cleandata_4a %>%
+  filter(attention_check_1 == 0 | attention_check_2 == 0)
+
+```
+
+### Participants
+
+`r nrow(demodata_4b)` children (3;0 - 5;11 years, mean age = `r round(mean(demodata_4b$age_months/12),2)` years, `r round(mean(demodata_4b$race_count == "African American/Black")*100,1)`% African American/Black, `r round(mean(demodata_4b$race_count == "Asian American/Pacific Islander")*100,1)`% Asian American/Pacific Islander, `r round(mean(demodata_4b$race_count == "Caucasian/White")*100,1)`% Caucasian/White, `r round(mean(demodata_4b$race_count == "Hispanic/Latinx")*100,1)`% Hispanic/Latinx, `r round(mean(demodata_4b$race_count == "Biracial/Multiracial")*100,1)`% Multiracial) were recruited from either a local Bay Area nursery school or children’s museum. An additional `r nrow(excluded_4b)` children were ultimately excluded from analysis. This sample is a subset of the 72 children we intend to include in the final preregistered sample.  
+
+### Materials and Procedure
+
+The procedures for Experiment 2 were nearly identical to Experiment 1 with one notable difference. To determine whether preschool children use environmental selection flexibly to relatively less familiar activities, we presented participants with a new list of activities with varying degrees of novelty- (1) Fraw: when someone reads you a bedtime story right before you fall asleep, (2) Gobb: when you are looking for something to do because you are really bored, (3) Plip: when you spin around in circles to the beat until you get really dizzy, and (4) Terb: when you don't want anyone else to know your tummy is making noise. We selected these activities based on an adult sample we previously ran online, where we found these four activities elicited the widest distribution of responses among participants. The novelty of these four activities fall along a gradient from something children may have previously encountered ("fraw" and "gobb") to something with which they may have had less contact ("plip" and "terb"). While none of the selected activities are purely novel, they all have novel labels and may require children to consider multi-step actions as single behaviors. For example, fraw is an action in which (1) someone is being read to and (2) the context in which the story is read is at bedtime. This is arguably different from pure reading despite the strong likelihood that their optimal environments are the same. From this view, there may be important utility in asking children to reason about these activities, as they are reasonably distinct from those in Experiment 1.
+
+We asked participants two questions which served as our DVs: (1) "Should Joe and Mandy [fraw/gobb/plip/terb] in this room?" and (2) "Why did you say Joe and Mandy [should/shouldn't] [fraw/gobb/plip/terb] in this room?" 
+
+## Results and Discussion
+
+```{r e4b-bar}
+ # fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from Experiment 2. Data is collapsed across age."
+
+
+#CHILDREN
+## Calculate confidence intervals
+
+### Aggregate confidence intervals (3-5 years)
+cidata_4b <- tidydata_4b %>%
+  group_by(activity, sound_type) %>%
+  summarise(ci.l = binom::binom.bayes(x = sum(response), n = n())$lower,
+            ci.u = binom::binom.bayes(x = sum(response), n = n())$upper,
+            n = n(),
+            mean_response = mean(response)) %>% 
+  mutate(activity = fct_reorder(activity, mean_response, .desc = TRUE))
+
+### Binned confidence intervals (by age)
+cidataage_4b <- tidydata_4b %>%
+  group_by(activity, sound_type, age_years) %>%
+  summarise(ci.l = binom::binom.bayes(x = sum(response), n = n())$lower,
+            ci.u = binom::binom.bayes(x = sum(response), n = n())$upper,
+            n = n(),
+            mean_response = mean(response)) %>% 
+  mutate(activity = fct_reorder(activity, mean_response, .desc = TRUE))
+
+# Data visualization and stats
+
+## x-axis labels
+xlabels <- c("5tb" = "babble",
+             instrumental = "music",
+             silence = "silence",
+             white = "white noise")
+facet_labels <- c(fraw = "Fraw: story before bed",
+                  gobb = "Gobb: something to do",
+                  plip = "Plip: spin to the beat",
+                  terb = "Terb: hide tummy rumbling")
+
+#Figure 3
+ ## Aggregated Data
+e4_kids <- ggplot(data = cidata_4b, mapping = aes(x = factor(sound_type, level= c("5tb", "instrumental", "silence", "white")), y = mean_response, fill = activity)) +
+   geom_col() +
+   geom_linerange(aes(ymin = ci.l,
+                      ymax = ci.u)) +
+   ylim(0,1) +
+   xlab("Auditory Stimulus") +
+   ylab("Proportion choosing room") +
+   #scale_fill_brewer(palette="Set2") +
+   scale_fill_manual(values = wes_palette("GrandBudapest1")) +
+   scale_x_discrete(labels = xlabels) +
+   facet_wrap(~activity, labeller = as_labeller(facet_labels)) + 
+   geom_hline(yintercept = .5, lty =2) +
+   scale_color_solarized() + 
+   theme_few() +
+   theme(legend.position = "none",
+         title = element_text(size = 8),
+         axis.text = element_text(size = 8),
+         panel.spacing.x = unit(0.5, "lines"),
+         panel.spacing.y = unit(0.5, "lines"),
+         axis.text.x = element_text(angle = 30, hjust=1),
+         text = element_text(size=10))
+
+#Binned data
+# ggplot(data = cidataage_4b, mapping = aes(x = factor(sound_type, level= c("5tb", "instrumental", "silence", "white")), fill = as.factor(age_years))) +
+#   geom_bar(aes(y = mean_response),
+#            position = "dodge", stat = "identity") +
+#   geom_linerange(aes(ymin = ci.l,
+#                      ymax = ci.u),
+#                  position = position_dodge(width = 0.9)) +
+#   facet_wrap(~activity, scales = "free", ncol = 4) +
+#   xlab("Auditory Stimulus") +
+#   ylim(0,1) +
+#   ylab("Proportion Choosing Room") +
+#   scale_fill_manual(values = wes_palette("GrandBudapest1")) +
+#   scale_x_discrete(labels = xlabels) +
+#   geom_hline(yintercept = .5, lty =2) +
+#   theme_few() +
+#   theme(axis.text = element_text(size = 8),
+#         legend.text = element_text(size = 8),
+#         legend.title = element_text(size = 8),
+#         panel.spacing.x = unit(0.25, "lines"),
+#         panel.spacing.y = unit(0.25, "lines"),
+#         legend.direction = "horizontal",
+#         legend.position = "bottom",
+#         axis.text.x = element_text(angle = 30, hjust=1),
+#         text = element_text(size = 10)) +
+#   labs(fill = "Age (Years)")
+
+```
+
+
+```{r e4b-stats, results="hide", eval=FALSE}
+
+# Logistic Regression
+tidydata_4b$activity <- fct_relevel(tidydata_4b$activity, "fraw")
+tidydata_4b$sound_type <- fct_relevel(tidydata_4b$sound_type, "silence")
+
+glmer_4b_simple <- stan_glmer(formula = response ~ sound_type * activity + (1 | subject_id),
+                       family = binomial,
+                       data = tidydata_4b)
+
+summary_4b_simple <- summary(glmer_4b_simple, probs = c(0.025, 0.975))
+
+saveRDS(summary_4b_simple, here("writeup/models","summary_4b_simple_posteredits.Rds"))
+
+```
+
+```{r e4b-stats-load}
+summary_4b_simple <- readRDS(here("writeup/models","summary_4b_simple_posteredits.Rds"))
+
+```
+
+
+```{r e4a-bar}
+
+# Data Visualization
+
+## Calculate confidence intervals
+cidata_4a <- tidydata_4a_exp2 %>%
+  group_by(activity, noise_type) %>% 
+  summarise(n = n(),
+            mean_rating = mean(rating, na.rm=TRUE), 
+            sem = sd(rating) / sqrt(n),
+            ci.l = mean_rating - sem * 1.96,
+            ci.u = mean_rating + sem * 1.96)
+
+xlabels <- c(mtb = "babble",
+             instrumental = "music",
+             silence = "silence",
+             white = "white noise")
+facet_labels <- c(fraw = "Fraw: story before bed", 
+                  gobb = "Gobb: something to do",
+                  plip = "Plip: spin to the beat",
+                  terb = "Terb: hide tummy noises")
+# Figure 4
+e4_adults <- ggplot(data = cidata_4a, 
+       mapping = aes(x = factor(noise_type, level= c("mtb", "instrumental", "silence", "white")), y = mean_rating, fill = activity)) +
+  geom_col() +
+  geom_linerange(aes(ymin = ci.l,
+                     ymax = ci.u)) +
+  ylim(0,7) +
+  xlab("Auditory Stimulus") +
+  ylab("Rating") +
+  #scale_fill_brewer(palette="Set2") +
+  scale_fill_manual(values = wes_palette("GrandBudapest1")) +
+  scale_x_discrete(labels = xlabels) +
+  facet_wrap(~activity, labeller = as_labeller(facet_labels)) +
+  # geom_hline(yintercept = 4, lty = 2) +
+  scale_color_solarized() + 
+  theme_few() +
+  theme(legend.position = "none",
+        title = element_text(size = 8),
+        axis.text = element_text(size = 8),
+        panel.spacing.x = unit(0.5, "lines"),
+        panel.spacing.y = unit(0.5, "lines"),
+        axis.text.x = element_text(angle = 30, hjust=1),
+        text = element_text(size=10))
+
+```
+
+
+```{r e4a-stats, results="hide", eval=FALSE}
+
+# Logistic Regression
+tidydata_4a_exp2$activity <- fct_relevel(tidydata_4a_exp2$activity, "fraw")
+tidydata_4a_exp2$noise_type <- fct_relevel(tidydata_4a_exp2$noise_type, "silence")
+
+glmer_4a <- stan_glmer(formula = rating ~ noise_type * activity + (1 | subject_id),
+                       data = tidydata_4a_exp2)
+
+summary_4a <- summary(glmer_4a, probs = c(0.025, 0.975))
+
+saveRDS(summary_4a, here("writeup/models","summary_4a_posteredits.Rds"))
+
+```
+
+```{r e4a-stats-load}
+summary_4a <- readRDS(here("writeup/models","summary_4a_posteredits.Rds"))
+
+```
+
+```{r e4-summary-fig, fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from (A) children and (B) adults in Experiment 2. While children made binary judgments, adults used a seven-point likert scale indicating complete match (7) to complete mismatch (1) between sounds and activities."}
+
+plot_grid(e4_kids, e4_adults, labels = c("A", "B"))
+```
+
+If preschool children rely solely on association when evaluating the acoustic environment, that is, they have acquired associative links between familiar activities and their acoustic contexts, we should expect that children will have no strong preferences for pairing less familiar activities with any particular acoustic context. If, however, children can reason flexibly about how the acoustic environment influences goal optimization and outcomes, we should expect that children show clear preferences for acoustic contexts even with activities for which they have less experience.
+
+Data collection for Experiment 2 is ongoing, so we present a preliminary analysis of the data. Figure 3A shows the pattern of choices across all participants (not disaggregated by age). Several of the activities appear to show patterns of preference for one acoustic environment. 
+
+While we did not have sufficient power to fit our full preregistered Bayesian mixed effects model, we did fit a subset model that did not include effects of age. We set the reference level to be "fraw" (story before bed) and silence. Critically, we found evidence for interactions between two activities and either the music or babble category, such that the music environment was preferred for "plip" (spinning to the beat; $\beta = `r round(summary_4b_simple[12,1],2)` [`r round(summary_4b_simple[12,4],2)`, `r round(summary_4b_simple[12,5],2)`]$), and the babble environment for "terb" (hiding tummy noises; $\beta = `r round(summary_4b_simple[16,1],2)` [`r round(summary_4b_simple[16,4],2)`, `r round(summary_4b_simple[15,5],2)`]$). 
+
+These preliminary results give evidence that children appeared to be reasoning about the goal of activities and how they fit with different acoustic environments. Children may have drawn on familiar elements of these new activities, including associations with bedtime stories or spinning, but they were clearly reasoning in some way about these. Perhaps the most interesting activity from this perspective was "terbing" (hiding tummy noises), where children would have to reason that music might mask the sound of their tummy. We interpret the "terbing" result with caution, however, as this is likely to be a challenging item and responses were relatively flat. Overall, these data provide a first test of the idea that children are doing some kind of reasoning beyond pure associative matching.
+
+## Adult Ratings of Novel Activity Pairings
+
+The previous findings suggest some differentiation in pairing auditory stimuli with less familiar activities, but what pattern of results should we expect? Given the novelty of the paradigm, we evaluated results from our previous sample of adult participants and then compared them to results from our sample of children. 
+
+### Participants
+`r nrow(demodata_4a)` adults (mean age = `r round(mean(demodata_4a$age),2)` years, `r round(mean(demodata_4a$white == 1)*100,1)`% Caucasian/White) were recruited for an online study hosted on Prolific. An additional `r nrow(excluded_4a)` participants were ultimately excluded from analysis for failing one or both of the attention checks.
+
+### Methods and Procedure
+
+Participants completed a similar paradigm to children, but it was adapted to an online, self-paced task. Participants watched animated videos of a hallway exterior with one door centered in the middle of the screen. When the door opened, one of four sounds played, followed by the door closing, signaling the end of the video. Each video was 7s in length and normalized to 65 dB RMS amplitude. Participants then responded to the following prompt: "I could [fraw/gobb/plip/terb] in this room", and were also provided with the definition of each. Responses were collected via a likert rating scale from 1 ("not at all well") to 7 ("very well"). Each activity was presented one at a time, and the presentation order was randomized across participants.
+
+### Results and Discussion
+
+Figure 3B depicts adults' ratings for each activity by auditory stimulus. Activity-sound interactions were similar between children and adults. As with the children, we observed interactions between activity and auditory stimulus such that adults also preferred pairing music with "plip" (spinning to the beat) ($\beta = `r round(summary_4a[11,1],2)` [`r round(summary_4a[11,4],2)`, `r round(summary_4a[11,5],2)`]$). However, adults preferred babble for "terb" while children did not (($\beta = `r round(summary_4a[15,1],2)` [`r round(summary_4a[15,4],2)`, `r round(summary_4a[15,5],2)`]$). Adult ratings for "gobb" (looking for something to do) were relatively flat, as were children's judgments, but children were less likely to pair "gobb" with white noise. These findings seem to suggest children's reasoning about activity-auditory pairings resulted in similar directional patterns to adults' ratings.
+
+# General Discussion
+
+In this set of experiments, we explored preschool children's reasoning about their acoustic environments and asked if they engage in environmental selection to find environments that are consistent with particular activities. In Experiment 1, we found that across the preschool years, children can reliably evaluate the acoustic environment to inform their decisions about third-party goals. In Experiment 2, we asked whether children are primarily relying on associations or on active learning when assessing activity feasibility by asking them to reason about less familiar activities. Preliminary results show a trend in children's flexibility on this task, such that they could reason about activities for which they have less experience (with patterns of ratings similar to those of adults). More importantly, they hint that pure association may not accurately capture how children reason about the optimality of their acoustic environment.
+
+These findings support the notion that young children are attuned to environmental features and can integrate this information for decision-making related to achieving goals. That learning is situated in an imperfect and often messy environment is all the more reason why strategic exploration matters. If you can identify what is best learned in a particular environment given the acoustic constraints, you might both maximize your efficiency and reduce uncertainty, which bolsters skill-building. Environmental selection offers a window into reasoning about the acoustic context, and it highlights the value of active learning in early childhood. Perhaps most advantageous, active learning seems to be flexible, and supports children's exploration across a range of experiences.
+
+This work has some limitations, which motivate our future directions. The preliminary findings, while not complete, are promising, and they offer some ground for broaching our main research questions. Additionally, this set of experiments explored children's reasoning about the goals of others; it is possible that children's preferences for certain acoustic environments may vary if they were instead asked to reason about their own goals. In Experiment 2, we asked children to reason about less familiar activities, but we are keenly aware that these activities are not purely novel. Future work will explore activities with greater degrees of novelty. This work also does not directly test a strategy children might use to extract information from the environment under noise constraints. Instead, it lays the foundation for understanding how children evaluate acoustic environments with varying degrees of noise, and a possible mechanism that drives it. By exploring children's environmental evaluations and their flexibility beyond familiar associations, we might later manipulate children's own acoustic environments to observe the utility of environmental selection in action. We believe the current studies are critical interim steps to this end because they will inform the direction of future research.
+
+This research also has potential utility in intervention efforts. Environmental noise exposure is here to stay; noise pollution in the United States affects everyone at some time or another, but some evidence suggests that it disproportionately affects communities of color and those of lower socioeconomic status, who tend to reside in more densely populated regions [@casey2017]. This could have downstream consequences on linguistic and cognitive skills, as well as on academic achievement. Future research should be sensitive to both the acute and chronic effects of noise exposure on children, in particular, and study strategies that can be implemented to ameliorate these effects. We believe that environmental selection could be one such strategy, and that by three years, children have the ability to use it effectively.
+
+# Acknowledgements
+
+We thank Ellen Markman for comments on the initial study design. We thank Deba Elaiho, Renaecia Deleon Guerrero, Jason Miranda, Malia Perez, and Karla Roman for data collection. We thank Bing Nursery School and The San Jose Children's Discovery Museum for continued research support.
+
+# References 
+
+```{r}
+# References will be generated automatically by Pandoc and included here.
+# The following code is some latex to format the bibliography. Do not remove it.
+```
+
+\setlength{\parindent}{-0.1in} 
+\setlength{\leftskip}{0.125in}
+\noindent
