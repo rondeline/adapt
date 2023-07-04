@@ -2,13 +2,13 @@
 ["bibtex main"] 0 "main.aux" "main.bbl" "main" 0 -1
   "./poster.bib" 1688153260 235 6d9f7970dd54b7263028c7c9348909f0 ""
   "/usr/local/texlive/2023/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "main.aux" 1688448244 1158 e1940b4f6c75b039206f685fea781301 "pdflatex"
+  "main.aux" 1688453695 1158 e1940b4f6c75b039206f685fea781301 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1688448242 "/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex" "main.pdf" "main" 1688448245 2
-  "/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex" 1688448238 13418 9a25ee3ee7e12dd5c38fda169d0be5f6 ""
+["pdflatex"] 1688453692 "/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex" "main.pdf" "main" 1688453696 2
+  "/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex" 1688453691 13418 9a25ee3ee7e12dd5c38fda169d0be5f6 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
   "/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc" 1202520719 2840 216e6e45ad352e2456e1149f28885bee ""
@@ -295,11 +295,11 @@
   "/usr/local/texlive/2023/texmf.cnf" 1678822455 577 1b2b1af17af2508fb20dd85783af4050 ""
   "beamercolorthemestanford.sty" 1688420376 3044 b31b5068398322d509fbab273309d9c5 ""
   "beamerthemegemini.sty" 1688436619 5947 3a1431d645139e49b7f2d7dda3f1513d ""
-  "main.aux" 1688448244 1158 e1940b4f6c75b039206f685fea781301 "pdflatex"
+  "main.aux" 1688453695 1158 e1940b4f6c75b039206f685fea781301 "pdflatex"
   "main.bbl" 1688172502 224 0c88876528be380fa87e30a1f810603c "bibtex main"
-  "main.nav" 1688448244 307 9e520c26371a1250ff9fc1fe87f9c655 "pdflatex"
-  "main.out" 1688448244 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "main.tex" 1688448238 13418 9a25ee3ee7e12dd5c38fda169d0be5f6 ""
+  "main.nav" 1688453695 307 9e520c26371a1250ff9fc1fe87f9c655 "pdflatex"
+  "main.out" 1688453694 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "main.tex" 1688453691 13418 9a25ee3ee7e12dd5c38fda169d0be5f6 ""
   "stanford_logos/Block_S_2_color.png" 1688420861 80721 45792c4c0817e2f8d2651c25a2e362a9 ""
   (generated)
   "main.aux"
