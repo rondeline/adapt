@@ -19,6 +19,7 @@
 \usepackage{tikz}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.17}
+% !TeX program = xelatex
 
 % ====================
 % Lengths
@@ -86,11 +87,41 @@
   \begin{block}{Background}
 
     \begin{itemize}
-      \item \textbf{Children as flexible learners} risus nulla, sed ornare
-      \item \textbf{Background noise} a duis congue vitae
-      \item \textbf{(Ecological) Active learning} morbi justo neque, ullamcorper
-      \item \textbf{Environmental selection} morbi justo neque, ullamcorper
-    \end{itemize}    
+      \item \textbf{Children as flexible learners}
+        \begin{itemize}
+          \item Learning flexibility in children includes:
+            \begin{itemize}
+              \item Adjusting attention to stimuli that is learnable (Gerken et al., 2011; Kidd, 2011)
+              \item Using emotional expressions as cues for novel object exploration (Wu \& Gweon, 2021)
+              \item Reasoning about environmental structure and goals to determine approach strategies (Meder et al., 2021)
+            \end{itemize}
+        \end{itemize}
+      \item \textbf{Background noise and learning}
+        \begin{itemize}
+          \item Acoustic noise is ubiquitous
+          \item Repeated noise exposure influences learning and development in critical ways:
+            \begin{itemize}
+              \item Reduces speech perception and word recognition (Klatte et al., 2013; Bjorklund et al., 1990)
+              \item Decreases word learning (McMillan \& Saffran, 2016)
+              \item Impinges on already limited cognitive resources for adaptive strategy building (Loh et al., 2022)
+            \end{itemize}
+        \end{itemize}
+      \item \textbf{(Ecological) Active learning}
+        \begin{itemize}
+          \item Traditional active learning:
+            \begin{itemize}
+              \item Learners interact with individual stimuli within their environment (Settles, 2009)
+              \item Accurate stimuli labeling is a primary goal
+            \end{itemize}
+        \end{itemize}
+      \item \textbf{Environmental selection}
+        \begin{itemize}
+          \item Learners preferentially select acoustic environments that align with a set of goals
+          \item Emphasizes acoustic information
+          \item Goal-directed
+          \item Addresses variabilities across environments
+        \end{itemize}
+    \end{itemize}       
 
     \begin{figure}
       \centering
@@ -131,9 +162,6 @@
 
   \begin{alertblock}{A highlighted block}
 
-    To what extent do preschool children use environmental selection as an
-    adaptive strategy for learning in noisy acoustic environments?
-
     \begin{itemize}
       \item \textbf{Fusce dapibus tellus} vel tellus semper finibus. In
         consequat, nibh sed mattis luctus, augue diam fermentum lectus.
@@ -144,8 +172,7 @@
         suscipit felis sapien vel ex.
     \end{itemize}
 
-    Aenean tincidunt risus eros, at gravida lorem sagittis vel. Vestibulum ante
-    ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.
+    To what extent do preschool children use environmental selection as an adaptive strategy for learning in noisy acoustic environments?
 
   \end{alertblock}
 
@@ -167,14 +194,14 @@
 
     \begin{table}
       \centering
-      \begin{tabular}{l r r c}
+      \begin{tabular}{c c}
         \toprule
-        \textbf{First column} & \textbf{Second column} & \textbf{Third column} & \textbf{Fourth} \\
+        \textbf{Activity} & \textbf{Label} \\
         \midrule
-        Foo & 13.37 & 384,394 & $\alpha$ \\
-        Bar & 2.17 & 1,392 & $\beta$ \\
-        Baz & 3.14 & 83,742 & $\delta$ \\
-        Qux & 7.59 & 974 & $\gamma$ \\
+        Dance & Dance \\
+        Read & Read \\
+        Sleep & Sleep \\
+        Talk & Talk \\
         \bottomrule
       \end{tabular}
       \caption{A table caption.}
