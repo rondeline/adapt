@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.3)  3 JUL 2023 23:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.3)  4 JUL 2023 00:32
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1018,10 +1018,10 @@ LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <20.74> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 68.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
 (Font)              Font shape `T1/lmss/m/sl' tried instead on input line 68.
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1029,10 +1029,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1040,10 +1040,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1051,10 +1051,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1062,10 +1062,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1073,10 +1073,45 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+LaTeX Font Info:    Calculating math sizes for size <29.86> on input line 371.
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <29.86> not available
+(Font)              size <24.88> substituted on input line 371.
+
+
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <14.93> not available
+(Font)              size <14.4> substituted on input line 371.
+
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <29.86> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 371.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <20.9019> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 371.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.93> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 371.
+<figures/dance.png, id=15, 215.80624pt x 210.7875pt>
+File: figures/dance.png Graphic file (type png)
+<use figures/dance.png>
+Package pdftex.def Info: figures/dance.png  used on input line 371.
+(pdftex.def)             Requested size: 102.43721pt x 100.05434pt.
+<figures/read.png, id=17, 242.9075pt x 209.78375pt>
+File: figures/read.png Graphic file (type png)
+<use figures/read.png>
+Package pdftex.def Info: figures/read.png  used on input line 371.
+(pdftex.def)             Requested size: 102.43721pt x 88.46707pt.
+<figures/sleep.png, id=18, 284.06125pt x 169.63374pt>
+File: figures/sleep.png Graphic file (type png)
+<use figures/sleep.png>
+Package pdftex.def Info: figures/sleep.png  used on input line 371.
+(pdftex.def)             Requested size: 102.43721pt x 61.17163pt.
+<figures/talk.png, id=19, 220.825pt x 211.79124pt>
+File: figures/talk.png Graphic file (type png)
+<use figures/talk.png>
+Package pdftex.def Info: figures/talk.png  used on input line 371.
+(pdftex.def)             Requested size: 102.43721pt x 98.24599pt.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1084,10 +1119,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1095,10 +1130,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1106,10 +1141,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@heading ->\Lato 
                                    
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1118,15 +1153,15 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <24.88> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 369.
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 371.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <20.74> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 369.
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 371.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <17.28> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 369.
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 371.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@heading ->\Lato 
                                    
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1134,10 +1169,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1145,10 +1180,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1157,13 +1192,13 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 (./main.bbl)
-Overfull \vbox (211.52031pt too high) detected at line 369
+Overfull \vbox (361.58539pt too high) detected at line 371
  []
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@headline ->\Raleway 
                                        
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1172,15 +1207,15 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <12> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 369.
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 371.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <8> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 369.
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 371.
 LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <6> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 369.
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 371.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@headline ->\Raleway 
                                        
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1188,15 +1223,15 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-<stanford_logos/Block_S_2_color.png, id=15, 215.3646pt x 324.7332pt>
+<stanford_logos/Block_S_2_color.png, id=20, 215.3646pt x 324.7332pt>
 File: stanford_logos/Block_S_2_color.png Graphic file (type png)
 <use stanford_logos/Block_S_2_color.png>
-Package pdftex.def Info: stanford_logos/Block_S_2_color.png  used on input line 369.
+Package pdftex.def Info: stanford_logos/Block_S_2_color.png  used on input line 371.
 (pdftex.def)             Requested size: 132.09517pt x 199.16928pt.
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@footline ->\Raleway 
                                        
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1204,10 +1239,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:369: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
 \beamer@thmffamily@footline ->\Raleway 
                                        
-l.369 \end{frame}
+l.371 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1217,7 +1252,7 @@ and I'll forget about whatever was undefined.
 
 [1{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
 
-{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc} <./stanford_logos/Block_S_2_color.png>]
+{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc} <./stanford_logos/Block_S_2_color.png> <./figures/dance.png> <./figures/read.png> <./figures/sleep.png> <./figures/talk.png>]
 \tf@nav=\write6
 \openout6 = `main.nav'.
 
@@ -1228,6 +1263,10 @@ and I'll forget about whatever was undefined.
 \openout8 = `main.snm'.
 
  (./main.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 4.98pt have occurred.
+
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
@@ -1241,18 +1280,18 @@ Package rerunfilecheck Info: Checksums for `main.out':
 (rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 37175 strings out of 476025
- 884849 string characters out of 5790018
- 1946388 words of memory out of 5000000
- 56899 multiletter control sequences out of 15000+600000
- 607431 words of font info for 96 fonts, out of 8000000 for 9000
+ 37231 strings out of 476025
+ 885897 string characters out of 5790018
+ 1948388 words of memory out of 5000000
+ 56951 multiletter control sequences out of 15000+600000
+ 633083 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  128i,20n,122p,784b,2764s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsso17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (1 page, 164447 bytes).
+Output written on main.pdf (1 page, 351222 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
+ 81 PDF objects out of 1000 (max. 8388607)
  44 compressed objects within 1 object stream
  4 named destinations out of 1000 (max. 500000)
- 48 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 68 words of extra memory for PDF output out of 10000 (max. 10000000)
 
