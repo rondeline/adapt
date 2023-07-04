@@ -18,6 +18,7 @@
 \usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{adjustbox}
 \pgfplotsset{compat=1.17}
 % !TeX program = xelatex
 
@@ -195,7 +196,7 @@
     \begin{table}
       \centering
       \large
-      \begin{tabular}{c c}
+      \begin{tabular}{c | c}
         \toprule
         \textbf{Activity} & \textbf{Label} \\
         \midrule
@@ -204,6 +205,26 @@
         \includegraphics[width=0.1\textwidth]{figures/read.png} & Read \\
         \includegraphics[width=0.1\textwidth]{figures/sleep.png} & Sleep \\
         \includegraphics[width=0.1\textwidth]{figures/talk.png} & Talk \\
+        \bottomrule
+      \end{tabular}
+      \caption{A table caption.}
+    \end{table}
+
+    \begin{table}
+      \centering
+      \large
+      \begin{tabular}{\textwidth}{|p{2in}|X|X|X|X|}
+        \toprule
+        \adjustbox{valign=c}{\textbf{Fraw}} &
+        \adjustbox{valign=c}{\textbf{Gobb}} &
+        \adjustbox{valign=c}{\textbf{Plip}} & 
+        \adjustbox{valign=c}{\textbf{Terb}} \\
+        \midrule
+        \adjustbox{valign=m}{\includegraphics[width=0.1\textwidth]{figures/fraw.png}} & 
+        \adjustbox{valign=m}{\includegraphics[width=0.1\textwidth]{figures/gobb.png}} & 
+        \adjustbox{valign=m}{\includegraphics[width=0.1\textwidth]{figures/plip.png}} & 
+        \adjustbox{valign=m}{\includegraphics[width=0.1\textwidth]{figures/terb.png}} \\
+        \centering Story before bed & \centering Something to do & \centering Spin to the beat & \centering Hide tummy rumbling \\
         \bottomrule
       \end{tabular}
       \caption{A table caption.}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.3)  4 JUL 2023 00:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.3)  4 JUL 2023 16:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -796,37 +796,73 @@ Package pgfplots: loading complementary utilities for your pgf version...
 File: tikzlibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
  (/usr/local/texlive/2023/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
 File: pgflibraryplotmarks.code.tex 2023-01-15 v3.1.10 (3.1.10)
-)))
+))) (/usr/local/texlive/2023/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2022/10/17 v1.3a Adjusting TeX boxes (trim, clip, ...)
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2022/10/17 v0.4c Collect macro arguments as boxes
+\collectedbox=\box82
+)
+\tc@llx=\dimen337
+\tc@lly=\dimen338
+\tc@urx=\dimen339
+\tc@ury=\dimen340
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/adjustbox/tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen341
+\adjbox@Height=\dimen342
+\adjbox@Depth=\dimen343
+\adjbox@Totalheight=\dimen344
+\adjbox@pwidth=\dimen345
+\adjbox@pheight=\dimen346
+\adjbox@pdepth=\dimen347
+\adjbox@ptotalheight=\dimen348
+ (/usr/local/texlive/2023/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2022/10/18 v1.2 Conditionals for odd/even page detection
+\c@checkoddpage=\count371
+LaTeX Info: Redefining \checkoddpage on input line 45.
+) (/usr/local/texlive/2023/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box83
+\sift@deathcycles=\count372
+\@vwid@loff=\dimen349
+\@vwid@roff=\dimen350
+))
 \sepwidth=\skip85
 \colwidth=\skip86
-LaTeX Font Info:    Trying to load font information for T1+lmss on input line 68.
+LaTeX Font Info:    Trying to load font information for T1+lmss on input line 69.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/lm/t1lmss.fd
 File: t1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count371
-\l__pdf_internal_box=\box82
+\l__color_backend_stack_int=\count373
+\l__pdf_internal_box=\box84
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 68.
-LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
+LaTeX Font Info:    ... okay on input line 69.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -864,16 +900,16 @@ LaTeX Font Info:    ... okay on input line 68.
 
 (/usr/local/texlive/2023/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count372
-\scratchdimen=\dimen337
-\scratchbox=\box83
-\nofMPsegments=\count373
-\nofMParguments=\count374
+\scratchcounter=\count374
+\scratchdimen=\dimen351
+\scratchbox=\box85
+\nofMPsegments=\count375
+\nofMParguments=\count376
 \everyMPshowfont=\toks56
-\MPscratchCnt=\count375
-\MPscratchDim=\dimen338
-\MPnumerator=\count376
-\makeMPintoPDFobject=\count377
+\MPscratchCnt=\count377
+\MPscratchDim=\dimen352
+\MPnumerator=\count378
+\makeMPintoPDFobject=\count379
 \everyMPtoPDFconversion=\toks57
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
@@ -881,56 +917,57 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
  (/usr/local/texlive/2023/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 68.
+Package hyperref Info: Link coloring OFF on input line 69.
+ (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 68.
+(Font)                  OT1/lmr/m/n --> OT1/cmss/m/n on input line 69.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 68.
+(Font)                  OT1/lmr/bx/n --> OT1/cmss/b/n on input line 69.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 68.
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 69.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 68.
+(Font)                  OT1/cmss/b/n --> OT1/lmss/b/n on input line 69.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 68.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 68.
+(Font)                  OT1/lmss/m/n --> T1/lmr/m/n on input line 69.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 69.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 68.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 69.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 68.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 68.
+(Font)                  OT1/lmr/bx/n --> T1/lmss/b/n on input line 69.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 69.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 68.
+(Font)                  OT1/lmss/m/n --> T1/lmss/m/n on input line 69.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 68.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 68.
+(Font)                  OT1/lmss/bx/n --> T1/lmss/m/n on input line 69.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 69.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 68.
+(Font)                  OT1/lmr/m/it --> T1/lmss/m/it on input line 69.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 68.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 68.
+(Font)                  OT1/lmr/bx/it --> T1/lmss/m/it on input line 69.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 69.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 68.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 69.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 68.
+(Font)                  OT1/lmtt/m/n --> T1/lmtt/m/n on input line 69.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 68.
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 69.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 68.
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 69.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 68.
+(Font)                  OT1/lmss/b/n --> T1/lmr/b/n on input line 69.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 68.
+(Font)                  T1/lmss/b/n --> T1/lmss/b/n on input line 69.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 68.
+(Font)                  T1/lmss/m/n --> T1/lmss/b/n on input line 69.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 68.
+(Font)                  T1/lmss/m/it --> T1/lmss/b/it on input line 69.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 68.
+(Font)                  T1/lmtt/m/n --> T1/lmtt/b/n on input line 69.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/translator/translator-basic-dictionary-English.dict
 Dictionary: translator-basic-dictionary, Language: English 
 ) (/usr/local/texlive/2023/texmf-dist/tex/latex/translator/translator-bibliography-dictionary-English.dict
@@ -947,10 +984,10 @@ Dictionary: translator-theorem-dictionary, Language: English
 Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.18} (current compat level: 1.17).
 
 (./main.nav)
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:68: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:69: Undefined control sequence.
 \beamer@thmffamily@footline ->\Raleway 
                                        
-l.68 \begin{document}
+l.69 \begin{document}
                      
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -958,10 +995,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:68: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:69: Undefined control sequence.
 \beamer@thmffamily@footline ->\Raleway 
                                        
-l.68 \begin{document}
+l.69 \begin{document}
                      
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -969,10 +1006,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:68: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:69: Undefined control sequence.
 \beamer@thmffamily@headline ->\Raleway 
                                        
-l.68 \begin{document}
+l.69 \begin{document}
                      
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -980,31 +1017,31 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 68.
+LaTeX Font Info:    Trying to load font information for OT1+lmss on input line 69.
 (/usr/local/texlive/2023/texmf-dist/tex/latex/lm/ot1lmss.fd
 File: ot1lmss.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 68.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 69.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 68.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 69.
  (/usr/local/texlive/2023/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `cmex7' loaded for size
-(Font)              <6> on input line 68.
+(Font)              <6> on input line 69.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <12> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 68.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 69.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <8> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 68.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 69.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <6> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 68.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 69.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:68: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:69: Undefined control sequence.
 \beamer@thmffamily@headline ->\Raleway 
                                        
-l.68 \begin{document}
+l.69 \begin{document}
                      
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1013,15 +1050,15 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <24.88> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 68.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 69.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <20.74> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 68.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 69.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 68.
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 69.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.371 \end{frame}
+l.392 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1029,10 +1066,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.371 \end{frame}
+l.392 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1040,10 +1077,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.371 \end{frame}
+l.392 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1051,10 +1088,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.371 \end{frame}
+l.392 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1062,10 +1099,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Undefined control sequence.
 \beamer@thmffamily@block title ->\Raleway 
                                           
-l.371 \end{frame}
+l.392 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1073,45 +1110,114 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-LaTeX Font Info:    Calculating math sizes for size <29.86> on input line 371.
+LaTeX Font Info:    Calculating math sizes for size <29.86> on input line 392.
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <29.86> not available
-(Font)              size <24.88> substituted on input line 371.
+(Font)              size <24.88> substituted on input line 392.
 
 
 LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <14.93> not available
-(Font)              size <14.4> substituted on input line 371.
+(Font)              size <14.4> substituted on input line 392.
 
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <29.86> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 371.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 392.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <20.9019> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 371.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 392.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.93> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 371.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 392.
 <figures/dance.png, id=15, 215.80624pt x 210.7875pt>
 File: figures/dance.png Graphic file (type png)
 <use figures/dance.png>
-Package pdftex.def Info: figures/dance.png  used on input line 371.
+Package pdftex.def Info: figures/dance.png  used on input line 392.
 (pdftex.def)             Requested size: 102.43721pt x 100.05434pt.
 <figures/read.png, id=17, 242.9075pt x 209.78375pt>
 File: figures/read.png Graphic file (type png)
 <use figures/read.png>
-Package pdftex.def Info: figures/read.png  used on input line 371.
+Package pdftex.def Info: figures/read.png  used on input line 392.
 (pdftex.def)             Requested size: 102.43721pt x 88.46707pt.
 <figures/sleep.png, id=18, 284.06125pt x 169.63374pt>
 File: figures/sleep.png Graphic file (type png)
 <use figures/sleep.png>
-Package pdftex.def Info: figures/sleep.png  used on input line 371.
+Package pdftex.def Info: figures/sleep.png  used on input line 392.
 (pdftex.def)             Requested size: 102.43721pt x 61.17163pt.
 <figures/talk.png, id=19, 220.825pt x 211.79124pt>
 File: figures/talk.png Graphic file (type png)
 <use figures/talk.png>
-Package pdftex.def Info: figures/talk.png  used on input line 371.
+Package pdftex.def Info: figures/talk.png  used on input line 392.
 (pdftex.def)             Requested size: 102.43721pt x 98.24599pt.
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
-\beamer@thmffamily@block title ->\Raleway 
-                                          
-l.371 \end{frame}
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.392 \end{frame}
+                 
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Misplaced \noalign.
+\toprule ->\noalign 
+                    {\ifnum 0=`}\fi \@aboverulesep =\abovetopsep \global \@b...
+l.392 \end{frame}
+                 
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Missing } inserted.
+<inserted text> 
+                }
+l.392 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Missing } inserted.
+<inserted text> 
+                }
+l.392 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Missing } inserted.
+<inserted text> 
+                }
+l.392 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.392 \end{frame}
+                 
+I'm guessing that you meant to end an alignment here.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Missing { inserted.
+<inserted text> 
+                {
+l.392 \end{frame}
+                 
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Undefined control sequence.
+\@BTrule ...\doublerulesep \fi \fi \fi \@BTswitch 
+                                                  
+l.392 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1119,179 +1225,46 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
-\beamer@thmffamily@block title ->\Raleway 
-                                          
-l.371 \end{frame}
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Misplaced alignment tab character &.
+\beamer@doifinframe ...valign=c}{\textbf {Fraw}} &
+                                                   \adjustbox {valign=c}{\te...
+l.392 \end{frame}
                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
-\beamer@thmffamily@block title ->\Raleway 
-                                          
-l.371 \end{frame}
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Misplaced alignment tab character &.
+\beamer@doifinframe ...valign=c}{\textbf {Gobb}} &
+                                                   \adjustbox {valign=c}{\te...
+l.392 \end{frame}
                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
-\beamer@thmffamily@heading ->\Lato 
-                                   
-l.371 \end{frame}
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Misplaced alignment tab character &.
+\beamer@doifinframe ...valign=c}{\textbf {Plip}} &
+                                                   \adjustbox {valign=c}{\te...
+l.392 \end{frame}
                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <24.88> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 371.
-LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <20.74> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 371.
-LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <17.28> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 371.
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
-\beamer@thmffamily@heading ->\Lato 
-                                   
-l.371 \end{frame}
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Misplaced \cr.
+\reserved@c ->\ifnum 0=`{\fi }\cr 
+                                  
+l.392 \end{frame}
                  
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
-\beamer@thmffamily@block title ->\Raleway 
-                                          
-l.371 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
-\beamer@thmffamily@block title ->\Raleway 
-                                          
-l.371 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-(./main.bbl)
-Overfull \vbox (361.58539pt too high) detected at line 371
- []
-
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
-\beamer@thmffamily@headline ->\Raleway 
-                                       
-l.371 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <12> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 371.
-LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <8> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 371.
-LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <6> not available
-(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 371.
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
-\beamer@thmffamily@headline ->\Raleway 
-                                       
-l.371 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-<stanford_logos/Block_S_2_color.png, id=20, 215.3646pt x 324.7332pt>
-File: stanford_logos/Block_S_2_color.png Graphic file (type png)
-<use stanford_logos/Block_S_2_color.png>
-Package pdftex.def Info: stanford_logos/Block_S_2_color.png  used on input line 371.
-(pdftex.def)             Requested size: 132.09517pt x 199.16928pt.
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
-\beamer@thmffamily@footline ->\Raleway 
-                                       
-l.371 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:371: Undefined control sequence.
-\beamer@thmffamily@footline ->\Raleway 
-                                       
-l.371 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[1{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
-
-{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc} <./stanford_logos/Block_S_2_color.png> <./figures/dance.png> <./figures/read.png> <./figures/sleep.png> <./figures/talk.png>]
-\tf@nav=\write6
-\openout6 = `main.nav'.
-
-\tf@toc=\write7
-\openout7 = `main.toc'.
-
-\tf@snm=\write8
-\openout8 = `main.snm'.
-
- (./main.aux)
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 4.98pt have occurred.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
- ) 
-Here is how much of TeX's memory you used:
- 37231 strings out of 476025
- 885897 string characters out of 5790018
- 1948388 words of memory out of 5000000
- 56951 multiletter control sequences out of 15000+600000
- 633083 words of font info for 117 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 128i,20n,122p,784b,2764s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsso17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on main.pdf (1 page, 351222 bytes).
-PDF statistics:
- 81 PDF objects out of 1000 (max. 8388607)
- 44 compressed objects within 1 object stream
- 4 named destinations out of 1000 (max. 500000)
- 68 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+I can't figure out why you would want to use a tab mark
+or \cr or
