@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.3)  4 JUL 2023 16:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023) (preloaded format=pdflatex 2023.7.3)  4 JUL 2023 22:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -918,7 +918,6 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 48
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package hyperref Info: Link coloring OFF on input line 69.
- (./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
@@ -1049,175 +1048,121 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@block title ->\Raleway 
+                                          
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@block title ->\Raleway 
+                                          
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@block title ->\Raleway 
+                                          
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@block title ->\Raleway 
+                                          
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@block title ->\Raleway 
+                                          
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <24.88> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 69.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 428.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <20.74> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 69.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 428.
 LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <17.28> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 69.
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Undefined control sequence.
-\beamer@thmffamily@block title ->\Raleway 
-                                          
-l.392 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 428.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <10> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 428.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Undefined control sequence.
-\beamer@thmffamily@block title ->\Raleway 
-                                          
-l.392 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Undefined control sequence.
-\beamer@thmffamily@block title ->\Raleway 
-                                          
-l.392 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Undefined control sequence.
-\beamer@thmffamily@block title ->\Raleway 
-                                          
-l.392 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Undefined control sequence.
-\beamer@thmffamily@block title ->\Raleway 
-                                          
-l.392 \end{frame}
-                 
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-LaTeX Font Info:    Calculating math sizes for size <29.86> on input line 392.
-
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <29.86> not available
-(Font)              size <24.88> substituted on input line 392.
-
-
-LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <14.93> not available
-(Font)              size <14.4> substituted on input line 392.
-
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <29.86> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 392.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <20.9019> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 392.
-LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.93> not available
-(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 392.
-<figures/dance.png, id=15, 215.80624pt x 210.7875pt>
-File: figures/dance.png Graphic file (type png)
-<use figures/dance.png>
-Package pdftex.def Info: figures/dance.png  used on input line 392.
-(pdftex.def)             Requested size: 102.43721pt x 100.05434pt.
-<figures/read.png, id=17, 242.9075pt x 209.78375pt>
-File: figures/read.png Graphic file (type png)
-<use figures/read.png>
-Package pdftex.def Info: figures/read.png  used on input line 392.
-(pdftex.def)             Requested size: 102.43721pt x 88.46707pt.
-<figures/sleep.png, id=18, 284.06125pt x 169.63374pt>
-File: figures/sleep.png Graphic file (type png)
-<use figures/sleep.png>
-Package pdftex.def Info: figures/sleep.png  used on input line 392.
-(pdftex.def)             Requested size: 102.43721pt x 61.17163pt.
-<figures/talk.png, id=19, 220.825pt x 211.79124pt>
-File: figures/talk.png Graphic file (type png)
-<use figures/talk.png>
-Package pdftex.def Info: figures/talk.png  used on input line 392.
-(pdftex.def)             Requested size: 102.43721pt x 98.24599pt.
-
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: LaTeX Error: Illegal character in array arg.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: LaTeX Error: Too deeply nested.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.392 \end{frame}
+l.428 \end{frame}
                  
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Misplaced \noalign.
-\toprule ->\noalign 
-                    {\ifnum 0=`}\fi \@aboverulesep =\abovetopsep \global \@b...
-l.392 \end{frame}
-                 
-I expect to see \noalign only after the \cr of
-an alignment. Proceed, and I'll ignore this case.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Missing } inserted.
-<inserted text> 
-                }
-l.392 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: LaTeX Error: Too deeply nested.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Missing } inserted.
-<inserted text> 
-                }
-l.392 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Missing } inserted.
-<inserted text> 
-                }
-l.392 \end{frame}
-                 
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Missing \cr inserted.
-<inserted text> 
-                \cr 
-l.392 \end{frame}
-                 
-I'm guessing that you meant to end an alignment here.
-
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Missing { inserted.
-<inserted text> 
-                {
-l.392 \end{frame}
-                 
-I've put in what seems to be necessary to fix
-the current column of the current alignment.
-Try to go on, since this might almost work.
-
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Undefined control sequence.
-\@BTrule ...\doublerulesep \fi \fi \fi \@BTswitch 
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
                                                   
-l.392 \end{frame}
+l.428 \end{frame}
+                 
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: LaTeX Error: Too deeply nested.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.428 \end{frame}
+                 
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: LaTeX Error: Too deeply nested.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.428 \end{frame}
+                 
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@block title ->\Raleway 
+                                          
+l.428 \end{frame}
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1225,46 +1170,361 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Misplaced alignment tab character &.
-\beamer@doifinframe ...valign=c}{\textbf {Fraw}} &
-                                                   \adjustbox {valign=c}{\te...
-l.392 \end{frame}
-                 
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
+LaTeX Font Info:    Calculating math sizes for size <29.86> on input line 428.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Misplaced alignment tab character &.
-\beamer@doifinframe ...valign=c}{\textbf {Gobb}} &
-                                                   \adjustbox {valign=c}{\te...
-l.392 \end{frame}
-                 
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <29.86> not available
+(Font)              size <24.88> substituted on input line 428.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Misplaced alignment tab character &.
-\beamer@doifinframe ...valign=c}{\textbf {Plip}} &
-                                                   \adjustbox {valign=c}{\te...
-l.392 \end{frame}
-                 
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
 
-/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:392: Misplaced \cr.
-\reserved@c ->\ifnum 0=`{\fi }\cr 
-                                  
-l.392 \end{frame}
+LaTeX Font Warning: Font shape `OMX/cmex/m/n' in size <14.93> not available
+(Font)              size <14.4> substituted on input line 428.
+
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <29.86> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 428.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <20.9019> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 428.
+LaTeX Font Info:    Font shape `T1/lmss/m/it' in size <14.93> not available
+(Font)              Font shape `T1/lmss/m/sl' tried instead on input line 428.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.428 \end{frame}
                  
-I can't figure out why you would want to use a tab mark
-or \cr or
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.428 \end{frame}
+                 
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.428 \end{frame}
+                 
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.428 \end{frame}
+                 
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<figures/dance.png, id=15, 215.80624pt x 210.7875pt>
+File: figures/dance.png Graphic file (type png)
+<use figures/dance.png>
+Package pdftex.def Info: figures/dance.png  used on input line 428.
+(pdftex.def)             Requested size: 102.43721pt x 100.05434pt.
+<figures/read.png, id=17, 242.9075pt x 209.78375pt>
+File: figures/read.png Graphic file (type png)
+<use figures/read.png>
+Package pdftex.def Info: figures/read.png  used on input line 428.
+(pdftex.def)             Requested size: 102.43721pt x 88.46707pt.
+<figures/sleep.png, id=18, 284.06125pt x 169.63374pt>
+File: figures/sleep.png Graphic file (type png)
+<use figures/sleep.png>
+Package pdftex.def Info: figures/sleep.png  used on input line 428.
+(pdftex.def)             Requested size: 102.43721pt x 61.17163pt.
+<figures/talk.png, id=19, 220.825pt x 211.79124pt>
+File: figures/talk.png Graphic file (type png)
+<use figures/talk.png>
+Package pdftex.def Info: figures/talk.png  used on input line 428.
+(pdftex.def)             Requested size: 102.43721pt x 98.24599pt.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.428 \end{frame}
+                 
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.428 \end{frame}
+                 
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.428 \end{frame}
+                 
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: LaTeX Error: Illegal character in array arg.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.428 \end{frame}
+                 
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+<figures/fraw.png, id=20, 258.9675pt x 187.70125pt>
+File: figures/fraw.png Graphic file (type png)
+<use figures/fraw.png>
+Package pdftex.def Info: figures/fraw.png  used on input line 428.
+(pdftex.def)             Requested size: 102.43721pt x 74.24858pt.
+<figures/gobb.png, id=21, 249.93375pt x 141.52875pt>
+File: figures/gobb.png Graphic file (type png)
+<use figures/gobb.png>
+Package pdftex.def Info: figures/gobb.png  used on input line 428.
+(pdftex.def)             Requested size: 102.43721pt x 58.00555pt.
+<figures/plip.png, id=22, 154.5775pt x 214.8025pt>
+File: figures/plip.png Graphic file (type png)
+<use figures/plip.png>
+Package pdftex.def Info: figures/plip.png  used on input line 428.
+(pdftex.def)             Requested size: 102.43721pt x 142.3535pt.
+<figures/terb.png, id=23, 170.6375pt x 173.64874pt>
+File: figures/terb.png Graphic file (type png)
+<use figures/terb.png>
+Package pdftex.def Info: figures/terb.png  used on input line 428.
+(pdftex.def)             Requested size: 102.43721pt x 104.24568pt.
+<../writeup/figs/e3-stimuli-1.pdf, id=24, 216.81pt x 136.51pt>
+File: ../writeup/figs/e3-stimuli-1.pdf Graphic file (type pdf)
+<use ../writeup/figs/e3-stimuli-1.pdf>
+Package pdftex.def Info: ../writeup/figs/e3-stimuli-1.pdf  used on input line 428.
+(pdftex.def)             Requested size: 433.67516pt x 289.09985pt.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@block title ->\Raleway 
+                                          
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@block title ->\Raleway 
+                                          
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@block title ->\Raleway 
+                                          
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+<../writeup/figs/e3b-bar-1.pdf, id=25, 498.86375pt x 265.99374pt>
+File: ../writeup/figs/e3b-bar-1.pdf Graphic file (type pdf)
+<use ../writeup/figs/e3b-bar-1.pdf>
+Package pdftex.def Info: ../writeup/figs/e3b-bar-1.pdf  used on input line 428.
+(pdftex.def)             Requested size: 1011.87584pt x 505.93317pt.
+<../writeup/figs/e4b-bar-1.pdf, id=26, 495.8525pt x 273.02pt>
+File: ../writeup/figs/e4b-bar-1.pdf Graphic file (type pdf)
+<use ../writeup/figs/e4b-bar-1.pdf>
+Package pdftex.def Info: ../writeup/figs/e4b-bar-1.pdf  used on input line 428.
+(pdftex.def)             Requested size: 1011.85863pt x 505.92477pt.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@heading ->\Lato 
+                                   
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <24.88> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 428.
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <20.74> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 428.
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <17.28> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 428.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@heading ->\Lato 
+                                   
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@block title ->\Raleway 
+                                          
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@block title ->\Raleway 
+                                          
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+(./main.bbl)
+Overfull \hbox (1109.59485pt too wide) detected at line 428
+[][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][][][] [][][][][][][] 
+ []
+
+
+Overfull \vbox (297.03519pt too high) detected at line 428
+ []
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@headline ->\Raleway 
+                                       
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <12> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 428.
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <8> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 428.
+LaTeX Font Info:    Font shape `T1/lmss/b/n' in size <6> not available
+(Font)              Font shape `T1/lmss/bx/n' tried instead on input line 428.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@headline ->\Raleway 
+                                       
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+<stanford_logos/Block_S_2_color.png, id=27, 215.3646pt x 324.7332pt>
+File: stanford_logos/Block_S_2_color.png Graphic file (type png)
+<use stanford_logos/Block_S_2_color.png>
+Package pdftex.def Info: stanford_logos/Block_S_2_color.png  used on input line 428.
+(pdftex.def)             Requested size: 132.09517pt x 199.16928pt.
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@footline ->\Raleway 
+                                       
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+/Users/rondeline/Documents/GitHub/adapt/adapt/presentation/main.tex:428: Undefined control sequence.
+\beamer@thmffamily@footline ->\Raleway 
+                                       
+l.428 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[1{/usr/local/texlive/2023/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}
+
+{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/local/texlive/2023/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc} <./stanford_logos/Block_S_2_color.png> <./figures/dance.png> <./figures/read.png> <./figures/sleep.png> <./figures/talk.png> <./figures/fraw.png> <./figures/gobb.png> <./figures/plip.png> <./figures/terb.png> <../writeup/figs/e3-stimuli-1.pdf> <../writeup/figs/e3b-bar-1.pdf> <../writeup/figs/e4b-bar-1.pdf>]
+\tf@nav=\write6
+\openout6 = `main.nav'.
+
+\tf@toc=\write7
+\openout7 = `main.toc'.
+
+\tf@snm=\write8
+\openout8 = `main.snm'.
+
+ (./main.aux)
+
+LaTeX Font Warning: Size substitutions with differences
+(Font)              up to 4.98pt have occurred.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: <no file>
+(rerunfilecheck)             After:  D41D8CD98F00B204E9800998ECF8427E;0.
+ ) 
+Here is how much of TeX's memory you used:
+ 38189 strings out of 476025
+ 904481 string characters out of 5790018
+ 1964388 words of memory out of 5000000
+ 57874 multiletter control sequences out of 15000+600000
+ 642448 words of font info for 124 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 128i,22n,122p,781b,2766s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmss17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmssbx10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsso17.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/local/texlive/2023/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on main.pdf (1 page, 635569 bytes).
+PDF statistics:
+ 107 PDF objects out of 1000 (max. 8388607)
+ 54 compressed objects within 1 object stream
+ 4 named destinations out of 1000 (max. 500000)
+ 103 words of extra memory for PDF output out of 10000 (max. 10000000)
+
