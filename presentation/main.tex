@@ -18,6 +18,9 @@
 \usepackage{booktabs}
 \usepackage{tikz}
 \usepackage{pgfplots}
+\usepackage{adjustbox}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
 \pgfplotsset{compat=1.17}
 % !TeX program = xelatex
 
@@ -38,10 +41,10 @@
 \title{Preschool children reason about third-party goals when evaluating acoustic environments}
 
 
-\author{Rondeline M. Williams \and Michael C. Frank}
+\author{Rondeline M. Williams and Michael C. Frank}
 
-\institute[shortinst]{\inst{1} Department of Psychology, Stanford University \begin Stanford, CA 94305 USA \end}
-\institute[shortinst]{\inst{1} Computer Science, Stanford \samelineand \inst{2} Another Institute}
+\institute[shortinst]{Department of Psychology, Stanford University\\Stanford, CA 94305 USA}
+
 
 % ====================
 % Footer (optional)
@@ -84,7 +87,7 @@
 
 \begin{column}{\colwidth}
 
-  \begin{block}{Background}
+  \begin{block}{Introduction}
 
     \begin{itemize}
       \item \textbf{Children as flexible learners}
@@ -113,6 +116,12 @@
               \item Learners interact with individual stimuli within their environment (Settles, 2009)
               \item Accurate stimuli labeling is a primary goal
             \end{itemize}
+          \item Ecological active learning:
+            \begin{itemize} 
+              \item Children learn by tracking environmental features and adapt their exploration strategies accordingly (Ruggeri, 2022)
+              \item Exploratory strategies for learning are context-dependent 
+              \item Exploit statistical regularities in the environment to reduce demands on cognition
+            \end{itemize}
         \end{itemize}
       \item \textbf{Environmental selection}
         \begin{itemize}
@@ -120,18 +129,9 @@
           \item Emphasizes acoustic information
           \item Goal-directed
           \item Addresses variabilities across environments
+          \item Children can rely exclusively on acoustic information to make exploration decisions
         \end{itemize}
     \end{itemize}       
-
-    \begin{figure}
-      \centering
-      \begin{tikzpicture}[scale=6]
-        \draw[step=0.25cm,color=gray] (-1,-1) grid (1,1);
-        \draw (1,0) -- (0.2,0.2) -- (0,1) -- (-0.2,0.2) -- (-1,0)
-          -- (-0.2,-0.2) -- (0,-1) -- (0.2,-0.2) -- cycle;
-      \end{tikzpicture}
-      \caption{A figure caption.}
-    \end{figure}
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ultricies
     eget libero ac ullamcorper. Integer et euismod ante. Aenean vestibulum
@@ -162,16 +162,6 @@
 
   \begin{alertblock}{A highlighted block}
 
-    \begin{itemize}
-      \item \textbf{Fusce dapibus tellus} vel tellus semper finibus. In
-        consequat, nibh sed mattis luctus, augue diam fermentum lectus.
-      \item \textbf{In euismod erat metus} non ex. Vestibulum luctus augue in
-        mi condimentum, at sollicitudin lorem viverra.
-      \item \textbf{Suspendisse vulputate} mauris vel placerat consectetur.
-        Mauris semper, purus ac hendrerit molestie, elit mi dignissim odio, in
-        suscipit felis sapien vel ex.
-    \end{itemize}
-
     To what extent do preschool children use environmental selection as an adaptive strategy for learning in noisy acoustic environments?
 
   \end{alertblock}
@@ -184,103 +174,102 @@
 
   \begin{block}{Methods}
 
-    Vivamus congue volutpat elit non semper. Praesent molestie nec erat ac
-    interdum. In quis suscipit erat. \textbf{Phasellus mauris felis, molestie
-    ac pharetra quis}, tempus nec ante. Donec finibus ante vel purus mollis
-    fermentum. Sed felis mi, pharetra eget nibh a, feugiat eleifend dolor. Nam
-    mollis condimentum purus quis sodales. Nullam eu felis eu nulla eleifend
-    bibendum nec eu lorem. Vivamus felis velit, volutpat ut facilisis ac,
-    commodo in metus.
-
-    \begin{table}
-      \centering
-      \begin{tabular}{c c}
-        \toprule
-        \textbf{Activity} & \textbf{Label} \\
-        \midrule
-        Dance & Dance \\
-        Read & Read \\
-        Sleep & Sleep \\
-        Talk & Talk \\
-        \bottomrule
-      \end{tabular}
-      \caption{A table caption.}
-    \end{table}
-
-    \begin{enumerate}
-      \item \textbf{Morbi mauris purus}, egestas at vehicula et, convallis
-        accumsan orci. Orci varius natoque penatibus et magnis dis parturient
-        montes, nascetur ridiculus mus.
-      \item \textbf{Cras vehicula blandit urna ut maximus}. Aliquam blandit nec
-        massa ac sollicitudin. Curabitur cursus, metus nec imperdiet bibendum,
-        velit lectus faucibus dolor, quis gravida metus mauris gravida turpis.
-      \item \textbf{Vestibulum et massa diam}. Phasellus fermentum augue non
-        nulla accumsan, non rhoncus lectus condimentum.
-    \end{enumerate}
-
-  \end{block}
-
-  \begin{block}{Fusce aliquam magna velit}
-
-    Et rutrum ex euismod vel. Pellentesque ultricies, velit in fermentum
-    vestibulum, lectus nisi pretium nibh, sit amet aliquam lectus augue vel
-    velit. Suspendisse rhoncus massa porttitor augue feugiat molestie. Sed
-    molestie ut orci nec malesuada. Sed ultricies feugiat est fringilla
-    posuere.
-
-    \begin{figure}
-      \centering
-      \begin{tikzpicture}
-        \begin{axis}[
-            scale only axis,
-            no markers,
-            domain=0:2*pi,
-            samples=100,
-            axis lines=center,
-            axis line style={-},
-            ticks=none]
-          \addplot[red] {sin(deg(x))};
-          \addplot[blue] {cos(deg(x))};
-        \end{axis}
-      \end{tikzpicture}
-      \caption{Another figure caption.}
-    \end{figure}
-
-  \end{block}
-
-  \begin{block}{Nam cursus consequat egestas}
-
-    Nulla eget sem quam. Ut aliquam volutpat nisi vestibulum convallis. Nunc a
-    lectus et eros facilisis hendrerit eu non urna. Interdum et malesuada fames
-    ac ante \textit{ipsum primis} in faucibus. Etiam sit amet velit eget sem
-    euismod tristique. Praesent enim erat, porta vel mattis sed, pharetra sed
-    ipsum. Morbi commodo condimentum massa, \textit{tempus venenatis} massa
-    hendrerit quis. Maecenas sed porta est. Praesent mollis interdum lectus,
-    sit amet sollicitudin risus tincidunt non.
-
-    Etiam sit amet tempus lorem, aliquet condimentum velit. Donec et nibh
-    consequat, sagittis ex eget, dictum orci. Etiam quis semper ante. Ut eu
-    mauris purus. Proin nec consectetur ligula. Mauris pretium molestie
-    ullamcorper. Integer nisi neque, aliquet et odio non, sagittis porta justo.
+    \begin{itemize}
+      \begin{table}[ht]
+        \centering
+        \begin{tabular}{|p{0.3\linewidth}|p{0.15\linewidth}|p{0.15\linewidth}| p{0.15\linewidth}|}
+          \hline
+          \right
+          \rowcolor{cardinalred!80}
+          \multicolumn{2}{|c|}{\textbf{Experiment 1}} & \multicolumn{2}{c|}{\textbf{Experiment 2}} \\
+          \cline{2-4}
+          \rowcolor{cardinalred!80}
+          \multicolumn{1}{|c|}{\textbf{}} &
+          \multicolumn{1}{|c|}{\textbf{Children}} & 
+          \multicolumn{1}{|c|}{\textbf{Children}} & 
+          \multicolumn{1}{|c|}{\textbf{Adults}} \\
+          \hline
+          N & 72 & 54 & 37 \\
+          \hline
+          \rowcolor{cardinalred!40}
+          $\mu$ & 4.46 years & 4.55 years & 40.43 years \\
+          \hline
+          \raggedright African American/Black & 4.2\% & 3.7\% & 4.2\% \\ 
+          \hline
+          \rowcolor{cardinalred!40}
+          \raggedright Asian American/Pacific Islander & 23.6\% & 37\% & x\% \\
+          \hline
+          Caucasian/White & 27.8\% & 31.5\% & 70.3\% \\
+          \hline
+          \rowcolor{cardinalred!40}
+          Multiracial & 26.4\% & 20.4\% & x \\
+          \hline
+          Hispanic/Latinx & 8.3\% & 7.4\% & x \\
+          \hline
+          \rowcolor{cardinalred!40}
+          Other & 8.3\% & & \\
+          \hline
+        \end{tabular}
+      \end{table}         
+    
+    \end{itemize} 
 
     \begin{itemize}
-      \item \textbf{Sed consequat} id ante vel efficitur. Praesent congue massa
-        sed est scelerisque, elementum mollis augue iaculis.
-        \begin{itemize}
-          \item In sed est finibus, vulputate
-            nunc gravida, pulvinar lorem. In maximus nunc dolor, sed auctor eros
-            porttitor quis.
-          \item Fusce ornare dignissim nisi. Nam sit amet risus vel lacus
-            tempor tincidunt eu a arcu.
-          \item Donec rhoncus vestibulum erat, quis aliquam leo
-            gravida egestas.
-        \end{itemize}
-      \item \textbf{Sed luctus, elit sit amet} dictum maximus, diam dolor
-        faucibus purus, sed lobortis justo erat id turpis.
-      \item \textbf{Pellentesque facilisis dolor in leo} bibendum congue.
-        Maecenas congue finibus justo, vitae eleifend urna facilisis at.
+      \item \textbf{Experiment 1}
     \end{itemize}
+    \begin{figure}
+      \begin{minipage}[t]{0.2\linewidth}
+        \centering
+        \includegraphics[width=2in, height=2in]{figures/dance.png}
+        \caption{Dance}
+      \end{minipage}
+      \begin{minipage}[t]{0.2\linewidth}
+        \centering
+        \includegraphics[width=2in, height=2in]{figures/read.png}
+        \caption{Read}
+      \end{minipage}%
+      \begin{minipage}[t]{0.2\linewidth}
+        \centering
+        \includegraphics[width=2in, height=2in]{figures/sleep.png}
+        \caption{Sleep}
+      \end{minipage}
+      \begin{minipage}[t]{0.2\linewidth}
+        \centering
+        \includegraphics[width=2in, height=2in]{figures/talk.png}
+        \caption{Talk}
+      \end{minipage}
+    \end{figure}    
 
+    \begin{itemize}
+      \item \textbf{Experiment 2}
+    \end{itemize}
+    \begin{figure}
+      \begin{minipage}[t]{0.2\linewidth}
+        \centering
+        \includegraphics[width=2in, height=2in]{figures/fraw.png}
+        \caption{Dance}
+      \end{minipage}
+      \begin{minipage}[t]{0.2\linewidth}
+        \centering
+        \includegraphics[width=2in, height=2in]{figures/gobb.png}
+        \caption{Read}
+      \end{minipage}%
+      \begin{minipage}[t]{0.2\linewidth}
+        \centering
+        \includegraphics[width=2in, height=2in]{figures/plip.png}
+        \caption{Sleep}
+      \end{minipage}
+      \begin{minipage}[t]{0.2\linewidth}
+        \centering
+        \includegraphics[width=2in, height=2in]{figures/terb.png}
+        \caption{Talk}
+      \end{minipage}
+    \end{figure}
+    
+    \begin{figure}
+      \includegraphics[width = 14in, height = 7in]{../writeup/figs/e3-stimuli-1.pdf}
+    \end{figure}
+  
   \end{block}
 
 \end{column}
@@ -289,18 +278,15 @@
 
 \begin{column}{\colwidth}
 
-  \begin{block}{A block containing some math}
+  \begin{block}{Results}
 
-    Nullam non est elit. In eu ornare justo. Maecenas porttitor sodales lacus,
-    ut cursus augue sodales ac.
+    \begin{figure}
+      \includegraphics[width = 14in, height = 7in]{../writeup/figs/e3b-bar-1.pdf}
+    \end{figure}
 
-    $$
-    \int_{-\infty}^{\infty} e^{-x^2}\,dx = \sqrt{\pi}
-    $$
-
-    Interdum et malesuada fames $\{1, 4, 9, \ldots\}$ ac ante ipsum primis in
-    faucibus. Cras eleifend dolor eu nulla suscipit suscipit. Sed lobortis non
-    felis id vulputate.
+    \begin{figure}
+      \includegraphics[width = 14in, height = 7in]{../writeup/figs/e4b-bar-1.pdf}
+    \end{figure}
 
     \heading{A heading inside a block}
 
@@ -323,35 +309,6 @@
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
     inceptos himenaeos. Phasellus libero enim, gravida sed erat sit amet,
     scelerisque congue diam. Fusce dapibus dui ut augue pulvinar iaculis.
-
-    \begin{table}
-      \centering
-      \begin{tabular}{l r r c}
-        \toprule
-        \textbf{First column} & \textbf{Second column} & \textbf{Third column} & \textbf{Fourth} \\
-        \midrule
-        Foo & 13.37 & 384,394 & $\alpha$ \\
-        Bar & 2.17 & 1,392 & $\beta$ \\
-        Baz & 3.14 & 83,742 & $\delta$ \\
-        Qux & 7.59 & 974 & $\gamma$ \\
-        \bottomrule
-      \end{tabular}
-      \caption{A table caption.}
-    \end{table}
-
-    Donec quis posuere ligula. Nunc feugiat elit a mi malesuada consequat. Sed
-    imperdiet augue ac nibh aliquet tristique. Aenean eu tortor vulputate,
-    eleifend lorem in, dictum urna. Proin auctor ante in augue tincidunt
-    tempor. Proin pellentesque vulputate odio, ac gravida nulla posuere
-    efficitur. Aenean at velit vel dolor blandit molestie. Mauris laoreet
-    commodo quam, non luctus nibh ullamcorper in. Class aptent taciti sociosqu
-    ad litora torquent per conubia nostra, per inceptos himenaeos.
-
-    Nulla varius finibus volutpat. Mauris molestie lorem tincidunt, iaculis
-    libero at, gravida ante. Phasellus at felis eu neque suscipit suscipit.
-    Integer ullamcorper, dui nec pretium ornare, urna dolor consequat libero,
-    in feugiat elit lorem euismod lacus. Pellentesque sit amet dolor mollis,
-    auctor urna non, tempus sem.
 
   \end{block}
 
