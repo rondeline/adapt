@@ -41,6 +41,9 @@ library(stats)
 library(lme4)
 library(wesanderson)
 library(cowplot)
+library(scales)
+library(stringr)
+
 ```
 
 # Introduction
@@ -178,7 +181,7 @@ ggplot(data = cidataage_3b, mapping = aes(x = factor(sound_type, level= c("mtb5"
   scale_y_continuous(breaks = c(.00, .50, 1.00)) +
   geom_hline(yintercept = .5, lty =2) +
   theme_few() +
-  theme(axis.text = element_text(size = 8),
+  theme(axis.text = element_text(size = 10),
         legend.text = element_text(size = 8),
         legend.title = element_text(size = 8),
         legend.key.size	= unit(.13, 'in'),
@@ -188,7 +191,7 @@ ggplot(data = cidataage_3b, mapping = aes(x = factor(sound_type, level= c("mtb5"
         legend.direction = "horizontal",
         legend.position = "bottom",
         #axis.text.x = element_text(angle = 30, hjust=1),
-        text = element_text(size = 10)) +
+        text = element_text(size = 12)) +
   labs(fill = "Age (Years)")
 
 ggsave("figure3b_withedits.pdf")
@@ -321,6 +324,8 @@ tidydata_4a_exp2 <- tidy4a %>%
             activity_old == "fraw" ~ "fraw",
             activity_old == "plip" ~ "plip"))
 
+tidydata_4a_exp2$noise_type <- str_replace_all(tidydata_4a_exp2$noise_type, c("instrumental" = "music", "mtb" = "babble", "white" = "white noise"))
+
 ## Demographic information
 demodata_4a <- tidydata_4a %>%
   select(subject_id,age, race) %>% 
@@ -392,11 +397,11 @@ e4_kids_edits <- ggplot(data = cidata_4b, mapping = aes(x = factor(sound_type, l
    geom_linerange(aes(ymin = ci.l,
                       ymax = ci.u)) +
    ylim(0,1) +
-   xlab("Auditory Stimulus") +
-   ylab("Proportion choosing room") +
+   ylab("Proportion Choosing Room") +
    #scale_fill_brewer(palette="Set2") +
    scale_fill_manual(values = wes_palette("GrandBudapest1")) +
    scale_x_discrete(labels = xlabels) +
+  scale_y_continuous(breaks = c(.00, .50, 1.00)) +
    facet_wrap(~activity, labeller = as_labeller(facet_labels)) + 
    geom_hline(yintercept = .5, lty =2) +
    scale_color_solarized() + 
@@ -404,11 +409,14 @@ e4_kids_edits <- ggplot(data = cidata_4b, mapping = aes(x = factor(sound_type, l
    theme(legend.position = "none",
          title = element_text(size = 8),
          axis.text = element_text(size = 8),
-         panel.spacing.x = unit(0.5, "lines"),
-         panel.spacing.y = unit(0.5, "lines"),
-         axis.text.x = element_text(angle = 30, hjust=1),
-         text = element_text(size=10),
-         aspect.ratio = .5)
+         axis.title.y = element_blank(),
+         # panel.spacing.x = unit(0.5, "lines"),
+         # panel.spacing.y = unit(0.5, "lines"),
+         axis.text.x = element_blank(),
+         axis.ticks.x.bottom = element_blank(),
+         axis.title.x.bottom = element_blank(),
+         text = element_text(size=10.5),
+         aspect.ratio = .4)
 
 #Binned data
 # ggplot(data = cidataage_4b, mapping = aes(x = factor(sound_type, level= c("5tb", "instrumental", "silence", "white")), fill = as.factor(age_years))) +
@@ -474,38 +482,40 @@ cidata_4a <- tidydata_4a_exp2 %>%
             ci.l = mean_rating - sem * 1.96,
             ci.u = mean_rating + sem * 1.96)
 
-xlabels <- c(mtb = "babble",
-             instrumental = "music",
-             silence = "silence",
-             white = "white noise")
+# xlabels <- c(mtb = "babble",
+#              instrumental = "music",
+#              silence = "silence",
+#              white = "white noise")
 facet_labels <- c(fraw = "Fraw: story before bed", 
                   gobb = "Gobb: something to do",
                   plip = "Plip: spin to the beat",
                   terb = "Terb: hide tummy noises")
 # Figure 4
-e4_adults <- ggplot(data = cidata_4a, 
-       mapping = aes(x = factor(noise_type, level= c("mtb", "instrumental", "silence", "white")), y = mean_rating, fill = activity)) +
+e4_adults_edits <- ggplot(data = cidata_4a, 
+       mapping = aes(x = factor(noise_type, level= c("babble", "music", "silence", "white noise")), y = mean_rating, fill = activity)) +
   geom_col() +
   geom_linerange(aes(ymin = ci.l,
                      ymax = ci.u)) +
   ylim(0,7) +
   xlab("Auditory Stimulus") +
-  ylab("Rating") +
+  ylab("Proportion Choosing Room") +
   #scale_fill_brewer(palette="Set2") +
   scale_fill_manual(values = wes_palette("GrandBudapest1")) +
-  scale_x_discrete(labels = xlabels) +
+  scale_x_discrete(labels = label_wrap(10)) +
+  scale_y_continuous(breaks = c(1, 3, 5, 7)) +
   facet_wrap(~activity, labeller = as_labeller(facet_labels)) +
   # geom_hline(yintercept = 4, lty = 2) +
   scale_color_solarized() + 
   theme_few() +
   theme(legend.position = "none",
-        title = element_text(size = 8),
-        axis.text = element_text(size = 8),
-        panel.spacing.x = unit(0.5, "lines"),
-        panel.spacing.y = unit(0.5, "lines"),
-        axis.text.x = element_text(angle = 30, hjust=1),
-        text = element_text(size=10))
-
+        title = element_text(size = 10),
+        axis.text = element_text(size = 10),
+        axis.title.y = element_blank(),
+        axis.title.x = element_text(size = 11.8),
+        # panel.spacing.x = unit(0.5, "lines"),
+        # panel.spacing.y = unit(0.5, "lines"),
+        text = element_text(size=12),
+        aspect.ratio = .24)
 ```
 
 
@@ -529,9 +539,21 @@ summary_4a <- readRDS(here("writeup/models","summary_4a_posteredits.Rds"))
 
 ```
 
-```{r e4-summary-fig-edits, fig.env = "figure*", fig.pos = "t", fig.align='center', fig.width=7, fig.height=4, fig.cap = "Results from (A) children and (B) adults in Experiment 2. While children made binary judgments, adults used a seven-point likert scale indicating complete match (7) to complete mismatch (1) between sounds and activities."}
+```{r e4-summary-fig-edits, fig.env = "figure*", fig.pos = "t", fig.align='left', fig.width=7, fig.height=4, fig.cap = "Results from (A) children and (B) adults in Experiment 2. While children made binary judgments, adults used a seven-point likert scale indicating complete match (7) to complete mismatch (1) between sounds and activities."}
 
-plot_grid(e4_kids, e4_adults, labels = c("A", "B"))
+combined_plot <- plot_grid(e4_kids_edits, e4_adults_edits, 
+                           labels = c("A", "B"), 
+                           ncol = 1, 
+                           hjust = -9.5)
+
+combined_plot <- combined_plot +
+  annotation_custom(
+    grob = textGrob(label = "Proportion Choosing Room", rot = 90,gp = gpar(fontsize = 11)),
+    xmin = 0, xmax = .47, ymin = -Inf, ymax = Inf)
+
+combined_plot
+
+ggsave("figures4a4b_edits.pdf")
 ```
 
 If preschool children rely solely on association when evaluating the acoustic environment, that is, they have acquired associative links between familiar activities and their acoustic contexts, we should expect that children will have no strong preferences for pairing less familiar activities with any particular acoustic context. If, however, children can reason flexibly about how the acoustic environment influences goal optimization and outcomes, we should expect that children show clear preferences for acoustic contexts even with activities for which they have less experience.
