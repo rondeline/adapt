@@ -15,24 +15,30 @@
 % Fonts
 % ====================
 
-\newfontfamily\Raleway[Ligatures=TeX]{Raleway}
-\newfontfamily\Lato[Ligatures=TeX]{Lato}
+\usefonttheme{professionalfonts}
 
-% \usefonttheme{professionalfonts}
+\setsansfont{Raleway}[
+  Path = /Raleway/static
+  UprightFont=*-Light,
+  ItalicFont=*-LightItalic,
+  BoldFont=*-Regular,
+  BoldItalicFont=*-Italic
+]
 
-% \setsansfont{Lato}[
-%   UprightFont=*-Light,
-%   ItalicFont=*-LightItalic,
-%   BoldFont=*-Regular,
-%   BoldItalicFont=*-Italic
-% ]
+\setsansfont{Lato}[
+  Path = /Lato
+  UprightFont=*-Light,
+  ItalicFont=*-LightItalic,
+  BoldFont=*-Regular,
+  BoldItalicFont=*-Italic
+]
 
-\setbeamerfont{headline}{family=\Raleway}
+\setbeamerfont{headline}{family=\RalewayFont}
 \setbeamerfont{headline title}{size=\Huge,series=\bfseries}
 \setbeamerfont{headline author}{size=\Large}
 \setbeamerfont{headline institute}{size=\normalsize}
-\setbeamerfont{block title}{family=\Raleway,size=\large,series=\bfseries}
-\setbeamerfont{heading}{family=\Lato,series=\bfseries}
+\setbeamerfont{block title}{family=\RalewayFont,size=\large,series=\bfseries}
+\setbeamerfont{heading}{family=\LatoFont,series=\bfseries}
 \setbeamerfont{caption}{size=\small}
 \setbeamerfont{footline}{family=\Raleway,size=\normalsize}
 
