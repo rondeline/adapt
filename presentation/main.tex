@@ -2,6 +2,7 @@
 % See: https://rev.cs.uchicago.edu/k4rtik/gemini-uccs
 % A fork of https://github.com/anishathalye/gemini
 
+% !TeX program = xelatex
 \documentclass[final]{beamer}
 
 % ====================
@@ -16,13 +17,11 @@
 \usecolortheme{stanford}
 \usepackage{graphicx}
 \usepackage{booktabs}
-\usepackage{tikz}
 \usepackage{pgfplots}
 \usepackage{adjustbox}
 \usepackage[table]{xcolor}
 \usepackage{colortbl}
 \pgfplotsset{compat=1.17}
-% !TeX program = xelatex
 
 % ====================
 % Lengths
@@ -45,15 +44,14 @@
 
 \institute[shortinst]{Department of Psychology, Stanford University\\Stanford, CA 94305 USA}
 
-
 % ====================
 % Footer (optional)
 % ====================
 
-\footercontent{
-  \href{rylanschaeffer.github.io}{rylanschaeffer.github.io} \hfill
-  NeurIPS 2021 Workshop: Metacognition in the Age of AI \hfill
-  \href{mailto:rylanschaeffer@gmail.com}{rylanschaeffer@gmail.com}}
+% \footercontent{
+%   \href{}{} \hfill
+%   \hfill
+%   \href{}{}}
 % (can be left out to remove footer)
 
 % ====================
@@ -61,8 +59,8 @@
 % ====================
 
 % use this to include logos on the left and/or right side of the header:
-% \logoright{\includegraphics[height=7cm]{logos/cs-logo-maroon.png}}
-% \logoleft{\includegraphics[height=7cm]{logos/cs-logo-maroon.png}}
+\logoright{\includegraphics[height=7cm]{stanford_logos/Block_S_2_color.png}}
+\logoleft{\includegraphics[height=7cm]{stanford_logos/Block_S_2_color.png}}
 
 % ====================
 % Body
@@ -192,12 +190,12 @@
     \end{itemize}
 
     \begin{figure}
-      \includegraphics[width = 12in, height = 3.5in]{../writeup/figs/houses.png}
+      \includegraphics[width = 10in]{../writeup/figs/houses.png}
     \end{figure}
     
     \begin{figure}
       \hfill
-      \includegraphics[width = 2in, height = 2in]{../writeup/figs/joemandy.png} \hspace{3in}
+      \includegraphics[width = 2in, height = 2in]{../writeup/figs/joemandy.png} \hspace{1in}
     \end{figure}
 
     \vspace{-0.8in}
@@ -234,22 +232,22 @@
       \item \textbf{Experiment 2}
     \end{itemize}
     \begin{figure}
-      \begin{minipage}[t]{0.2\linewidth}
+      \begin{minipage}[t]{0.18\linewidth}
         \centering
         \includegraphics[width=2.5in, height=1.75in]{figures/fraw.png}
         \caption{Dance}
       \end{minipage}
-      \begin{minipage}[t]{0.2\linewidth}
+      \begin{minipage}[t]{0.18\linewidth}
         \centering
         \includegraphics[width=2.75in, height=1.75in]{figures/gobb.png}
         \caption{Read}
       \end{minipage}%
-      \begin{minipage}[t]{0.2\linewidth}
+      \begin{minipage}[t]{0.18\linewidth}
         \centering
         \includegraphics[width=1.5in, height=1.75in]{figures/plip.png}
         \caption{Sleep}
       \end{minipage}
-      \begin{minipage}[t]{0.2\linewidth}
+      \begin{minipage}[t]{0.18\linewidth}
         \centering
         \includegraphics[width=1.5in, height=1.75in]{figures/terb.png}
         \caption{Talk}
@@ -267,11 +265,20 @@
   \begin{block}{Results}
 
     \begin{figure}
-      \includegraphics[width = 14in, height = 7in]{../writeup/figs/e3b_bar_edits.pdf}
+      \includegraphics[width = 9in]{../writeup/figs/figure3b_withedits.pdf}
+      \caption{Figure 2: Results from Experiment 1. Participants’ rating of the appropriateness of an auditory stimulus and activity pairing. Individual bars correspond to one age bin of 3, 4, or 5. A rating score of 0 indicates a rejection of the pairing [Joe and Mandy should not complete a particular activity in this environment] while a score of 1 indicates an affirmation of the pairing [Joe and
+      Mandy should complete a particular activity in this environment]. at 50\%. Error bars show 95\% confidence intervals.}
     \end{figure}
 
     \begin{figure}
-      \includegraphics[width = 14in, height = 7in]{../writeup/figs/e4b-bar-1.pdf}
+      \includegraphics[width = 10in]{../writeup/figs/figures4a4b_edits.pdf}
+    \end{figure}
+
+    \vspace{-0.3in}
+
+    \begin{figure}
+      \includegraphics[width = 5in]{../writeup/figs/aud_stimulus.png} \hspace{-1.5in}
+      \caption{Figure 3: Results from (A) children and (B) adults in Experiment 2. While children made binary judgments, adults used a seven-point likert scale indicating complete match (7) to complete mismatch (1) between sounds and activities.}
     \end{figure}
 
     \heading{A heading inside a block}
@@ -290,7 +297,7 @@
 
   \end{block}
 
-  \begin{block}{Nullam vel erat at velit convallis laoreet}
+  \begin{block}{Discussion}
 
     Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
     inceptos himenaeos. Phasellus libero enim, gravida sed erat sit amet,

@@ -8,33 +8,33 @@
 \RequirePackage{exscale}
 \RequirePackage{ragged2e}
 \RequirePackage{changepage}
-% \RequirePackage{fontspec}
+\RequirePackage{fontspec}
 \RequirePackage{calc}
 
 % ====================
 % Fonts
 % ====================
 
-% \newfontfamily\Raleway[Ligatures=TeX]{Raleway}
-% \newfontfamily\Lato[Ligatures=TeX]{Lato}
+\newfontfamily\Helvetica{Helvetica}[Ligatures=TeX]
 
 % \usefonttheme{professionalfonts}
 
-% \setsansfont{Arial}[
-%   UprightFont=*-Light,
-%   ItalicFont=*-LightItalic,
-%   BoldFont=*-Regular,
-%   BoldItalicFont=*-Italic
-% ]
+\setsansfont{Helvetica}[
+  Ligatures=TeX,
+  UprightFont=*-Light,
+  ItalicFont=*-LightItalic,
+  BoldFont=*-Regular,
+  BoldItalicFont=*-Italic
+]
 
-\setbeamerfont{headline}{family=\Lato}
+\setbeamerfont{headline}{family=\sffamily}
 \setbeamerfont{headline title}{size=\Huge,series=\bfseries}
 \setbeamerfont{headline author}{size=\Large}
 \setbeamerfont{headline institute}{size=\normalsize}
-\setbeamerfont{block title}{family=\Raleway,size=\large,series=\bfseries}
-\setbeamerfont{heading}{family=\Lato,series=\bfseries}
+\setbeamerfont{block title}{family=\sffamily,size=\Large,series=\bfseries}
+\setbeamerfont{heading}{family=\sffamily,series=\bfseries}
 \setbeamerfont{caption}{size=\small}
-\setbeamerfont{footline}{family=\Raleway,size=\normalsize}
+\setbeamerfont{footline}{family=\sffamily,size=\normalsize}
 
 % ====================
 % Macros
