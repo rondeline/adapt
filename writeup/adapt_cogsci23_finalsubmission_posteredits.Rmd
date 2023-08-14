@@ -329,12 +329,32 @@ tidydata_4a_exp2$noise_type <- str_replace_all(tidydata_4a_exp2$noise_type, c("i
 ## Demographic information
 demodata_4a <- tidydata_4a %>%
   select(subject_id,age, race) %>% 
-  replace(is.na(tidydata_4a$race), 7) %>% 
-  mutate(white = if_else(race == 3, 1, 0))
+  replace(is.na(tidydata_4a$race), 6) %>% 
+  mutate(white = if_else(race == 3, 1, 0),
+         race_poster = case_when(
+           race == 1 ~ "Black",
+           race == 2 ~ "Asian",
+           race == 3 ~ "White",
+           race == 4 ~ "Hispanic",
+           race == 5 ~ "Native",
+           race == 6 ~ "Other",
+           grepl(",", race) ~ "Other"))
 
+count_race <- demodata_4a %>% 
+  count(race_poster)
+
+count_race <- count_race %>%
+  mutate(count_mult_100 = n / 37)
+
+  
 ## Make race and age categories numeric
+demodata_4a$race_poster <- as.integer(demodata_4a$race_poster, na.rm = TRUE)
 demodata_4a$race <- as.integer(demodata_4a$race, na.rm = TRUE)
 demodata_4a$age <- as.integer(demodata_4a$age, na.rm = TRUE)
+
+count_race <- demodata_4a %>% 
+  count(race_poster) %>% 
+  mutate(race_count_4a = race_poster*100)
 
 excluded_4a <- cleandata_4a %>%
   filter(attention_check_1 == 0 | attention_check_2 == 0)
@@ -388,7 +408,7 @@ xlabels <- c("5tb" = "babble",
 facet_labels <- c(fraw = "Fraw: story before bed",
                   gobb = "Gobb: something to do",
                   plip = "Plip: spin to the beat",
-                  terb = "Terb: hide tummy rumbling")
+                  terb = "Terb: hide tummy noises")
 
 #Figure 3
  ## Aggregated Data
@@ -404,19 +424,20 @@ e4_kids_edits <- ggplot(data = cidata_4b, mapping = aes(x = factor(sound_type, l
   scale_y_continuous(breaks = c(.00, .50, 1.00)) +
    facet_wrap(~activity, labeller = as_labeller(facet_labels)) + 
    geom_hline(yintercept = .5, lty =2) +
-   scale_color_solarized() + 
+   scale_color_solarized() +
+  xlab("Auditory Stimulus") +
    theme_few() +
    theme(legend.position = "none",
-         title = element_text(size = 8),
-         axis.text = element_text(size = 8),
-         axis.title.y = element_blank(),
+         title = element_text(size = 10),
+         axis.text = element_text(size = 10),
+         axis.title.x = element_text(size = 11.5),
          # panel.spacing.x = unit(0.5, "lines"),
          # panel.spacing.y = unit(0.5, "lines"),
          axis.text.x = element_blank(),
          axis.ticks.x.bottom = element_blank(),
-         axis.title.x.bottom = element_blank(),
-         text = element_text(size=10.5),
-         aspect.ratio = .4)
+         text = element_text(size=11.5),
+         aspect.ratio = .35)
+
 
 #Binned data
 # ggplot(data = cidataage_4b, mapping = aes(x = factor(sound_type, level= c("5tb", "instrumental", "silence", "white")), fill = as.factor(age_years))) +
@@ -501,7 +522,7 @@ e4_adults_edits <- ggplot(data = cidata_4a,
   ylab("Proportion Choosing Room") +
   #scale_fill_brewer(palette="Set2") +
   scale_fill_manual(values = wes_palette("GrandBudapest1")) +
-  scale_x_discrete(labels = label_wrap(10)) +
+  scale_x_discrete(labels = label_wrap(5)) +
   scale_y_continuous(breaks = c(1, 3, 5, 7)) +
   facet_wrap(~activity, labeller = as_labeller(facet_labels)) +
   # geom_hline(yintercept = 4, lty = 2) +
@@ -511,11 +532,11 @@ e4_adults_edits <- ggplot(data = cidata_4a,
         title = element_text(size = 10),
         axis.text = element_text(size = 10),
         axis.title.y = element_blank(),
-        axis.title.x = element_text(size = 11.8),
+        axis.title.x = element_blank(),
         # panel.spacing.x = unit(0.5, "lines"),
         # panel.spacing.y = unit(0.5, "lines"),
         text = element_text(size=12),
-        aspect.ratio = .24)
+        aspect.ratio = .25)
 ```
 
 
@@ -544,12 +565,12 @@ summary_4a <- readRDS(here("writeup/models","summary_4a_posteredits.Rds"))
 combined_plot <- plot_grid(e4_kids_edits, e4_adults_edits, 
                            labels = c("A", "B"), 
                            ncol = 1, 
-                           hjust = -9.5)
+                           hjust = -8.3)
 
 combined_plot <- combined_plot +
   annotation_custom(
-    grob = textGrob(label = "Proportion Choosing Room", rot = 90,gp = gpar(fontsize = 11)),
-    xmin = 0, xmax = .47, ymin = -Inf, ymax = Inf)
+    grob = textGrob(label = "Proportion Choosing Room", rot = 90,gp = gpar(fontsize = 12)),
+    xmin = 0, xmax = .42, ymin = -Inf, ymax = Inf)
 
 combined_plot
 
