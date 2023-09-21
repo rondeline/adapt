@@ -49,6 +49,12 @@ demodata_5 <- tidydata_5 %>%
   mutate(race_count = ifelse((str_detect(race, ",")), "Multiracial", race)) %>% 
   count(race_count)
 
+filtered_demodata_5 <- data_5 %>%
+  clean_names() %>% #lowercase column names
+  filter(arm == "Pilot_B",
+         included == "Yes",
+         trial == 1)
+
 ## Add condition and make sound level numeric
 cleandata_5 <- tidydata_5 %>%
   separate(col = condition,
@@ -75,6 +81,7 @@ ggplot(data = cleandata_5, mapping = aes(x = age_months, y = sound_level, col = 
 
 ##bar
 xlabels <- c("successful", "unsuccessful")
+
 facet_labels <- c(fraw = "Fraw: story before bed",
                   gobb = "Gobb: something to do",
                   plip = "Plip: spin to the beat",
@@ -87,13 +94,13 @@ ggplot(data = cidata_5, mapping = aes(x = condition, fill = condition)) +
   geom_errorbar(data = subset(cidata_5, condition == "S"),
                 aes(ymin = mean_soundlevel - se,
                     ymax = mean_soundlevel + se),
-                width=0.4,
-                size=0.3,
-                col = "orange") +
+                width = 0.4,
+                size = 0.5) +
   scale_x_discrete(labels = xlabels) +
   xlab("Goal") +
   ylab("Proportion choosing dynamic sound") +
   facet_wrap(~activity) +
+  scale_fill_manual(values = wes_palette("GrandBudapest1")) +
   theme_few() +
   theme(legend.position = "none",
         axis.text.x = element_text(size = 8))
@@ -117,3 +124,22 @@ ggplot(data = tidydata_5, mapping = aes(x = sound_type, y = mean_response, fill 
         axis.text.x = element_text(angle = 45, hjust=1),
         text = element_text(size=10)) +
   labs(title = "Preschool children discriminate optimal auditory environments based on goals")
+
+library(RColorBrewer)
+library(ggthemes)
+library(forcats)
+
+hartrisley <- tibble(group = c("low", "middle", "high"), mean_utterances = c((176), 301, 487)) %>% 
+  mutate(group = fct_reorder(group, mean_utterances, .desc = TRUE))
+
+hartrisley$group <- as.factor(hartrisley$group)
+hartrisley$mean_utterances <- as.factor(hartrisley$mean_utterances)
+
+ggplot(hartrisley, aes(x = group, y = mean_utterances, fill = group)) +
+  geom_bar(stat = "identity") +
+  scale_fill_manual(values = c("red", "green", "blue")) +
+  xlab("Family SES") +
+  ylab("Caregiver's average utterances per hour") +
+  theme(legend.position = "none") +
+  theme_few()
+
